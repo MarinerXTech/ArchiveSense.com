@@ -1,0 +1,158 @@
+/* ArchiveSense Design System Styles */
+
+:root {
+  --primary-bg: #f5f5f5;
+  --primary-text: #222;
+  --header-bg: #1e1e1e;
+  --header-text: #fff;
+  --accent: #3a7afe;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  --border-radius: 8px;
+  --input-border: #ccc;
+  --footer-text: #666;
+  --font-family: 'Inter', Arial, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--primary-bg);
+  color: var(--primary-text);
+  font-family: var(--font-family);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+header {
+  background: var(--header-bg);
+  color: var(--header-text);
+  padding: 2.5rem 1rem 2rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.7rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+header p {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.92;
+}
+
+.content {
+  padding: 2.5rem 1rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+.content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.content p {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.media {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.media img,
+.media video {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  background: #eaeaea;
+}
+
+.mailing-list {
+  background: var(--card-bg);
+  padding: 2.25rem 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.mailing-list h3 {
+  margin-top: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.mailing-list input[type="email"] {
+  padding: 0.75rem;
+  font-size: 1rem;
+  width: 60%;
+  max-width: 400px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  transition: border-color 0.2s;
+}
+
+.mailing-list input[type="email"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(58,122,254,0.08);
+}
+
+.mailing-list button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.mailing-list button:hover,
+.mailing-list button:focus {
+  background-color: #2556b7;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+  color: var(--footer-text);
+  background: transparent;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .media {
+    flex-direction: column;
+    align-items: center;
+  }
+  .content {
+    padding: 1.25rem 0.5rem;
+  }
+  .mailing-list input[type="email"] {
+    width: 90%;
+  }
+}

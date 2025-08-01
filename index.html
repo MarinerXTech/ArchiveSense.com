@@ -3,27 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ArchiveSense | Catalog Smarter</title>
-  <meta name="description" content="ArchiveSense helps collectors engage more deeply with their collections using AI-powered cataloging and environmental monitoring." />
+  <title>ArchiveSense | AI-Powered Cataloging and Preservation</title>
+  <meta name="description" content="Discover ArchiveSense, the ultimate AI-powered tool for collectors. Catalog, preserve, and monitor your collection with ease." />
+  <meta name="keywords" content="ArchiveSense, AI cataloging, collection management, preservation, environmental monitoring, collector tools" />
+  <meta name="author" content="ArchiveSense Team" />
+  <meta property="og:title" content="ArchiveSense | AI-Powered Cataloging and Preservation" />
+  <meta property="og:description" content="Discover ArchiveSense, the ultimate AI-powered tool for collectors. Catalog, preserve, and monitor your collection with ease." />
+  <meta property="og:image" content="https://example.com/og-image.jpg" />
+  <meta property="og:url" content="https://archivesense.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ArchiveSense | AI-Powered Cataloging and Preservation" />
+  <meta name="twitter:description" content="Discover ArchiveSense, the ultimate AI-powered tool for collectors. Catalog, preserve, and monitor your collection with ease." />
+  <meta name="twitter:image" content="https://example.com/twitter-image.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-bg: #F5F2E8;
+      --secondary-bg: #F8F6F0;
+      --primary-text: #2C2C2C;
+      --secondary-text: #8B7355;
+      --accent-color: #B87C5C;
+      --border-color: #E0E0E0;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f5f5f5;
-      color: #222;
+      background: var(--primary-bg);
+      color: var(--primary-text);
     }
+
     header {
-      background: #1e1e1e;
-      color: white;
+      background: var(--secondary-bg); /* Changed to a lighter cream color for a brighter look */
+      color: var(--primary-text);
       padding: 2rem;
       text-align: center;
     }
+
     header h1 {
       margin: 0;
       font-size: 2.5rem;
     }
+
     header p {
       margin-top: 0.5rem;
       font-size: 1.2rem;
@@ -31,11 +53,23 @@
       margin-left: auto;
       margin-right: auto;
     }
+
     .content {
       padding: 2rem;
       max-width: 960px;
       margin: auto;
     }
+
+    .content h2 {
+      color: var(--secondary-text);
+      font-size: 2rem;
+    }
+
+    .content p {
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+
     .media {
       display: flex;
       flex-wrap: wrap;
@@ -43,43 +77,53 @@
       justify-content: center;
       margin-top: 1rem;
     }
+
     .media img, .media video {
       max-width: 100%;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     .mailing-list {
-      background: white;
+      background: var(--secondary-bg);
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       margin-top: 3rem;
       text-align: center;
     }
+
+    .mailing-list h3 {
+      color: var(--secondary-text);
+      font-size: 1.5rem;
+    }
+
     .mailing-list input[type="email"] {
       padding: 0.75rem;
       font-size: 1rem;
       width: 60%;
       max-width: 400px;
-      border: 1px solid #ccc;
+      border: 1px solid var(--border-color);
       border-radius: 4px;
       margin-bottom: 1rem;
     }
+
     .mailing-list button {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
-      background-color: #1e1e1e;
+      background-color: var(--accent-color);
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
     }
+
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      color: #666;
+      color: var(--secondary-text);
     }
   </style>
 </head>
@@ -94,7 +138,6 @@
     <p>ArchiveSense helps collectors connect more meaningfully with their collections. Whether it’s coins, currency, ephemera, or maps—our mobile app uses AI to generate rich Collector’s Notes, prompt you for insights, and track metadata for each item. Environmental monitoring ensures your stored treasures are protected over time.</p>
 
     <div class="media">
-      <!-- Replace with your actual media links -->
       <img src="walkthrough1.jpg" alt="App walkthrough screenshot 1" />
       <img src="walkthrough2.jpg" alt="App walkthrough screenshot 2" />
       <video src="demo.mp4" controls poster="demo-thumb.jpg"></video>
@@ -113,6 +156,7 @@
 
   <footer>
     &copy; 2025 ArchiveSense. All rights reserved.
+    <p>Follow us on Instagram: <a href="https://instagram.com/archivsense" target="_blank">@archivsense</a></p>
   </footer>
 </body>
 </html>
