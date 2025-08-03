@@ -153,11 +153,17 @@
   <section class="mailing-list">
     <h2>Join the Mailing List</h2>
     <p>Be the first to know when ArchiveSense launches.</p>
-    <form action="https://script.google.com/macros/s/AKfycbyVuDW39eZfbzvaSpMKbxUAruueQJs6ARwGRdojNctJXefn-YgmsYbZUVrg-U3m2RmE/exec" method="POST">
+    <form action="https://script.google.com/macros/s/AKfycbyVuDW39eZfbzvaSpMKbxUAruueQJs6ARwGRdojNctJXefn-YgmsYbZUVrg-U3m2RmE/exec" method="POST" target="_self" onsubmit="fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this)
+    }).then(() => {
+      document.getElementById('thank-you-message').style.display = 'block';
+    }); return false;">
       <input type="email" name="email" placeholder="Your email address" required />
       <br />
       <button type="submit">Sign Up</button>
     </form>
+    <p id="thank-you-message" style="display: none; color: var(--secondary-text); margin-top: 1rem;">Thank you for joining the email list!</p>
   </section>
 
   <footer>
