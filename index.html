@@ -112,6 +112,78 @@
       color: var(--secondary-text);
       font-size: 0.9rem;
     }
+
+    .carousel-container {
+      position: relative;
+      width: 90%;
+      max-width: 400px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .caption {
+      margin-top: 1rem;
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .carousel-button:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .carousel-button.prev {
+      left: 10px;
+    }
+
+    .carousel-button.next {
+      right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-button {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -123,11 +195,61 @@
     <div class="hero-text">
       <h1>A Collector's AI Companion</h1>
       <p>ArchiveSense started with a simple idea: collecting isn’t just about owning—it’s about <em>engaging</em>. General-purpose AI tools weren’t enough. I wanted a system that understood my collection deeply, one that could hold conversations, surface insights, and turn thoughts into living narratives. That’s why I built ArchiveSense. It helps collectors catalog, converse, and reflect—today at the item level, and soon across entire collections.</p>
+      <div class="launch-info">
+        <H2 class="beta-launch">Beta Launch Coming Soon</H2>
+      </div>
+
+      <div class="features-list">
+        <div class="current-features">
+          <h3>Currently Available</h3>
+          <ul>
+            <li>Rich cataloging with photos, facts, and notes</li>
+            <li>AI conversations to explore items and create "Collector's Notes"</li>
+            <li>Social media sharing of collection stories</li>
+          </ul>
+        </div>
+        <div class="upcoming-features">
+          <h3>Coming Soon</h3>
+          <ul>
+            <li>Deep domain knowledge through canonical source integration</li>
+            <li>Environmental monitoring for preservation</li>
+          </ul>
+        </div>
+      </div>
+                <a href="#mailing-list" class="accent-link">Join the Waiting List</a></p>
+
     </div>
     <div class="hero-media">
-      <!-- Instagram embed -->
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DM1QqastEtX/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-      <script async src="//www.instagram.com/embed.js"></script>
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="carousel-item">
+            <img src="1_App_Main_Screen.png" alt="ArchiveSense Main Screen">
+            <p class="caption">The main dashboard provides an overview of your entire collection, making it easy to navigate through your items and access key features.</p>
+          </div>
+          <div class="carousel-item">
+            <img src="2_App_Collection_View.png" alt="Collection View">
+            <p class="caption">Browse your collection with rich visual previews and detailed metadata, helping you stay organized.</p>
+          </div>
+          <div class="carousel-item">
+            <img src="3_App_Item_View.png" alt="Item View">
+            <p class="caption">Dive deep into individual items with comprehensive detail views and metadata management.</p>
+          </div>
+          <div class="carousel-item">
+            <img src="4_App_AI_Collectors_Note_Conversation.png" alt="AI Conversation">
+            <p class="caption">Engage in meaningful conversations with AI about your items, uncovering new insights and connections.</p>
+          </div>
+          <div class="carousel-item">
+            <img src="5_App_Share_View.png" alt="Share View">
+            <p class="caption">Share your collection stories and insights with other collectors and enthusiasts.</p>
+          </div>
+          <div class="carousel-item">
+            <img src="6_App_Main_Screen_with_Archive_Connections.png" alt="Archive Connections">
+            <p class="caption">Discover connections between items in your collection, revealing patterns and relationships you might not have noticed.</p>
+          </div>
+        </div>
+        <button class="carousel-button prev" onclick="moveCarousel(-1)">❮</button>
+        <button class="carousel-button next" onclick="moveCarousel(1)">❯</button>
+      </div>
     </div>
   </section>
 
@@ -170,5 +292,23 @@
     &copy; 2025 ArchiveSense. All rights reserved.<br>
     Follow us on Instagram: <a href="https://instagram.com/archivsense" target="_blank">@archivsense</a>
   </footer>
+
+  <script>
+    let currentSlide = 0;
+    const items = document.querySelectorAll('.carousel-item');
+
+    function moveCarousel(direction) {
+      currentSlide = (currentSlide + direction + items.length) % items.length;
+      updateCarousel();
+    }
+
+    function updateCarousel() {
+      const offset = -currentSlide * 100;
+      document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+    }
+
+    // Auto-advance carousel
+    setInterval(() => moveCarousel(1), 5000);
+  </script>
 </body>
 </html>
