@@ -1,17 +1,27 @@
 /* ArchiveSense Design System Styles */
 
 :root {
-  --primary-bg: #f5f5f5;
-  --primary-text: #222;
-  --header-bg: #1e1e1e;
-  --header-text: #fff;
-  --accent: #3a7afe;
+  --primary-bg: #fdfbf9;
+  --secondary-bg: #ffffff;
+  --primary-text: #2C2C2C;
+  --secondary-text: #a89480;
+  --accent-color: #c88f73;
+  --accent-dark: #b87c5c;
+  --border-color: #e8e0d8;
+  --shadow-color: rgba(200, 143, 115, 0.08);
   --card-bg: #fff;
   --card-shadow: 0 2px 6px rgba(0,0,0,0.08);
   --border-radius: 8px;
-  --input-border: #ccc;
-  --footer-text: #666;
-  --font-family: 'Inter', Arial, sans-serif;
+  --input-border: #e8e0d8;
+  --footer-text: #a89480;
+  --font-family: 'Merriweather', serif;
+  --primary-font: var(--font-family);
+  --display-font: 'Playfair Display', serif;
+  
+  /* Legacy variable mappings for backwards compatibility */
+  --accent: #c88f73;
+  --header-bg: #fdfbf9;
+  --header-text: #2C2C2C;
 }
 
 html, body {
@@ -25,9 +35,9 @@ html, body {
 }
 
 header {
-  background: var(--header-bg);
-  color: var(--header-text);
-  padding: 2.5rem 1rem 2rem 1rem;
+  background: var(--primary-bg);
+  color: var(--primary-text);
+  padding: 2rem;
   text-align: center;
 }
 
@@ -45,6 +55,29 @@ header p {
   margin-left: auto;
   margin-right: auto;
   opacity: 0.92;
+}
+
+.nav {
+  background: var(--secondary-bg);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav .container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav a {
+  color: var(--accent-color);
+  text-decoration: none;
+  margin-right: 1.5rem;
+  font-size: 1rem;
+}
+
+.nav a:hover {
+  text-decoration: underline;
 }
 
 .content {
@@ -143,6 +176,17 @@ footer {
   margin-top: 2rem;
 }
 
+.hero-text {
+  text-align: center;
+  color: var(--secondary-text);
+  font-family: var(--display-font);
+  font-size: 1.25rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
 /* Responsive Design */
 @media (max-width: 700px) {
   .media {
@@ -156,3 +200,4 @@ footer {
     width: 90%;
   }
 }
+

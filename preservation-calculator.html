@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Environmental Preservation Calculator | ArchiveSense</title>
+  <meta name="description" content="Estimate preservation lifetime multipliers for collectibles using temperature and relative humidity, based on conservation science models." />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4G8EHH040J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-4G8EHH040J');
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sw5s6gwxlx");
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    .content { max-width: var(--max-width); margin: 0 auto; padding: 1.5rem 2rem 2.5rem; }
+
+    .intro-card {
+      background: #fff;
+      border: 2px solid var(--accent-color);
+      box-shadow: 0 4px 12px rgba(184, 124, 92, 0.15);
+    }
+    .intro-card h2 { 
+      color: var(--accent-color); 
+      font-size: 1.65rem; 
+      margin: 0 0 .65rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .intro-card p { 
+      margin: 0; 
+      font-size: 1.05rem; 
+      line-height: 1.7;
+      color: var(--primary-text);
+    }
+
+    .calculator {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.25rem;
+      position: relative;
+    }
+
+    .card h2 { 
+      margin: 0 0 1rem; 
+      font-size: 1.5rem; 
+      color: var(--accent-color); 
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .card h2::before {
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+    .inputs-card h2::before { content: "📝"; }
+    .results-card h2::before { content: "📊"; }
+
+    .field { margin: 1.1rem 0; }
+    .field label { 
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      margin-bottom: .45rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .field label::before {
+      font-size: 1.15rem;
+    }
+    .material-label::before { content: "🗂️"; }
+    .temp-label::before { content: "🌡️"; }
+    .rh-label::before { content: "💧"; }
+    .field small { color: var(--secondary-text); font-size: .9rem; line-height: 1.4; }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: .75rem .8rem;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1.05rem;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    select:focus, input[type="number"]:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(184, 124, 92, 0.1);
+    }
+
+    .row { display: grid; grid-template-columns: 1fr auto; gap: .75rem; align-items: end; }
+    .units { display: flex; gap: .5rem; background: var(--secondary-bg); padding: .5rem; border-radius: 6px; }
+    .units label { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: .35rem; 
+      font-size: .95rem; 
+      color: var(--secondary-text);
+      cursor: pointer;
+      padding: .25rem .5rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .units label:has(input:checked) {
+      background: var(--accent-color);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    button.calculate {
+      width: 100%;
+      padding: 1rem;
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.15rem;
+      font-weight: 600;
+      transition: transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 2px 6px rgba(184, 124, 92, 0.3);
+    }
+    button.calculate:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(184, 124, 92, 0.4);
+    }
+    button.calculate:active {
+      transform: translateY(0);
+    }
+
+    .result-box {
+      background: var(--secondary-bg);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: .75rem 0;
+      border-left: 4px solid var(--accent-color);
+    }
+    .result-label {
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--secondary-text);
+      margin: 0 0 .25rem;
+      font-weight: 600;
+    }
+    .result-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--primary-text);
+      margin: 0;
+    }
+    .result-value.highlight {
+      font-size: 2.25rem;
+      color: var(--accent-color);
+    }
+
+    .alert, .notice, .ok { 
+      padding: 1rem 1rem 1rem 3.25rem;
+      border-radius: 8px;
+      margin-top: .75rem;
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .alert::before, .notice::before, .ok::before {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.75rem;
+    }
+    .alert { border-left: 4px solid #b85c5c; background: #fff5f5; }
+    .alert strong { color: #b85c5c; }
+    .alert::before { content: "⚠️"; }
+    
+    .notice { border-left: 4px solid #e0b65f; background: #fffaf0; }
+    .notice strong { color: #a5792a; }
+    .notice::before { content: "⚡"; }
+    
+    .ok { border-left: 4px solid #4caf50; background: #f0f8f0; }
+    .ok strong { color: #2e7d32; }
+    .ok::before { content: "✅"; }
+
+    .footnote { 
+      color: var(--secondary-text); 
+      font-size: .88rem; 
+      margin-top: 1rem;
+      padding: .75rem;
+      background: var(--secondary-bg);
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .formula { 
+      margin-top: 1.25rem;
+      font-size: .9rem;
+      color: var(--secondary-text);
+      padding: .75rem;
+      background: var(--secondary-bg);
+      border-radius: 6px;
+      border-left: 3px solid var(--border-color);
+    }
+    .formula code { background: #f7f3ec; padding: .1rem .25rem; border-radius: 4px; }
+
+    @media (max-width: 820px) {
+      .calculator { grid-template-columns: 1fr; }
+      .nav .container, .page-header .container, .content { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="ArchiveSense_logo_text_right.png" alt="ArchiveSense Logo" style="max-width: 300px;">
+  </header>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="/">Home</a>
+      <a href="/articles">Articles</a>
+      <a href="/preservation-calculator.html">Safe Storage Calculator</a>
+      <a href="/tag_generator.html">Tag Generator</a>
+    </div>
+  </nav>
+
+  <p class="hero-text">Estimate lifetime multipliers from temperature and RH to guide safer storage.</p>
+
+  <main class="content">
+    <section class="card intro-card" aria-labelledby="about-h2" style="margin-bottom:1.5rem">
+      <h2 id="about-h2">💎 How long will your collection last?</h2>
+      <p>
+        Chemical decay in organic materials—paper, photographs, textiles, and films—is driven by both temperature and relative humidity.  This tool uses conservation science models to calculate a <strong>lifetime multiplier</strong> for your specific storage conditions.  This calculates how your environment affects your items' permanence relative to the reference standard (20°C, 50% RH).
+        <br><br>
+        <i>Lifetime Multiple of 1.00 means equivalent lifetime to the reference standard.  Higher than 1.00 means better than standard, and lower than 1.00 means worse.</i>
+        <br><br>
+        Enter your material type and measured environment to see predicted lifespan and receive alerts for mould risk (≥65% RH) or low-humidity brittleness (<25% RH). Rule of thumb: each 5°C cooler roughly doubles lifetime; halving RH can double it again.
+      </p>
+    </section>
+    <section class="calculator" aria-label="Preservation calculator">
+      <div class="card inputs-card" aria-labelledby="inputs-h2">
+        <h2 id="inputs-h2">Your Environment</h2>
+        <div class="field">
+          <label for="material" class="material-label">What are you storing?</label>
+          <select id="material" aria-describedby="material-help">
+            <option value="high">📜 High Permanence (~1000 years) — rag paper, parchment, linen, wood, leather</option>
+            <option value="moderate" selected>📰 Moderate Permanence (~100 years) — acidic paper, acetate film, celluloid</option>
+            <option value="low">📼 Low Permanence (~30 years) — magnetic media, PU foams, colour photographs</option>
+          </select>
+          <small id="material-help">Different materials have different expected lifespans under ideal conditions.</small>
+        </div>
+
+        <div class="field">
+          <label for="temp" class="temp-label">Current Temperature</label>
+          <div class="row">
+            <input type="number" id="temp" placeholder="e.g., 20" step="0.1" value="20" aria-describedby="temp-help" />
+            <div class="units" role="radiogroup" aria-label="Temperature units">
+              <label><input type="radio" name="tempUnit" value="C" checked> °C</label>
+              <label><input type="radio" name="tempUnit" value="F"> °F</label>
+            </div>
+          </div>
+          <small id="temp-help">Measure where you keep your collection.</small>
+        </div>
+
+        <div class="field">
+          <label for="rh" class="rh-label">Relative Humidity</label>
+          <input type="number" id="rh" placeholder="e.g., 50" min="0" max="100" step="1" value="50" aria-describedby="rh-help" />
+          <small id="rh-help">Enter as a percentage (0–100%). Use a hygrometer to measure.</small>
+        </div>
+
+        <div class="field">
+          <button class="calculate" id="calculate">🔍 Analyze My Storage Conditions</button>
+        </div>
+        <p class="footnote">💡 Ideal reference: 20°C (68°F) and 50% RH</p>
+      </div>
+
+      <div class="card results-card" aria-labelledby="results-h2">
+        <h2 id="results-h2">Your Results</h2>
+        
+        <div class="result-box">
+          <div class="result-label">Predicted Lifetime</div>
+          <div class="result-value highlight" id="predicted">100 years</div>
+        </div>
+
+        <div class="result-box" style="border-left-color: #6F6558;">
+          <div class="result-label">Lifetime Multiplier</div>
+          <div class="result-value" id="multiplier">× 1.00</div>
+        </div>
+
+        <div class="result-box" style="border-left-color: #6F6558;">
+          <div class="result-label">Baseline (Ideal Conditions)</div>
+          <div class="result-value" id="benchmark" style="font-size: 1.35rem;">100 years</div>
+        </div>
+
+        <div id="alertArea"></div>
+
+        <details class="formula" style="cursor: pointer;">
+          <summary style="font-weight: 600; margin-bottom: .5rem;">📐 Technical Details</summary>
+          Uses Model #3 (Michalski 2000):
+          <br>
+          <code>t_LM = 6.17e-19 × exp(100000 / (R × T)) × (1/RH)<sup>1.3</sup></code>
+          <br>
+          where <code>T</code> is Kelvin, <code>RH</code> is a fraction, and <code>R = 8.314 J/(mol·K)</code>.
+          <br><br>
+          <strong>Quick tips:</strong> Each 5°C cooler ≈ doubles lifetime; halving RH often doubles lifetime.
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" style="text-align:center; padding:2rem; color:var(--secondary-text); border-top:1px solid var(--border-color)">
+    <p>© ArchiveSense. For educational guidance; always consider object-specific risks.</p>
+    <p><a href="/">Home</a> · <a href="/articles">Articles</a> · <a href="/preservation-calculator.html">Safe Storage Calculator</a> · <a href="/tag_generator.html">Tag Generator</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
+  </footer>
+
+  <script>
+    (function() {
+      const R = 8.314; // J/(mol·K)
+      const COEFF = 6.17e-19; // Model #3 constant for reference normalization at 20°C, 50% RH
+
+      const materialEl = document.getElementById('material');
+      const tempEl = document.getElementById('temp');
+      const rhEl = document.getElementById('rh');
+      const calcBtn = document.getElementById('calculate');
+
+      const benchmarkEl = document.getElementById('benchmark');
+      const multiplierEl = document.getElementById('multiplier');
+      const predictedEl = document.getElementById('predicted');
+      const alertArea = document.getElementById('alertArea');
+
+      /**
+       * Benchmark lifetimes (years) by material permanence category
+       */
+      const BENCHMARKS = {
+        high: 1000,
+        moderate: 100,
+        low: 30
+      };
+
+      function getSelectedUnit() {
+        const radios = document.querySelectorAll('input[name="tempUnit"]');
+        for (const r of radios) { if (r.checked) return r.value; }
+        return 'C';
+      }
+
+      function celsiusToKelvin(c) { return c + 273.15; }
+      function fahrenheitToKelvin(f) { return (f - 32) * (5/9) + 273.15; }
+
+      function formatYears(years) {
+        if (!isFinite(years) || years < 0) return '—';
+        if (years >= 10000) return years.toLocaleString(undefined, { maximumFractionDigits: 0 }) + ' years';
+        if (years >= 100) return years.toLocaleString(undefined, { maximumFractionDigits: 0 }) + ' years';
+        if (years >= 10) return years.toLocaleString(undefined, { maximumFractionDigits: 1 }) + ' years';
+        if (years >= 1) return years.toLocaleString(undefined, { maximumFractionDigits: 2 }) + ' years';
+        const months = years * 12;
+        if (months >= 1) return months.toLocaleString(undefined, { maximumFractionDigits: 1 }) + ' months';
+        const days = years * 365.25;
+        return days.toLocaleString(undefined, { maximumFractionDigits: 0 }) + ' days';
+      }
+
+      function renderAlert(rhPercent) {
+        alertArea.innerHTML = '';
+        let el;
+        if (rhPercent >= 65) {
+          el = document.createElement('div');
+          el.className = 'alert';
+          el.innerHTML = '<strong>WARNING: High mould risk</strong> — sustained RH ≥ 65% supports mould growth; reduce RH promptly.';
+        } else if (rhPercent >= 60) {
+          el = document.createElement('div');
+          el.className = 'notice';
+          el.innerHTML = '<strong>Caution:</strong> RH > 60% increases risks (blocking in photographs, corrosion, mould potential).';
+        } else if (rhPercent < 25) {
+          el = document.createElement('div');
+          el.className = 'notice';
+          el.innerHTML = '<strong>Caution: Low RH</strong> — < 25% can embrittle hygroscopic materials (paper, textiles) and increase handling damage.';
+        } else {
+          el = document.createElement('div');
+          el.className = 'ok';
+          el.innerHTML = '<strong>No immediate environmental alerts</strong> — conditions are within typical targets for mixed collections.';
+        }
+        alertArea.appendChild(el);
+      }
+
+      function calculate() {
+        const category = materialEl.value;
+        const benchmarkYears = BENCHMARKS[category] || 100;
+        const tempValue = parseFloat(tempEl.value);
+        const rhPercent = parseFloat(rhEl.value);
+        const unit = getSelectedUnit();
+
+        if (!isFinite(tempValue)) { alert('Please enter a valid temperature.'); return; }
+        if (!isFinite(rhPercent) || rhPercent < 0 || rhPercent > 100) { alert('RH must be between 0 and 100%.'); return; }
+
+        const T = unit === 'C' ? celsiusToKelvin(tempValue) : fahrenheitToKelvin(tempValue);
+        const RH = Math.max(0.0001, Math.min(1, rhPercent / 100));
+
+        // Model #3 lifetime multiplier
+        const tLM = COEFF * Math.exp(100000 / (R * T)) * Math.pow(1 / RH, 1.3);
+
+        const predictedYears = benchmarkYears * tLM;
+
+        benchmarkEl.textContent = benchmarkYears.toLocaleString(undefined, { maximumFractionDigits: 0 }) + ' years';
+        multiplierEl.textContent = '× ' + (isFinite(tLM) ? tLM.toFixed(2) : '—');
+        predictedEl.textContent = formatYears(predictedYears);
+
+        renderAlert(rhPercent);
+      }
+
+      calcBtn.addEventListener('click', calculate);
+      // Initialize
+      calculate();
+    })();
+  </script>
+</body>
+</html>
+
+

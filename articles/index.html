@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles & Resources | ArchiveSense</title>
+  <meta name="description" content="Expert insights on collection preservation, materials science, and best practices for collectors and archivists." />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4G8EHH040J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4G8EHH040J');
+  </script>
+  
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sw5s6gwxlx");
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    
+    .content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .article-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: 1px solid var(--border-color);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .article-card h3 {
+      margin: 0 0 1rem;
+      font-size: 1.3rem;
+      color: var(--primary-text);
+    }
+    
+    .article-card .meta {
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .article-card p {
+      margin: 0 0 1rem;
+      color: var(--primary-text);
+      line-height: 1.6;
+    }
+    
+    .article-card a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .article-card a:hover {
+      text-decoration: underline;
+    }
+    
+    .coming-soon {
+      background: var(--secondary-bg);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      margin: 2rem 0;
+      border: 2px dashed var(--border-color);
+    }
+    
+    .coming-soon h3 {
+      color: var(--secondary-text);
+      margin: 0 0 1rem;
+    }
+    
+    .coming-soon p {
+      color: var(--secondary-text);
+      margin: 0;
+    }
+    
+    .site-footer {
+      background: var(--primary-bg);
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    @media (max-width: 768px) {
+      .content {
+        padding: 1rem;
+      }
+      
+      .page-header .container,
+      .nav .container {
+        padding: 0 1rem;
+      }
+      
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      
+      .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/ArchiveSense_logo_text_right.png" alt="ArchiveSense Logo" style="max-width: 300px;">
+  </header>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="/">Home</a>
+      <a href="/articles">Articles</a>
+      <a href="/preservation-calculator.html">Safe Storage Calculator</a>
+      <a href="/tag_generator.html">Tag Generator</a>
+    </div>
+  </nav>
+
+  <p class="hero-text">Expert insights on collection preservation, materials science, and best practices for collectors and archivists.</p>
+
+  <main class="content">
+    <div class="articles-grid">
+      <article class="article-card">
+        <h3>The Physics & Chemistry of Safer Storage for Collectibles</h3>
+        <div class="meta">Materials & Preservation · January 7, 2025</div>
+        <p>A first-principles guide to selecting papers, plastics, foams, furniture, and sorbents for safe collectible storage—grounded in reaction chemistry, humidity physics, and pollutant control.</p>
+        <a href="/articles/materials-first-principles">Read Article →</a>
+      </article>
+      
+      <div class="coming-soon">
+        <h3>More Articles Coming Soon</h3>
+        <p>We're working on additional articles covering environmental monitoring, digital preservation, and collection management best practices.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© ArchiveSense. All rights reserved.</p>
+    <p><a href="/">Home</a> · <a href="/articles">Articles</a> · <a href="/preservation-calculator.html">Safe Storage Calculator</a> · <a href="/tag_generator.html">Tag Generator</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
+  </footer>
+</body>
+</html>
+

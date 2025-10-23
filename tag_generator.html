@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tag Generator | ArchiveSense</title>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4G8EHH040J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4G8EHH040J');
+  </script>
+  
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sw5s6gwxlx");
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --display-font: 'Playfair Display', serif;
+      --spacing-unit: 1rem;
+      --accent-light: rgba(200, 143, 115, 0.08);
+      --paper-color: #fffcfa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .main-container {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: calc(var(--spacing-unit) * 3);
+      background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+      padding: calc(var(--spacing-unit) * 3);
+      border-radius: var(--border-radius);
+      box-shadow: 
+        0 8px 32px var(--shadow-color),
+        0 2px 8px rgba(0,0,0,0.05);
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    .form-section {
+      background: var(--secondary-bg);
+      padding: calc(var(--spacing-unit) * 2.5);
+      border-radius: var(--border-radius);
+      box-shadow: 
+        0 4px 16px var(--shadow-color),
+        0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .preview-section {
+      background: var(--secondary-bg);
+      padding: calc(var(--spacing-unit) * 2.5);
+      border-radius: var(--border-radius);
+      box-shadow: 
+        0 4px 16px var(--shadow-color),
+        0 1px 4px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-type-selector {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--secondary-bg);
+      border-radius: calc(var(--border-radius) / 2);
+      border: 1px solid var(--border-color);
+    }
+
+    .card-type-selector label {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--secondary-text);
+    }
+
+    .card-type-selector select {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: calc(var(--border-radius) / 2);
+      background: var(--primary-bg);
+      color: var(--primary-text);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--primary-font);
+    }
+
+    .card-type-selector select:hover {
+      border-color: var(--accent-color);
+      background: var(--accent-light);
+    }
+
+    .card-type-selector select:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    .preview-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('Collection_Items.png') center/cover;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    h1, h2 {
+      font-family: var(--display-font);
+      text-align: center;
+      color: var(--secondary-text);
+      font-size: 2.5rem;
+      margin-bottom: calc(var(--spacing-unit) * 2);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: calc(var(--spacing-unit) * 1.5);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--spacing-unit) * 1.25);
+    }
+
+    .form-group {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-unit);
+      padding: calc(var(--spacing-unit) * 0.75);
+      border-radius: calc(var(--border-radius) / 2);
+      transition: all 0.2s;
+      cursor: move;
+    }
+
+    .drag-handle {
+      color: var(--secondary-text);
+      cursor: move;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+      user-select: none;
+      font-size: 1.25rem;
+      line-height: 1;
+      padding-top: 1.75rem;
+    }
+
+    .form-group:hover {
+      background: var(--accent-light);
+    }
+
+    .form-group.dragging {
+      opacity: 0.5;
+      background: var(--accent-light);
+    }
+
+    .drag-handle {
+      color: var(--secondary-text);
+      opacity: 0.5;
+      user-select: none;
+      cursor: grab;
+      padding: 1.75rem 0.5rem;
+      margin-right: 0.5rem;
+      transition: opacity 0.2s;
+    }
+
+    .form-group:hover .drag-handle {
+      opacity: 1;
+    }
+
+    .field-wrapper {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    input, textarea {
+      font-size: 1rem;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: calc(var(--border-radius) / 2);
+      background: var(--primary-bg);
+      width: 100%;
+      transition: all 0.2s;
+      font-family: var(--primary-font);
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    .checkbox-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: 1.75rem;
+    }
+
+    input[type="checkbox"] {
+      width: 1.125rem;
+      height: 1.125rem;
+      margin: 0;
+      accent-color: var(--accent-color);
+    }
+
+    button {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: calc(var(--border-radius) / 2);
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      margin-top: var(--spacing-unit);
+      box-shadow: 0 4px 12px var(--shadow-color);
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: var(--accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px var(--shadow-color);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px var(--shadow-color);
+    }
+
+    canvas {
+      display: block;
+      margin: auto;
+      border: 1px solid rgba(200, 143, 115, 0.2);
+      background: linear-gradient(135deg, var(--secondary-bg), var(--paper-color));
+      box-shadow: 
+        0 12px 24px var(--shadow-color),
+        0 4px 8px rgba(0,0,0,0.05);
+      border-radius: calc(var(--border-radius) / 2);
+      transition: all 0.3s ease;
+    }
+
+    .preview-section:hover canvas {
+      transform: translateY(-2px);
+      box-shadow: 
+        0 16px 32px var(--shadow-color),
+        0 6px 12px rgba(0,0,0,0.08);
+    }
+
+    .preview-info {
+      text-align: center;
+      margin-top: var(--spacing-unit);
+    }
+
+    .card-info {
+      font-size: 1.1rem;
+      color: var(--secondary-text);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-subinfo {
+      font-size: 0.9rem;
+      color: var(--secondary-text);
+      font-style: italic;
+    }
+
+    .content-warning {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      padding: 0.75rem;
+      background: var(--accent-light);
+      border-radius: calc(var(--border-radius) / 2);
+      border: 1px solid rgba(200, 143, 115, 0.2);
+    }
+
+    .warning-icon {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .generate-button, .print-button, .clear-button {
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-color), transparent);
+      margin: 2.5rem 0;
+    }
+
+    .sheet-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: calc(var(--spacing-unit) * 1.5);
+      padding: calc(var(--spacing-unit) * 1.5);
+      background: var(--primary-bg);
+      border-radius: calc(var(--border-radius) / 2);
+      overflow: auto;
+      position: relative;
+    }
+
+    .preview-section h2 {
+      text-align: center;
+      margin-bottom: calc(var(--spacing-unit) * 1.5);
+    }
+
+    .sheet-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    #print-sheet-canvas {
+      display: block;
+      border: 1px solid var(--border-color);
+      background: white;
+      box-shadow: 
+        0 8px 24px rgba(0,0,0,0.12),
+        0 4px 8px rgba(0,0,0,0.08);
+      border-radius: 4px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .tag-delete-btn {
+      position: absolute;
+      background: #e57373;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: all 0.2s;
+      padding: 0;
+      z-index: 10;
+    }
+
+    .tag-delete-btn:hover {
+      background: #d32f2f;
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .tag-delete-btn:active {
+      transform: scale(0.95);
+    }
+
+    .print-actions {
+      display: block;
+    }
+
+    .print-button {
+      background-color: var(--accent-color);
+      width: 100%;
+    }
+
+    @media (max-width: 1200px) {
+      .main-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .preview-section {
+        position: relative;
+        top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="ArchiveSense_logo_text_right.png" alt="ArchiveSense Logo" style="max-width: 300px;">
+  </header>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="/">Home</a>
+      <a href="/articles">Articles</a>
+      <a href="/preservation-calculator.html">Safe Storage Calculator</a>
+      <a href="/tag_generator.html">Tag Generator</a>
+    </div>
+  </nav>
+
+  <p class="hero-text">Create printable collector tags in seconds, perfectly sized for your artifacts.</p>
+
+  <div class="main-container">
+    <div class="form-section">
+      <h1>Tag Generator</h1>
+      <form id="tag-form">
+        <div class="card-type-selector">
+          <label for="card-type">Card Type</label>
+          <select id="card-type" onchange="updatePreview()">
+            <option value="coin-flip" data-width="2" data-height="2">2" × 2" Coin Flip</option>
+            <option value="artifact-small" data-width="2" data-height="1.625">1.625" × 2" Artifact Tag</option>
+            <option value="artifact-large" data-width="3.5" data-height="2">2" × 3.5" Artifact Tag</option>
+            <option value="artifact-medium" data-width="3" data-height="1.5">1.5" × 3" Artifact Tag</option>
+          </select>
+        </div>
+
+        <div class="form-group" draggable="true" data-field="title">
+          <div class="drag-handle">⋮⋮</div>
+          <div class="field-wrapper">
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Enter title" oninput="updatePreview()" />
+          </div>
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="title-checkbox" checked onchange="updatePreview()" />
+            <label for="title-checkbox">Include</label>
+          </div>
+        </div>
+
+        <div class="form-group" draggable="true" data-field="description">
+          <div class="drag-handle">⋮⋮</div>
+          <div class="field-wrapper">
+            <label for="description">Description</label>
+            <textarea id="description" placeholder="Enter description" rows="2" oninput="updatePreview()"></textarea>
+          </div>
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="description-checkbox" checked onchange="updatePreview()" />
+            <label for="description-checkbox">Include</label>
+          </div>
+        </div>
+
+        <div class="form-group" draggable="true" data-field="inventory-id">
+          <div class="drag-handle">⋮⋮</div>
+          <div class="field-wrapper">
+            <label for="inventory-id">Inventory ID</label>
+            <input type="text" id="inventory-id" placeholder="Enter inventory ID" oninput="updatePreview()" />
+          </div>
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="inventory-id-checkbox" onchange="updatePreview()" />
+            <label for="inventory-id-checkbox">Include</label>
+          </div>
+        </div>
+
+        <div class="form-group" draggable="true" data-field="collector-note">
+          <div class="drag-handle">⋮⋮</div>
+          <div class="field-wrapper">
+            <label for="collector-note">Collector's Note</label>
+            <textarea id="collector-note" placeholder="Enter collector's note" rows="2" oninput="updatePreview()"></textarea>
+          </div>
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="collector-note-checkbox" checked onchange="updatePreview()" />
+            <label for="collector-note-checkbox">Include</label>
+          </div>
+        </div>
+
+        <div class="form-group" draggable="true" data-field="acquisition-source">
+          <div class="drag-handle">⋮⋮</div>
+          <div class="field-wrapper">
+            <label for="acquisition-source">Acquisition Source</label>
+            <input type="text" id="acquisition-source" placeholder="Enter acquisition source" oninput="updatePreview()" />
+          </div>
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="acquisition-source-checkbox" onchange="updatePreview()" />
+            <label for="acquisition-source-checkbox">Include</label>
+          </div>
+        </div>
+
+        <div class="form-group" draggable="true" data-field="date-acquired">
+          <div class="drag-handle">⋮⋮</div>
+          <div class="field-wrapper">
+            <label for="date-acquired">Date Acquired</label>
+            <input type="date" id="date-acquired" oninput="updatePreview()" />
+          </div>
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="date-acquired-checkbox" onchange="updatePreview()" />
+            <label for="date-acquired-checkbox">Include</label>
+          </div>
+        </div>
+
+        <div class="form-group" draggable="true" data-field="cost">
+          <div class="drag-handle">⋮⋮</div>
+          <div class="field-wrapper">
+            <label for="cost">Cost</label>
+            <input type="number" id="cost" placeholder="Enter cost" oninput="updatePreview()" />
+          </div>
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="cost-checkbox" onchange="updatePreview()" />
+            <label for="cost-checkbox">Include</label>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="preview-section">
+      <h2>Live Preview</h2>
+      <div class="preview-container">
+        <div class="preview-wrapper">
+          <div class="preview-card">
+            <canvas id="preview-canvas" style="width: 2in; height: 2in;"></canvas>
+          </div>
+        </div>
+        <div class="preview-info">
+          <div class="card-info" id="card-info-text">2" × 2" Coin Flip</div>
+          <div class="card-subinfo">Optimized for archival paper</div>
+        </div>
+      </div>
+      
+      <button type="button" class="generate-button" onclick="addTagToSheet()">➕ Add Tag to Sheet</button>
+
+      <div class="divider"></div>
+
+      <h2 style="margin-top: 2rem;">Printable Sheet (8.5" × 11")</h2>
+      <div class="sheet-container">
+        <div class="sheet-wrapper" id="sheet-wrapper">
+          <canvas id="print-sheet-canvas" width="816" height="1056"></canvas>
+        </div>
+      </div>
+      <div class="print-actions">
+        <button type="button" class="print-button" onclick="printSheet()">🖨️ Print Sheet</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Drag and drop functionality
+    let draggedItem = null;
+    let fieldOrder = ['title', 'description', 'inventory-id', 'collector-note', 'acquisition-source', 'date-acquired', 'cost'];
+    
+    // Store tags on the printable sheet with their positions
+    let tagsOnSheet = [];
+    let tagPositions = []; // Store x, y, width, height for each tag for delete buttons
+    
+    // Initialize print sheet
+    function initPrintSheet() {
+      const canvas = document.getElementById('print-sheet-canvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Clear canvas
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw subtle border
+      ctx.strokeStyle = '#e8e0d8';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(1, 1, canvas.width - 2, canvas.height - 2);
+    }
+
+    document.querySelectorAll('.form-group').forEach(formGroup => {
+      formGroup.addEventListener('dragstart', (e) => {
+        draggedItem = formGroup;
+        e.dataTransfer.effectAllowed = 'move';
+        formGroup.classList.add('dragging');
+      });
+
+      formGroup.addEventListener('dragend', () => {
+        draggedItem.classList.remove('dragging');
+        draggedItem = null;
+      });
+
+      formGroup.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        if (!draggedItem || draggedItem === formGroup) return;
+
+        const formContainer = document.getElementById('tag-form');
+        const formGroups = [...formContainer.querySelectorAll('.form-group')];
+        const draggedIndex = formGroups.indexOf(draggedItem);
+        const dropIndex = formGroups.indexOf(formGroup);
+        
+        if (draggedIndex < dropIndex) {
+          formGroup.parentNode.insertBefore(draggedItem, formGroup.nextSibling);
+        } else {
+          formGroup.parentNode.insertBefore(draggedItem, formGroup);
+        }
+
+        // Update field order
+        fieldOrder = formGroups.map(group => group.dataset.field);
+        updatePreview();
+      });
+    });
+
+    function updatePreview() {
+      const canvas = document.getElementById('preview-canvas');
+      const cardTypeSelect = document.getElementById('card-type');
+      const selectedOption = cardTypeSelect.options[cardTypeSelect.selectedIndex];
+      const cardWidth = parseFloat(selectedOption.getAttribute('data-width'));
+      const cardHeight = parseFloat(selectedOption.getAttribute('data-height'));
+      
+      // Update canvas size (96 DPI)
+      canvas.width = cardWidth * 96;
+      canvas.height = cardHeight * 96;
+      
+      // Update canvas style for display
+      canvas.style.width = cardWidth + 'in';
+      canvas.style.height = cardHeight + 'in';
+      
+      // Update card info text
+      document.getElementById('card-info-text').textContent = selectedOption.textContent;
+      
+      const ctx = canvas.getContext('2d');
+
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw elegant paper background
+      const bgGradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      bgGradient.addColorStop(0, '#ffffff');
+      bgGradient.addColorStop(0.5, '#fffcfa');
+      bgGradient.addColorStop(1, '#fdf8f5');
+      ctx.fillStyle = bgGradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Add subtle grain texture
+      ctx.globalAlpha = 0.015;
+      for (let i = 0; i < canvas.width; i += 3) {
+        for (let j = 0; j < canvas.height; j += 3) {
+          if (Math.random() > 0.5) {
+            ctx.fillStyle = '#c88f73';
+            ctx.fillRect(i, j, 1, 1);
+          }
+        }
+      }
+      ctx.globalAlpha = 1;
+
+      // Draw elegant double border
+      const margin = 8;
+      ctx.strokeStyle = '#c88f73';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(margin, margin, canvas.width - margin * 2, canvas.height - margin * 2);
+      
+      ctx.strokeStyle = 'rgba(200, 143, 115, 0.3)';
+      ctx.lineWidth = 0.5;
+      ctx.strokeRect(margin + 3, margin + 3, canvas.width - (margin + 3) * 2, canvas.height - (margin + 3) * 2);
+
+      // Add subtle corner accents
+      const cornerSize = 12;
+      ctx.strokeStyle = 'rgba(200, 143, 115, 0.4)';
+      ctx.lineWidth = 0.5;
+      
+      // Top-left corner
+      ctx.beginPath();
+      ctx.moveTo(margin + cornerSize, margin);
+      ctx.lineTo(margin, margin);
+      ctx.lineTo(margin, margin + cornerSize);
+      ctx.stroke();
+
+      // Top-right corner
+      ctx.beginPath();
+      ctx.moveTo(canvas.width - margin - cornerSize, margin);
+      ctx.lineTo(canvas.width - margin, margin);
+      ctx.lineTo(canvas.width - margin, margin + cornerSize);
+      ctx.stroke();
+
+      // Bottom-left corner
+      ctx.beginPath();
+      ctx.moveTo(margin, canvas.height - margin - cornerSize);
+      ctx.lineTo(margin, canvas.height - margin);
+      ctx.lineTo(margin + cornerSize, canvas.height - margin);
+      ctx.stroke();
+
+      // Bottom-right corner
+      ctx.beginPath();
+      ctx.moveTo(canvas.width - margin, canvas.height - margin - cornerSize);
+      ctx.lineTo(canvas.width - margin, canvas.height - margin);
+      ctx.lineTo(canvas.width - margin - cornerSize, canvas.height - margin);
+      ctx.stroke();
+
+      // Get field values and checkboxes
+      const title = document.getElementById('title').value;
+      const includeTitle = document.getElementById('title-checkbox').checked;
+
+      const description = document.getElementById('description').value;
+      const includeDescription = document.getElementById('description-checkbox').checked;
+
+      const inventoryId = document.getElementById('inventory-id').value;
+      const includeInventoryId = document.getElementById('inventory-id-checkbox').checked;
+
+      const collectorNote = document.getElementById('collector-note').value;
+      const includeCollectorNote = document.getElementById('collector-note-checkbox').checked;
+
+      const acquisitionSource = document.getElementById('acquisition-source').value;
+      const includeAcquisitionSource = document.getElementById('acquisition-source-checkbox').checked;
+
+      const dateAcquired = document.getElementById('date-acquired').value;
+      const includeDateAcquired = document.getElementById('date-acquired-checkbox').checked;
+
+      const cost = document.getElementById('cost').value;
+      const includeCost = document.getElementById('cost-checkbox').checked;
+
+      // Calculate optimal font size
+      function calculateContentHeight(fontSize) {
+        const labelSize = fontSize * 0.8;
+        const valueSize = fontSize;
+        let totalHeight = 0;
+        const fields = [
+          { label: 'Title', value: title, include: includeTitle },
+          { label: 'Description', value: description, include: includeDescription },
+          { label: 'Inventory ID', value: inventoryId, include: includeInventoryId },
+          { label: "Collector's Note", value: collectorNote, include: includeCollectorNote },
+          { label: 'Acquisition Source', value: acquisitionSource, include: includeAcquisitionSource },
+          { label: 'Date Acquired', value: dateAcquired, include: includeDateAcquired },
+          { label: 'Cost', value: cost, include: includeCost }
+        ].filter(f => f.include && f.value);
+
+        fields.forEach(field => {
+          ctx.font = `${labelSize}px Merriweather`;
+          totalHeight += labelSize;
+          
+          ctx.font = `${valueSize}px Merriweather`;
+          const maxWidth = canvas.width - margin * 4;
+          const words = field.value.split(' ');
+          let line = '';
+          let lineCount = 1;
+
+          words.forEach(word => {
+            const testLine = line + (line ? ' ' : '') + word;
+            const metrics = ctx.measureText(testLine);
+            if (metrics.width > maxWidth) {
+              lineCount++;
+              line = word;
+            } else {
+              line = testLine;
+            }
+          });
+
+          totalHeight += valueSize * lineCount + 16;
+        });
+        
+        return totalHeight;
+      }
+
+      // Find optimal font size
+      let fontSize = 14;
+      const minFontSize = 8;
+      const maxContentHeight = canvas.height - margin * 4;
+      
+      while (calculateContentHeight(fontSize) > maxContentHeight && fontSize > minFontSize) {
+        fontSize -= 0.5;
+      }
+
+      // Show warning if text is too small
+      const warningEl = document.querySelector('.content-warning');
+      if (fontSize <= 9) {
+        if (!warningEl) {
+          const warning = document.createElement('div');
+          warning.className = 'content-warning';
+          warning.innerHTML = `
+            <svg class="warning-icon" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12 2L1 21h22M12 6l7.53 13H4.47M11 10v4h2v-4m-2 6v2h2v-2"/>
+            </svg>
+            Content may be too small to print clearly
+          `;
+          document.querySelector('.preview-info').appendChild(warning);
+        }
+      } else if (warningEl) {
+        warningEl.remove();
+      }
+
+      // Draw fields with calculated font size
+      let y = margin * 2 + 8;
+
+      function drawField(label, value, include) {
+        if (!include || !value) return false;
+
+        ctx.font = `${fontSize * 0.8}px Merriweather`;
+        ctx.fillStyle = '#a89480';
+        ctx.fillText(label + ':', margin * 2, y);
+        
+        y += fontSize;
+        
+        ctx.font = `${fontSize}px Merriweather`;
+        ctx.fillStyle = '#2C2C2C';
+        
+        const maxWidth = canvas.width - margin * 4;
+        const words = value.split(' ');
+        let line = '';
+        
+        for (let i = 0; i < words.length; i++) {
+          const word = words[i];
+          const testLine = line + (line ? ' ' : '') + word;
+          const metrics = ctx.measureText(testLine);
+          
+          if (metrics.width > maxWidth && i > 0) {
+            ctx.fillText(line, margin * 2, y);
+            line = word;
+            y += fontSize + 2;
+          } else {
+            line = testLine;
+          }
+        }
+        
+        if (line) {
+          ctx.fillText(line, margin * 2, y);
+        }
+        
+        y += fontSize + 8;
+        return true;
+      }
+
+      // Draw fields in the current order
+      const fieldMap = {
+        'title': { label: 'Title', value: title, include: includeTitle },
+        'description': { label: 'Description', value: description, include: includeDescription },
+        'inventory-id': { label: 'Inventory ID', value: inventoryId, include: includeInventoryId },
+        'collector-note': { label: "Collector's Note", value: collectorNote, include: includeCollectorNote },
+        'acquisition-source': { label: 'Acquisition Source', value: acquisitionSource, include: includeAcquisitionSource },
+        'date-acquired': { label: 'Date Acquired', value: dateAcquired, include: includeDateAcquired },
+        'cost': { label: 'Cost', value: cost, include: includeCost }
+      };
+
+      fieldOrder.forEach(fieldId => {
+        const field = fieldMap[fieldId];
+        drawField(field.label, field.value, field.include);
+      });
+    }
+
+    async function generateTags() {
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const inventoryId = document.getElementById('inventory-id').value;
+      const collectorNote = document.getElementById('collector-note').value;
+      const acquisitionSource = document.getElementById('acquisition-source').value;
+      const dateAcquired = document.getElementById('date-acquired').value;
+      const cost = document.getElementById('cost').value;
+      
+      // Get selected card type
+      const cardTypeSelect = document.getElementById('card-type');
+      const selectedCardType = cardTypeSelect.value;
+
+      const response = await fetch('/api/tag-generator', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          title, 
+          description, 
+          inventoryId, 
+          collectorNote, 
+          acquisitionSource, 
+          dateAcquired, 
+          cost, 
+          template: selectedCardType,
+          fieldOrder: fieldOrder
+        })
+      });
+
+      const { pdfUrl, svgUrl } = await response.json();
+      const downloadButton = document.createElement('button');
+      downloadButton.textContent = 'Download Tags';
+      downloadButton.onclick = () => {
+        const pdfLink = document.createElement('a');
+        pdfLink.href = pdfUrl;
+        pdfLink.download = 'tags.pdf';
+        pdfLink.click();
+
+        const svgLink = document.createElement('a');
+        svgLink.href = svgUrl;
+        svgLink.download = 'tags.svg';
+        svgLink.click();
+      };
+    }
+
+    // Render a print-ready tag (clean, no gradients or textures)
+    function renderPrintTag(width, height) {
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      
+      // Clear canvas with pure white
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw simple black border
+      const margin = 8;
+      ctx.strokeStyle = '#000000';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(margin, margin, canvas.width - margin * 2, canvas.height - margin * 2);
+      
+      // Get field values and checkboxes
+      const title = document.getElementById('title').value;
+      const includeTitle = document.getElementById('title-checkbox').checked;
+      
+      const description = document.getElementById('description').value;
+      const includeDescription = document.getElementById('description-checkbox').checked;
+      
+      const inventoryId = document.getElementById('inventory-id').value;
+      const includeInventoryId = document.getElementById('inventory-id-checkbox').checked;
+      
+      const collectorNote = document.getElementById('collector-note').value;
+      const includeCollectorNote = document.getElementById('collector-note-checkbox').checked;
+      
+      const acquisitionSource = document.getElementById('acquisition-source').value;
+      const includeAcquisitionSource = document.getElementById('acquisition-source-checkbox').checked;
+      
+      const dateAcquired = document.getElementById('date-acquired').value;
+      const includeDateAcquired = document.getElementById('date-acquired-checkbox').checked;
+      
+      const cost = document.getElementById('cost').value;
+      const includeCost = document.getElementById('cost-checkbox').checked;
+      
+      // Calculate optimal font size (same logic as preview)
+      function calculateContentHeight(fontSize) {
+        const labelSize = fontSize * 0.8;
+        const valueSize = fontSize;
+        let totalHeight = 0;
+        const fields = [
+          { label: 'Title', value: title, include: includeTitle },
+          { label: 'Description', value: description, include: includeDescription },
+          { label: 'Inventory ID', value: inventoryId, include: includeInventoryId },
+          { label: "Collector's Note", value: collectorNote, include: includeCollectorNote },
+          { label: 'Acquisition Source', value: acquisitionSource, include: includeAcquisitionSource },
+          { label: 'Date Acquired', value: dateAcquired, include: includeDateAcquired },
+          { label: 'Cost', value: cost, include: includeCost }
+        ].filter(f => f.include && f.value);
+        
+        fields.forEach(field => {
+          ctx.font = `${labelSize}px Merriweather`;
+          totalHeight += labelSize;
+          
+          ctx.font = `${valueSize}px Merriweather`;
+          const maxWidth = canvas.width - margin * 4;
+          const words = field.value.split(' ');
+          let line = '';
+          let lineCount = 1;
+          
+          words.forEach(word => {
+            const testLine = line + (line ? ' ' : '') + word;
+            const metrics = ctx.measureText(testLine);
+            if (metrics.width > maxWidth) {
+              lineCount++;
+              line = word;
+            } else {
+              line = testLine;
+            }
+          });
+          
+          totalHeight += valueSize * lineCount + 16;
+        });
+        
+        return totalHeight;
+      }
+      
+      // Find optimal font size
+      let fontSize = 14;
+      const minFontSize = 8;
+      const maxContentHeight = canvas.height - margin * 4;
+      
+      while (calculateContentHeight(fontSize) > maxContentHeight && fontSize > minFontSize) {
+        fontSize -= 0.5;
+      }
+      
+      // Draw fields with calculated font size
+      let y = margin * 2 + 8;
+      
+      function drawField(label, value, include) {
+        if (!include || !value) return false;
+        
+        ctx.font = `${fontSize * 0.8}px Merriweather`;
+        ctx.fillStyle = '#000000';
+        ctx.fillText(label + ':', margin * 2, y);
+        
+        y += fontSize;
+        
+        ctx.font = `${fontSize}px Merriweather`;
+        ctx.fillStyle = '#000000';
+        
+        const maxWidth = canvas.width - margin * 4;
+        const words = value.split(' ');
+        let line = '';
+        
+        for (let i = 0; i < words.length; i++) {
+          const word = words[i];
+          const testLine = line + (line ? ' ' : '') + word;
+          const metrics = ctx.measureText(testLine);
+          
+          if (metrics.width > maxWidth && i > 0) {
+            ctx.fillText(line, margin * 2, y);
+            line = word;
+            y += fontSize + 2;
+          } else {
+            line = testLine;
+          }
+        }
+        
+        if (line) {
+          ctx.fillText(line, margin * 2, y);
+        }
+        
+        y += fontSize + 8;
+        return true;
+      }
+      
+      // Draw fields in the current order
+      const fieldMap = {
+        'title': { label: 'Title', value: title, include: includeTitle },
+        'description': { label: 'Description', value: description, include: includeDescription },
+        'inventory-id': { label: 'Inventory ID', value: inventoryId, include: includeInventoryId },
+        'collector-note': { label: "Collector's Note", value: collectorNote, include: includeCollectorNote },
+        'acquisition-source': { label: 'Acquisition Source', value: acquisitionSource, include: includeAcquisitionSource },
+        'date-acquired': { label: 'Date Acquired', value: dateAcquired, include: includeDateAcquired },
+        'cost': { label: 'Cost', value: cost, include: includeCost }
+      };
+      
+      fieldOrder.forEach(fieldId => {
+        const field = fieldMap[fieldId];
+        drawField(field.label, field.value, field.include);
+      });
+      
+      return canvas;
+    }
+    
+    // Add tag to printable sheet
+    function addTagToSheet() {
+      const cardTypeSelect = document.getElementById('card-type');
+      const selectedOption = cardTypeSelect.options[cardTypeSelect.selectedIndex];
+      const cardWidth = parseFloat(selectedOption.getAttribute('data-width'));
+      const cardHeight = parseFloat(selectedOption.getAttribute('data-height'));
+      
+      // Create print-ready canvas (clean, no decorations)
+      const printCanvas = renderPrintTag(cardWidth * 96, cardHeight * 96);
+      
+      const tagData = {
+        imageData: printCanvas.toDataURL(),
+        width: cardWidth * 96,
+        height: cardHeight * 96
+      };
+      
+      tagsOnSheet.push(tagData);
+      renderPrintSheet();
+    }
+    
+    // Render all tags on the print sheet
+    function renderPrintSheet() {
+      const canvas = document.getElementById('print-sheet-canvas');
+      const ctx = canvas.getContext('2d');
+      const wrapper = document.getElementById('sheet-wrapper');
+      
+      // Clear and redraw background
+      initPrintSheet();
+      
+      // Remove all existing delete buttons
+      wrapper.querySelectorAll('.tag-delete-btn').forEach(btn => btn.remove());
+      
+      // Clear position tracking
+      tagPositions = [];
+      
+      // Define layout parameters (with margins)
+      const sheetWidth = 816; // 8.5" at 96 DPI
+      const sheetHeight = 1056; // 11" at 96 DPI
+      const margin = 48; // 0.5" margin
+      const padding = 12; // Space between tags
+      
+      let currentX = margin;
+      let currentY = margin;
+      let rowHeight = 0;
+      let tagsRendered = 0;
+      
+      tagsOnSheet.forEach((tag, index) => {
+        const img = new Image();
+        img.onload = function() {
+          // Check if tag fits in current row
+          if (currentX + tag.width > sheetWidth - margin && currentX > margin) {
+            // Move to next row
+            currentX = margin;
+            currentY += rowHeight + padding;
+            rowHeight = 0;
+          }
+          
+          // Check if tag fits on page
+          if (currentY + tag.height <= sheetHeight - margin) {
+            ctx.drawImage(img, currentX, currentY, tag.width, tag.height);
+            
+            // Store position for this tag
+            const position = {
+              x: currentX,
+              y: currentY,
+              width: tag.width,
+              height: tag.height,
+              index: index
+            };
+            tagPositions.push(position);
+            
+            // Create delete button for this tag
+            createDeleteButton(position, wrapper, canvas);
+            
+            // Update position for next tag
+            currentX += tag.width + padding;
+            rowHeight = Math.max(rowHeight, tag.height);
+            tagsRendered++;
+          } else {
+            // Page is full - could add notification here
+            console.log('Sheet is full - cannot add more tags');
+          }
+        };
+        img.src = tag.imageData;
+      });
+    }
+    
+    // Create a delete button for a tag
+    function createDeleteButton(position, wrapper, canvas) {
+      const deleteBtn = document.createElement('button');
+      deleteBtn.className = 'tag-delete-btn';
+      deleteBtn.innerHTML = '×';
+      deleteBtn.title = 'Remove this tag';
+      
+      // Calculate button position (top-right corner of tag)
+      // Account for canvas scaling in display
+      const canvasDisplayRect = canvas.getBoundingClientRect();
+      const canvasActualWidth = canvas.width;
+      const canvasActualHeight = canvas.height;
+      const scale = canvasDisplayRect.width / canvasActualWidth;
+      
+      const btnX = (position.x + position.width - 12) * scale;
+      const btnY = (position.y - 12) * scale;
+      
+      deleteBtn.style.left = btnX + 'px';
+      deleteBtn.style.top = btnY + 'px';
+      
+      deleteBtn.onclick = function() {
+        removeTagFromSheet(position.index);
+      };
+      
+      wrapper.appendChild(deleteBtn);
+    }
+    
+    // Remove a specific tag from the sheet
+    function removeTagFromSheet(index) {
+      if (index >= 0 && index < tagsOnSheet.length) {
+        tagsOnSheet.splice(index, 1);
+        renderPrintSheet();
+      }
+    }
+    
+    // Print the sheet
+    function printSheet() {
+      if (tagsOnSheet.length === 0) {
+        alert('Please add at least one tag to the sheet before printing.');
+        return;
+      }
+      
+      const canvas = document.getElementById('print-sheet-canvas');
+      const printWindow = window.open('', '_blank');
+      
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Print Tags - ArchiveSense</title>
+          <style>
+            @page {
+              size: letter;
+              margin: 0;
+            }
+            body {
+              margin: 0;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            img {
+              width: 8.5in;
+              height: 11in;
+              display: block;
+            }
+            @media print {
+              body {
+                margin: 0;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <img src="${canvas.toDataURL()}" />
+        </body>
+        </html>
+      `);
+      
+      printWindow.document.close();
+      printWindow.focus();
+      
+      // Wait for image to load before printing
+      setTimeout(() => {
+        printWindow.print();
+      }, 250);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updatePreview();
+      initPrintSheet();
+    });
+  </script>
+
+  <footer>
+    &copy; 2025 ArchiveSense. All rights reserved.<br>
+    <a href="/">Home</a> · <a href="/articles">Articles</a> · <a href="/preservation-calculator.html">Safe Storage Calculator</a> · <a href="/tag_generator.html">Tag Generator</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a>
+  </footer>
+</body>
+</html>

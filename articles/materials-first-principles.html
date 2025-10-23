@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Physics & Chemistry of Safer Storage for Collectibles | ArchiveSense</title>
+  <meta name="description" content="A first-principles guide to selecting papers, plastics, foams, furniture, and sorbents for safe collectible storage—grounded in reaction chemistry, humidity physics, and pollutant control." />
+  <meta name="author" content="ArchiveSense" />
+  <link rel="canonical" href="https://archivesense.com/articles/materials-first-principles" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Physics & Chemistry of Safer Storage for Collectibles" />
+  <meta property="og:description" content="Why archival rules work: a first-principles guide linking reaction kinetics, humidity, pollutants, and materials science to practical choices." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://archivesense.com/articles/materials-first-principles" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4G8EHH040J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4G8EHH040J');
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sw5s6gwxlx");
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #fff;
+      color: #000;
+      padding: .5rem .75rem;
+      z-index: 1000;
+      border-radius: 6px;
+      transition: top .2s;
+    }
+    .skip-link:focus { top: 10px; }
+
+    .article-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .intro {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.25rem 1rem;
+      margin: 1.5rem 0 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    }
+    .intro p { margin: .8rem 0; }
+    .intro .small { color: var(--secondary-text); font-size: .95rem; }
+
+    .toc {
+      background: var(--secondary-bg);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.25rem;
+      margin: 1.25rem 0 2rem;
+      border-left: 4px solid var(--accent-color);
+    }
+    .toc strong { display: block; margin-bottom: .4rem; }
+    .toc a { color: var(--accent-color); text-decoration: none; margin-right: .5rem; }
+    .toc a:hover { text-decoration: underline; }
+
+    article h2 {
+      margin-top: 2.3rem;
+      font-size: 1.7rem;
+      line-height: 1.3;
+      color: var(--primary-text);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: .45rem;
+    }
+
+    article h3 { margin-top: 1.7rem; font-size: 1.2rem; color: var(--secondary-text); }
+    article p  { margin: 1rem 0; }
+    article li { margin: .45rem 0; }
+
+    .callout {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+      margin: 1.2rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .callout strong { color: var(--accent-color); }
+
+    .image-container { margin: 1.3rem 0 1rem; text-align: center; }
+    .article-image {
+      max-width: 100%; height: auto; border-radius: var(--radius);
+      box-shadow: 0 4px 8px rgba(0,0,0,.06);
+      background: #fff;
+    }
+    .image-caption {
+      font-size: .92rem; color: var(--secondary-text); font-style: italic;
+      margin: .5rem auto 0; max-width: 600px;
+    }
+
+    .materials-comparison {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.4rem 0;
+    }
+    .materials-comparison h4 { margin: 0 0 .7rem; color: var(--accent-color); }
+    .safe-materials, .unsafe-materials { padding: 1rem; border-radius: var(--radius); }
+    .safe-materials   { background: #f0f8f0; border-left: 4px solid #4caf50; }
+    .unsafe-materials { background: #fff5f5; border-left: 4px solid #f44336; }
+    .materials-comparison ul { margin: 0; padding-left: 1.3rem; }
+
+    .rule { height: 1px; background: var(--border-color); border: 0; margin: 2rem 0; }
+
+    .spec-table {
+      width: 100%; border-collapse: collapse; margin: 1.2rem 0;
+      background: #fff; border-radius: var(--radius); overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,.05);
+    }
+    .spec-table th, .spec-table td { border: 1px solid var(--border-color); padding: .9rem; vertical-align: top; text-align: left; }
+    .spec-table th { background: var(--secondary-bg); font-weight: 700; }
+    .spec-table tr:nth-child(even) td { background: #fafafa; }
+
+    .article-footer {
+      color: var(--secondary-text);
+      font-size: .95rem;
+      margin-top: 2.2rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .site-footer {
+      background: var(--primary-bg);
+      color: var(--secondary-text);
+      font-size: .95rem;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 768px) {
+      .article-content { padding: 0 1rem 1rem; }
+      .article-header .container, .article-nav .container { padding: 0 1rem; }
+      .article-header h1 { font-size: 1.85rem; }
+      .materials-comparison { grid-template-columns: 1fr; }
+      .spec-table { font-size: .95rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <img src="/ArchiveSense_logo_text_right.png" alt="ArchiveSense Logo" style="max-width: 300px;">
+  </header>
+
+  <nav class="nav">
+    <div class="container">
+      <a href="/">Home</a>
+      <a href="/articles">Articles</a>
+      <a href="/preservation-calculator.html">Safe Storage Calculator</a>
+      <a href="/tag_generator.html">Tag Generator</a>
+    </div>
+  </nav>
+
+  <p class="hero-text">A first-principles guide to confident material selection for papers, photographs, coins/metals, and mixed media collections.</p>
+
+  <main id="main" class="article-content">
+    <!-- Intro (added to address missing introduction) -->
+    <section class="intro" id="intro" aria-labelledby="intro-heading">
+      <h2 id="intro-heading" style="margin:0 0 .5rem;font-size:1.25rem;color:var(--accent-color);">Why this article exists</h2>
+      <p>
+        "Archival" isn't a label—it's an outcome. Objects age because molecules move, react, and transform:
+        acids migrate out of wood, humidity drives hydrolysis in paper and gelatin, and nanometer-thin water films let metals corrode.
+        If you understand those forces, you can design storage that <em>prevents</em> damage rather than reacts to it.
+      </p>
+      <p>
+        What follows connects first principles—reaction kinetics, water activity, and pollutant generation—to practical material choices:
+        which papers, plastics, foams, and case materials behave inertly, and why barrier films, silica gel, and adsorbents work.
+        It's written so a hobbyist can act on it, and a designer can turn it into purchase specs and BOM notes.
+      </p>
+      <p class="small">Read straight through, or jump to a section below.</p>
+    </section>
+
+    <nav class="toc" aria-label="Table of contents">
+      <strong>On this page:</strong>
+      · <a href="#principles">First principles</a>
+      · <a href="#wood">Why wood & MDF cause trouble</a>
+      · <a href="#paper">Paper & board: lignin-free and buffering</a>
+      · <a href="#plastics">Plastics: PVC vs PET/PP/PE</a>
+      · <a href="#foam">Foams & padding</a>
+      · <a href="#adhesives">Adhesives & tapes</a>
+      · <a href="#microclimate">Microclimates & sorbents</a>
+      · <a href="#photos">Photographs</a>
+      · <a href="#metals">Metals & coins</a>
+      · <a href="#specs">Spec summary (buy/build)</a>
+      · <a href="#refs">References</a>
+    </nav>
+
+    <article>
+      <section id="principles" aria-labelledby="principles-h2">
+        <h2 id="principles-h2">Deterioration = Chemistry + Transport</h2>
+        <div class="image-container">
+          <img src="/images/deterioration-process.png" alt="Diagram showing how temperature, humidity, and pollutants interact to cause deterioration" class="article-image" loading="lazy" decoding="async">
+          <p class="image-caption">Three levers: temperature (energy), relative humidity (water), and pollutants (often emitted by storage materials).</p>
+        </div>
+        <p>
+          Most decay mechanisms are ordinary reactions—hydrolysis, oxidation, corrosion—that speed up with temperature and available reagents.
+          Relative humidity (RH) supplies water for cellulose hydrolysis and creates ultrathin electrolyte films metals need to corrode.
+          Volatile acids (especially acetic and formic) are generated by wood products and coatings; in closed boxes and cases they accumulate and become active reagents.
+        </p>
+        <div class="callout"><strong>Design insight:</strong> If room control is imperfect, engineer the <em>inside</em> of the container:
+          select inert materials (remove reactants), create a tight volume (limit transport), and add sorbents/conditioners (control headspace chemistry).
+        </div>
+      </section>
+
+      <section id="wood" aria-labelledby="wood-h2">
+        <h2 id="wood-h2">Why Wood & MDF Cause Trouble—and How Barriers Fix It</h2>
+        <div class="image-container">
+          <img src="/images/wood-acid-emission.png" alt="How wood releases acetic and formic acids that corrode metals and damage paper" class="article-image" loading="lazy" decoding="async">
+          <p class="image-caption">Wood emits volatile acids that accumulate in closed volumes, corroding metals and acidifying organics.</p>
+        </div>
+        <p>
+          Hardwood hemicelluloses carry acetyl groups that cleave over time, releasing <em>acetic acid</em>; lignin oxidation yields <em>formic acid</em>.
+          Emission rises with temperature and humidity. In confined spaces these acids corrode metals (lead and copper alloys are highly susceptible)
+          and acidify nearby paper and textiles. MDF and some plywoods can be as problematic as oak due to resin systems and wood chemistry.
+        </p>
+        <p>
+          Two fixes follow from the mechanism: use <strong>inert cabinetry</strong> (powder-coated steel) where possible,
+          or <strong>isolate wood</strong> with <strong>aluminum-laminate barrier films</strong> (e.g., Marvelseal®).
+          Metal foil provides orders-of-magnitude lower vapor transmission than polymer coatings, throttling acid diffusion into the enclosure.
+        </p>
+      </section>
+
+      <section id="paper" aria-labelledby="paper-h2">
+        <h2 id="paper-h2">Paper & Board: Why Lignin-Free and When to Buffer</h2>
+        <p>
+          "Acid-free" isn't marketing fluff: lignin and certain hemicelluloses are feedstocks for acids and color bodies.
+          Using <strong>lignin-free, alpha-cellulose or cotton rag</strong> boards removes that fuel. For most paper artifacts, a modest
+          <strong>alkaline reserve</strong> (e.g., 2–3% CaCO<sub>3</sub>) neutralizes acids as they form, slowing hydrolytic chain scission in cellulose.
+        </p>
+        <p>
+          Exceptions are chemically grounded. Some photographic processes (<em>gelatin silver, cyanotype, certain dyes</em>) are <strong>alkali-sensitive</strong>.
+          Choose <strong>unbuffered</strong> but chemically stable papers and require a <strong>Photographic Activity Test (PAT)</strong> pass for anything contacting images.
+          PAT screens enclosure–photo reactivity (yellowing, redox image change).
+        </p>
+      </section>
+
+      <section id="plastics" aria-labelledby="plastics-h2">
+        <h2 id="plastics-h2">Plastics: Why PVC Fails and PET/PP/PE Succeed</h2>
+        <div class="image-container">
+          <img src="/images/pvc-degradation.png" alt="PVC dehydrochlorination and plasticizer migration" class="article-image" loading="lazy" decoding="async">
+          <p class="image-caption">PVC releases HCl and plasticizers; PET/PP/PE avoid those mechanisms.</p>
+        </div>
+        <p>
+          Poly(vinyl chloride) degrades by <em>dehydrochlorination</em>, releasing HCl and forming conjugated polyenes; many PVC products also use mobile plasticizers (phthalates) that migrate.
+          Results: tacky films, greenish deposits on coins, and staining of adjacent paper/photos. The safer families—<strong>PET</strong>, <strong>PP</strong>, and <strong>PE</strong>—lack a chlorinated backbone and plasticizers.
+          For photographic materials, combine these with a <strong>PAT pass</strong>. For sleeves, envelopes, and pages, these three are museum defaults for a reason.
+        </p>
+
+        <div class="materials-comparison" aria-label="Materials comparison">
+          <div class="safe-materials">
+            <h4>✅ Safer defaults</h4>
+            <ul>
+              <li><strong>PET (polyester)</strong> — stable, no plasticizers</li>
+              <li><strong>PP (polypropylene)</strong> — chemically inert</li>
+              <li><strong>PE (polyethylene)</strong> — simple, low-additive</li>
+              <li><strong>Acid-free board</strong> — lignin-free, buffered (when appropriate)</li>
+              <li><strong>Powder-coated steel</strong> — no off-gassing</li>
+            </ul>
+          </div>
+          <div class="unsafe-materials">
+            <h4>❌ Use with caution / avoid</h4>
+            <ul>
+              <li><strong>PVC</strong> — HCl release, plasticizer migration</li>
+              <li><strong>Wood/MDF</strong> in sealed cases — acetic/formic acid emission</li>
+              <li><strong>Unspecified "cardboard"</strong> — often lignin-rich, acidic</li>
+              <li><strong>Natural rubber</strong> — oxidizes, off-gasses</li>
+              <li><strong>PSA tapes on artifacts</strong> — migration & staining</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="foam" aria-labelledby="foam-h2">
+        <h2 id="foam-h2">Foams & Padding: Stability by Polymer Backbone</h2>
+        <p>
+          Cross-linked <strong>polyethylene foams</strong> (Plastazote®, Ethafoam®, Volara®) are chemically simple, low-additive, and age well—ideal for mounts and drawer padding.
+          <strong>Polyurethane foams</strong> oxidize and depolymerize; they yellow, crumble, and can emit acidic/oxidative species. Fine for short-term cushioning, risky for long-term contact.
+        </p>
+      </section>
+
+      <section id="adhesives" aria-labelledby="adhesives-h2">
+        <h2 id="adhesives-h2">Adhesives & Tapes: Why "Don't Stick It" Is Good Engineering</h2>
+        <p>
+          Pressure-sensitive adhesives are low-molecular-weight polymers and tackifiers. Over time they <em>cold-flow</em>, oxidize, and <em>migrate</em> into porous papers,
+          leaving brown stains that are hard to reverse. Keep PSAs <em>off the artifact</em>. Use stable acrylic PSAs only for <em>enclosure construction</em> (edge-bonding sleeves, box assembly).
+          For paper mounting, use reversible aqueous adhesives (e.g., starch paste) on hinges rather than the image surface.
+        </p>
+      </section>
+
+      <section id="microclimate" aria-labelledby="microclimate-h2">
+        <h2 id="microclimate-h2">Microclimates & Sorbents: Controlling the Inside of the Box</h2>
+        <div class="image-container">
+          <img src="/images/microclimate-control.png" alt="Silica gel and sorbents managing humidity and pollutants in a sealed container" class="article-image" loading="lazy" decoding="async">
+          <p class="image-caption">Conditioned silica gel sets RH; activated carbon/zeolite capture acids in tight enclosures.</p>
+        </div>
+        <p>
+          In a tight enclosure, you can set humidity and scrub pollutants. <strong>Silica gel</strong> works by adsorption:
+          pre-condition to a target RH and right-size for volume/leakage and it will buffer the headspace for months.
+        </p>
+        <p>
+          For pollutants, <strong>activated carbon</strong> is broadly effective for organic vapors (including acetic/formic acids);
+          <strong>zeolites</strong> and <strong>activated alumina</strong> also perform well for acids in many case studies.
+          Tighter cases and larger adsorbent capacity improve outcomes.
+        </p>
+      </section>
+
+      <section id="photos" aria-labelledby="photos-h2">
+        <h2 id="photos-h2">Photographs: Composite Materials, Targeted Safeguards</h2>
+        <p>
+          Photographs combine an image substance (silver or dyes) in a binder (often gelatin) on a support. Image layers are vulnerable to redox chemistry and binder interactions.
+          That's what <strong>PAT</strong> screens: enclosure–photo reactions that cause image change or staining. Use <strong>PAT-passed PET/PP/PE</strong> for sleeves and neutral, unbuffered papers for image contact—
+          especially for alkali-sensitive processes like cyanotypes.
+        </p>
+      </section>
+
+      <section id="metals" aria-labelledby="metals-h2">
+        <h2 id="metals-h2">Metals & Coins: Starve the Electrochemistry</h2>
+        <p>
+          Corrosion is electrochemistry that needs an electrolyte (water) and a reactant (often an acid). Starve it by keeping RH low and removing or blocking acid sources.
+          That means no PVC, avoiding unsealed wood in closed drawers, and—if wood must remain—wrapping interior surfaces in aluminum-laminate barrier film and adding acid-adsorbing sachets.
+          Lead in particular demands clean air; acetic/formic atmospheres are corrosive even at modest RH.
+        </p>
+      </section>
+
+      <div class="rule" role="presentation"></div>
+
+      <section id="specs" aria-labelledby="specs-h2">
+        <h2 id="specs-h2">From Principles to Specs (Buy/Build Checklist)</h2>
+        <table class="spec-table" aria-label="Specification summary">
+          <thead>
+            <tr><th>Use case</th><th>Preferred materials</th><th>Notes grounded in the "why"</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Papers, maps, documents</td>
+              <td>Lignin-free, alpha-cellulose folders/boards; buffered (2–3% CaCO<sub>3</sub>)</td>
+              <td>Removes acid feedstock (lignin) and neutralizes new acids; slows hydrolysis.</td>
+            </tr>
+            <tr>
+              <td>Photographs (all types)</td>
+              <td>PAT-passed PET/PP/PE sleeves; neutral, unbuffered interleaves</td>
+              <td>Avoids alkali-sensitive reactions; PAT screens enclosure–photo chemistry.</td>
+            </tr>
+            <tr>
+              <td>Coins and medals</td>
+              <td>Inert capsules or non-PVC flips; low RH; no exposed wood in sealed drawers</td>
+              <td>Prevents HCl/plasticizer attack and acid headspace that drives corrosion.</td>
+            </tr>
+            <tr>
+              <td>Cases, drawers, furniture</td>
+              <td>Powder-coated steel; if wood, aluminum-laminate barrier film</td>
+              <td>Eliminates or blocks acetic/formic acid emission into the case volume.</td>
+            </tr>
+            <tr>
+              <td>Padding & mounts</td>
+              <td>Cross-linked PE foams (Plastazote®, Ethafoam®)</td>
+              <td>Stable polyolefin backbone; low off-gassing vs. degrading polyurethane foams.</td>
+            </tr>
+            <tr>
+              <td>Headspace control</td>
+              <td>Conditioned silica gel; activated carbon / zeolite sachets</td>
+              <td>Sets RH and adsorbs acids; performance improves with tight enclosures.</td>
+            </tr>
+            <tr>
+              <td>Adhesion</td>
+              <td>No PS tapes on artifacts; reversible starch paste hinges where applicable</td>
+              <td>Prevents adhesive migration and staining; keeps reversibility.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="small">For anything touching photos, log the supplier's explicit "PAT-passed" statement and the polymer family. For boards, capture pH, lignin-free status, and buffer % in your BOM.</p>
+      </section>
+
+      <div class="rule" role="presentation"></div>
+
+      <section id="examples" aria-labelledby="examples-h2">
+        <h2 id="examples-h2">Three Short Scenarios</h2>
+        <h3>Oak coin drawer → stable microclimate</h3>
+        <p>Replace PVC flips with inert capsules; line the drawer with aluminum-laminate barrier film; add activated carbon and silica gel conditioned to ~35–40% RH. You've removed acid sources, blocked diffusion, and starved corrosion of water.</p>
+
+        <h3>Family photo box in a closet</h3>
+        <p>Move prints into PAT-passed PET/PP/PE sleeves; avoid glassine; add a small tray of pre-conditioned silica gel. You've eliminated reactive enclosures and stabilized RH where it matters—the headspace around the photos.</p>
+
+        <h3>Small bronze in a display case</h3>
+        <p>Wrap interior wood with barrier film; size silica gel for volume and target RH; include acid sorbents; Oddy-test foams/paints before installation. You've reduced emission, stabilized moisture, and screened materials before they reach the object.</p>
+      </section>
+
+      <div class="rule" role="presentation"></div>
+
+      <section id="refs" aria-labelledby="refs-h2">
+        <h2 id="refs-h2">References & Further Reading</h2>
+        <ul>
+          <li>Image Permanence Institute (IPI): <a href="https://www.imagepermanenceinstitute.org/" target="_blank" rel="noopener">Preservation metrics & resources</a> (temperature/RH & expected lifetime).</li>
+          <li>Canadian Conservation Institute (CCI): <a href="https://www.canada.ca/en/conservation-institute/services/agents-deterioration/humidity.html" target="_blank" rel="noopener">Agents of Deterioration – Incorrect relative humidity</a>; guidance on metals and pollutant effects.</li>
+          <li>Library of Congress: <a href="https://www.loc.gov/preservation/care/" target="_blank" rel="noopener">Care, Handling, and Storage</a> (papers, photographs, plastics, enclosures).</li>
+          <li>Northeast Document Conservation Center (NEDCC): <a href="https://www.nedcc.org/free-resources/preservation-leaflets" target="_blank" rel="noopener">Preservation Leaflets</a> (enclosures, photo storage, buffering guidance).</li>
+          <li>ISO 18916 / Photographic Activity Test (PAT): see IPI overview and supplier certifications; use PAT as a contact-safety screen for photo enclosures.</li>
+          <li>Conservation practice on exhibit cases: barrier films (e.g., Marvelseal®) and Oddy testing—see AIC Wiki <a href="https://www.conservation-wiki.com/wiki/Oddy_Test" target="_blank" rel="noopener">Oddy Test</a> and British Museum resources.</li>
+          <li>PVC degradation & risk to collections: museum and numismatic guidance (e.g., NGC/PCGS) explaining dehydrochlorination, HCl release, and plasticizer migration.</li>
+          <li>Foams in conservation: CCI/NPS technical notes on polyethylene vs. polyurethane foams for supports and storage.</li>
+          <li>Microclimates & sorbents: NPS/CCI guidance on sizing/conditioning silica gel; literature on activated carbon/zeolite for acetic/formic acid removal.</li>
+        </ul>
+        <p class="small">These sources align the "rules of thumb" with the mechanisms described above.</p>
+      </section>
+    </article>
+
+    <div class="article-footer">
+      <p>Last updated: <time datetime="2025-10-07">October 7, 2025</time></p>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>© ArchiveSense. You may quote small portions of this article with attribution and a link back to this page.</p>
+    <p><a href="/">Home</a> · <a href="/articles">Articles</a> · <a href="/preservation-calculator.html">Safe Storage Calculator</a> · <a href="/tag_generator.html">Tag Generator</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></p>
+  </footer>
+</body>
+</html>
