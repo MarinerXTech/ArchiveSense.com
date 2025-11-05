@@ -566,6 +566,291 @@
       pointer-events: none;
       z-index: 0;
     }
+
+    /* Collapsible Step Sections */
+    .step-section {
+      margin-bottom: 16px;
+      border: 1px solid rgba(75, 85, 99, 0.5);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(15, 23, 42, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .step-section.active {
+      border-color: rgba(79, 209, 197, 0.5);
+      background: rgba(15, 23, 42, 0.6);
+      box-shadow: 0 0 20px rgba(79, 209, 197, 0.1);
+    }
+
+    .step-section.completed {
+      border-color: rgba(34, 197, 94, 0.4);
+    }
+
+    .step-header {
+      padding: 14px 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.3);
+      transition: background 0.2s;
+      user-select: none;
+    }
+
+    .step-header:hover {
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    .step-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(75, 85, 99, 0.5);
+      border: 2px solid rgba(107, 114, 128, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: #9ca3af;
+      transition: all 0.3s;
+    }
+
+    .step-section.active .step-number {
+      background: rgba(79, 209, 197, 0.2);
+      border-color: #4fd1c5;
+      color: #4fd1c5;
+    }
+
+    .step-section.completed .step-number {
+      background: rgba(34, 197, 94, 0.2);
+      border-color: #22c55e;
+      color: #22c55e;
+    }
+
+    .step-section.completed .step-number::before {
+      content: "✓";
+    }
+
+    .step-section.completed .step-number span {
+      display: none;
+    }
+
+    .step-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .step-subtitle {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .step-chevron {
+      font-size: 18px;
+      color: #6b7280;
+      transition: transform 0.3s;
+    }
+
+    .step-section.active .step-chevron {
+      transform: rotate(90deg);
+      color: #4fd1c5;
+    }
+
+    .step-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+      padding: 0 18px;
+    }
+
+    .step-section.active .step-content {
+      max-height: 2000px;
+      padding: 18px;
+      padding-top: 10px;
+    }
+
+    .step-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(55, 65, 81, 0.4);
+    }
+
+    /* Modal / Pop-up Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-box {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+      border: 2px solid rgba(79, 209, 197, 0.4);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 520px;
+      width: 90%;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      transform: scale(0.9);
+      transition: transform 0.3s;
+    }
+
+    .modal-overlay.show .modal-box {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .modal-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #4fd1c5 0%, #22d3ee 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .modal-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #e5e7eb;
+      margin-bottom: 8px;
+    }
+
+    .modal-step-label {
+      font-size: 12px;
+      color: #4fd1c5;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-body {
+      color: #d1d5db;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .modal-body ul {
+      margin: 12px 0;
+      padding-left: 20px;
+    }
+
+    .modal-body li {
+      margin: 8px 0;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .btn-modal {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-modal-primary {
+      background: linear-gradient(135deg, #4fd1c5 0%, #22d3ee 100%);
+      color: #020617;
+    }
+
+    .btn-modal-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(79, 209, 197, 0.4);
+    }
+
+    .btn-modal-secondary {
+      background: rgba(75, 85, 99, 0.3);
+      color: #e5e7eb;
+      border: 1px solid rgba(107, 114, 128, 0.5);
+    }
+
+    .btn-modal-secondary:hover {
+      background: rgba(75, 85, 99, 0.5);
+    }
+
+    /* Hide original separators in step sections */
+    .step-content .h-separator {
+      display: none;
+    }
+
+    /* Adjust button styles for steps */
+    .btn-next-step {
+      background: linear-gradient(135deg, #4fd1c5 0%, #22d3ee 100%);
+      color: #020617;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-next-step:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(79, 209, 197, 0.4);
+    }
+
+    .btn-prev-step {
+      background: rgba(75, 85, 99, 0.3);
+      color: #e5e7eb;
+      border: 1px solid rgba(107, 114, 128, 0.5);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-prev-step:hover {
+      background: rgba(75, 85, 99, 0.5);
+    }
   </style>
 </head>
 <body>
@@ -577,17 +862,17 @@
         </div>
         <div>
           <div class="brand-text-main">Precision Test Studio</div>
-          <div class="brand-text-sub">Send-Cut-Send for space-grade testing – concept demo</div>
+          <div class="brand-text-sub">Send-Cut-Send for space-grade testing services – concept demo</div>
         </div>
       </div>
     </header>
 
     <section style="margin-bottom: 14px;">
-      <div class="hero-tagline">Interactive Quoting · Schematic-Aware · MBSE-Ready Outputs</div>
-      <h1 class="hero-heading">Configure a test like you’d configure a part.</h1>
+      <div class="hero-tagline">Interactive Quoting · Preview Test Plan and Report</div>
+      <h1 class="hero-heading">Configure your test.</h1>
       <p class="hero-sub">
-        This demo shows how an engineer could define a test article, pick a test, and see quote, schematic,
-        and report preview update instantly – before anything ships to the lab.
+        This demo shows how a customer could define their test article, select a test, and see the quote, schematic,
+        and report preview update instantly in real-time.
       </p>
     </section>
 
@@ -596,215 +881,265 @@
       <section class="panel">
         <div class="faint-grid-overlay"></div>
         <div class="panel-inner">
-          <div class="section-label">Interactive Demo · No backend required</div>
+          <div class="section-label">Interactive Demo · Guided Walkthrough</div>
           <div class="section-title-row">
-            <h2>1–3. Article, test & parameters</h2>
+            <h2>Configure Your Test — Step by Step</h2>
             <div class="step-pill">
-              <span>1</span>
-              Walkthrough
+              <span>→</span>
+              3 Steps
             </div>
           </div>
 
-          <!-- Step hints -->
-          <div class="pill-row">
-            <div class="pill">
-              <div class="pill-dot"></div>
-              1. Article & shipping
+          <p style="color: #9ca3af; font-size: 13px; margin: 12px 0 20px 0;">
+          </p>
+
+          <!-- STEP 1: Test Selection (formerly step 2) -->
+          <div class="step-section active" id="step1">
+            <div class="step-header" onclick="toggleStep(1)">
+              <div class="step-header-left">
+                <div class="step-number"><span>1</span></div>
+                <div>
+                  <div class="step-title">Test Selection</div>
+                  <div class="step-subtitle">Choose the type of test you need</div>
+                </div>
+              </div>
+              <div class="step-chevron">▶</div>
             </div>
-            <div class="pill">
-              <div class="pill-dot"></div>
-              2. Test selection
-            </div>
-            <div class="pill">
-              <div class="pill-dot"></div>
-              3. Parameters & cycles
+            <div class="step-content">
+              <div class="form-grid">
+                <div class="form-row-full">
+                  <label>
+                    Test type
+                    <span class="tooltip">
+                      ?
+                      <span class="tooltip-bubble">
+                        For the demo: Leak test, Flow characterization, or Thermal-vac soak.
+                        In a real deployment you'd add EMC, vibration, functional tests, and custom campaigns.
+                      </span>
+                    </span>
+                  </label>
+                  <select id="testType">
+                    <option value="">Select a test…</option>
+                    <option value="leak">Pressure decay leak test</option>
+                    <option value="flow">Flow vs. ΔP characterization</option>
+                    <option value="thermal">Thermal-vac soak / cycling</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="step-actions">
+                <button class="btn-next-step" onclick="nextStep(1)">
+                  Continue to Parameters
+                  <span>→</span>
+                </button>
+              </div>
             </div>
           </div>
 
-          <hr class="h-separator" />
+          <!-- STEP 2: Test Parameters (formerly step 3) -->
+          <div class="step-section" id="step2">
+            <div class="step-header" onclick="toggleStep(2)">
+              <div class="step-header-left">
+                <div class="step-number"><span>2</span></div>
+                <div>
+                  <div class="step-title">Test Parameters & Cycles</div>
+                  <div class="step-subtitle">Define test conditions and requirements</div>
+                </div>
+              </div>
+              <div class="step-chevron">▶</div>
+            </div>
+            <div class="step-content">
+              <div class="form-grid">
+                <div>
+                  <label>
+                    Fluid / medium
+                  </label>
+                  <select id="medium">
+                    <option value="">Select…</option>
+                    <option value="nitrogen">N₂ (gaseous nitrogen)</option>
+                    <option value="air">Dry air</option>
+                    <option value="water">Water (for flow/pressure)</option>
+                    <option value="other">Other / custom</option>
+                  </select>
+                </div>
 
-          <!-- 1. Article & shipping -->
-          <div class="form-grid">
-            <div class="form-row-full">
-              <label>
-                Shipping address (for label)
-                <span class="tooltip">
-                  ?
-                  <span class="tooltip-bubble">
-                    In the real service, this would feed the carrier API to generate a pre-paid,
-                    test-RMA-tagged shipping label to your lab.
-                  </span>
-                </span>
-              </label>
-              <textarea id="address" placeholder="e.g. ACME Space Systems, 110 Orbit Way, Suite 300, Denver, CO 80211"></textarea>
-            </div>
+                <div>
+                  <label>
+                    Sample rate [Hz]
+                    <span class="tooltip">
+                      ?
+                      <span class="tooltip-bubble">
+                        Higher sample rates increase data volume and analysis time, but capture more transient behavior.
+                      </span>
+                    </span>
+                  </label>
+                  <input id="sampleRate" type="number" min="1" step="1" placeholder="10" />
+                </div>
 
-            <div>
-              <label>
-                Article length [cm]
-                <span class="tooltip">
-                  ?
-                  <span class="tooltip-bubble">
-                    Used to estimate fixturing envelope, chamber fit, and handling complexity.
-                  </span>
-                </span>
-              </label>
-              <input id="len" type="number" min="0" step="0.1" placeholder="25.0" />
-            </div>
-            <div>
-              <label>
-                Width [cm]
-              </label>
-              <input id="wid" type="number" min="0" step="0.1" placeholder="12.5" />
-            </div>
-            <div>
-              <label>
-                Height [cm]
-              </label>
-              <input id="ht" type="number" min="0" step="0.1" placeholder="10.0" />
-            </div>
-            <div>
-              <label>
-                Mass [kg]
-                <span class="tooltip">
-                  ?
-                  <span class="tooltip-bubble">
-                    Influences handling time, safety requirements, and in some test regimes, thermal inertia.
-                  </span>
-                </span>
-              </label>
-              <input id="mass" type="number" min="0" step="0.1" placeholder="3.2" />
-            </div>
+                <div>
+                  <label>
+                    Max pressure [psig]
+                  </label>
+                  <input id="maxPressure" type="number" min="0" step="1" placeholder="150" />
+                </div>
+                <div>
+                  <label>
+                    Dwell per cycle [min]
+                  </label>
+                  <input id="dwell" type="number" min="0" step="0.1" placeholder="10" />
+                </div>
+                <div>
+                  <label>
+                    Cycles
+                    <span class="tooltip">
+                      ?
+                      <span class="tooltip-bubble">
+                        For a simple leak test this might be 1–3 cycles; for thermal-vac or life testing it could be hundreds.
+                      </span>
+                    </span>
+                  </label>
+                  <input id="cycles" type="number" min="1" step="1" placeholder="3" />
+                </div>
+                <div>
+                  <label>
+                    Temp range [°C]
+                  </label>
+                  <input id="tempRange" type="text" placeholder="e.g. −40 to +60 (for thermal-vac)" />
+                </div>
 
-            <div class="form-row-full">
-              <label>
-                Port / fitting definition
-                <span class="tooltip">
-                  ?
-                  <span class="tooltip-bubble">
-                    How we connect: e.g. 1/4&quot; NPT female, Swagelok 6&nbsp;mm tube stub, custom quick-connect, etc.
-                    In production, this would drive adapter selection from a fixture library.
-                  </span>
-                </span>
-              </label>
-              <input id="fittings" type="text" placeholder='e.g. 2 × 1/4" NPT female on one end cap' />
+                <div class="form-row-full">
+                  <label>
+                    Standards / notes
+                  </label>
+                  <input id="standards" type="text" placeholder="e.g. NASA-STD-6016, ECSS-Q-ST-70-02, acceptance vs. qualification" />
+                </div>
+
+                <div class="form-row-full">
+                  <label>
+                    Requirements under test (IDs only)
+                    <span class="tooltip">
+                      ?
+                      <span class="tooltip-bubble">
+                        In production, these IDs map directly to your MBSE model. The exported verification packet
+                        would reference them so your system can auto-ingest pass/fail data.
+                      </span>
+                    </span>
+                  </label>
+                  <input id="reqIds" type="text" placeholder="REQ-LEAK-001; REQ-PRESSURE-010; REQ-THERMAL-005" />
+                </div>
+              </div>
+
+              <div class="step-actions">
+                <button class="btn-prev-step" onclick="prevStep(2)">
+                  ← Back
+                </button>
+                <button class="btn-next-step" onclick="nextStep(2)">
+                  Continue to Article Details
+                  <span>→</span>
+                </button>
+              </div>
             </div>
           </div>
 
-          <hr class="h-separator" />
-
-          <!-- 2. Test selection -->
-          <div class="form-grid">
-            <div class="form-row-full">
-              <label>
-                Test type
-                <span class="tooltip">
-                  ?
-                  <span class="tooltip-bubble">
-                    For the demo: Leak test, Flow characterization, or Thermal-vac soak.
-                    In a real deployment you’d add EMC, vibration, functional tests, and custom campaigns.
-                  </span>
-                </span>
-              </label>
-              <select id="testType">
-                <option value="">Select a test…</option>
-                <option value="leak">Pressure decay leak test</option>
-                <option value="flow">Flow vs. ΔP characterization</option>
-                <option value="thermal">Thermal-vac soak / cycling</option>
-              </select>
+          <!-- STEP 3: Article & Shipping (formerly step 1) -->
+          <div class="step-section" id="step3">
+            <div class="step-header" onclick="toggleStep(3)">
+              <div class="step-header-left">
+                <div class="step-number"><span>3</span></div>
+                <div>
+                  <div class="step-title">Test Article & Shipping</div>
+                  <div class="step-subtitle">Physical specs and shipping details</div>
+                </div>
+              </div>
+              <div class="step-chevron">▶</div>
             </div>
+            <div class="step-content">
+              <div class="form-grid">
+                <div>
+                  <label>
+                    Article length [cm]
+                    <span class="tooltip">
+                      ?
+                      <span class="tooltip-bubble">
+                        Used to estimate fixturing envelope, chamber fit, and handling complexity.
+                      </span>
+                    </span>
+                  </label>
+                  <input id="len" type="number" min="0" step="0.1" placeholder="25.0" />
+                </div>
+                <div>
+                  <label>
+                    Width [cm]
+                  </label>
+                  <input id="wid" type="number" min="0" step="0.1" placeholder="12.5" />
+                </div>
+                <div>
+                  <label>
+                    Height [cm]
+                  </label>
+                  <input id="ht" type="number" min="0" step="0.1" placeholder="10.0" />
+                </div>
+                <div>
+                  <label>
+                    Mass [kg]
+                    <span class="tooltip">
+                      ?
+                      <span class="tooltip-bubble">
+                        Influences handling time, safety requirements, and in some test regimes, thermal inertia.
+                      </span>
+                    </span>
+                  </label>
+                  <input id="mass" type="number" min="0" step="0.1" placeholder="3.2" />
+                </div>
 
-            <div>
-              <label>
-                Fluid / medium
-              </label>
-              <select id="medium">
-                <option value="">Select…</option>
-                <option value="nitrogen">N₂ (gaseous nitrogen)</option>
-                <option value="air">Dry air</option>
-                <option value="water">Water (for flow/pressure)</option>
-                <option value="other">Other / custom</option>
-              </select>
-            </div>
+                <div class="form-row-full">
+                  <label>
+                    Port / fitting definition
+                    <span class="tooltip">
+                      ?
+                      <span class="tooltip-bubble">
+                        How we connect: e.g. 1/4&quot; NPT female, Swagelok 6&nbsp;mm tube stub, custom quick-connect, etc.
+                        In production, this would drive adapter selection from a fixture library.
+                      </span>
+                    </span>
+                  </label>
+                  <input id="fittings" type="text" placeholder='e.g. 2 × 1/4" NPT female on one end cap' />
+                </div>
 
-            <div>
-              <label>
-                Sample rate [Hz]
-                <span class="tooltip">
-                  ?
-                  <span class="tooltip-bubble">
-                    Higher sample rates increase data volume and analysis time, but capture more transient behavior.
-                  </span>
-                </span>
-              </label>
-              <input id="sampleRate" type="number" min="1" step="1" placeholder="10" />
-            </div>
+                <div class="form-row-full">
+                  <label>
+                    Shipping address (for label)
+                    <span class="tooltip">
+                      ?
+                      <span class="tooltip-bubble">
+                        In the real service, this would feed the carrier API to generate a pre-paid,
+                        test-RMA-tagged shipping label to your lab.
+                      </span>
+                    </span>
+                  </label>
+                  <textarea id="address" placeholder="e.g. ACME Space Systems, 110 Orbit Way, Suite 300, Denver, CO 80211"></textarea>
+                </div>
+              </div>
 
-            <div class="form-row-full">
-              <label>
-                Standards / notes
-              </label>
-              <input id="standards" type="text" placeholder="e.g. NASA-STD-6016, ECSS-Q-ST-70-02, acceptance vs. qualification" />
+              <div class="step-actions">
+                <button class="btn-prev-step" onclick="prevStep(3)">
+                  ← Back
+                </button>
+                <button class="btn-next-step" onclick="completeSteps()">
+                  Complete Configuration
+                  <span>✓</span>
+                </button>
+              </div>
             </div>
           </div>
 
-          <hr class="h-separator" />
-
-          <!-- 3. Test parameters -->
-          <div class="form-grid">
-            <div>
-              <label>
-                Max pressure [psig]
-              </label>
-              <input id="maxPressure" type="number" min="0" step="1" placeholder="150" />
-            </div>
-            <div>
-              <label>
-                Dwell per cycle [min]
-              </label>
-              <input id="dwell" type="number" min="0" step="0.1" placeholder="10" />
-            </div>
-            <div>
-              <label>
-                Cycles
-                <span class="tooltip">
-                  ?
-                  <span class="tooltip-bubble">
-                    For a simple leak test this might be 1–3 cycles; for thermal-vac or life testing it could be hundreds.
-                  </span>
-                </span>
-              </label>
-              <input id="cycles" type="number" min="1" step="1" placeholder="3" />
-            </div>
-            <div>
-              <label>
-                Temp range [°C]
-              </label>
-              <input id="tempRange" type="text" placeholder="e.g. −40 to +60 (for thermal-vac)" />
-            </div>
-
-            <div class="form-row-full">
-              <label>
-                Requirements under test (IDs only)
-                <span class="tooltip">
-                  ?
-                  <span class="tooltip-bubble">
-                    In production, these IDs map directly to your MBSE model. The exported verification packet
-                    would reference them so your system can auto-ingest pass/fail data.
-                  </span>
-                </span>
-              </label>
-              <input id="reqIds" type="text" placeholder="REQ-LEAK-001; REQ-PRESSURE-010; REQ-THERMAL-005" />
-            </div>
-          </div>
-
-          <div class="cta-row">
+          <div class="cta-row" style="margin-top: 24px;">
             <button class="btn-primary" type="button" onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });">
-              <span class="icon">▶</span>
-              Scroll to quote & preview
+              <span class="icon">▼</span>
+              View Quote & Schematic
             </button>
-            <button class="btn-ghost" type="button">
-              <span>👁</span> Tooltips explain each field
+            <button class="btn-ghost" type="button" onclick="showModal(1)">
+              <span>?</span> Show Step 1 Help
             </button>
           </div>
           <div class="warning-note">
@@ -851,40 +1186,8 @@
           <div class="schematic-card">
             <div class="schematic-title">Test schematic – auto-generated concept</div>
             <div class="schematic-diagram">
-              <div>
-                <!-- Simple SVG block showing article + valves + instrumentation -->
-                <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                  <!-- article under test -->
-                  <rect x="70" y="32" width="80" height="50" rx="8" ry="8" fill="#0f172a" stroke="#4b5563" stroke-width="2" />
-                  <text x="110" y="58" text-anchor="middle" fill="#e5e7eb" font-size="10" id="svgArticleLabel">
-                    Test article
-                  </text>
-                  <text x="110" y="72" text-anchor="middle" fill="#9ca3af" font-size="9" id="svgArticleSize">
-                    — cm³ · — kg
-                  </text>
-
-                  <!-- supply line -->
-                  <line x1="15" y1="57" x2="70" y2="57" stroke="#4fd1c5" stroke-width="2.5" stroke-dasharray="4 3" />
-                  <!-- valve symbol -->
-                  <line x1="35" y1="45" x2="50" y2="69" stroke="#4fd1c5" stroke-width="2" />
-                  <line x1="50" y1="45" x2="35" y2="69" stroke="#4fd1c5" stroke-width="2" />
-
-                  <!-- sensor branch -->
-                  <line x1="110" y1="32" x2="110" y2="15" stroke="#22d3ee" stroke-width="2" stroke-dasharray="3 2" />
-                  <circle cx="110" cy="12" r="6" fill="#020617" stroke="#22d3ee" stroke-width="1.6" />
-                  <text x="110" y="11.5" text-anchor="middle" fill="#e5e7eb" font-size="7">P</text>
-
-                  <!-- exhaust line -->
-                  <line x1="150" y1="57" x2="205" y2="57" stroke="#6b7280" stroke-width="2" stroke-dasharray="4 3" />
-                  <circle cx="205" cy="57" r="4.5" fill="#020617" stroke="#6b7280" stroke-width="2" />
-
-                  <!-- labels -->
-                  <text x="20" y="30" fill="#9ca3af" font-size="8">Supply</text>
-                  <text x="205" y="30" text-anchor="middle" fill="#9ca3af" font-size="8">Vent</text>
-                  <text x="110" y="100" text-anchor="middle" fill="#9ca3af" font-size="9" id="svgParamSummary">
-                    Max — psig · — cycles · — min dwell
-                  </text>
-                </svg>
+              <div id="schematicContainer">
+                <!-- SVG will be dynamically generated based on test type -->
               </div>
               <div class="schematic-legend">
                 <p id="schematicHeadline">
@@ -969,9 +1272,7 @@
     const metaMedium = document.getElementById("metaMedium");
     const metaMass = document.getElementById("metaMass");
 
-    const svgArticleLabel = document.getElementById("svgArticleLabel");
-    const svgArticleSize = document.getElementById("svgArticleSize");
-    const svgParamSummary = document.getElementById("svgParamSummary");
+    const schematicContainer = document.getElementById("schematicContainer");
 
     const schematicHeadline = document.getElementById("schematicHeadline");
     const schematicTestType = document.getElementById("schematicTestType");
@@ -1000,6 +1301,132 @@
       return "None selected";
     }
 
+    function generatePressureDecaySchematic(params) {
+      const { volumeText, massText, maxPText, cyclesText, dwellText, fittings } = params;
+      
+      return `
+        <svg viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg" style="background: #020617;">
+          <!-- Grid background (subtle) -->
+          <defs>
+            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1f2937" stroke-width="0.5" opacity="0.3"/>
+            </pattern>
+          </defs>
+          <rect width="520" height="160" fill="url(#grid)"/>
+          
+          <!-- Compressed Air Supply box -->
+          <rect x="10" y="50" width="60" height="40" rx="3" fill="#0f172a" stroke="#4b5563" stroke-width="1.5"/>
+          <text x="40" y="65" text-anchor="middle" fill="#e5e7eb" font-size="8" font-weight="600">Compressed</text>
+          <text x="40" y="75" text-anchor="middle" fill="#e5e7eb" font-size="8" font-weight="600">Air Supply</text>
+          
+          <!-- Forward Air Regulator -->
+          <line x1="70" y1="70" x2="95" y2="70" stroke="#4fd1c5" stroke-width="2"/>
+          <polygon points="95,70 105,62 105,78" fill="none" stroke="#4fd1c5" stroke-width="2"/>
+          <line x1="105" y1="70" x2="115" y2="70" stroke="#4fd1c5" stroke-width="2"/>
+          <line x1="100" y1="55" x2="100" y2="62" stroke="#9ca3af" stroke-width="1.5"/>
+          <polygon points="95,55 100,48 105,55" fill="#9ca3af" stroke="none"/>
+          <text x="100" y="43" text-anchor="middle" fill="#9ca3af" font-size="7">Forward Air</text>
+          <text x="100" y="51" text-anchor="middle" fill="#9ca3af" font-size="7">Regulator</text>
+          
+          <!-- Relief Valve (spring-loaded) -->
+          <line x1="155" y1="70" x2="155" y2="50" stroke="#22d3ee" stroke-width="1.5"/>
+          <!-- Spring symbol -->
+          <path d="M 155 50 L 158 47 L 152 44 L 158 41 L 152 38 L 155 35" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+          <!-- Valve body -->
+          <circle cx="155" cy="30" r="5" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5"/>
+          <line x1="150" y1="26" x2="160" y2="26" stroke="#22d3ee" stroke-width="2"/>
+          <text x="155" y="20" text-anchor="middle" fill="#9ca3af" font-size="7">Relief Valve</text>
+          
+          <!-- Ball Valve 1 -->
+          <line x1="115" y1="70" x2="175" y2="70" stroke="#4fd1c5" stroke-width="2"/>
+          <circle cx="185" cy="70" r="12" fill="#0f172a" stroke="#4fd1c5" stroke-width="2"/>
+          <ellipse cx="185" cy="70" rx="3" ry="10" fill="#4fd1c5" stroke="none" opacity="0.7"/>
+          <line x1="185" y1="58" x2="185" y2="82" stroke="#4fd1c5" stroke-width="1.5"/>
+          <text x="185" y="100" text-anchor="middle" fill="#9ca3af" font-size="7">Ball Valve 1</text>
+          
+          <!-- Pressure Gauge -->
+          <line x1="197" y1="70" x2="245" y2="70" stroke="#4fd1c5" stroke-width="2"/>
+          <line x1="245" y1="70" x2="245" y2="50" stroke="#22d3ee" stroke-width="1.5"/>
+          <circle cx="245" cy="40" r="8" fill="#0f172a" stroke="#22d3ee" stroke-width="1.8"/>
+          <path d="M 240 42 L 245 38 L 248 43" fill="none" stroke="#e5e7eb" stroke-width="1.2"/>
+          <text x="245" y="27" text-anchor="middle" fill="#9ca3af" font-size="7">Pressure</text>
+          <text x="245" y="34" text-anchor="middle" fill="#9ca3af" font-size="7">Gauge</text>
+          
+          <!-- Ball Valve 2 -->
+          <line x1="245" y1="70" x2="285" y2="70" stroke="#4fd1c5" stroke-width="2"/>
+          <circle cx="295" cy="70" r="12" fill="#0f172a" stroke="#4fd1c5" stroke-width="2"/>
+          <ellipse cx="295" cy="70" rx="3" ry="10" fill="#4fd1c5" stroke="none" opacity="0.7"/>
+          <line x1="295" y1="58" x2="295" y2="82" stroke="#4fd1c5" stroke-width="1.5"/>
+          <text x="295" y="100" text-anchor="middle" fill="#9ca3af" font-size="7">Ball Valve 2</text>
+          
+          <!-- Test Article -->
+          <line x1="307" y1="70" x2="360" y2="70" stroke="#4fd1c5" stroke-width="2"/>
+          <rect x="360" y="45" width="130" height="50" rx="4" fill="#0f172a" stroke="#4b5563" stroke-width="2"/>
+          <text x="425" y="65" text-anchor="middle" fill="#e5e7eb" font-size="10" font-weight="600">Test Article</text>
+          <text x="425" y="78" text-anchor="middle" fill="#9ca3af" font-size="8">${volumeText} · ${massText}</text>
+          <text x="425" y="88" text-anchor="middle" fill="#9ca3af" font-size="7">${fittings ? 'w/ fittings' : ''}</text>
+          
+          <!-- PT (Pressure Transducer) callout -->
+          <ellipse cx="475" cy="30" rx="20" ry="12" fill="#0f172a" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="2,2"/>
+          <text x="475" y="32" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">PT</text>
+          <text x="475" y="42" text-anchor="middle" fill="#fbbf24" font-size="7">##</text>
+          <line x1="465" y1="40" x2="425" y2="55" stroke="#fbbf24" stroke-width="1" stroke-dasharray="2,2"/>
+          
+          <!-- Parameter summary at bottom -->
+          <text x="260" y="135" text-anchor="middle" fill="#9ca3af" font-size="9">
+            Max ${maxPText} psig · ${cyclesText} cycles · ${dwellText} min dwell
+          </text>
+        </svg>
+      `;
+    }
+
+    function generateGenericSchematic(params) {
+      const { volumeText, massText, maxPText, cyclesText, dwellText, fittings } = params;
+      
+      return `
+        <svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
+          <!-- article under test -->
+          <rect x="70" y="32" width="80" height="50" rx="8" ry="8" fill="#0f172a" stroke="#4b5563" stroke-width="2" />
+          <text x="110" y="58" text-anchor="middle" fill="#e5e7eb" font-size="10">
+            ${fittings ? 'Test article + fittings' : 'Test article'}
+          </text>
+          <text x="110" y="72" text-anchor="middle" fill="#9ca3af" font-size="9">
+            ${volumeText} · ${massText}
+          </text>
+
+          <!-- supply line -->
+          <line x1="15" y1="57" x2="70" y2="57" stroke="#4fd1c5" stroke-width="2.5" stroke-dasharray="4 3" />
+          <!-- valve symbol -->
+          <line x1="35" y1="45" x2="50" y2="69" stroke="#4fd1c5" stroke-width="2" />
+          <line x1="50" y1="45" x2="35" y2="69" stroke="#4fd1c5" stroke-width="2" />
+
+          <!-- sensor branch -->
+          <line x1="110" y1="32" x2="110" y2="15" stroke="#22d3ee" stroke-width="2" stroke-dasharray="3 2" />
+          <circle cx="110" cy="12" r="6" fill="#020617" stroke="#22d3ee" stroke-width="1.6" />
+          <text x="110" y="11.5" text-anchor="middle" fill="#e5e7eb" font-size="7">P</text>
+
+          <!-- exhaust line -->
+          <line x1="150" y1="57" x2="205" y2="57" stroke="#6b7280" stroke-width="2" stroke-dasharray="4 3" />
+          <circle cx="205" cy="57" r="4.5" fill="#020617" stroke="#6b7280" stroke-width="2" />
+
+          <!-- labels -->
+          <text x="20" y="30" fill="#9ca3af" font-size="8">Supply</text>
+          <text x="205" y="30" text-anchor="middle" fill="#9ca3af" font-size="8">Vent</text>
+          <text x="110" y="100" text-anchor="middle" fill="#9ca3af" font-size="9">
+            Max ${maxPText} psig · ${cyclesText} cycles · ${dwellText} min dwell
+          </text>
+        </svg>
+      `;
+    }
+
+    function updateSchematic(testType, params) {
+      if (testType === "leak") {
+        schematicContainer.innerHTML = generatePressureDecaySchematic(params);
+      } else {
+        schematicContainer.innerHTML = generateGenericSchematic(params);
+      }
+    }
+
     function updateQuote() {
       const len = parseNum(fields.len.value);
       const wid = parseNum(fields.wid.value);
@@ -1022,16 +1449,25 @@
       metaMedium.textContent = fields.medium.value ? fields.medium.options[fields.medium.selectedIndex].text : "—";
       metaTest.textContent = getTestLabel(testType);
 
-      // SVG article caption
+      // Prepare schematic parameters
       const volumeText = volume ? `${Math.round(volume).toLocaleString()} cm³` : "— cm³";
-      svgArticleLabel.textContent = fields.fittings.value ? "Test article + fittings" : "Test article";
-      svgArticleSize.textContent = `${volumeText} · ${massText}`;
-
       const cyclesText = cycles > 0 ? cycles : "—";
       const dwellText = dwell > 0 ? dwell.toFixed(1) : "—";
       const maxPText = maxP > 0 ? maxP.toFixed(0) : "—";
 
-      svgParamSummary.textContent = `Max ${maxPText} psig · ${cyclesText} cycles · ${dwellText} min dwell`;
+      const schematicParams = {
+        volumeText,
+        massText,
+        maxPText,
+        cyclesText,
+        dwellText,
+        fittings: fields.fittings.value
+      };
+
+      // Update schematic visualization
+      updateSchematic(testType, schematicParams);
+
+      // Update legend pills
       schematicTestType.textContent = "Test type: " + getTestLabel(testType);
       schematicPressure.textContent = `Max pressure: ${maxPText || "—"} psig`;
       schematicCycles.textContent = `Cycles: ${cyclesText}`;
@@ -1044,6 +1480,8 @@
         leadTimeBadge.textContent = "Lead time: — business days";
         schematicHeadline.textContent =
           "Define your test on the left to see how we would fixture and instrument the article.";
+        // Show generic schematic even when no test type selected
+        schematicContainer.innerHTML = generateGenericSchematic(schematicParams);
         updateReportPreview();
         return;
       }
@@ -1161,8 +1599,216 @@
       el.addEventListener("change", updateQuote);
     });
 
+    // Step Navigation Functions
+    function toggleStep(stepNumber) {
+      const step = document.getElementById(`step${stepNumber}`);
+      const isActive = step.classList.contains('active');
+      
+      // Close all steps
+      document.querySelectorAll('.step-section').forEach(s => {
+        s.classList.remove('active');
+      });
+      
+      // Open clicked step if it wasn't already active
+      if (!isActive) {
+        step.classList.add('active');
+        // Show modal for this step
+        showModal(stepNumber);
+      }
+    }
+
+    function nextStep(currentStep) {
+      const nextStepNum = currentStep + 1;
+      if (nextStepNum <= 3) {
+        // Mark current step as completed
+        document.getElementById(`step${currentStep}`).classList.add('completed');
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        
+        // Open next step
+        document.getElementById(`step${nextStepNum}`).classList.add('active');
+        
+        // Show modal for next step
+        showModal(nextStepNum);
+        
+        // Scroll to next step
+        document.getElementById(`step${nextStepNum}`).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function prevStep(currentStep) {
+      const prevStepNum = currentStep - 1;
+      if (prevStepNum >= 1) {
+        // Close current step
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        
+        // Open previous step
+        document.getElementById(`step${prevStepNum}`).classList.add('active');
+        document.getElementById(`step${prevStepNum}`).classList.remove('completed');
+        
+        // Scroll to previous step
+        document.getElementById(`step${prevStepNum}`).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function completeSteps() {
+      // Mark final step as completed
+      document.getElementById('step3').classList.add('completed');
+      document.getElementById('step3').classList.remove('active');
+      
+      // Show completion message
+      showCompletionModal();
+      
+      // Scroll to results
+      setTimeout(() => {
+        window.scrollTo({ top: document.body.scrollHeight / 2, behavior: 'smooth' });
+      }, 1000);
+    }
+
+    // Modal Management
+    const modalOverlay = document.getElementById('stepModal');
+    const modalContent = document.getElementById('modalContent');
+
+    function showModal(stepNumber) {
+      const modals = {
+        1: {
+          icon: '🎯',
+          label: 'STEP 1 OF 3',
+          title: 'Choose Your Test Type',
+          body: `
+            <p>Welcome! Let's start by selecting the type of test you need for your hardware.</p>
+            <p><strong>What to do:</strong></p>
+            <ul>
+              <li><strong>Pressure decay leak test:</strong> Pressurize your article and monitor for leaks over time</li>
+              <li><strong>Flow characterization:</strong> Map flow rate vs. pressure drop across your component</li>
+              <li><strong>Thermal-vac cycling:</strong> Test your hardware under temperature and vacuum extremes</li>
+            </ul>
+            <p style="margin-top: 12px; font-style: italic; color: #9ca3af;">
+              💡 Tip: Once you select a test type, the schematic on the right will update to show the test setup!
+            </p>
+          `
+        },
+        2: {
+          icon: '⚙️',
+          label: 'STEP 2 OF 3',
+          title: 'Define Test Parameters',
+          body: `
+            <p>Now let's specify the test conditions, medium, and requirements.</p>
+            <p><strong>What to configure:</strong></p>
+            <ul>
+              <li><strong>Fluid/Medium:</strong> Choose nitrogen, air, water, or other test fluid</li>
+              <li><strong>Sample rate:</strong> Data capture frequency in Hz (higher = more detail)</li>
+              <li><strong>Max pressure:</strong> Peak pressure in psig</li>
+              <li><strong>Dwell & Cycles:</strong> Hold time per cycle and number of repetitions</li>
+              <li><strong>Temperature:</strong> For thermal tests, specify temp range</li>
+              <li><strong>Standards & Requirements:</strong> Add any NASA/ECSS standards and MBSE requirement IDs</li>
+            </ul>
+            <p style="margin-top: 12px; font-style: italic; color: #9ca3af;">
+              💡 Tip: Typical leak test = Dry air @ 150 psig, 10 min dwell, 3 cycles, 10 Hz sampling.
+            </p>
+          `
+        },
+        3: {
+          icon: '📦',
+          label: 'STEP 3 OF 3',
+          title: 'Test Article Details',
+          body: `
+            <p>Finally, tell us about the physical hardware you're testing.</p>
+            <p><strong>Information needed:</strong></p>
+            <ul>
+              <li><strong>Dimensions:</strong> Length, width, height in cm (for fixturing)</li>
+              <li><strong>Mass:</strong> Total weight in kg (for handling requirements)</li>
+              <li><strong>Fittings:</strong> How we connect - NPT threads, Swagelok, etc.</li>
+              <li><strong>Shipping:</strong> Your address for the return shipping label</li>
+            </ul>
+            <p style="margin-top: 12px; font-style: italic; color: #9ca3af;">
+              💡 Tip: Accurate dimensions help us size fixtures and chambers correctly.
+            </p>
+          `
+        }
+      };
+
+      const modal = modals[stepNumber];
+      if (!modal) return;
+
+      modalContent.innerHTML = `
+        <div class="modal-header">
+          <div class="modal-icon">${modal.icon}</div>
+          <div>
+            <div class="modal-step-label">${modal.label}</div>
+            <div class="modal-title">${modal.title}</div>
+          </div>
+        </div>
+        <div class="modal-body">
+          ${modal.body}
+        </div>
+        <div class="modal-actions">
+          <button class="btn-modal btn-modal-secondary" onclick="closeModal()">
+            Got it, let me configure
+          </button>
+        </div>
+      `;
+
+      modalOverlay.classList.add('show');
+    }
+
+    function showCompletionModal() {
+      modalContent.innerHTML = `
+        <div class="modal-header">
+          <div class="modal-icon">✓</div>
+          <div>
+            <div class="modal-step-label">CONFIGURATION COMPLETE</div>
+            <div class="modal-title">Test Configuration Ready!</div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <p>Excellent! You've completed all three steps.</p>
+          <p><strong>What happens next in a real service:</strong></p>
+          <ul>
+            <li>✓ Your quote is finalized (shown on the right)</li>
+            <li>✓ Test schematic is auto-generated with your specs</li>
+            <li>✓ Pre-paid shipping label is emailed to you</li>
+            <li>✓ You ship your hardware to our lab</li>
+            <li>✓ We execute the test and deliver the MBSE-ready report</li>
+          </ul>
+          <p style="margin-top: 12px; font-style: italic; color: #4fd1c5;">
+            💡 Check out the quote, schematic, and report preview on the right side!
+          </p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-modal btn-modal-primary" onclick="closeModal()">
+            View Results →
+          </button>
+        </div>
+      `;
+
+      modalOverlay.classList.add('show');
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('show');
+    }
+
+    // Close modal when clicking outside
+    modalOverlay.addEventListener('click', function(e) {
+      if (e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
     // Initial state
     updateQuote();
+    
+    // Show first step modal on load after a brief delay
+    setTimeout(() => {
+      showModal(1);
+    }, 800);
   </script>
+
+  <!-- Modal HTML -->
+  <div class="modal-overlay" id="stepModal">
+    <div class="modal-box" id="modalContent">
+      <!-- Content will be dynamically inserted -->
+    </div>
+  </div>
 </body>
 </html>
