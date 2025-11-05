@@ -403,23 +403,32 @@
       border-radius: 10px;
       border: 1px dashed rgba(75, 85, 99, 0.95);
       padding: 10px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr);
-      gap: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #schematicContainer {
+      width: 100%;
+      overflow-x: auto;
     }
 
     .schematic-diagram svg {
       width: 100%;
       height: auto;
+      min-height: 140px;
     }
 
     .schematic-legend {
       font-size: 11px;
       color: var(--text-muted);
+      border-top: 1px solid rgba(75, 85, 99, 0.5);
+      padding-top: 12px;
     }
 
     .schematic-legend p {
-      margin: 0 0 4px;
+      margin: 0 0 8px;
+      line-height: 1.5;
     }
 
     .schematic-pill-row {
@@ -1152,7 +1161,7 @@
       <section class="panel">
         <div class="faint-grid-overlay"></div>
         <div class="panel-inner">
-          <div class="section-label">Real-time quote · Visual schematic · Report & MBSE preview</div>
+          <div class="section-label">Real-time quote · Visual schematic · Report preview</div>
           <div class="quote-header">
             <div>
               <div class="quote-price" id="quotePrice">$—</div>
@@ -1184,7 +1193,7 @@
 
           <!-- Schematic -->
           <div class="schematic-card">
-            <div class="schematic-title">Test schematic – auto-generated concept</div>
+            <div class="schematic-title">Test schematic</div>
             <div class="schematic-diagram">
               <div id="schematicContainer">
                 <!-- SVG will be dynamically generated based on test type -->
@@ -1205,7 +1214,7 @@
 
           <!-- Report preview -->
           <div class="report-card">
-            <div class="report-title">Test report & mbse export preview</div>
+            <div class="report-title">Test report preview</div>
             <div class="report-body">
               <div class="report-meta-row">
                 <span id="reportId">Report: PTS-DEMO-0001</span>
