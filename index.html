@@ -68,6 +68,47 @@
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+    .museum-invitation {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.6fr);
+      gap: 2rem;
+      align-items: center;
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: clamp(2rem, 5vw, 4rem);
+      color: #eee6d4;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(198,117,66,0.22), transparent 15rem),
+        #171713;
+      border-radius: 12px;
+      box-sizing: border-box;
+    }
+    .museum-invitation .eyebrow {
+      margin: 0 0 0.7rem;
+      color: #c88f73;
+      font-family: sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .museum-invitation h2 {
+      margin: 0 0 1rem;
+      font-family: var(--display-font);
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+    .museum-invitation p { margin: 0; color: #c9c0ad; }
+    .museum-invitation .museum-link {
+      display: inline-block;
+      padding: 0.9rem 1.2rem;
+      color: #171713;
+      background: #eee6d4;
+      border-radius: 999px;
+      text-align: center;
+      text-decoration: none;
+    }
+    .museum-invitation .museum-link:hover { background: #fff8e9; }
     .features {
       display: flex;
       justify-content: space-around;
@@ -154,6 +195,10 @@
     }
 
     @media (max-width: 768px) {
+      .museum-invitation {
+        grid-template-columns: 1fr;
+        margin: 1rem;
+      }
       .carousel-button {
         width: 30px;
         height: 30px;
@@ -177,6 +222,7 @@
       <a href="/articles">Articles</a>
       <a href="/preservation-calculator.html">Safe Storage Calculator</a>
       <a href="/tag_generator.html">Tag Generator</a>
+      <a href="/museum/">Museum</a>
     </div>
   </nav>
 
@@ -263,6 +309,15 @@
     <img src="Collection_Items.png" alt="ArchiveSense styled flatlay">
   </section>
 
+  <section class="museum-invitation" aria-labelledby="museum-heading">
+    <div>
+      <p class="eyebrow">Public collection experience</p>
+      <h2 id="museum-heading">Enter the ArchiveSense museum</h2>
+      <p>Walk through a curated study room, explore related groupings, and inspect selected artifacts and their stories up close.</p>
+    </div>
+    <a class="museum-link" href="/museum/">Visit the collection exhibit</a>
+  </section>
+
   <section class="features">
     <div class="feature">
       <h3>📋 Catalog</h3>
@@ -296,7 +351,7 @@
 
   <footer>
     &copy; 2025 ArchiveSense. All rights reserved.<br>
-    <a href="/">Home</a> · <a href="/articles">Articles</a> · <a href="/preservation-calculator.html">Safe Storage Calculator</a> · <a href="/tag_generator.html">Tag Generator</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a><br>
+    <a href="/">Home</a> · <a href="/museum/">Museum</a> · <a href="/articles">Articles</a> · <a href="/preservation-calculator.html">Safe Storage Calculator</a> · <a href="/tag_generator.html">Tag Generator</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a><br>
     Instagram: <a href="https://instagram.com/archivsense" target="_blank">@archivsense</a>
   </footer>
 

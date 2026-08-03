@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0",
+  "id": "first-vault",
+  "title": "Promises in Your Pocket",
+  "kicker": "Demonstration exhibit · Illustrative records",
+  "summary": "Three imagined objects explore how exchange turns material into trust.",
+  "introduction": "Coins and notes do more than name an amount. Their materials, imagery, wear, and issuing communities make a promise legible. This demonstration room tests one possible curatorial path through an ArchiveSense collection: monetary function.",
+  "curatorialLens": {
+    "label": "Monetary function",
+    "description": "The room moves from material value, to institutional accounting, to locally negotiated trust."
+  },
+  "publishedAt": "2026-08-01",
+  "experience": {
+    "overview": "The room gathers three forms of exchange into two display traditions: a felt-lined wooden tray for metal and a softly illuminated glass case for paper. A third interpretive panel asks what these very different objects have in common.",
+    "groups": [
+      {
+        "id": "portable-metal",
+        "kicker": "Material value",
+        "title": "Weight in the hand",
+        "description": "A coin tray makes the token physical before it becomes informational. Its two sides, worn edge, color, and diameter can be read together as evidence of use and recognition.",
+        "display": "coin-tray",
+        "artifactIds": ["copper-merchants-token"],
+        "camera": { "x": 22, "y": -18, "scale": 1.63 }
+      },
+      {
+        "id": "paper-networks",
+        "kicker": "Institutional and communal trust",
+        "title": "Promises on paper",
+        "description": "Placed together behind glass, the voucher and community note reveal shared visual strategies: borders, civic imagery, controlled blank space, and the wear left by handling.",
+        "display": "glass-case",
+        "artifactIds": ["railway-clearing-voucher", "community-exchange-note"],
+        "camera": { "x": -20, "y": 7, "scale": 1.55 }
+      },
+      {
+        "id": "shared-promise",
+        "kicker": "Comparative reading",
+        "title": "What makes a promise believable?",
+        "description": "Material, institution, and community each offer a different answer. The comparison does not collapse those differences; it makes their relationships visible.",
+        "display": "interpretive-panel",
+        "artifactIds": ["copper-merchants-token", "railway-clearing-voucher", "community-exchange-note"],
+        "camera": { "x": 24, "y": 15, "scale": 1.62 }
+      }
+    ],
+    "tourStops": [
+      {
+        "id": "threshold",
+        "kicker": "Introduction",
+        "title": "A room of promises",
+        "narration": "Begin with the whole room. The groupings are part of the argument: metal occupies a tactile tray, paper sits within a protected case, and an interpretive panel brings them into conversation."
+      },
+      {
+        "id": "metal-in-hand",
+        "groupId": "portable-metal",
+        "kicker": "Stop one · Material value",
+        "title": "Trust you can weigh",
+        "narration": "Move closer to the wooden tray. Seeing both faces at once changes the token from a single catalog image into a handled object with edges, surfaces, and competing signs."
+      },
+      {
+        "id": "paper-in-case",
+        "groupId": "paper-networks",
+        "kicker": "Stop two · Paper networks",
+        "title": "Authority behind glass",
+        "narration": "The two paper instruments are not identical kinds of money. Their proximity instead draws attention to how printed design can make an institution—or a community—appear dependable."
+      },
+      {
+        "id": "comparison",
+        "groupId": "shared-promise",
+        "kicker": "Stop three · Comparison",
+        "title": "Three foundations of trust",
+        "narration": "The token points toward material and reputation; the voucher toward an administrative network; the community note toward local participation. Each object asks its holder to believe in something beyond the object itself."
+      },
+      {
+        "id": "reflection",
+        "kicker": "Conclusion",
+        "title": "Return to the room",
+        "narration": "From a distance, the room becomes one proposition again: exchange is never only about denomination. It is also about who issued an object, who accepted it, and what made its promise hold."
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "copper-merchants-token",
+      "order": 1,
+      "title": "Copper Merchant’s Token",
+      "subtitle": "An imagined token for face-to-face exchange",
+      "description": "This fictional token stands in for the privately issued copper pieces that circulated where official small change was scarce. Its weight, familiar imagery, and the reputation of an issuer could allow a modest object to carry a practical promise.",
+      "date": {
+        "label": "Demonstration object · styled ca. 1790s",
+        "sortYear": "1795"
+      },
+      "origin": "Imagined Atlantic port",
+      "materials": "Copper alloy",
+      "dimensions": "Approx. 29 mm diameter",
+      "tags": ["token", "copper", "local exchange"],
+      "researchNotes": [
+        "The ship and balance motifs are intentionally generic. They let this prototype discuss issuer reputation and trade without claiming a real provenance.",
+        "A future exhibit could connect a real token to places of issue, circulation routes, and comparable objects while keeping acquisition history private."
+      ],
+      "images": [
+        {
+          "src": "images/copper-token-1.png",
+          "alt": "Obverse of a worn copper-colored token bearing a sailing ship motif against a charcoal surface.",
+          "caption": "Obverse, illustrative study image",
+          "credit": "AI-generated demonstration image"
+        },
+        {
+          "src": "images/copper-token-2.png",
+          "alt": "Reverse of a worn copper-colored token bearing balance scales and wheat against a charcoal surface.",
+          "caption": "Reverse, illustrative study image",
+          "credit": "AI-generated demonstration image"
+        }
+      ]
+    },
+    {
+      "id": "railway-clearing-voucher",
+      "order": 2,
+      "title": "Railway Clearing Voucher",
+      "subtitle": "Value recorded between institutions",
+      "description": "This imagined voucher represents an accounting instrument rather than everyday cash. Its elaborate border and transport imagery make institutional authority visible, while its paper form suggests value moving through a network of offices, ledgers, and counterparties.",
+      "date": {
+        "label": "Demonstration object · styled ca. 1910",
+        "sortYear": "1910"
+      },
+      "origin": "Imagined regional railway network",
+      "materials": "Printed paper",
+      "dimensions": "Approx. 18 × 10 cm",
+      "tags": ["voucher", "railway", "accounting"],
+      "researchNotes": [
+        "The blank fields are deliberate: the image demonstrates a document type without reproducing an identifiable issuer, serial number, or transaction.",
+        "Real examples could support an exhibit organized by transport infrastructure, institutional networks, or the visual language of trust."
+      ],
+      "images": [
+        {
+          "src": "images/railway-voucher-1.png",
+          "alt": "A worn cream paper voucher with an ornate blue border, a railway wheel emblem, and blank central fields.",
+          "caption": "Illustrative railway voucher",
+          "credit": "AI-generated demonstration image"
+        }
+      ]
+    },
+    {
+      "id": "community-exchange-note",
+      "order": 3,
+      "title": "Community Exchange Note",
+      "subtitle": "A promise grounded in local participation",
+      "description": "This fictional note evokes community scrip: exchange media whose usefulness depends on a bounded network choosing to accept it. The civic building and circulated wear shift attention from precious material toward membership, need, and collective agreement.",
+      "date": {
+        "label": "Demonstration object · styled ca. 1933",
+        "sortYear": "1933"
+      },
+      "origin": "Imagined North American town",
+      "materials": "Printed paper",
+      "dimensions": "Approx. 16 × 8 cm",
+      "tags": ["scrip", "community", "circulation"],
+      "researchNotes": [
+        "This illustrative record avoids naming a real municipality. A researched exhibit should distinguish emergency scrip, labor notes, local currency, and promotional issues.",
+        "Wear can become curatorial evidence: folds and softened edges suggest the social life of an object even when its exact route cannot be reconstructed."
+      ],
+      "images": [
+        {
+          "src": "images/community-note-1.png",
+          "alt": "A worn cream paper note with green and ochre ornament and a central civic building vignette.",
+          "caption": "Illustrative community exchange note",
+          "credit": "AI-generated demonstration image"
+        }
+      ]
+    }
+  ]
+}

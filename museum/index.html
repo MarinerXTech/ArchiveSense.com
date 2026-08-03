@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Enter a public ArchiveSense study room and inspect selected artifacts from the collection."
+    />
+    <meta name="theme-color" content="#171713" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <title>ArchiveSense · Public Study Room</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="museum.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#gallery">Skip to the exhibit</a>
+    <header class="site-header">
+      <a class="wordmark" href="./" aria-label="ArchiveSense public museum home">
+        <span class="wordmark-mark" aria-hidden="true">A</span>
+        <span>ArchiveSense</span>
+      </a>
+      <nav class="journey-progress" aria-label="Exhibit journey">
+        <button class="journey-step active" data-journey="threshold" type="button" aria-label="Stage 1: Entrance">
+          <span>01</span><span>Entrance</span>
+        </button>
+        <button class="journey-step" data-journey="room" type="button" aria-label="Stage 2: Room">
+          <span>02</span><span>Room</span>
+        </button>
+        <button class="journey-step" data-journey="display" type="button" aria-label="Stage 3: Display" disabled>
+          <span>03</span><span>Display</span>
+        </button>
+        <button class="journey-step" data-journey="object" type="button" aria-label="Stage 4: Object" disabled>
+          <span>04</span><span>Object</span>
+        </button>
+      </nav>
+      <div class="header-actions">
+        <a class="site-return" href="../">Main site</a>
+        <div class="room-status">
+          <span class="status-light" aria-hidden="true"></span>
+          Public study room
+        </div>
+      </div>
+    </header>
+
+    <main id="gallery" class="experience" aria-live="polite">
+      <section class="loading" id="loading">
+        <span class="loading-rule"></span>
+        <p>Opening the study room…</p>
+      </section>
+    </main>
+
+    <dialog class="artifact-dialog" id="artifact-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close artifact details">
+        <span aria-hidden="true">×</span>
+      </button>
+      <div class="dialog-layout">
+        <section class="image-inspector" aria-label="Artifact images">
+          <div class="inspection-toolbar">
+            <div class="view-switch" role="group" aria-label="Choose object or photograph view">
+              <button class="view-button active" id="object-view" type="button">Object</button>
+              <button class="view-button" id="photo-view" type="button">Photograph</button>
+            </div>
+          </div>
+          <div class="image-stage" id="image-stage" tabindex="0" aria-label="Close examination view">
+            <div class="object-lift" id="object-lift">
+              <div class="object-shadow" aria-hidden="true"></div>
+              <div class="object-surface">
+                <img id="dialog-image" alt="" />
+                <span class="surface-light" aria-hidden="true"></span>
+              </div>
+            </div>
+            <button class="image-step image-previous" id="image-previous" type="button" aria-label="Previous image">←</button>
+            <button class="image-step image-next" id="image-next" type="button" aria-label="Next image">→</button>
+            <button class="turn-object" id="turn-object" type="button">
+              <span aria-hidden="true">↻</span>
+              Turn object over
+            </button>
+          </div>
+          <p class="image-caption" id="image-caption"></p>
+          <div class="image-thumbnails" id="image-thumbnails" aria-label="Choose an image"></div>
+        </section>
+        <article class="artifact-record">
+          <p class="record-number" id="dialog-number"></p>
+          <h2 id="dialog-title"></h2>
+          <p class="dialog-subtitle" id="dialog-subtitle"></p>
+          <dl class="facts" id="dialog-facts"></dl>
+          <p class="dialog-description" id="dialog-description"></p>
+          <section class="research" id="dialog-research">
+            <h3>Research notes</h3>
+            <div id="dialog-research-list"></div>
+          </section>
+          <div class="tag-list" id="dialog-tags" aria-label="Artifact subjects"></div>
+        </article>
+      </div>
+    </dialog>
+
+    <template id="experience-template">
+      <section class="intro-panel">
+        <div class="intro-copy">
+          <p class="kicker" data-field="kicker"></p>
+          <h1 data-field="title"></h1>
+          <p class="summary" data-field="summary"></p>
+        </div>
+        <button class="intro-preview" type="button" aria-label="Enter the exhibit room">
+          <span class="preview-light"></span>
+          <span class="preview-objects"></span>
+          <span class="preview-threshold"></span>
+          <span class="preview-invitation">Enter the room <span aria-hidden="true">→</span></span>
+        </button>
+        <div class="entrance-actions">
+          <button class="enter-button begin-tour" type="button">
+            Begin guided visit
+            <span aria-hidden="true">↘</span>
+          </button>
+          <button class="explore-entry" type="button">Explore freely</button>
+        </div>
+        <div class="intro-footer">
+          <span data-field="artifact-count"></span>
+          <span data-field="lens-label"></span>
+        </div>
+      </section>
+
+      <section class="gallery-shell immersive-gallery" aria-label="Interactive exhibit room">
+        <div class="gallery-heading">
+          <div>
+            <p class="gallery-kicker">Gallery 01</p>
+            <h2 data-field="title"></h2>
+          </div>
+          <div class="gallery-actions">
+            <button class="threshold-button" type="button">Entrance</button>
+            <div class="visit-mode" role="group" aria-label="Choose how to explore">
+              <button class="mode-button active" data-mode="guided" type="button">Guided visit</button>
+              <button class="mode-button" data-mode="explore" type="button">Explore freely</button>
+            </div>
+            <button class="open-index" type="button">All objects</button>
+          </div>
+        </div>
+
+        <div class="museum-experience" data-mode="guided">
+          <div
+            class="museum-room"
+            tabindex="0"
+            aria-label="Curated museum room. Select a display grouping, or use left and right arrow keys during the guided visit."
+          >
+            <div class="museum-viewport">
+              <div class="museum-set" data-focus="overview">
+                <div class="architecture architecture-ceiling" aria-hidden="true"></div>
+                <div class="architecture architecture-left" aria-hidden="true"></div>
+                <div class="architecture architecture-right" aria-hidden="true"></div>
+                <div class="architecture architecture-floor" aria-hidden="true"></div>
+                <div class="back-wall-title" aria-hidden="true">
+                  <span>Money in</span>
+                  <span>English America</span>
+                </div>
+                <div class="display-stations"></div>
+              </div>
+            </div>
+
+            <aside class="tour-card" aria-live="polite">
+              <div class="tour-card-heading">
+                <p class="tour-count"></p>
+                <button class="overview-button" type="button">Room overview</button>
+              </div>
+              <p class="tour-kicker"></p>
+              <h3 class="tour-title"></h3>
+              <p class="tour-narration"></p>
+              <div class="group-object-actions" aria-label="Objects in this display"></div>
+              <div class="tour-actions">
+                <button class="tour-previous" type="button" aria-label="Previous guided stop">←</button>
+                <button class="tour-next" type="button">Continue <span aria-hidden="true">→</span></button>
+              </div>
+            </aside>
+          </div>
+
+          <nav class="room-map" aria-label="Exhibit groupings"></nav>
+        </div>
+
+        <section class="object-index-section" aria-labelledby="object-index-heading">
+          <div class="object-index-heading">
+            <div>
+              <p class="section-label">Object index</p>
+              <h2 id="object-index-heading">Every object in this room</h2>
+            </div>
+            <button class="close-index" type="button" aria-label="Close object index">×</button>
+          </div>
+          <div class="object-index" aria-label="Inspect an individual artifact"></div>
+        </section>
+      </section>
+
+      <section class="curatorial-panel">
+        <p class="section-label">Curatorial lens</p>
+        <div>
+          <h2 data-field="lens-label"></h2>
+          <p data-field="lens-description"></p>
+        </div>
+        <blockquote data-field="introduction"></blockquote>
+      </section>
+
+      <footer class="exhibit-footer">
+        <span>ArchiveSense · Selected objects, published with care.</span>
+        <span data-field="published-at"></span>
+      </footer>
+    </template>
+
+  </body>
+</html>
