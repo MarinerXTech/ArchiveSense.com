@@ -1,356 +1,421 @@
 {
-  "schemaVersion": "1.0",
-  "id": "money-before-the-mint",
-  "title": "Money Before the Mint",
-  "kicker": "ArchiveSense · Colonial money",
-  "summary": "Six coins open a study of the money used in England's North American colonies—and the monetary experiments that followed independence.",
-  "introduction": "The English colonies did not share a single coinage of their own. Spanish silver circulated alongside British and other foreign coins, while Virginia received copper bearing George III. After the Revolution, former colonies authorized state coppers. These objects trace a monetary world shaped by coin shortages, Atlantic trade, and changing political authority.",
-  "curatorialLens": {
-    "label": "Money in English America",
-    "description": "Foreign silver, Crown-authorized colonial copper, and state coinages reveal how exchange worked before federal coins became standard."
-  },
-  "publishedAt": "2026-08-01",
-  "experience": {
-    "overview": "Spanish silver and a Virginia halfpenny introduce the colonial monetary world; four state coppers show what former colonies tried after independence.",
-    "groups": [
-      {
-        "id": "atlantic-authority",
-        "kicker": "Colonial circulation · Silver and copper",
-        "title": "Money from across the Atlantic",
-        "description": "A Spanish silver real and a Virginia halfpenny represent two currents in colonial exchange: foreign coin accepted through circulation and copper authorized for a particular colony.",
-        "display": "glass-case",
-        "artifactIds": [
-          "spanish-real-1759",
-          "virginia-halfpenny-1773"
-        ],
-        "camera": {
-          "x": -18,
-          "y": 5,
-          "scale": 1.5
-        }
-      },
-      {
-        "id": "state-coppers",
-        "kicker": "After independence · 1785–1788",
-        "title": "From colonies to states",
-        "description": "Connecticut, New Jersey, Massachusetts, and Vermont authorized copper coinage to supply small change, adapting familiar forms to new political authorities.",
-        "display": "coin-tray",
-        "artifactIds": [
-          "connecticut-copper-1786",
-          "new-jersey-copper",
-          "massachusetts-cent-1788",
-          "vermont-copper-1788"
-        ],
-        "camera": {
-          "x": 12,
-          "y": -18,
-          "scale": 1.35
-        }
-      },
-      {
-        "id": "symbols-of-trust",
-        "kicker": "Reading the coins · Portraits, arms, mottos",
-        "title": "Authority on the coin",
-        "description": "Portraits, coats of arms, classical figures, local emblems, inscriptions, and denominations identify the governments and communities that issued the money.",
-        "display": "interpretive-panel",
-        "artifactIds": [
-          "spanish-real-1759",
-          "virginia-halfpenny-1773",
-          "connecticut-copper-1786",
-          "new-jersey-copper",
-          "massachusetts-cent-1788",
-          "vermont-copper-1788"
-        ],
-        "camera": {
-          "x": 0,
-          "y": -8,
-          "scale": 1.24
-        }
-      }
-    ],
-    "tourStops": [
-      {
-        "id": "welcome",
-        "kicker": "Introduction",
-        "title": "Money in English America",
-        "narration": "The English colonies in North America had no single coinage. Foreign silver, Crown-authorized copper, and later state coins belonged to one changing monetary world."
-      },
-      {
-        "id": "silver-network",
-        "groupId": "atlantic-authority",
-        "kicker": "Stop one",
-        "title": "Spanish silver in colonial trade",
-        "narration": "Spanish silver helped fill recurring coin shortages in British North America. This one-real piece belongs to a currency system accepted far beyond the jurisdiction that struck it."
-      },
-      {
-        "id": "virginia-crown",
-        "groupId": "atlantic-authority",
-        "kicker": "Stop two",
-        "title": "Copper for Virginia",
-        "narration": "Dated 1773 and struck in London, the halfpenny joins Virginia's name to George III's portrait and the Crown's authority. It entered circulation as that imperial relationship was breaking apart."
-      },
-      {
-        "id": "copper-laboratory",
-        "groupId": "state-coppers",
-        "kicker": "Stop three",
-        "title": "From colonies to states",
-        "narration": "After independence, Connecticut, New Jersey, Massachusetts, and Vermont authorized copper coins for small change. Compare how each adapted familiar forms to express a new source of authority."
-      },
-      {
-        "id": "national-language",
-        "groupId": "symbols-of-trust",
-        "kicker": "Final stop",
-        "title": "Toward a federal coinage",
-        "narration": "The variety of issuers, standards, mottos, and emblems helps explain the later turn toward a federal coinage. Uniformity was a destination, not the starting point."
-      }
-    ]
-  },
-  "artifacts": [
-    {
-      "id": "spanish-real-1759",
-      "order": 1,
-      "title": "1759 Spanish One Real",
-      "subtitle": "Royal silver in an Atlantic economy",
-      "description": "Struck at Seville in the final year of Ferdinand VI's reign, this silver real carries royal arms and the quartered castles and lions of Castile and León. Its imagery announces Spanish monarchy, while its compact silver form represents the kind of money that could travel beyond the jurisdiction named on it.",
-      "date": {
-        "label": "1759",
-        "sortYear": "1759"
-      },
-      "origin": "Seville, Spain",
-      "materials": "Silver",
-      "presentation": { "kind": "coin" },
-      "tags": [
-        "Spanish coinage",
-        "silver",
-        "Atlantic exchange",
-        "monarchy"
-      ],
-      "researchNotes": [
-        "The source catalog identifies this object as a 1759 Seville one real.",
-        "A type comparison for Ferdinand VI's one-real coinage identifies the crowned royal arms, Castile-and-León design, silver composition, and Seville mint mark.",
-        "Further object-level attribution, weight, and die study should be completed before presenting a more specific variety."
-      ],
-      "images": [
-        {
-          "src": "images/spanish-real-1759-1.webp",
-          "alt": "Silver Spanish real showing a quartered design of castles and lions inside a shaped border",
-          "caption": "The quartered castles and lions identify Castile and León.",
-          "presentation": { "focusX": 45, "focusY": 50, "scale": 1.6 },
-          "credit": "ArchiveSense collection photograph"
-        },
-        {
-          "src": "images/spanish-real-1759-2.webp",
-          "alt": "Silver Spanish real showing a crowned royal shield surrounded by a worn inscription",
-          "caption": "The crowned arms place royal authority at the center of the coin.",
-          "presentation": { "focusX": 50, "focusY": 57, "scale": 1.62 },
-          "credit": "ArchiveSense collection photograph"
-        }
-      ]
-    },
-    {
-      "id": "virginia-halfpenny-1773",
-      "order": 2,
-      "title": "1773 Virginia Halfpenny",
-      "subtitle": "A colony named on royal copper",
-      "description": "Authorized for Virginia and struck at the Tower Mint in London, this halfpenny pairs George III's portrait with Virginia's crowned arms. Dated 1773 but released for circulation only in 1775, it reached the colony as the political relationship represented on its faces was breaking apart.",
-      "date": {
-        "label": "1773; released 1775",
-        "sortYear": "1773"
-      },
-      "origin": "Tower Mint, London; issued for Virginia",
-      "materials": "Copper",
-      "presentation": { "kind": "coin" },
-      "tags": [
-        "Virginia",
-        "British Empire",
-        "George III",
-        "colonial money"
-      ],
-      "researchNotes": [
-        "Colonial Williamsburg identifies the issue as the only colony-specific coinage fully authorized by the Crown and notes archaeological evidence of use in Williamsburg.",
-        "The National Museum of American History records the right-facing portrait of George III and crowned Virginia shield on the 1773 halfpenny.",
-        "The exact die variety of this collection example has not yet been assigned."
-      ],
-      "images": [
-        {
-          "src": "images/virginia-halfpenny-1773-1.webp",
-          "alt": "Copper Virginia halfpenny showing a worn right-facing portrait of King George the Third",
-          "caption": "George III occupies the portrait side beneath a Latin royal inscription.",
-          "presentation": { "focusX": 50, "focusY": 50, "scale": 1.64 },
-          "credit": "ArchiveSense collection photograph"
-        },
-        {
-          "src": "images/virginia-halfpenny-1773-2.webp",
-          "alt": "Copper Virginia halfpenny showing a crowned shield divided into heraldic sections",
-          "caption": "Virginia's name surrounds a crowned shield on the reverse.",
-          "presentation": { "focusX": 50, "focusY": 63, "scale": 1.63 },
-          "credit": "ArchiveSense collection photograph"
-        }
-      ]
-    },
-    {
-      "id": "connecticut-copper-1786",
-      "order": 3,
-      "title": "1786 Connecticut Copper",
-      "subtitle": "Independence in a familiar visual language",
-      "description": "Connecticut authorized copper coinage during the Confederation era, when states tried to supply dependable small change. This worn example retains a bust and seated figure derived from familiar British coin types, but its inscriptions relocate authority to Connecticut and declare independence and liberty.",
-      "date": {
-        "label": "1786",
-        "sortYear": "1786"
-      },
-      "origin": "Connecticut",
-      "materials": "Copper",
-      "presentation": { "kind": "coin" },
-      "tags": [
-        "Connecticut",
-        "state coinage",
-        "Confederation era",
-        "liberty"
-      ],
-      "researchNotes": [
-        "The American Numismatic Society places Connecticut among the states that authorized copper coinage under the Articles of Confederation.",
-        "The design's classical seated figure and abbreviated Latin legends show how new political claims could inhabit older-looking forms.",
-        "A future catalog pass should assign the exact Miller die variety."
-      ],
-      "images": [
-        {
-          "src": "images/connecticut-copper-1786-1.webp",
-          "alt": "Worn copper Connecticut coin showing a right-facing bust and portions of the AUCTORI CONNEC inscription",
-          "caption": "The portrait side transfers authority from a monarch to Connecticut.",
-          "presentation": { "focusX": 50, "focusY": 77, "scale": 1.58 },
-          "credit": "ArchiveSense collection photograph"
-        },
-        {
-          "src": "images/connecticut-copper-1786-2.webp",
-          "alt": "Worn copper Connecticut coin showing a seated classical figure with staff",
-          "caption": "A seated figure evokes liberty through a visual form familiar from British copper.",
-          "presentation": { "focusX": 50, "focusY": 50, "scale": 1.4 },
-          "credit": "ArchiveSense collection photograph"
-        }
-      ]
-    },
-    {
-      "id": "new-jersey-copper",
-      "order": 4,
-      "title": "New Jersey Copper",
-      "subtitle": "Local emblems, a national motto",
-      "description": "New Jersey's copper series placed a horse's head and plow opposite a shield and the motto E PLURIBUS UNUM. The design joined a recognizable state emblem to language about union, making small change carry both local identity and an emerging national idea.",
-      "date": {
-        "label": "1786–1788 series; exact year pending",
-        "sortYear": "1786"
-      },
-      "origin": "New Jersey",
-      "materials": "Copper",
-      "presentation": { "kind": "coin" },
-      "tags": [
-        "New Jersey",
-        "state coinage",
-        "E pluribus unum",
-        "agriculture"
-      ],
-      "researchNotes": [
-        "The National Museum of American History records New Jersey coppers with a horse head above a plow and a shield beneath E PLURIBUS UNUM.",
-        "The Smithsonian identifies the series as the first known coins to carry the national motto.",
-        "The current ArchiveSense record does not yet identify the date or Maris die variety of this example."
-      ],
-      "images": [
-        {
-          "src": "images/new-jersey-copper-1.webp",
-          "alt": "Worn copper New Jersey coin showing a horse's head above a plow",
-          "caption": "The horse and plow translate New Jersey's identity into a compact emblem.",
-          "presentation": { "focusX": 50, "focusY": 68, "scale": 1.34 },
-          "credit": "ArchiveSense collection photograph"
-        },
-        {
-          "src": "images/new-jersey-copper-2.webp",
-          "alt": "Worn reverse of a copper New Jersey coin with a faint central shield",
-          "caption": "A shield and E PLURIBUS UNUM occupy the worn reverse.",
-          "presentation": { "focusX": 50, "focusY": 66, "scale": 1.39 },
-          "credit": "ArchiveSense collection photograph"
-        }
-      ]
-    },
-    {
-      "id": "massachusetts-cent-1788",
-      "order": 5,
-      "title": "1788 Massachusetts Copper One Cent",
-      "subtitle": "A named cent for the Commonwealth",
-      "description": "Massachusetts made the denomination explicit: CENT appears across the eagle's shield. The opposite side presents a standing Native figure with bow and arrow beneath COMMONWEALTH—period imagery that connected the state's coinage to a constructed emblem of place and identity.",
-      "date": {
-        "label": "1788",
-        "sortYear": "1788"
-      },
-      "origin": "Massachusetts",
-      "materials": "Copper",
-      "presentation": { "kind": "coin" },
-      "tags": [
-        "Massachusetts",
-        "cent",
-        "state coinage",
-        "Commonwealth"
-      ],
-      "researchNotes": [
-        "The Smithsonian documents the standing figure, COMMON WEALTH inscription, eagle and shield, denomination CENT, and 1788 date on this type.",
-        "The American Numismatic Society notes Massachusetts' early use of the denomination cent on its copper coinage.",
-        "The Native figure should be read as eighteenth-century state iconography, not as a neutral portrait of an individual or nation."
-      ],
-      "images": [
-        {
-          "src": "images/massachusetts-cent-1788-1.webp",
-          "alt": "Copper Massachusetts cent showing a standing Native figure holding a bow and arrow",
-          "caption": "COMMON WEALTH surrounds a standing figure with bow and arrow.",
-          "presentation": { "focusX": 50, "focusY": 63, "scale": 1.34 },
-          "credit": "ArchiveSense collection photograph"
-        },
-        {
-          "src": "images/massachusetts-cent-1788-2.webp",
-          "alt": "Copper Massachusetts cent showing an eagle with a shield marked CENT and the date 1788",
-          "caption": "An eagle carries a shield naming the denomination: CENT.",
-          "presentation": { "focusX": 50, "focusY": 58, "scale": 1.17 },
-          "credit": "ArchiveSense collection photograph"
-        }
-      ]
-    },
-    {
-      "id": "vermont-copper-1788",
-      "order": 6,
-      "title": "1788 Vermont Copper",
-      "subtitle": "A republic represented through borrowed forms",
-      "description": "Vermont issued copper coinage before joining the Union in 1791. This 1788 piece uses a right-facing bust and a seated figure with the declaration INDE ET LIB—independence and liberty. Its familiar visual vocabulary makes political transition visible rather than tidy.",
-      "date": {
-        "label": "1788",
-        "sortYear": "1788"
-      },
-      "origin": "Vermont",
-      "materials": "Copper",
-      "presentation": { "kind": "coin" },
-      "tags": [
-        "Vermont",
-        "republic",
-        "state coinage",
-        "independence"
-      ],
-      "researchNotes": [
-        "The Smithsonian records a comparable 1788 Vermont copper with a right-facing bust, seated figure, and INDE ET LIB inscription.",
-        "The American Numismatic Society notes that Vermont began issuing coppers while it was not yet a state and joined the Union in 1791.",
-        "The exact Ryder variety and mint attribution of this collection example remain subjects for future research."
-      ],
-      "images": [
-        {
-          "src": "images/vermont-copper-1788-1.webp",
-          "alt": "Worn copper Vermont coin showing a right-facing bust surrounded by a partial inscription",
-          "caption": "A portrait format associated with royal copper is repurposed for Vermont coinage.",
-          "presentation": { "focusX": 50, "focusY": 66, "scale": 1.41 },
-          "credit": "ArchiveSense collection photograph"
-        },
-        {
-          "src": "images/vermont-copper-1788-2.webp",
-          "alt": "Worn copper Vermont coin showing a seated classical figure with staff",
-          "caption": "The seated figure accompanies a declaration of independence and liberty.",
-          "presentation": { "focusX": 50, "focusY": 55, "scale": 1.53 },
-          "credit": "ArchiveSense collection photograph"
-        }
-      ]
-    }
-  ]
+    "schemaVersion":  "1.0",
+    "id":  "money-before-the-mint",
+    "title":  "Money Before the Mint",
+    "kicker":  "ArchiveSense Â· Colonial money",
+    "summary":  "Six coins open a study of the money used in England\u0027s North American coloniesâ€”and the monetary experiments that followed independence.",
+    "introduction":  "The English colonies did not share a single coinage of their own. Spanish silver circulated alongside British and other foreign coins, while Virginia received copper bearing George III. After the Revolution, former colonies authorized state coppers. These objects trace a monetary world shaped by coin shortages, Atlantic trade, and changing political authority.",
+    "curatorialLens":  {
+                           "label":  "Money in English America",
+                           "description":  "Foreign silver, Crown-authorized colonial copper, and state coinages reveal how exchange worked before federal coins became standard."
+                       },
+    "publishedAt":  "2026-08-01",
+    "experience":  {
+                       "overview":  "Spanish silver and a Virginia halfpenny introduce the colonial monetary world; four state coppers show what former colonies tried after independence.",
+                       "groups":  [
+                                      {
+                                          "id":  "atlantic-authority",
+                                          "kicker":  "Colonial circulation Â· Silver and copper",
+                                          "title":  "Money from across the Atlantic",
+                                          "description":  "A Spanish silver real and a Virginia halfpenny represent two currents in colonial exchange: foreign coin accepted through circulation and copper authorized for a particular colony.",
+                                          "display":  "glass-case",
+                                          "artifactIds":  [
+                                                              "spanish-real-1759",
+                                                              "virginia-halfpenny-1773"
+                                                          ],
+                                          "camera":  {
+                                                         "x":  -18,
+                                                         "y":  5,
+                                                         "scale":  1.5
+                                                     }
+                                      },
+                                      {
+                                          "id":  "state-coppers",
+                                          "kicker":  "After independence Â· 1785â€“1788",
+                                          "title":  "From colonies to states",
+                                          "description":  "Connecticut, New Jersey, Massachusetts, and Vermont authorized copper coinage to supply small change, adapting familiar forms to new political authorities.",
+                                          "display":  "coin-tray",
+                                          "artifactIds":  [
+                                                              "connecticut-copper-1786",
+                                                              "new-jersey-copper",
+                                                              "massachusetts-cent-1788",
+                                                              "vermont-copper-1788"
+                                                          ],
+                                          "camera":  {
+                                                         "x":  12,
+                                                         "y":  -18,
+                                                         "scale":  1.35
+                                                     }
+                                      },
+                                      {
+                                          "id":  "symbols-of-trust",
+                                          "kicker":  "Reading the coins Â· Portraits, arms, mottos",
+                                          "title":  "Authority on the coin",
+                                          "description":  "Portraits, coats of arms, classical figures, local emblems, inscriptions, and denominations identify the governments and communities that issued the money.",
+                                          "display":  "interpretive-panel",
+                                          "artifactIds":  [
+                                                              "spanish-real-1759",
+                                                              "virginia-halfpenny-1773",
+                                                              "connecticut-copper-1786",
+                                                              "new-jersey-copper",
+                                                              "massachusetts-cent-1788",
+                                                              "vermont-copper-1788"
+                                                          ],
+                                          "camera":  {
+                                                         "x":  0,
+                                                         "y":  -8,
+                                                         "scale":  1.24
+                                                     }
+                                      }
+                                  ],
+                       "tourStops":  [
+                                         {
+                                             "id":  "welcome",
+                                             "kicker":  "Introduction",
+                                             "title":  "Money in English America",
+                                             "narration":  "The English colonies in North America had no single coinage. Foreign silver, Crown-authorized copper, and later state coins belonged to one changing monetary world."
+                                         },
+                                         {
+                                             "id":  "silver-network",
+                                             "groupId":  "atlantic-authority",
+                                             "kicker":  "Stop one",
+                                             "title":  "Spanish silver in colonial trade",
+                                             "narration":  "Spanish silver helped fill recurring coin shortages in British North America. This one-real piece belongs to a currency system accepted far beyond the jurisdiction that struck it."
+                                         },
+                                         {
+                                             "id":  "virginia-crown",
+                                             "groupId":  "atlantic-authority",
+                                             "kicker":  "Stop two",
+                                             "title":  "Copper for Virginia",
+                                             "narration":  "Dated 1773 and struck in London, the halfpenny joins Virginia\u0027s name to George III\u0027s portrait and the Crown\u0027s authority. It entered circulation as that imperial relationship was breaking apart."
+                                         },
+                                         {
+                                             "id":  "copper-laboratory",
+                                             "groupId":  "state-coppers",
+                                             "kicker":  "Stop three",
+                                             "title":  "From colonies to states",
+                                             "narration":  "After independence, Connecticut, New Jersey, Massachusetts, and Vermont authorized copper coins for small change. Compare how each adapted familiar forms to express a new source of authority."
+                                         },
+                                         {
+                                             "id":  "national-language",
+                                             "groupId":  "symbols-of-trust",
+                                             "kicker":  "Final stop",
+                                             "title":  "Toward a federal coinage",
+                                             "narration":  "The variety of issuers, standards, mottos, and emblems helps explain the later turn toward a federal coinage. Uniformity was a destination, not the starting point."
+                                         }
+                                     ]
+                   },
+    "artifacts":  [
+                      {
+                          "id":  "spanish-real-1759",
+                          "order":  1,
+                          "title":  "1759 Spanish One Real",
+                          "subtitle":  "Royal silver in an Atlantic economy",
+                          "description":  "Struck at Seville in the final year of Ferdinand VI\u0027s reign, this silver real carries royal arms and the quartered castles and lions of Castile and LeÃ³n. Its imagery announces Spanish monarchy, while its compact silver form represents the kind of money that could travel beyond the jurisdiction named on it.",
+                          "date":  {
+                                       "label":  "1759",
+                                       "sortYear":  "1759"
+                                   },
+                          "origin":  "Seville, Spain",
+                          "materials":  "Silver",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "Spanish coinage",
+                                       "silver",
+                                       "Atlantic exchange",
+                                       "monarchy"
+                                   ],
+                          "researchNotes":  [
+                                                "The source catalog identifies this object as a 1759 Seville one real.",
+                                                "A type comparison for Ferdinand VI\u0027s one-real coinage identifies the crowned royal arms, Castile-and-LeÃ³n design, silver composition, and Seville mint mark.",
+                                                "Further object-level attribution, weight, and die study should be completed before presenting a more specific variety."
+                                            ],
+                          "images":  [
+                                         {
+                                             "src":  "images/spanish-real-1759-1.webp",
+                                             "alt":  "Silver Spanish real showing a quartered design of castles and lions inside a shaped border",
+                                             "caption":  "The quartered castles and lions identify Castile and LeÃ³n.",
+                                             "presentation":  {
+                                                                  "focusX":  45,
+                                                                  "focusY":  50,
+                                                                  "scale":  1.6
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/spanish-real-1759-2.webp",
+                                             "alt":  "Silver Spanish real showing a crowned royal shield surrounded by a worn inscription",
+                                             "caption":  "The crowned arms place royal authority at the center of the coin.",
+                                             "presentation":  {
+                                                                  "focusX":  50,
+                                                                  "focusY":  57,
+                                                                  "scale":  1.62
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ],
+                          "objectId":  "1759-1-reale"
+                      },
+                      {
+                          "id":  "virginia-halfpenny-1773",
+                          "order":  2,
+                          "title":  "1773 Virginia Halfpenny",
+                          "subtitle":  "A colony named on royal copper",
+                          "description":  "Authorized for Virginia and struck at the Tower Mint in London, this halfpenny pairs George III\u0027s portrait with Virginia\u0027s crowned arms. Dated 1773 but released for circulation only in 1775, it reached the colony as the political relationship represented on its faces was breaking apart.",
+                          "date":  {
+                                       "label":  "1773; released 1775",
+                                       "sortYear":  "1773"
+                                   },
+                          "origin":  "Tower Mint, London; issued for Virginia",
+                          "materials":  "Copper",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "Virginia",
+                                       "British Empire",
+                                       "George III",
+                                       "colonial money"
+                                   ],
+                          "researchNotes":  [
+                                                "Colonial Williamsburg identifies the issue as the only colony-specific coinage fully authorized by the Crown and notes archaeological evidence of use in Williamsburg.",
+                                                "The National Museum of American History records the right-facing portrait of George III and crowned Virginia shield on the 1773 halfpenny.",
+                                                "The exact die variety of this collection example has not yet been assigned."
+                                            ],
+                          "images":  [
+                                         {
+                                             "src":  "images/virginia-halfpenny-1773-1.webp",
+                                             "alt":  "Copper Virginia halfpenny showing a worn right-facing portrait of King George the Third",
+                                             "caption":  "George III occupies the portrait side beneath a Latin royal inscription.",
+                                             "presentation":  {
+                                                                  "focusX":  50,
+                                                                  "focusY":  50,
+                                                                  "scale":  1.64
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/virginia-halfpenny-1773-2.webp",
+                                             "alt":  "Copper Virginia halfpenny showing a crowned shield divided into heraldic sections",
+                                             "caption":  "Virginia\u0027s name surrounds a crowned shield on the reverse.",
+                                             "presentation":  {
+                                                                  "focusX":  50,
+                                                                  "focusY":  63,
+                                                                  "scale":  1.63
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ],
+                          "objectId":  "1773-virginia-halfpenny"
+                      },
+                      {
+                          "id":  "connecticut-copper-1786",
+                          "order":  3,
+                          "title":  "1786 Connecticut Copper",
+                          "subtitle":  "Independence in a familiar visual language",
+                          "description":  "Connecticut authorized copper coinage during the Confederation era, when states tried to supply dependable small change. This worn example retains a bust and seated figure derived from familiar British coin types, but its inscriptions relocate authority to Connecticut and declare independence and liberty.",
+                          "date":  {
+                                       "label":  "1786",
+                                       "sortYear":  "1786"
+                                   },
+                          "origin":  "Connecticut",
+                          "materials":  "Copper",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "Connecticut",
+                                       "state coinage",
+                                       "Confederation era",
+                                       "liberty"
+                                   ],
+                          "researchNotes":  [
+                                                "The American Numismatic Society places Connecticut among the states that authorized copper coinage under the Articles of Confederation.",
+                                                "The design\u0027s classical seated figure and abbreviated Latin legends show how new political claims could inhabit older-looking forms.",
+                                                "A future catalog pass should assign the exact Miller die variety."
+                                            ],
+                          "images":  [
+                                         {
+                                             "src":  "images/connecticut-copper-1786-1.webp",
+                                             "alt":  "Worn copper Connecticut coin showing a right-facing bust and portions of the AUCTORI CONNEC inscription",
+                                             "caption":  "The portrait side transfers authority from a monarch to Connecticut.",
+                                             "presentation":  {
+                                                                  "focusX":  50,
+                                                                  "focusY":  77,
+                                                                  "scale":  1.58
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/connecticut-copper-1786-2.webp",
+                                             "alt":  "Worn copper Connecticut coin showing a seated classical figure with staff",
+                                             "caption":  "A seated figure evokes liberty through a visual form familiar from British copper.",
+                                             "presentation":  {
+                                                                  "focusX":  50,
+                                                                  "focusY":  50,
+                                                                  "scale":  1.4
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "new-jersey-copper",
+                          "order":  4,
+                          "title":  "New Jersey Copper",
+                          "subtitle":  "Local emblems, a national motto",
+                          "description":  "New Jersey\u0027s copper series placed a horse\u0027s head and plow opposite a shield and the motto E PLURIBUS UNUM. The design joined a recognizable state emblem to language about union, making small change carry both local identity and an emerging national idea.",
+                          "date":  {
+                                       "label":  "1786â€“1788 series; exact year pending",
+                                       "sortYear":  "1786"
+                                   },
+                          "origin":  "New Jersey",
+                          "materials":  "Copper",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "New Jersey",
+                                       "state coinage",
+                                       "E pluribus unum",
+                                       "agriculture"
+                                   ],
+                          "researchNotes":  [
+                                                "The National Museum of American History records New Jersey coppers with a horse head above a plow and a shield beneath E PLURIBUS UNUM.",
+                                                "The Smithsonian identifies the series as the first known coins to carry the national motto.",
+                                                "The current ArchiveSense record does not yet identify the date or Maris die variety of this example."
+                                            ],
+                          "images":  [
+                                         {
+                                             "src":  "images/new-jersey-copper-1.webp",
+                                             "alt":  "Worn copper New Jersey coin showing a horse\u0027s head above a plow",
+                                             "caption":  "The horse and plow translate New Jersey\u0027s identity into a compact emblem.",
+                                             "presentation":  {
+                                                                  "focusX":  50,
+                                                                  "focusY":  68,
+                                                                  "scale":  1.34
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/new-jersey-copper-2.webp",
+                                             "alt":  "Worn reverse of a copper New Jersey coin with a faint central shield",
+                                             "caption":  "A shield and E PLURIBUS UNUM occupy the worn reverse.",
+                                             "presentation":  {
+                                                                  "focusX":  50,
+                                                                  "focusY":  66,
+                                                                  "scale":  1.39
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ],
+                          "objectId":  "1787-new-jersey-copper"
+                      },
+                      {
+                          "id":  "massachusetts-cent-1788",
+                          "order":  5,
+                          "title":  "1788 Massachusetts Copper One Cent",
+                          "subtitle":  "A named cent for the Commonwealth",
+                          "description":  "Massachusetts made the denomination explicit: CENT appears across the eagle\u0027s shield. The opposite side presents a standing Native figure with bow and arrow beneath COMMONWEALTHâ€”period imagery that connected the state\u0027s coinage to a constructed emblem of place and identity.",
+                          "date":  {
+                                       "label":  "1788",
+                                       "sortYear":  "1788"
+                                   },
+                          "origin":  "Massachusetts",
+                          "materials":  "Copper",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "Massachusetts",
+                                       "cent",
+                                       "state coinage",
+                                       "Commonwealth"
+                                   ],
+                          "researchNotes":  [
+                                                "The Smithsonian documents the standing figure, COMMON WEALTH inscription, eagle and shield, denomination CENT, and 1788 date on this type.",
+                                                "The American Numismatic Society notes Massachusetts\u0027 early use of the denomination cent on its copper coinage.",
+                                                "The Native figure should be read as eighteenth-century state iconography, not as a neutral portrait of an individual or nation."
+                                            ],
+                          "images":  [
+                                         {
+                                             "src":  "images/massachusetts-cent-1788-1.webp",
+                                             "alt":  "Copper Massachusetts cent showing a standing Native figure holding a bow and arrow",
+                                             "caption":  "COMMON WEALTH surrounds a standing figure with bow and arrow.",
+                                             "presentation":  {
+                                                                  "focusX":  50,
+                                                                  "focusY":  63,
+                                                                  "scale":  1.34
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/massachusetts-cent-1788-2.webp",
+                                             "alt":  "Copper Massachusetts cent showing an eagle with a shield marked CENT and the date 1788",
+                                             "caption":  "An eagle carries a shield naming the denomination: CENT.",
+                                             "presentation":  {
+                                                                  "focusX":  50,
+                                                                  "focusY":  58,
+                                                                  "scale":  1.17
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ],
+                          "objectId":  "1788-massachusetts-one-cent-copper"
+                      },
+                      {
+                          "id":  "vermont-copper-1788",
+                          "order":  6,
+                          "title":  "1788 Vermont Copper",
+                          "subtitle":  "A republic represented through borrowed forms",
+                          "description":  "Vermont issued copper coinage before joining the Union in 1791. This 1788 piece uses a right-facing bust and a seated figure with the declaration INDE ET LIBâ€”independence and liberty. Its familiar visual vocabulary makes political transition visible rather than tidy.",
+                          "date":  {
+                                       "label":  "1788",
+                                       "sortYear":  "1788"
+                                   },
+                          "origin":  "Vermont",
+                          "materials":  "Copper",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "Vermont",
+                                       "republic",
+                                       "state coinage",
+                                       "independence"
+                                   ],
+                          "researchNotes":  [
+                                                "The Smithsonian records a comparable 1788 Vermont copper with a right-facing bust, seated figure, and INDE ET LIB inscription.",
+                                                "The American Numismatic Society notes that Vermont began issuing coppers while it was not yet a state and joined the Union in 1791.",
+                                                "The exact Ryder variety and mint attribution of this collection example remain subjects for future research."
+                                            ],
+                          "images":  [
+                                         {
+                                             "src":  "images/vermont-copper-1788-1.webp",
+                                             "alt":  "Worn copper Vermont coin showing a right-facing bust surrounded by a partial inscription",
+                                             "caption":  "A portrait format associated with royal copper is repurposed for Vermont coinage.",
+                                             "presentation":  {
+                                                                  "focusX":  50,
+                                                                  "focusY":  66,
+                                                                  "scale":  1.41
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/vermont-copper-1788-2.webp",
+                                             "alt":  "Worn copper Vermont coin showing a seated classical figure with staff",
+                                             "caption":  "The seated figure accompanies a declaration of independence and liberty.",
+                                             "presentation":  {
+                                                                  "focusX":  50,
+                                                                  "focusY":  55,
+                                                                  "scale":  1.53
+                                                              },
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ],
+                          "objectId":  "1788-vermont-copper"
+                      }
+                  ]
 }

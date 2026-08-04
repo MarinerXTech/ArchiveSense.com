@@ -1,12 +1,16 @@
-const DEFAULT_EXHIBIT = "money-before-the-mint";
+
 const SAFE_EXHIBIT = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 const gallery = document.querySelector("#gallery");
 const experienceTemplate = document.querySelector("#experience-template");
 const dialog = document.querySelector("#artifact-dialog");
+const collectionTemplate = document.querySelector("#collection-template");
+const museumHomeTemplate = document.querySelector("#museum-home-template");
 
 let exhibit;
 let exhibitUrl;
+let exhibitCatalog = [];
+let museumExhibits = new Map();
 let museum;
 let viewMode = "guided";
 let activeStop = 0;
@@ -19,28 +23,214 @@ let currentStage = "threshold";
 initialize();
 
 async function initialize() {
-  const requested = new URLSearchParams(location.search).get("exhibit") ?? DEFAULT_EXHIBIT;
-  const exhibitId = SAFE_EXHIBIT.test(requested) ? requested : DEFAULT_EXHIBIT;
-  exhibitUrl = new URL(`exhibits/${exhibitId}/exhibit.json`, location.href);
+  const parameters = new URLSearchParams(location.search);
+  const requested = parameters.get("exhibit");
+  const exhibitId = requested && SAFE_EXHIBIT.test(requested) ? requested : null;
 
   try {
+    await loadExhibitCatalog();
+    if (!exhibitId) {
+      if (exhibitCatalog.length === 0) throw new Error("The public museum contains no listed exhibits.");
+      await loadMuseumExhibits();
+      renderMuseumHome();
+      renderMuseumSelector(null);
+      return;
+    }
+
+    exhibitUrl = new URL(`exhibits/${exhibitId}/exhibit.json`, location.href);
     const response = await fetch(exhibitUrl);
     if (!response.ok) throw new Error(`Exhibit request returned ${response.status}`);
     exhibit = await response.json();
     validatePublicExhibit(exhibit);
-    museum = exhibit.experience ?? createFallbackExperience(exhibit);
-    renderExperience();
+    ensureCurrentCatalogEntry(exhibitId);
+    await loadMuseumExhibits(exhibitId);
+
+    if (exhibit.exhibitType === "collection") {
+      museum = null;
+      renderCollectionExhibit();
+    } else {
+      document.body.dataset.exhibitType = "curated";
+      museum = exhibit.experience ?? createFallbackExperience(exhibit);
+      renderExperience();
+    }
+    document.title = `${exhibit.title} · ArchiveSense Museum`;
+    renderMuseumSelector(exhibitId);
+    openRequestedObject(parameters.get("object"));
   } catch (error) {
     gallery.innerHTML = `
       <section class="error-state">
-        <p class="kicker">Study room unavailable</p>
-        <h1>The exhibit could not be opened.</h1>
-        <p>Run this site through its local web server, or check that the selected exhibit has been published.</p>
+        <p class="kicker">Museum unavailable</p>
+        <h1>This part of the museum could not be opened.</h1>
+        <p>Run this site through its local web server, or check that the selected collection or exhibit has been published.</p>
       </section>`;
     console.error(error);
   }
 }
 
+async function loadExhibitCatalog() {
+  try {
+    const response = await fetch(new URL("exhibits/index.json", location.href));
+    if (!response.ok) throw new Error(`Museum index request returned ${response.status}`);
+    const catalog = await response.json();
+    if (catalog?.schemaVersion !== "1.0" || !Array.isArray(catalog.exhibits)) {
+      throw new Error("Unsupported museum index.");
+    }
+    exhibitCatalog = catalog.exhibits.filter((item) => SAFE_EXHIBIT.test(item?.id) && item?.title);
+  } catch (error) {
+    console.warn("The museum index could not be loaded.", error);
+    exhibitCatalog = [];
+  }
+}
+
+function ensureCurrentCatalogEntry(exhibitId) {
+  if (exhibitCatalog.some((item) => item.id === exhibitId)) return;
+  exhibitCatalog.push({
+    id: exhibitId,
+    title: exhibit.title,
+    exhibitType: exhibit.exhibitType === "collection" ? "collection" : "curated",
+    summary: exhibit.summary,
+  });
+}
+
+async function loadMuseumExhibits(currentExhibitId = null) {
+  const records = await Promise.all(exhibitCatalog.map(async (entry) => {
+    const url = new URL(`exhibits/${entry.id}/exhibit.json`, location.href);
+    if (entry.id === currentExhibitId && exhibit) {
+      return { ...entry, exhibit, url };
+    }
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Exhibit request returned ${response.status}`);
+      const manifest = await response.json();
+      validatePublicExhibit(manifest);
+      return { ...entry, exhibit: manifest, url };
+    } catch (error) {
+      console.warn(`Skipping unavailable museum entry: ${entry.id}`, error);
+      return null;
+    }
+  }));
+  museumExhibits = new Map(records.filter(Boolean).map((record) => [record.id, record]));
+}
+
+function renderMuseumSelector(exhibitId) {
+  const selector = document.querySelector("#museum-exhibit-select");
+  selector.replaceChildren();
+
+  const prompt = document.createElement("option");
+  prompt.value = "";
+  prompt.textContent = "Choose a collection or exhibit";
+  prompt.selected = !exhibitId;
+  selector.append(prompt);
+
+  for (const item of exhibitCatalog) {
+    const option = document.createElement("option");
+    option.value = item.id;
+    option.textContent = `${item.title} — ${item.exhibitType === "collection" ? "Collection" : "Curated exhibit"}`;
+    option.selected = item.id === exhibitId;
+    selector.append(option);
+  }
+  selector.addEventListener("change", () => {
+    const nextExhibit = selector.value;
+    if (!nextExhibit) {
+      location.assign("./");
+      return;
+    }
+    if (!SAFE_EXHIBIT.test(nextExhibit) || nextExhibit === exhibitId) return;
+    location.assign(exhibitHref(nextExhibit));
+  });
+}
+
+function setHeaderStatus(label) {
+  const roomStatus = document.querySelector(".room-status");
+  const statusLight = document.createElement("span");
+  statusLight.className = "status-light";
+  statusLight.setAttribute("aria-hidden", "true");
+  roomStatus.replaceChildren(statusLight, document.createTextNode(` ${label}`));
+}
+function renderMuseumHome() {
+  document.body.dataset.exhibitType = "home";
+  document.body.dataset.exhibitStage = "home";
+  gallery.dataset.stage = "home";
+  document.title = "ArchiveSense Museum";
+  const fragment = museumHomeTemplate.content.cloneNode(true);
+  const curated = [...museumExhibits.values()].filter((record) => record.exhibitType !== "collection");
+  const collections = [...museumExhibits.values()].filter((record) => record.exhibitType === "collection");
+  const featured = curated[0] ?? collections[0];
+
+  if (featured) {
+    fragment.querySelector("#museum-home-featured").append(createMuseumDirectoryCard(featured, true));
+  }
+  renderMuseumDirectory(fragment.querySelector("#museum-exhibits-grid"), curated);
+  renderMuseumDirectory(fragment.querySelector("#museum-collections-grid"), collections);
+  gallery.replaceChildren(fragment);
+
+  setHeaderStatus("Public museum");
+}
+
+function renderMuseumDirectory(container, records) {
+  records.forEach((record) => container.append(createMuseumDirectoryCard(record)));
+  if (records.length === 0) {
+    container.append(textElement("p", "More public displays will appear here as they are published.", "museum-directory-empty"));
+  }
+}
+
+function createMuseumDirectoryCard(record, featured = false) {
+  const link = document.createElement("a");
+  link.className = `museum-directory-card ${featured ? "featured" : ""} type-${record.exhibitType}`;
+  link.href = exhibitHref(record.id);
+  link.setAttribute("aria-label", `${record.exhibitType === "collection" ? "Browse collection" : "Enter exhibit"}: ${record.title}`);
+
+  const preview = document.createElement("span");
+  preview.className = "museum-directory-preview";
+  record.exhibit.artifacts.slice(0, featured ? 4 : 3).forEach((artifact) => {
+    const frame = document.createElement("span");
+    frame.className = `museum-directory-object kind-${presentationKind(artifact)}`;
+    const image = document.createElement("img");
+    image.src = museumImageUrl(record, artifact.images[0]);
+    image.alt = "";
+    applyImageFraming(image, artifact.images[0]);
+    frame.append(image);
+    preview.append(frame);
+  });
+
+  const copy = document.createElement("span");
+  copy.className = "museum-directory-copy";
+  copy.append(
+    textElement("span", record.exhibitType === "collection" ? "Collection catalog" : "Curated exhibition", "museum-directory-type"),
+    textElement("h3", record.title),
+    textElement("p", record.summary ?? record.exhibit.summary),
+    textElement(
+      "span",
+      `${record.exhibit.artifacts.length} objects · ${record.exhibitType === "collection" ? "Browse collection" : "Enter exhibit"} →`,
+      "museum-directory-action",
+    ),
+  );
+  link.append(preview, copy);
+  return link;
+}
+
+function exhibitHref(exhibitId, artifactId = null) {
+  const url = new URL(location.pathname, location.href);
+  url.searchParams.set("exhibit", exhibitId);
+  if (artifactId) url.searchParams.set("object", artifactId);
+  return url.href;
+}
+
+function updateObjectUrl(objectId = null) {
+  const url = new URL(location.href);
+  if (objectId) url.searchParams.set("object", objectId);
+  else url.searchParams.delete("object");
+  history.replaceState(null, "", url);
+}
+function museumImageUrl(record, image) {
+  return new URL(image.src, record.url).href;
+}
+
+function openRequestedObject(objectId) {
+  if (!objectId || !SAFE_EXHIBIT.test(objectId)) return;
+  const index = exhibit.artifacts.findIndex((artifact) => artifact.id === objectId);
+  if (index >= 0) openArtifact(index);
+}
 function validatePublicExhibit(value) {
   if (value?.schemaVersion !== "1.0" || !Array.isArray(value.artifacts) || value.artifacts.length === 0) {
     throw new Error("Unsupported or empty public exhibit.");
@@ -62,6 +252,109 @@ function validatePublicExhibit(value) {
   }
 }
 
+function renderCollectionExhibit() {
+  document.body.dataset.exhibitType = "collection";
+  const fragment = collectionTemplate.content.cloneNode(true);
+  setAll(fragment, "kicker", exhibit.kicker ?? "ArchiveSense · Collection catalog");
+  setAll(fragment, "title", exhibit.title);
+  setAll(fragment, "summary", exhibit.summary);
+  setAll(fragment, "introduction", exhibit.introduction);
+  setAll(fragment, "artifact-count", `${exhibit.artifacts.length} objects`);
+  setAll(
+    fragment,
+    "published-at",
+    exhibit.publishedAt ? `Published ${formatDate(exhibit.publishedAt)}` : "",
+  );
+  const heroPreview = fragment.querySelector(".collection-hero-preview");
+  const catalogLink = fragment.querySelector(".collection-catalog-link");
+  renderCollectionHero(heroPreview);
+  renderCollectionGrid(fragment.querySelector(".collection-grid"));
+  renderCollectionJump(fragment.querySelector("#collection-object-select"));
+  heroPreview.addEventListener("click", scrollToCollectionCatalog);
+  catalogLink.addEventListener("click", scrollToCollectionCatalog);
+  gallery.replaceChildren(fragment);
+
+  setHeaderStatus("Collection catalog");
+  setStage("room");
+}
+
+function scrollToCollectionCatalog() {
+  const heading = gallery.querySelector("#collection-catalog-title");
+  gallery.querySelector(".collection-catalog").scrollIntoView({
+    behavior: reducedMotion() ? "auto" : "smooth",
+    block: "start",
+  });
+  heading.setAttribute("tabindex", "-1");
+  heading.focus({ preventScroll: true });
+}
+function renderCollectionHero(container) {
+  for (const artifact of exhibit.artifacts.slice(0, 4)) {
+    const frame = document.createElement("span");
+    frame.className = `collection-preview-object kind-${presentationKind(artifact)}`;
+    const image = document.createElement("img");
+    image.src = imageUrl(artifact.images[0]);
+    image.alt = "";
+    applyImageFraming(image, artifact.images[0]);
+    frame.append(image);
+    container.append(frame);
+  }
+}
+
+function renderCollectionGrid(container) {
+  exhibit.artifacts.forEach((artifact, index) => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "collection-card";
+    card.id = `artifact-${artifact.id}`;
+    card.dataset.artifactId = artifact.id;
+    card.setAttribute("aria-label", `Inspect ${artifact.title}`);
+
+    const frame = document.createElement("span");
+    frame.className = `collection-card-image kind-${presentationKind(artifact)}`;
+    const image = document.createElement("img");
+    image.src = imageUrl(artifact.images[0]);
+    image.alt = artifact.images[0].alt;
+    applyImageFraming(image, artifact.images[0]);
+    frame.append(
+      image,
+      textElement("span", pad(index + 1), "collection-card-number"),
+      textElement(
+        "span",
+        `${artifact.images.length} ${artifact.images.length === 1 ? "view" : "views"}`,
+        "collection-card-views",
+      ),
+    );
+
+    const copy = document.createElement("span");
+    copy.className = "collection-card-copy";
+    copy.append(
+      textElement("span", artifact.tags?.[1] ?? "Collection object", "collection-card-type"),
+      textElement("h3", artifact.title),
+    );
+    if (artifact.description) {
+      copy.append(textElement("span", artifact.description, "collection-card-description"));
+    }
+    copy.append(textElement("span", "View object →", "collection-card-action"));
+    card.append(frame, copy);
+    card.addEventListener("click", () => openArtifact(index));
+    container.append(card);
+  });
+}
+
+function renderCollectionJump(selector) {
+  exhibit.artifacts.forEach((artifact, index) => {
+    const option = document.createElement("option");
+    option.value = artifact.id;
+    option.textContent = `${pad(index + 1)} · ${artifact.title}`;
+    selector.append(option);
+  });
+  selector.addEventListener("change", () => {
+    const card = gallery.querySelector(`.collection-card[data-artifact-id="${selector.value}"]`);
+    if (!card) return;
+    card.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "center" });
+    card.focus({ preventScroll: true });
+  });
+}
 function createFallbackExperience(value) {
   return {
     overview: "Explore the selected objects as a room, or use the object index below for direct access.",
@@ -114,6 +407,7 @@ function renderExperience() {
   renderRoomMap(fragment.querySelector(".room-map"));
   renderObjectIndex(fragment.querySelector(".object-index"));
   gallery.replaceChildren(fragment);
+  setHeaderStatus("Curated exhibition");
 
   gallery.querySelector(".begin-tour").addEventListener("click", () => enterRoom("guided"));
   gallery.querySelector(".explore-entry").addEventListener("click", () => enterRoom("explore"));
@@ -451,6 +745,7 @@ function openArtifact(index) {
   inspectionView = presentationKind(exhibit.artifacts[index]) === "coin" ? "object" : "photo";
   renderDialog();
   setStage("object");
+  updateObjectUrl(exhibit.artifacts[index].id);
   dialog.showModal();
 }
 
@@ -494,7 +789,63 @@ function renderDialog() {
   tags.replaceChildren();
   for (const tag of artifact.tags ?? []) tags.append(textElement("span", tag));
   tags.hidden = tags.childElementCount === 0;
+  renderArtifactContext(artifact);
   renderDialogImage();
+  updateArtifactSequence();
+}
+
+function renderArtifactContext(artifact) {
+  const section = document.querySelector("#dialog-context");
+  const links = document.querySelector("#dialog-context-links");
+  const identity = artifact.objectId ?? artifact.id;
+  links.replaceChildren();
+
+  for (const record of museumExhibits.values()) {
+    if (record.id === exhibit.id) continue;
+    for (const appearance of record.exhibit.artifacts) {
+      if ((appearance.objectId ?? appearance.id) !== identity) continue;
+      const link = document.createElement("a");
+      link.href = exhibitHref(record.id, appearance.id);
+      const label = document.createElement("span");
+      label.textContent = record.exhibitType === "collection" ? "Full collection" : "Curated exhibition";
+      const title = document.createElement("strong");
+      title.textContent = record.title;
+      const action = document.createElement("span");
+      action.textContent = record.exhibitType === "collection"
+        ? "View this object in its collection →"
+        : "See this object in the exhibition →";
+      link.append(label, title, action);
+      links.append(link);
+    }
+  }
+
+  section.hidden = links.childElementCount === 0;
+}
+function updateArtifactSequence() {
+  const previous = document.querySelector("#artifact-previous");
+  const next = document.querySelector("#artifact-next");
+  const position = document.querySelector("#artifact-position");
+  const previousArtifact = exhibit.artifacts[activeArtifact - 1];
+  const nextArtifact = exhibit.artifacts[activeArtifact + 1];
+
+  previous.disabled = !previousArtifact;
+  next.disabled = !nextArtifact;
+  previous.setAttribute(
+    "aria-label",
+    previousArtifact ? `Previous object: ${previousArtifact.title}` : "No previous object",
+  );
+  next.setAttribute("aria-label", nextArtifact ? `Next object: ${nextArtifact.title}` : "No next object");
+  position.textContent = `${activeArtifact + 1} of ${exhibit.artifacts.length}`;
+}
+
+function stepArtifact(delta) {
+  const nextIndex = activeArtifact + delta;
+  if (nextIndex < 0 || nextIndex >= exhibit.artifacts.length) return;
+  activeArtifact = nextIndex;
+  activeImage = 0;
+  inspectionView = presentationKind(exhibit.artifacts[nextIndex]) === "coin" ? "object" : "photo";
+  renderDialog();
+  updateObjectUrl(exhibit.artifacts[nextIndex].id);
 }
 
 function renderDialogImage() {
@@ -552,6 +903,8 @@ function stepImage(delta) {
 }
 
 document.querySelector("#dialog-close").addEventListener("click", () => dialog.close());
+document.querySelector("#artifact-previous").addEventListener("click", () => stepArtifact(-1));
+document.querySelector("#artifact-next").addEventListener("click", () => stepArtifact(1));
 document.querySelector("#image-previous").addEventListener("click", () => stepImage(-1));
 document.querySelector("#image-next").addEventListener("click", () => stepImage(1));
 document.querySelector("#turn-object").addEventListener("click", () => stepImage(1));
@@ -563,6 +916,7 @@ dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });
 dialog.addEventListener("close", () => {
+  updateObjectUrl();
   if (currentStage === "object") setStage(activeGroupId ? "display" : "room");
 });
 dialog.addEventListener("keydown", (event) => {
@@ -650,19 +1004,6 @@ function setStage(stage) {
   currentStage = ["threshold", "room", "display", "object"].includes(stage) ? stage : "room";
   gallery.dataset.stage = currentStage;
   document.body.dataset.exhibitStage = currentStage;
-  updateJourney();
-}
-
-function updateJourney() {
-  const order = ["threshold", "room", "display", "object"];
-  const currentIndex = order.indexOf(currentStage);
-  document.querySelectorAll(".journey-step").forEach((button) => {
-    const stepIndex = order.indexOf(button.dataset.journey);
-    button.classList.toggle("active", button.dataset.journey === currentStage);
-    button.classList.toggle("complete", stepIndex < currentIndex);
-    button.setAttribute("aria-current", button.dataset.journey === currentStage ? "step" : "false");
-    button.disabled = stepIndex > currentIndex || (button.dataset.journey === "display" && !activeGroupId);
-  });
 }
 
 function returnToThreshold() {
@@ -683,24 +1024,6 @@ function closeObjectIndex(restoreFocus = false) {
   trigger?.setAttribute("aria-expanded", "false");
   if (restoreFocus) trigger?.focus();
 }
-
-document.querySelectorAll(".journey-step").forEach((button) => {
-  button.addEventListener("click", () => {
-    const target = button.dataset.journey;
-    if (target === "threshold") returnToThreshold();
-    if (target === "room") {
-      if (dialog.open) dialog.close();
-      closeObjectIndex();
-      showOverview();
-    }
-    if (target === "display" && activeGroupId) {
-      if (dialog.open) dialog.close();
-      closeObjectIndex();
-      focusCamera(activeGroupId);
-      setStage("display");
-    }
-  });
-});
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && gallery.querySelector(".object-index-section")?.classList.contains("open")) {

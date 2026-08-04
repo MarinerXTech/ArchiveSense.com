@@ -1,0 +1,355 @@
+{
+    "schemaVersion":  "1.0",
+    "exhibitType":  "collection",
+    "id":  "colonial-coins-and-coins-from-the-age-of-exploration",
+    "title":  "Colonial Coins and Coins from the Age of Exploration",
+    "summary":  "Twelve coins spanning the Age of Exploration and the monetary world of colonial North America.",
+    "introduction":  "Browse every published object in the Colonial Coins and Coins from the Age of Exploration collection.",
+    "publishedAt":  "2026-08-04",
+    "artifacts":  [
+                      {
+                          "id":  "1474-1504-c-spain-2m",
+                          "objectId":  "1474-1504-c-spain-2m",
+                          "order":  1,
+                          "title":  "(1474-1504)C SPAIN 2M",
+                          "description":  "CUENCA\nFERDINAND V \u0026 ISABEL I\nVF 20\n6922802-005",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "coin",
+                                       "numismatic",
+                                       "collectible"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/1474-1504-c-spain-2m-1.webp",
+                                             "alt":  "(1474-1504)C SPAIN 2M, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1474-1504-c-spain-2m-2.webp",
+                                             "alt":  "(1474-1504)C SPAIN 2M, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1474-1504-c-spain-2m-3.webp",
+                                             "alt":  "(1474-1504)C SPAIN 2M, photograph 3",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1474-1504-c-spain-2m-4.webp",
+                                             "alt":  "(1474-1504)C SPAIN 2M, photograph 4",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1481-95-l-portugal-20-reis",
+                          "objectId":  "1481-95-l-portugal-20-reis",
+                          "order":  2,
+                          "title":  "(1481-95) L Portugal 20 Reis",
+                          "description":  "20 Reis\nPCGS XF40\nPortugal\nGomes-J2.14.31\nRichard August Collection\n980363.40/56036230",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "coin",
+                                       "numismatic",
+                                       "collectible"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/1481-95-l-portugal-20-reis-1.webp",
+                                             "alt":  "(1481-95) L Portugal 20 Reis, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1481-95-l-portugal-20-reis-2.webp",
+                                             "alt":  "(1481-95) L Portugal 20 Reis, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1481-95-l-portugal-20-reis-3.webp",
+                                             "alt":  "(1481-95) L Portugal 20 Reis, photograph 3",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1481-95-l-portugal-20-reis-4.webp",
+                                             "alt":  "(1481-95) L Portugal 20 Reis, photograph 4",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1615-4-netherland-1ld",
+                          "objectId":  "1615-4-netherland-1ld",
+                          "order":  3,
+                          "title":  "1615/4 NETHERLAND 1LD",
+                          "description":  "GELDERLAND DAV-4849 XF45 4254706-003 NUMISMATIC GUARANTY CORPORATIONANGGS",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "images":  [
+                                         {
+                                             "src":  "images/1615-4-netherland-1ld-1.webp",
+                                             "alt":  "1615/4 NETHERLAND 1LD, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1615-4-netherland-1ld-2.webp",
+                                             "alt":  "1615/4 NETHERLAND 1LD, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1641-netherland-1ld",
+                          "objectId":  "1641-netherland-1ld",
+                          "order":  4,
+                          "title":  "1641 NETHERLAND 1LD",
+                          "description":  "GELDERLAND DAV-4849 AU 58 5775373-017 NUMISMATIC GUARANTY CORPORATIONNICN MO",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "images":  [
+                                         {
+                                             "src":  "images/1641-netherland-1ld-1.webp",
+                                             "alt":  "1641 NETHERLAND 1LD, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1641-netherland-1ld-2.webp",
+                                             "alt":  "1641 NETHERLAND 1LD, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1701-59-8-reales",
+                          "objectId":  "1701-59-8-reales",
+                          "order":  5,
+                          "title":  "1701-59 8 Reales",
+                          "description":  "Pillars and Waves\nPotosi, Bolivia\n\"Deliberate reduction for Mediterranean commerce\"\n16.4 grams",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "images":  [
+                                         {
+                                             "src":  "images/1701-59-8-reales-1.webp",
+                                             "alt":  "1701-59 8 Reales, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1701-59-8-reales-2.webp",
+                                             "alt":  "1701-59 8 Reales, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1701-59-8-reales-3.webp",
+                                             "alt":  "1701-59 8 Reales, photograph 3",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1759-1-reale",
+                          "objectId":  "1759-1-reale",
+                          "order":  6,
+                          "title":  "1759 1 Reale",
+                          "description":  "Spain, Madrid",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "images":  [
+                                         {
+                                             "src":  "images/1759-1-reale-1.webp",
+                                             "alt":  "1759 1 Reale, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1759-1-reale-2.webp",
+                                             "alt":  "1759 1 Reale, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1759-1-reale-3.webp",
+                                             "alt":  "1759 1 Reale, photograph 3",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1773-virginia-halfpenny",
+                          "objectId":  "1773-virginia-halfpenny",
+                          "order":  7,
+                          "title":  "1773 Virginia Halfpenny",
+                          "description":  "7 Harp Strings Dot\nF-12 BN",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "images":  [
+                                         {
+                                             "src":  "images/1773-virginia-halfpenny-1.webp",
+                                             "alt":  "1773 Virginia Halfpenny, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1773-virginia-halfpenny-2.webp",
+                                             "alt":  "1773 Virginia Halfpenny, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1773-virginia-halfpenny-3.webp",
+                                             "alt":  "1773 Virginia Halfpenny, photograph 3",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1788-vermont-copper",
+                          "objectId":  "1788-vermont-copper",
+                          "order":  8,
+                          "title":  "1788 Vermont Copper",
+                          "description":  "Mailed Bust Right\nRyder-16 / Bressett 15-S\nNGC VG-8 BN",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "images":  [
+                                         {
+                                             "src":  "images/1788-vermont-copper-1.webp",
+                                             "alt":  "1788 Vermont Copper, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1788-vermont-copper-2.webp",
+                                             "alt":  "1788 Vermont Copper, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1788-vermont-copper-3.webp",
+                                             "alt":  "1788 Vermont Copper, photograph 3",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1788-vermont-copper-4.webp",
+                                             "alt":  "1788 Vermont Copper, photograph 4",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1787-connecticut-copper",
+                          "objectId":  "1787-connecticut-copper",
+                          "order":  9,
+                          "title":  "1787 Connecticut Copper",
+                          "description":  "VG 8 Details (Corroded)\nDraped Bust",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "images":  [
+                                         {
+                                             "src":  "images/1787-connecticut-copper-1.webp",
+                                             "alt":  "1787 Connecticut Copper, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1787-connecticut-copper-2.webp",
+                                             "alt":  "1787 Connecticut Copper, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1787-connecticut-copper-3.webp",
+                                             "alt":  "1787 Connecticut Copper, photograph 3",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1787-connecticut-copper-4.webp",
+                                             "alt":  "1787 Connecticut Copper, photograph 4",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1787-connecticut-copper-2",
+                          "objectId":  "1787-connecticut-copper-2",
+                          "order":  10,
+                          "title":  "1787 Connecticut Copper",
+                          "description":  "Miller 39.2-ee",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "images":  [
+                                         {
+                                             "src":  "images/1787-connecticut-copper-2-1.webp",
+                                             "alt":  "1787 Connecticut Copper, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1787-connecticut-copper-2-2.webp",
+                                             "alt":  "1787 Connecticut Copper, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1787-connecticut-copper-2-3.webp",
+                                             "alt":  "1787 Connecticut Copper, photograph 3",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1788-massachusetts-one-cent-copper",
+                          "objectId":  "1788-massachusetts-one-cent-copper",
+                          "order":  11,
+                          "title":  "1788 Massachusetts One Cent Copper",
+                          "description":  "Ryder 1-D",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "images":  [
+                                         {
+                                             "src":  "images/1788-massachusetts-one-cent-copper-1.webp",
+                                             "alt":  "1788 Massachusetts One Cent Copper, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1788-massachusetts-one-cent-copper-2.webp",
+                                             "alt":  "1788 Massachusetts One Cent Copper, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1788-massachusetts-one-cent-copper-3.webp",
+                                             "alt":  "1788 Massachusetts One Cent Copper, photograph 3",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1787-new-jersey-copper",
+                          "objectId":  "1787-new-jersey-copper",
+                          "order":  12,
+                          "title":  "1787 New Jersey Copper",
+                          "description":  "Maris 46-e",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "images":  [
+                                         {
+                                             "src":  "images/1787-new-jersey-copper-1.webp",
+                                             "alt":  "1787 New Jersey Copper, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1787-new-jersey-copper-2.webp",
+                                             "alt":  "1787 New Jersey Copper, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1787-new-jersey-copper-3.webp",
+                                             "alt":  "1787 New Jersey Copper, photograph 3",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      }
+                  ]
+}

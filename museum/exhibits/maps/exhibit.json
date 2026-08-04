@@ -1,0 +1,33 @@
+{
+    "schemaVersion":  "1.0",
+    "exhibitType":  "collection",
+    "id":  "maps",
+    "title":  "Maps",
+    "summary":  "A public catalog of historic maps and cartographic material.",
+    "introduction":  "Browse every published object in the Maps collection.",
+    "publishedAt":  "2026-08-04",
+    "artifacts":  [
+                      {
+                          "id":  "pascaerte-van-rio-gambia-als-meede-het-vaerwater-tusschen-cabo-verde-en-brazil",
+                          "objectId":  "pascaerte-van-rio-gambia-als-meede-het-vaerwater-tusschen-cabo-verde-en-brazil",
+                          "order":  1,
+                          "title":  "Pascaerte van Rio Gambia als Meede het Vaerwater Tusschen Cabo Verde en Brazil",
+                          "description":  "Rare Goos\u0027 Chart Published in The Burning Fen\n\"Pascaerte van Rio Gambia als Meede het Vaerwater Tusschen Cabo Verde en Brazil\", Goos, Pieter\n\nSubject: Atlantic Ocean\nPeriod: 1685 (circa)\nPublication: \u0027t Vierde Deel van de Nieuwe Groote Zee-Spiegel...\nColor: Black \u0026 White\nSize:\n20.5 x 16.5 inches\n52.1 x 41.9 cm\n\nThis rare and elegantly engraved sea chart depicts the passage across the Atlantic from Western Africa to Brazil. It shows the African coast spanning from the mouth of the Senegal River to the mouth of the Sierra Leone. The Gambia River valley and Cap-Vert peninsula are prominently shown. The Cape Verde islands are located as well. The Atlantic is crisscrossed by rhumb lines, with two sailing ships heading from Africa towards Brazil. The Brazilian coast includes several place names, including Paraiba oste Fredrick Stadt, Fort Orange, the Dutch settlement on Itamaraca, and Villa de Olinda de Penambuco. An elaborate figurative title cartouche appears at bottom left, and at top the distance scales are contained in an ornate strapwork cartouche flanked by putti. Two compass roses capped with fleurs-de-lis orient north to the right. This chart appeared in multiple atlases by Goos, Robijn, and Roggeveen; this example features the plate number #16 at bottom right, pagination that matches with Jacob Robijn\u0027s second part of The Burning Fen. It is one of 3 charts in the atlas taken from Goos.\n\nMost of the charts of The Burning Fen were the work of Arent Roggeveen, a land surveyor and mathematician who taught navigation for the Dutch East and West India Companies. He also helped maintain their collection of hydrographic manuscripts and charts. According to Koeman, \"He was the first Dutch chartmaker who succeeded in the publication of a printed set of charts for the Navigation in the Atlantic, along the coast of West Africa and in the West Indies.\" The first part of Het Brandende Veen or The Burning Fen was published by Pieter Goos in 1675 (the same year of his death). With its charts of Central American coastlines and islands, it was the first pilot book to include non-European coasts. After Roggeveen died in 1679, Jacob Robijn took over the rights to Roggeveen\u0027s plates. He published the second part of The Burning Fen in 1685. Both parts of The Burning Fen are extremely rare, and the charts from it rarely appear on the market.\nReferences: Koeman, Rog 12 #7.\nCondition: B+\nA crisp impression on a sheet with Strasburg bend and lily and Pieter van der Ley watermarks. There is light foxing and a pair of tiny wormholes adjacent to the lower centerfold.",
+                          "presentation":  {
+                                               "kind":  "paper"
+                                           },
+                          "tags":  [
+                                       "map",
+                                       "cartography",
+                                       "geographical"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/pascaerte-van-rio-gambia-als-meede-het-vaerwater-tusschen-cabo-verde-en-brazil-1.webp",
+                                             "alt":  "Pascaerte van Rio Gambia als Meede het Vaerwater Tusschen Cabo Verde en Brazil, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      }
+                  ]
+}

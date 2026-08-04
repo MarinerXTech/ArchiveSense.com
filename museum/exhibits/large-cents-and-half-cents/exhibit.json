@@ -1,0 +1,245 @@
+{
+    "schemaVersion":  "1.0",
+    "exhibitType":  "collection",
+    "id":  "large-cents-and-half-cents",
+    "title":  "Large Cents and Half Cents",
+    "summary":  "Nine United States large cents and half cents dating from 1796 through 1856.",
+    "introduction":  "Browse every published object in the Large Cents and Half Cents collection.",
+    "publishedAt":  "2026-08-04",
+    "artifacts":  [
+                      {
+                          "id":  "1796-large-cent",
+                          "objectId":  "1796-large-cent",
+                          "order":  1,
+                          "title":  "1796 Large Cent",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "coin",
+                                       "numismatic",
+                                       "collectible"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/1796-large-cent-1.webp",
+                                             "alt":  "1796 Large Cent, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1796-large-cent-2.webp",
+                                             "alt":  "1796 Large Cent, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1806-draped-bust-large-cent",
+                          "objectId":  "1806-draped-bust-large-cent",
+                          "order":  2,
+                          "title":  "1806 Draped Bust Large Cent",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "coin",
+                                       "numismatic",
+                                       "collectible"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/1806-draped-bust-large-cent-1.webp",
+                                             "alt":  "1806 Draped Bust Large Cent, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1806-draped-bust-large-cent-2.webp",
+                                             "alt":  "1806 Draped Bust Large Cent, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1828-classic-head-half-cent",
+                          "objectId":  "1828-classic-head-half-cent",
+                          "order":  3,
+                          "title":  "1828 Classic Head Half Cent",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "coin",
+                                       "numismatic",
+                                       "collectible"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/1828-classic-head-half-cent-1.webp",
+                                             "alt":  "1828 Classic Head Half Cent, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1828-classic-head-half-cent-2.webp",
+                                             "alt":  "1828 Classic Head Half Cent, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1843-large-cent",
+                          "objectId":  "1843-large-cent",
+                          "order":  4,
+                          "title":  "1843 Large Cent",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "coin",
+                                       "numismatic",
+                                       "collectible"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/1843-large-cent-1.webp",
+                                             "alt":  "1843 Large Cent, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1843-large-cent-2.webp",
+                                             "alt":  "1843 Large Cent, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1844-large-cent",
+                          "objectId":  "1844-large-cent",
+                          "order":  5,
+                          "title":  "1844 Large Cent",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "coin",
+                                       "numismatic",
+                                       "collectible"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/1844-large-cent-1.webp",
+                                             "alt":  "1844 Large Cent, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1844-large-cent-2.webp",
+                                             "alt":  "1844 Large Cent, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1850-large-cent",
+                          "objectId":  "1850-large-cent",
+                          "order":  6,
+                          "title":  "1850 Large Cent",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "coin",
+                                       "numismatic",
+                                       "collectible"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/1850-large-cent-1.webp",
+                                             "alt":  "1850 Large Cent, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1850-large-cent-2.webp",
+                                             "alt":  "1850 Large Cent, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1852-large-cent",
+                          "objectId":  "1852-large-cent",
+                          "order":  7,
+                          "title":  "1852 Large Cent",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "coin",
+                                       "numismatic",
+                                       "collectible"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/1852-large-cent-1.webp",
+                                             "alt":  "1852 Large Cent, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1852-large-cent-2.webp",
+                                             "alt":  "1852 Large Cent, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1854-large-cent",
+                          "objectId":  "1854-large-cent",
+                          "order":  8,
+                          "title":  "1854 Large Cent",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "coin",
+                                       "numismatic",
+                                       "collectible"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/1854-large-cent-1.webp",
+                                             "alt":  "1854 Large Cent, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1854-large-cent-2.webp",
+                                             "alt":  "1854 Large Cent, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      },
+                      {
+                          "id":  "1856-coronet-large-cent",
+                          "objectId":  "1856-coronet-large-cent",
+                          "order":  9,
+                          "title":  "1856 Coronet Large Cent",
+                          "presentation":  {
+                                               "kind":  "coin"
+                                           },
+                          "tags":  [
+                                       "coin",
+                                       "numismatic",
+                                       "collectible"
+                                   ],
+                          "images":  [
+                                         {
+                                             "src":  "images/1856-coronet-large-cent-1.webp",
+                                             "alt":  "1856 Coronet Large Cent, photograph 1",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         },
+                                         {
+                                             "src":  "images/1856-coronet-large-cent-2.webp",
+                                             "alt":  "1856 Coronet Large Cent, photograph 2",
+                                             "credit":  "ArchiveSense collection photograph"
+                                         }
+                                     ]
+                      }
+                  ]
+}

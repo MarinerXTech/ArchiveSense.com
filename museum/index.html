@@ -24,25 +24,16 @@
         <span class="wordmark-mark" aria-hidden="true">A</span>
         <span>ArchiveSense</span>
       </a>
-      <nav class="journey-progress" aria-label="Exhibit journey">
-        <button class="journey-step active" data-journey="threshold" type="button" aria-label="Stage 1: Entrance">
-          <span>01</span><span>Entrance</span>
-        </button>
-        <button class="journey-step" data-journey="room" type="button" aria-label="Stage 2: Room">
-          <span>02</span><span>Room</span>
-        </button>
-        <button class="journey-step" data-journey="display" type="button" aria-label="Stage 3: Display" disabled>
-          <span>03</span><span>Display</span>
-        </button>
-        <button class="journey-step" data-journey="object" type="button" aria-label="Stage 4: Object" disabled>
-          <span>04</span><span>Object</span>
-        </button>
-      </nav>
       <div class="header-actions">
         <a class="site-return" href="../">Main site</a>
+        <a class="museum-home-link" href="./">Museum home</a>
+        <label class="museum-selector" for="museum-exhibit-select">
+          <span>Go to</span>
+          <select id="museum-exhibit-select" aria-label="Choose a collection or exhibit"></select>
+        </label>
         <div class="room-status">
           <span class="status-light" aria-hidden="true"></span>
-          Public study room
+          Public museum
         </div>
       </div>
     </header>
@@ -88,6 +79,17 @@
           <p class="record-number" id="dialog-number"></p>
           <h2 id="dialog-title"></h2>
           <p class="dialog-subtitle" id="dialog-subtitle"></p>
+          <nav class="artifact-sequence" aria-label="Move between objects">
+            <button id="artifact-previous" type="button">
+              <span aria-hidden="true">&larr;</span>
+              <span>Previous</span>
+            </button>
+            <span id="artifact-position" aria-live="polite"></span>
+            <button id="artifact-next" type="button">
+              <span>Next</span>
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          </nav>
           <dl class="facts" id="dialog-facts"></dl>
           <p class="dialog-description" id="dialog-description"></p>
           <section class="research" id="dialog-research">
@@ -95,9 +97,84 @@
             <div id="dialog-research-list"></div>
           </section>
           <div class="tag-list" id="dialog-tags" aria-label="Artifact subjects"></div>
+          <section class="artifact-context" id="dialog-context" hidden>
+            <h3>Elsewhere in the museum</h3>
+            <div id="dialog-context-links"></div>
+          </section>
         </article>
       </div>
     </dialog>
+
+    <template id="museum-home-template">
+      <section class="museum-home">
+        <header class="museum-home-hero">
+          <div class="museum-home-copy">
+            <p class="museum-home-kicker">ArchiveSense public museum</p>
+            <h1>Money in<br />English America</h1>
+            <p>Explore the money used in England's North American colonies through complete collection catalogs and focused curatorial exhibitions.</p>
+            <a href="#curated-exhibits">Explore the museum <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="museum-home-featured" id="museum-home-featured"></div>
+        </header>
+        <section class="museum-directory-section" id="curated-exhibits" aria-labelledby="curated-exhibits-title">
+          <header>
+            <p>Curated exhibitions</p>
+            <h2 id="curated-exhibits-title">Follow an interpretation</h2>
+          </header>
+          <div class="museum-directory-grid" id="museum-exhibits-grid"></div>
+        </section>
+        <section class="museum-directory-section" id="public-collections" aria-labelledby="public-collections-title">
+          <header>
+            <p>Collection catalogs</p>
+            <h2 id="public-collections-title">Browse the holdings</h2>
+          </header>
+          <div class="museum-directory-grid" id="museum-collections-grid"></div>
+        </section>
+        <footer class="museum-home-footer">
+          <span>ArchiveSense public museum</span>
+          <span>Collections published with care</span>
+        </footer>
+      </section>
+    </template>
+    <template id="collection-template">
+      <section class="collection-exhibit">
+        <header class="collection-hero">
+          <div class="collection-hero-copy">
+            <p class="collection-kicker" data-field="kicker"></p>
+            <h1 data-field="title"></h1>
+            <p class="collection-summary" data-field="summary"></p>
+            <p class="collection-introduction" data-field="introduction"></p>
+            <button class="collection-catalog-link" type="button">
+              <span data-field="artifact-count"></span>
+              <span>Browse the complete collection</span>
+              <span aria-hidden="true">↓</span>
+            </button>
+          </div>
+          <button class="collection-hero-preview" type="button" aria-label="Browse all objects in this collection"></button>
+        </header>
+
+        <section class="collection-catalog" aria-labelledby="collection-catalog-title">
+          <header class="collection-catalog-heading">
+            <div>
+              <p>Collection catalog</p>
+              <h2 id="collection-catalog-title">All objects</h2>
+            </div>
+            <label class="collection-jump-control" for="collection-object-select">
+              <span>Jump to an object</span>
+              <select id="collection-object-select">
+                <option value="">Choose an object</option>
+              </select>
+            </label>
+          </header>
+          <div class="collection-grid" aria-label="Inspect an object"></div>
+        </section>
+
+        <footer class="collection-footer">
+          <span>ArchiveSense collection catalog</span>
+          <span data-field="published-at"></span>
+        </footer>
+      </section>
+    </template>
 
     <template id="experience-template">
       <section class="intro-panel">
@@ -128,7 +205,7 @@
       <section class="gallery-shell immersive-gallery" aria-label="Interactive exhibit room">
         <div class="gallery-heading">
           <div>
-            <p class="gallery-kicker">Gallery 01</p>
+            <p class="gallery-kicker">Curated exhibition</p>
             <h2 data-field="title"></h2>
           </div>
           <div class="gallery-actions">
