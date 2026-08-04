@@ -1,0 +1,35 @@
+{
+    "schemaVersion":  "1.0",
+    "exhibits":  [
+                     {
+                         "id":  "money-before-the-mint",
+                         "title":  "Money Before the Mint",
+                         "exhibitType":  "curated",
+                         "summary":  "Six coins open a study of the money used in England\u0027s North American coloniesÃ¢â‚¬â€and the monetary experiments that followed independence."
+                     },
+                     {
+                         "id":  "colonial-coins-and-coins-from-the-age-of-exploration",
+                         "title":  "Colonial Coins and Coins from the Age of Exploration",
+                         "exhibitType":  "collection",
+                         "summary":  "Twelve coins spanning the Age of Exploration and the monetary world of colonial North America."
+                     },
+                     {
+                         "id":  "colonial-currency",
+                         "title":  "Colonial Currency",
+                         "exhibitType":  "collection",
+                         "summary":  "Seven notes and financial documents from the Colonial Currency collection."
+                     },
+                     {
+                         "id":  "large-cents-and-half-cents",
+                         "title":  "Large Cents and Half Cents",
+                         "exhibitType":  "collection",
+                         "summary":  "Nine United States large cents and half cents dating from 1796 through 1856."
+                     },
+                     {
+                         "id":  "maps",
+                         "title":  "Maps",
+                         "exhibitType":  "collection",
+                         "summary":  "A public catalog of historic maps and cartographic material."
+                     }
+                 ]
+}

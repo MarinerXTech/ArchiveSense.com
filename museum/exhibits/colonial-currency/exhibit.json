@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "1.0",
+  "exhibitType": "collection",
+  "id": "colonial-currency",
+  "title": "Colonial Currency",
+  "kicker": "ArchiveSense ? Collection catalog",
+  "summary": "Seven notes and financial documents from the Colonial Currency collection.",
+  "introduction": "A complete public presentation of the objects currently held in this ArchiveSense collection.",
+  "publishedAt": "2026-08-04",
+  "artifacts": [
+    {
+      "id": "banque-royale-january-1-1720-10-livres",
+      "order": 1,
+      "title": "Banque Royale January 1, 1720. 10 Livres",
+      "description": "P-A16b. France/Louisiana. Banque Royale. January 1, 1720. 10 Livres. PMG Very Fine 30.",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "currency",
+        "paper money",
+        "banknote"
+      ],
+      "images": [
+        {
+          "src": "images/banque-royale-january-1-1720-10-livres-1.webp",
+          "alt": "Banque Royale January 1, 1720. 10 Livres, photograph 1",
+          "credit": "ArchiveSense collection photograph"
+        },
+        {
+          "src": "images/banque-royale-january-1-1720-10-livres-2.webp",
+          "alt": "Banque Royale January 1, 1720. 10 Livres, photograph 2",
+          "credit": "ArchiveSense collection photograph"
+        }
+      ]
+    },
+    {
+      "id": "1774-4-maryland-colonial-currency",
+      "order": 2,
+      "title": "1774 $4 Maryland Colonial Currency",
+      "description": "Fr. MD-68 April 10, 1774 $4 Serial # 14042 Printer: Anne Catherine and Frederick Green",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "currency",
+        "paper money",
+        "banknote"
+      ],
+      "images": [
+        {
+          "src": "images/1774-4-maryland-colonial-currency-1.webp",
+          "alt": "1774 $4 Maryland Colonial Currency, photograph 1",
+          "credit": "ArchiveSense collection photograph"
+        },
+        {
+          "src": "images/1774-4-maryland-colonial-currency-2.webp",
+          "alt": "1774 $4 Maryland Colonial Currency, photograph 2",
+          "credit": "ArchiveSense collection photograph"
+        }
+      ]
+    },
+    {
+      "id": "1754-40s-north-carolina-forty-shillings",
+      "order": 3,
+      "title": "1754 40s North Carolina Forty Shillings",
+      "description": "North Carolina forty-shilling note dated 1754.",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "currency",
+        "paper money",
+        "banknote"
+      ],
+      "images": [
+        {
+          "src": "images/1754-40s-north-carolina-forty-shillings-1.webp",
+          "alt": "1754 40s North Carolina Forty Shillings, photograph 1",
+          "credit": "ArchiveSense collection photograph"
+        },
+        {
+          "src": "images/1754-40s-north-carolina-forty-shillings-2.webp",
+          "alt": "1754 40s North Carolina Forty Shillings, photograph 2",
+          "credit": "ArchiveSense collection photograph"
+        }
+      ]
+    },
+    {
+      "id": "1763-12s-new-jersey-colonial-note-contemporary-counterfeit",
+      "order": 4,
+      "title": "1763 12s New Jersey Colonial Note - Contemporary Counterfeit",
+      "description": "December 31, 1763 12s - Counterfeit \nFr#NJ-156CT\nPMG S/N 2119 pp\nChoice Extremely Fine 45 (minor stains)",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "currency",
+        "paper money",
+        "banknote"
+      ],
+      "images": [
+        {
+          "src": "images/1763-12s-new-jersey-colonial-note-contemporary-counterfeit-1.webp",
+          "alt": "1763 12s New Jersey Colonial Note - Contemporary Counterfeit, photograph 1",
+          "credit": "ArchiveSense collection photograph"
+        },
+        {
+          "src": "images/1763-12s-new-jersey-colonial-note-contemporary-counterfeit-2.webp",
+          "alt": "1763 12s New Jersey Colonial Note - Contemporary Counterfeit, photograph 2",
+          "credit": "ArchiveSense collection photograph"
+        }
+      ]
+    },
+    {
+      "id": "1777-4-pennsylvania-colonial-currency",
+      "order": 5,
+      "title": "1777 £4 Pennsylvania Colonial Currency",
+      "description": "PA-224a Apr. 10, 1777 £4 Black Pennsylvania Colonial Currency Serial #10507 Eric P. Newman Collection",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "currency",
+        "paper money",
+        "banknote"
+      ],
+      "images": [
+        {
+          "src": "images/1777-4-pennsylvania-colonial-currency-1.webp",
+          "alt": "1777 £4 Pennsylvania Colonial Currency, photograph 1",
+          "credit": "ArchiveSense collection photograph"
+        },
+        {
+          "src": "images/1777-4-pennsylvania-colonial-currency-2.webp",
+          "alt": "1777 £4 Pennsylvania Colonial Currency, photograph 2",
+          "credit": "ArchiveSense collection photograph"
+        }
+      ]
+    },
+    {
+      "id": "1780-10-s-connecticut-colonial-note",
+      "order": 6,
+      "title": "1780 10 s Connecticut Colonial Note",
+      "description": "Connecticut Colonial Note Fr#CT-238 July 1, 1780 10 Shillings S/N 3063",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "currency",
+        "paper money",
+        "banknote"
+      ],
+      "images": [
+        {
+          "src": "images/1780-10-s-connecticut-colonial-note-1.webp",
+          "alt": "1780 10 s Connecticut Colonial Note, photograph 1",
+          "credit": "ArchiveSense collection photograph"
+        },
+        {
+          "src": "images/1780-10-s-connecticut-colonial-note-2.webp",
+          "alt": "1780 10 s Connecticut Colonial Note, photograph 2",
+          "credit": "ArchiveSense collection photograph"
+        }
+      ]
+    },
+    {
+      "id": "1779-connecticut-promissory-note-500-pounds",
+      "order": 7,
+      "title": "1779 Connecticut Promissory Note 500 Pounds",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "currency",
+        "paper money",
+        "banknote"
+      ],
+      "images": [
+        {
+          "src": "images/1779-connecticut-promissory-note-500-pounds-1.webp",
+          "alt": "1779 Connecticut Promissory Note 500 Pounds, photograph 1",
+          "credit": "ArchiveSense collection photograph"
+        },
+        {
+          "src": "images/1779-connecticut-promissory-note-500-pounds-2.webp",
+          "alt": "1779 Connecticut Promissory Note 500 Pounds, photograph 2",
+          "credit": "ArchiveSense collection photograph"
+        }
+      ]
+    }
+  ]
+}
