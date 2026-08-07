@@ -3,7 +3,7 @@
   "exhibitType": "collection",
   "id": "colonial-currency",
   "title": "Colonial Currency",
-  "kicker": "ArchiveSense ? Collection catalog",
+  "kicker": "ArchiveSense · Collection catalog",
   "summary": "Seven notes and financial documents from the Colonial Currency collection.",
   "introduction": "A complete public presentation of the objects currently held in this ArchiveSense collection.",
   "publishedAt": "2026-08-04",
@@ -32,7 +32,8 @@
           "alt": "Banque Royale January 1, 1720. 10 Livres, photograph 2",
           "credit": "ArchiveSense collection photograph"
         }
-      ]
+      ],
+      "objectId": "banque-royale-january-1-1720-10-livres"
     },
     {
       "id": "1774-4-maryland-colonial-currency",
@@ -58,7 +59,8 @@
           "alt": "1774 $4 Maryland Colonial Currency, photograph 2",
           "credit": "ArchiveSense collection photograph"
         }
-      ]
+      ],
+      "objectId": "1774-4-maryland-colonial-currency"
     },
     {
       "id": "1754-40s-north-carolina-forty-shillings",
@@ -84,7 +86,8 @@
           "alt": "1754 40s North Carolina Forty Shillings, photograph 2",
           "credit": "ArchiveSense collection photograph"
         }
-      ]
+      ],
+      "objectId": "1754-40s-north-carolina-forty-shillings"
     },
     {
       "id": "1763-12s-new-jersey-colonial-note-contemporary-counterfeit",
@@ -110,7 +113,8 @@
           "alt": "1763 12s New Jersey Colonial Note - Contemporary Counterfeit, photograph 2",
           "credit": "ArchiveSense collection photograph"
         }
-      ]
+      ],
+      "objectId": "1763-12s-new-jersey-colonial-note-contemporary-counterfeit"
     },
     {
       "id": "1777-4-pennsylvania-colonial-currency",
@@ -136,7 +140,8 @@
           "alt": "1777 £4 Pennsylvania Colonial Currency, photograph 2",
           "credit": "ArchiveSense collection photograph"
         }
-      ]
+      ],
+      "objectId": "1777-4-pennsylvania-colonial-currency"
     },
     {
       "id": "1780-10-s-connecticut-colonial-note",
@@ -162,7 +167,8 @@
           "alt": "1780 10 s Connecticut Colonial Note, photograph 2",
           "credit": "ArchiveSense collection photograph"
         }
-      ]
+      ],
+      "objectId": "1780-10-s-connecticut-colonial-note"
     },
     {
       "id": "1779-connecticut-promissory-note-500-pounds",
@@ -187,7 +193,8 @@
           "alt": "1779 Connecticut Promissory Note 500 Pounds, photograph 2",
           "credit": "ArchiveSense collection photograph"
         }
-      ]
+      ],
+      "objectId": "1779-connecticut-promissory-note-500-pounds"
     }
   ]
 }
