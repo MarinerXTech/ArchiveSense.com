@@ -42,10 +42,11 @@ async function loadMuseumProgram() {
 
 function renderFeaturedHero(record) {
   if (!record) return;
+  const featuredIds = record.exhibit.featuredArtifactIds ?? [];
   const featured = [
-    [".hero-map", "atlantic-chart-1685"],
-    [".hero-coin", "spanish-eight-reales"],
-    [".hero-note", "north-carolina-forty-shillings-1754"],
+    [".hero-map", featuredIds[1] ?? "north-carolina-forty-shillings-1754"],
+    [".hero-coin", featuredIds[0] ?? "gelderland-lion-dollar-1641"],
+    [".hero-note", featuredIds[2] ?? "spanish-eight-reales"],
   ];
 
   for (const [selector, artifactId] of featured) {

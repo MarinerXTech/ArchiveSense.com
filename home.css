@@ -271,6 +271,19 @@ body.home-page {
   transform: rotate(5deg);
 }
 
+.hero-note.kind-coin {
+  right: 7%;
+  bottom: 12%;
+  width: 31%;
+  aspect-ratio: 1;
+  padding: 0.45rem;
+  border: 0;
+  border-radius: 50%;
+  background: #0d0d0b;
+}
+
+.hero-note.kind-coin .artifact-media__viewport { border-radius: 50%; }
+
 
 .hero-object-caption {
   position: absolute;

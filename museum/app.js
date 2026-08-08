@@ -203,7 +203,7 @@ function createMuseumDirectoryCard(record, featured = false) {
 
   const preview = document.createElement("span");
   preview.className = "museum-directory-preview";
-  record.exhibit.artifacts.slice(0, featured ? 4 : 3).forEach((artifact) => {
+  selectFeaturedArtifacts(record.exhibit, featured ? 4 : 3).forEach((artifact) => {
     const frame = document.createElement("span");
     frame.className = `museum-directory-object kind-${presentationKind(artifact)}`;
     mountArtifactMedia(frame, {
@@ -282,6 +282,15 @@ function validatePublicExhibit(value) {
     }
   }
   if (value.mapExperience) validateMapExperience(value.mapExperience, artifactIds);
+  if (value.featuredArtifactIds) {
+    if (!Array.isArray(value.featuredArtifactIds)
+      || value.featuredArtifactIds.length === 0
+      || value.featuredArtifactIds.length > 4
+      || new Set(value.featuredArtifactIds).size !== value.featuredArtifactIds.length
+      || value.featuredArtifactIds.some((id) => !artifactIds.has(id))) {
+      throw new Error("The featured artifact selection is invalid.");
+    }
+  }
 }
 
 function validateMapExperience(value, artifactIds) {
@@ -713,7 +722,7 @@ function renderExperience() {
 }
 
 function renderIntroPreview(container) {
-  for (const artifact of exhibit.artifacts.slice(0, 3)) {
+  for (const artifact of selectFeaturedArtifacts(exhibit, 3)) {
     const mount = document.createElement("span");
     mount.className = `preview-object kind-${presentationKind(artifact)}`;
     mountArtifactMedia(mount, {
@@ -724,6 +733,16 @@ function renderIntroPreview(container) {
     });
     container.append(mount);
   }
+}
+
+function selectFeaturedArtifacts(value, limit) {
+  const byId = new Map(value.artifacts.map((artifact) => [artifact.id, artifact]));
+  const selected = (value.featuredArtifactIds ?? []).map((id) => byId.get(id)).filter(Boolean);
+  for (const artifact of value.artifacts) {
+    if (selected.length >= limit) break;
+    if (!selected.includes(artifact)) selected.push(artifact);
+  }
+  return selected.slice(0, limit);
 }
 
 function enterRoom(mode) {
