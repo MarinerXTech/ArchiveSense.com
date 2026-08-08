@@ -177,8 +177,14 @@ body.home-page {
   text-decoration: none;
 }
 
-.button-primary { color: var(--museum-ink); background: var(--museum-bone); }
-.button-primary:hover { background: #fff8e9; }
+.home-page .button-primary {
+  color: var(--museum-ink);
+  background: var(--museum-bone);
+}
+.home-page .button-primary:hover {
+  color: var(--museum-ink);
+  background: #fff8e9;
+}
 .button-secondary { border-color: var(--museum-line); color: var(--museum-paper); }
 .button-secondary:hover { border-color: var(--museum-copper); color: var(--museum-bone); }
 
@@ -226,14 +232,20 @@ body.home-page {
 }
 
 .hero-map {
+  --media-inset: 0;
   inset: 7% 3% 29% 12%;
   border: 0.75rem solid #282720;
   transform: rotate(-2.5deg);
 }
 
-.hero-map img { width: 100%; height: 100%; object-fit: cover; filter: sepia(0.18) saturate(0.78); }
+.hero-map .artifact-media__viewport { filter: sepia(0.18) saturate(0.78); }
+.hero-map > img,
+.hero-note > img,
+.hero-coin > img { width: 100%; height: 100%; object-fit: cover; }
+.hero-map > img { filter: sepia(0.18) saturate(0.78); }
 
 .hero-coin {
+  --media-inset: 0.55rem;
   z-index: 2;
   top: 4%;
   right: -1%;
@@ -245,9 +257,11 @@ body.home-page {
   transform: rotate(8deg);
 }
 
-.hero-coin img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.hero-coin .artifact-media__viewport { border-radius: 50%; }
+.hero-coin > img { border-radius: 50%; }
 
 .hero-note {
+  --media-inset: 0;
   z-index: 3;
   right: 3%;
   bottom: 13%;
@@ -257,7 +271,6 @@ body.home-page {
   transform: rotate(5deg);
 }
 
-.hero-note img { width: 100%; height: 100%; object-fit: cover; }
 
 .hero-object-caption {
   position: absolute;
@@ -331,21 +344,18 @@ body.home-page {
 .museum-program-card:nth-child(even) { background: var(--museum-ink-soft); }
 
 .museum-card-preview {
+  --media-inset: clamp(1.1rem, 3vw, 2.25rem);
   position: relative;
   min-height: 20rem;
   overflow: hidden;
   background: #090907;
 }
 
-.museum-card-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.museum-card-preview .artifact-media__viewport {
   filter: saturate(0.72) sepia(0.1);
-  transition: transform 500ms ease, filter 500ms ease;
 }
 
-.museum-program-card.is-collection .museum-card-preview img { object-fit: contain; padding: 2.25rem; }
+.museum-card-preview > .artifact-media__stage { transition-duration: 500ms; }
 
 .museum-card-copy {
   display: grid;
@@ -371,7 +381,10 @@ body.home-page {
 
 .museum-card-copy p { grid-area: summary; max-width: 52rem; margin: 0; color: var(--museum-muted); line-height: 1.7; }
 .museum-card-action { grid-area: action; margin-top: 2rem; font-size: 0.78rem; letter-spacing: 0.06em; }
-.museum-program-card:hover .museum-card-preview img { transform: scale(1.025); filter: saturate(0.92) sepia(0.05); }
+.museum-program-card:hover .museum-card-preview > .artifact-media__stage {
+  filter: saturate(1.18) sepia(0.02);
+  transform: scale(1.025);
+}
 .museum-program-card:hover .museum-card-action { color: var(--museum-copper); }
 
 .section-link-row { display: flex; margin-top: 2rem; justify-content: flex-end; }
@@ -522,5 +535,5 @@ body.home-page {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-map, .hero-note, .hero-coin, .museum-card-preview img { transition: none; }
+  .hero-map, .hero-note, .hero-coin, .museum-card-preview > .artifact-media__stage { transition: none; }
 }

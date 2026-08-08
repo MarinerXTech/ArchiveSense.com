@@ -25,12 +25,28 @@
                                          {
                                              "src":  "images/1474-1504-c-spain-2m-1.webp",
                                              "alt":  "(1474-1504)C SPAIN 2M, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  0,
+                                                                                         "y":  21,
+                                                                                         "width":  88,
+                                                                                         "height":  66
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1474-1504-c-spain-2m-2.webp",
                                              "alt":  "(1474-1504)C SPAIN 2M, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  0,
+                                                                                         "y":  13,
+                                                                                         "width":  100,
+                                                                                         "height":  75
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1474-1504-c-spain-2m-3.webp",
@@ -62,12 +78,28 @@
                                          {
                                              "src":  "images/1481-95-l-portugal-20-reis-1.webp",
                                              "alt":  "(1481-95) L Portugal 20 Reis, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  9,
+                                                                                         "y":  18,
+                                                                                         "width":  86,
+                                                                                         "height":  65
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1481-95-l-portugal-20-reis-2.webp",
                                              "alt":  "(1481-95) L Portugal 20 Reis, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  4,
+                                                                                         "y":  18,
+                                                                                         "width":  94,
+                                                                                         "height":  71
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1481-95-l-portugal-20-reis-3.webp",
@@ -94,12 +126,28 @@
                                          {
                                              "src":  "images/1615-4-netherland-1ld-1.webp",
                                              "alt":  "1615/4 NETHERLAND 1LD, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  17,
+                                                                                         "y":  42,
+                                                                                         "width":  64,
+                                                                                         "height":  48
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1615-4-netherland-1ld-2.webp",
                                              "alt":  "1615/4 NETHERLAND 1LD, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  17,
+                                                                                         "y":  37,
+                                                                                         "width":  66,
+                                                                                         "height":  50
+                                                                                     }
+                                                              }
                                          }
                                      ]
                       },
@@ -116,12 +164,28 @@
                                          {
                                              "src":  "images/1641-netherland-1ld-1.webp",
                                              "alt":  "1641 NETHERLAND 1LD, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  12,
+                                                                                         "y":  38,
+                                                                                         "width":  68,
+                                                                                         "height":  51
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1641-netherland-1ld-2.webp",
                                              "alt":  "1641 NETHERLAND 1LD, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  18,
+                                                                                         "y":  39,
+                                                                                         "width":  68,
+                                                                                         "height":  51
+                                                                                     }
+                                                              }
                                          }
                                      ]
                       },
@@ -138,12 +202,28 @@
                                          {
                                              "src":  "images/1701-59-8-reales-1.webp",
                                              "alt":  "1701-59 8 Reales, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  5,
+                                                                                         "y":  14,
+                                                                                         "width":  90,
+                                                                                         "height":  67.77
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1701-59-8-reales-2.webp",
                                              "alt":  "1701-59 8 Reales, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  8,
+                                                                                         "y":  18,
+                                                                                         "width":  84,
+                                                                                         "height":  63.25
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1701-59-8-reales-3.webp",
@@ -165,12 +245,28 @@
                                          {
                                              "src":  "images/1759-1-reale-1.webp",
                                              "alt":  "1759 1 Reale, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  13,
+                                                                                         "y":  25,
+                                                                                         "width":  82,
+                                                                                         "height":  62
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1759-1-reale-2.webp",
                                              "alt":  "1759 1 Reale, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  4,
+                                                                                         "y":  19,
+                                                                                         "width":  92,
+                                                                                         "height":  69
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1759-1-reale-3.webp",
@@ -192,12 +288,28 @@
                                          {
                                              "src":  "images/1773-virginia-halfpenny-1.webp",
                                              "alt":  "1773 Virginia Halfpenny, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  8,
+                                                                                         "y":  23,
+                                                                                         "width":  90,
+                                                                                         "height":  68
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1773-virginia-halfpenny-2.webp",
                                              "alt":  "1773 Virginia Halfpenny, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  1,
+                                                                                         "y":  16,
+                                                                                         "width":  98,
+                                                                                         "height":  74
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1773-virginia-halfpenny-3.webp",
@@ -219,12 +331,28 @@
                                          {
                                              "src":  "images/1788-vermont-copper-1.webp",
                                              "alt":  "1788 Vermont Copper, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  1,
+                                                                                         "y":  15,
+                                                                                         "width":  98,
+                                                                                         "height":  74
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1788-vermont-copper-2.webp",
                                              "alt":  "1788 Vermont Copper, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  3,
+                                                                                         "y":  17,
+                                                                                         "width":  96,
+                                                                                         "height":  72
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1788-vermont-copper-3.webp",
@@ -251,12 +379,28 @@
                                          {
                                              "src":  "images/1787-connecticut-copper-1.webp",
                                              "alt":  "1787 Connecticut Copper, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  4,
+                                                                                         "y":  17,
+                                                                                         "width":  96,
+                                                                                         "height":  72
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1787-connecticut-copper-2.webp",
                                              "alt":  "1787 Connecticut Copper, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  2,
+                                                                                         "y":  17,
+                                                                                         "width":  94,
+                                                                                         "height":  71
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1787-connecticut-copper-3.webp",
@@ -283,12 +427,28 @@
                                          {
                                              "src":  "images/1787-connecticut-copper-2-1.webp",
                                              "alt":  "1787 Connecticut Copper, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  2,
+                                                                                         "y":  19,
+                                                                                         "width":  97,
+                                                                                         "height":  73
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1787-connecticut-copper-2-2.webp",
                                              "alt":  "1787 Connecticut Copper, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  6,
+                                                                                         "y":  20,
+                                                                                         "width":  94,
+                                                                                         "height":  71
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1787-connecticut-copper-2-3.webp",
@@ -310,12 +470,28 @@
                                          {
                                              "src":  "images/1788-massachusetts-one-cent-copper-1.webp",
                                              "alt":  "1788 Massachusetts One Cent Copper, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  4,
+                                                                                         "y":  20,
+                                                                                         "width":  96,
+                                                                                         "height":  72
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1788-massachusetts-one-cent-copper-2.webp",
                                              "alt":  "1788 Massachusetts One Cent Copper, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  3,
+                                                                                         "y":  18,
+                                                                                         "width":  94,
+                                                                                         "height":  71
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1788-massachusetts-one-cent-copper-3.webp",
@@ -337,12 +513,28 @@
                                          {
                                              "src":  "images/1787-new-jersey-copper-1.webp",
                                              "alt":  "1787 New Jersey Copper, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  1,
+                                                                                         "y":  18,
+                                                                                         "width":  98,
+                                                                                         "height":  74
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1787-new-jersey-copper-2.webp",
                                              "alt":  "1787 New Jersey Copper, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  0,
+                                                                                         "y":  17,
+                                                                                         "width":  100,
+                                                                                         "height":  75
+                                                                                     }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1787-new-jersey-copper-3.webp",

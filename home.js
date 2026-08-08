@@ -1,3 +1,5 @@
+import { mountArtifactMedia } from "/museum/object-media.js";
+
 const SAFE_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const directory = document.querySelector("#museum-program-list");
 
@@ -21,6 +23,7 @@ async function loadMuseumProgram() {
     const collections = records.filter((record) => record.entry.exhibitType === "collection");
     const ordered = [...curated, ...collections];
     directory.replaceChildren(...ordered.map(createMuseumCard));
+    renderFeaturedHero(records.find((record) => record.entry.id === "money-before-the-mint"));
 
     document.querySelector("#collection-count").textContent = String(collections.length);
     document.querySelector("#exhibition-count").textContent = String(curated.length);
@@ -34,6 +37,30 @@ async function loadMuseumProgram() {
     fallback.textContent = "Open the museum directory to browse current collections and exhibitions →";
     directory.replaceChildren(fallback);
     console.warn("The homepage museum directory could not be loaded.", error);
+  }
+}
+
+function renderFeaturedHero(record) {
+  if (!record) return;
+  const featured = [
+    [".hero-map", "atlantic-chart-1685"],
+    [".hero-coin", "spanish-eight-reales"],
+    [".hero-note", "north-carolina-forty-shillings-1754"],
+  ];
+
+  for (const [selector, artifactId] of featured) {
+    const container = document.querySelector(selector);
+    const artifact = record.exhibit.artifacts.find((item) => item.id === artifactId);
+    const image = artifact?.images?.[0];
+    if (!container || !image) continue;
+    container.replaceChildren();
+    mountArtifactMedia(container, {
+      artifact,
+      image,
+      src: `/museum/exhibits/${encodeURIComponent(record.entry.id)}/${image.src}`,
+      alt: selector === ".hero-map" ? image.alt || artifact.title : "",
+      loading: "eager",
+    });
   }
 }
 
@@ -62,10 +89,12 @@ function createMuseumCard(record) {
 
   const preview = document.createElement("span");
   preview.className = "museum-card-preview";
-  const image = document.createElement("img");
-  image.src = `/museum/exhibits/${encodeURIComponent(entry.id)}/${artifact.images[0].src}`;
-  image.alt = artifact.images[0].alt || artifact.title || "";
-  preview.append(image);
+  mountArtifactMedia(preview, {
+    artifact,
+    image: artifact.images[0],
+    src: `/museum/exhibits/${encodeURIComponent(entry.id)}/${artifact.images[0].src}`,
+    alt: artifact.images[0].alt || artifact.title || "",
+  });
 
   const copy = document.createElement("span");
   copy.className = "museum-card-copy";

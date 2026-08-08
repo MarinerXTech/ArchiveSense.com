@@ -1,0 +1,468 @@
+{
+  "schemaVersion": "1.0",
+  "exhibitType": "curated",
+  "id": "currency-of-the-thirteen-colonies",
+  "title": "Currency of the Thirteen Colonies",
+  "kicker": "An evolving collection · 5 of 13 represented",
+  "summary": "A growing attempt to assemble one representative piece of paper money from each of the thirteen colonies that declared independence in 1776.",
+  "introduction": "This exhibition is intentionally unfinished. Each object anchors a colony to the map; each open marker records a collecting goal still to be met. Together, the notes make visible both the collection that exists and the collection being imagined.",
+  "curatorialLens": {
+    "label": "A collection shaped by its gaps",
+    "description": "The thirteen colonies provide the framework, but the objects resist a tidy national story: dates cross the Revolution, denominations differ, and one New Jersey example is itself a contemporary counterfeit."
+  },
+  "publishedAt": "2026-08-08",
+  "mapExperience": {
+    "map": {
+      "src": "images/mitchell-map-1775.jpg",
+      "alt": "John Mitchell's detailed 1775 map of the British colonies in North America",
+      "credit": "John Mitchell, Thomas Kitchin, and Jefferys and Faden, 1775 · Library of Congress, Geography and Map Division",
+      "sourceUrl": "https://www.loc.gov/item/74693178/"
+    },
+    "slots": [
+      {
+        "id": "new-hampshire",
+        "label": "New Hampshire",
+        "x": 65.5,
+        "y": 34.5,
+        "markerX": 71.5,
+        "markerY": 26
+      },
+      {
+        "id": "massachusetts",
+        "label": "Massachusetts",
+        "x": 67,
+        "y": 38.5,
+        "markerX": 75,
+        "markerY": 33
+      },
+      {
+        "id": "rhode-island",
+        "label": "Rhode Island",
+        "x": 67.2,
+        "y": 40.3,
+        "markerX": 75.5,
+        "markerY": 41
+      },
+      {
+        "id": "connecticut",
+        "label": "Connecticut",
+        "x": 65.2,
+        "y": 41.4,
+        "markerX": 70.5,
+        "markerY": 34.5,
+        "artifactId": "connecticut-ten-shillings-1780"
+      },
+      {
+        "id": "new-york",
+        "label": "New York",
+        "x": 62.3,
+        "y": 39.8,
+        "markerX": 55,
+        "markerY": 32
+      },
+      {
+        "id": "new-jersey",
+        "label": "New Jersey",
+        "x": 62.8,
+        "y": 45,
+        "markerX": 70,
+        "markerY": 44,
+        "artifactId": "new-jersey-counterfeit-1763"
+      },
+      {
+        "id": "pennsylvania",
+        "label": "Pennsylvania",
+        "x": 59.3,
+        "y": 44.1,
+        "markerX": 53.5,
+        "markerY": 39.5,
+        "artifactId": "pennsylvania-four-pounds-1777"
+      },
+      {
+        "id": "delaware",
+        "label": "Delaware",
+        "x": 62.5,
+        "y": 49,
+        "markerX": 70.5,
+        "markerY": 48
+      },
+      {
+        "id": "maryland",
+        "label": "Maryland",
+        "x": 61,
+        "y": 50.4,
+        "markerX": 68.5,
+        "markerY": 54,
+        "artifactId": "maryland-four-dollars-1774"
+      },
+      {
+        "id": "virginia",
+        "label": "Virginia",
+        "x": 56.7,
+        "y": 56,
+        "markerX": 49,
+        "markerY": 54.5
+      },
+      {
+        "id": "north-carolina",
+        "label": "North Carolina",
+        "x": 54,
+        "y": 64.5,
+        "markerX": 51,
+        "markerY": 67,
+        "artifactId": "north-carolina-forty-shillings-1754"
+      },
+      {
+        "id": "south-carolina",
+        "label": "South Carolina",
+        "x": 51.5,
+        "y": 71,
+        "markerX": 44.5,
+        "markerY": 69.5
+      },
+      {
+        "id": "georgia",
+        "label": "Georgia",
+        "x": 49,
+        "y": 78,
+        "markerX": 42.5,
+        "markerY": 79
+      }
+    ],
+    "relatedArtifactIds": [
+      "louisiana-ten-livres-1720"
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "north-carolina-forty-shillings-1754",
+      "order": 1,
+      "title": "1754 40s North Carolina Forty Shillings",
+      "description": "Dated 1754, this forty-shilling note anchors North Carolina within the collecting map. Its survival makes the colony tangible through an object designed to circulate, be handled, and eventually disappear.",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "North Carolina",
+        "forty shillings",
+        "colonial paper money",
+        "thirteen colonies"
+      ],
+      "images": [
+        {
+          "src": "images/north-carolina-forty-shillings-1754-1.webp",
+          "alt": "1754 40s North Carolina Forty Shillings, photograph 1",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 20,
+              "y": 35,
+              "width": 57,
+              "height": 48
+            }
+          }
+        },
+        {
+          "src": "images/north-carolina-forty-shillings-1754-2.webp",
+          "alt": "1754 40s North Carolina Forty Shillings, photograph 2",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 23,
+              "y": 27,
+              "width": 63,
+              "height": 58
+            }
+          }
+        }
+      ],
+      "objectId": "1754-40s-north-carolina-forty-shillings",
+      "subtitle": "An early anchor for the southern colonies",
+      "date": {
+        "label": "1754",
+        "sortYear": "1754"
+      },
+      "origin": "North Carolina",
+      "materials": "Printed paper",
+      "researchNotes": [
+        "This is currently the earliest dated object in the thirteen-colony sequence.",
+        "Future research can add the printer, issue authorization, signers, and precise catalog attribution."
+      ]
+    },
+    {
+      "id": "new-jersey-counterfeit-1763",
+      "order": 2,
+      "title": "1763 12s New Jersey Colonial Note - Contemporary Counterfeit",
+      "description": "This contemporary counterfeit twelve-shilling note complicates the idea of a representative colonial issue. It belongs on the map because imitation was part of the monetary world: trust, recognition, and deception traveled with paper currency.",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "New Jersey",
+        "twelve shillings",
+        "counterfeit",
+        "colonial paper money"
+      ],
+      "images": [
+        {
+          "src": "images/new-jersey-counterfeit-1763-1.webp",
+          "alt": "1763 12s New Jersey Colonial Note - Contemporary Counterfeit, photograph 1",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 25,
+              "y": 30,
+              "width": 49,
+              "height": 50
+            }
+          }
+        },
+        {
+          "src": "images/new-jersey-counterfeit-1763-2.webp",
+          "alt": "1763 12s New Jersey Colonial Note - Contemporary Counterfeit, photograph 2",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 26,
+              "y": 30,
+              "width": 49,
+              "height": 50
+            }
+          }
+        }
+      ],
+      "objectId": "1763-12s-new-jersey-colonial-note-contemporary-counterfeit",
+      "subtitle": "A representative object that was never legitimate",
+      "date": {
+        "label": "December 31, 1763",
+        "sortYear": "1763"
+      },
+      "origin": "New Jersey",
+      "materials": "Printed paper",
+      "researchNotes": [
+        "Recorded as Fr. NJ-156CT and identified in the collection as a contemporary counterfeit.",
+        "Its presence keeps the exhibition from equating representative with officially authorized."
+      ]
+    },
+    {
+      "id": "maryland-four-dollars-1774",
+      "order": 3,
+      "title": "1774 $4 Maryland Colonial Currency",
+      "description": "Maryland's four-dollar note was dated April 10, 1774 and printed by Anne Catherine and Frederick Green. On the map it sits close to neighboring issues, while its denomination and printed identity remain distinctly local.",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "Maryland",
+        "four dollars",
+        "Green family printers",
+        "colonial paper money"
+      ],
+      "images": [
+        {
+          "src": "images/maryland-four-dollars-1774-1.webp",
+          "alt": "1774 $4 Maryland Colonial Currency, photograph 1",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 20,
+              "y": 34,
+              "width": 62,
+              "height": 48
+            }
+          }
+        },
+        {
+          "src": "images/maryland-four-dollars-1774-2.webp",
+          "alt": "1774 $4 Maryland Colonial Currency, photograph 2",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 21,
+              "y": 36,
+              "width": 59,
+              "height": 46
+            }
+          }
+        }
+      ],
+      "objectId": "1774-4-maryland-colonial-currency",
+      "subtitle": "Printed on the eve of political rupture",
+      "date": {
+        "label": "April 10, 1774",
+        "sortYear": "1774"
+      },
+      "origin": "Maryland",
+      "materials": "Printed paper",
+      "researchNotes": [
+        "The collection record identifies the note as Fr. MD-68, serial number 14042.",
+        "Printer attribution comes from the existing ArchiveSense collection record."
+      ]
+    },
+    {
+      "id": "pennsylvania-four-pounds-1777",
+      "order": 4,
+      "title": "1777 £4 Pennsylvania Colonial Currency",
+      "description": "Dated April 10, 1777, this Pennsylvania four-pound note was issued after independence had been declared. Its place in the exhibition is deliberately transitional: the former colony remained a geographic collecting category even as its political identity changed.",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "Pennsylvania",
+        "four pounds",
+        "Revolutionary era",
+        "paper money"
+      ],
+      "images": [
+        {
+          "src": "images/pennsylvania-four-pounds-1777-1.webp",
+          "alt": "1777 £4 Pennsylvania Colonial Currency, photograph 1",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 22,
+              "y": 30,
+              "width": 53,
+              "height": 58
+            }
+          }
+        },
+        {
+          "src": "images/pennsylvania-four-pounds-1777-2.webp",
+          "alt": "1777 £4 Pennsylvania Colonial Currency, photograph 2",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 25,
+              "y": 27,
+              "width": 53,
+              "height": 62
+            }
+          }
+        }
+      ],
+      "objectId": "1777-4-pennsylvania-colonial-currency",
+      "subtitle": "A colonial collecting framework crossing into revolution",
+      "date": {
+        "label": "April 10, 1777",
+        "sortYear": "1777"
+      },
+      "origin": "Pennsylvania",
+      "materials": "Printed paper",
+      "researchNotes": [
+        "The collection record identifies the note as PA-224a, serial number 10507, with Eric P. Newman Collection provenance.",
+        "The thirteen-colony map is a collecting framework, not a claim that every represented object predates independence."
+      ]
+    },
+    {
+      "id": "connecticut-ten-shillings-1780",
+      "order": 5,
+      "title": "1780 10 s Connecticut Colonial Note",
+      "description": "Connecticut's ten-shilling note, dated July 1, 1780, extends the sequence into the Revolutionary era. It marks Connecticut's place while also showing why a geographic collection cannot be confined to a single political moment.",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "Connecticut",
+        "ten shillings",
+        "Revolutionary era",
+        "paper money"
+      ],
+      "images": [
+        {
+          "src": "images/connecticut-ten-shillings-1780-1.webp",
+          "alt": "1780 10 s Connecticut Colonial Note, photograph 1",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 29,
+              "y": 23,
+              "width": 39,
+              "height": 76
+            }
+          }
+        },
+        {
+          "src": "images/connecticut-ten-shillings-1780-2.webp",
+          "alt": "1780 10 s Connecticut Colonial Note, photograph 2",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 31,
+              "y": 24,
+              "width": 39,
+              "height": 76
+            }
+          }
+        }
+      ],
+      "objectId": "1780-10-s-connecticut-colonial-note",
+      "subtitle": "A former colony issuing money during the Revolution",
+      "date": {
+        "label": "July 1, 1780",
+        "sortYear": "1780"
+      },
+      "origin": "Connecticut",
+      "materials": "Printed paper",
+      "researchNotes": [
+        "The collection record identifies the note as Fr. CT-238, serial number 3063.",
+        "Only one Connecticut object is pinned to the map so the exhibition can retain its one-sample-per-colony discipline."
+      ]
+    },
+    {
+      "id": "louisiana-ten-livres-1720",
+      "order": 6,
+      "title": "Banque Royale January 1, 1720. 10 Livres",
+      "description": "This Banque Royale ten-livres note, associated in the collection record with France and Louisiana, sits outside the thirteen-colony checklist. It remains in view as a reminder that colonial North American money was never bounded by the later United States.",
+      "presentation": {
+        "kind": "paper"
+      },
+      "tags": [
+        "Louisiana",
+        "Banque Royale",
+        "ten livres",
+        "French colonial currency"
+      ],
+      "images": [
+        {
+          "src": "images/louisiana-ten-livres-1720-1.webp",
+          "alt": "Banque Royale January 1, 1720. 10 Livres, photograph 1",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 15.5,
+              "y": 26.8,
+              "width": 74.5,
+              "height": 67.5
+            }
+          }
+        },
+        {
+          "src": "images/louisiana-ten-livres-1720-2.webp",
+          "alt": "Banque Royale January 1, 1720. 10 Livres, photograph 2",
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 10.5,
+              "y": 26.5,
+              "width": 74.3,
+              "height": 67
+            }
+          }
+        }
+      ],
+      "objectId": "banque-royale-january-1-1720-10-livres",
+      "subtitle": "A wider colonial monetary world",
+      "date": {
+        "label": "January 1, 1720",
+        "sortYear": "1720"
+      },
+      "origin": "France · associated with colonial Louisiana",
+      "materials": "Printed paper",
+      "researchNotes": [
+        "The collection record identifies the note as P-A16b and records a PMG grade of Very Fine 30.",
+        "It is presented beside, rather than inside, the thirteen-colony map."
+      ]
+    }
+  ]
+}

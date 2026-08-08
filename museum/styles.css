@@ -85,17 +85,34 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 
 .header-actions {
   display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
   align-items: center;
+  justify-content: flex-end;
   gap: clamp(0.8rem, 2vw, 1.8rem);
 }
-.site-return {
+
+.site-navigation {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(0.9rem, 2.4vw, 2.2rem);
+}
+
+.site-navigation a {
   color: var(--paper);
-  font-size: 0.76rem;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
   text-decoration: none;
   text-transform: uppercase;
+  white-space: nowrap;
 }
-.site-return:hover { color: var(--bone); }
+
+.site-navigation a:hover,
+.site-navigation a:focus-visible,
+.site-navigation a.active { color: var(--copper); }
 
 .room-status {
   display: flex;
@@ -467,7 +484,6 @@ kbd { min-width: 1.55rem; padding: 0.2rem 0.35rem; border: 1px solid var(--line)
 .image-thumbnails { display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.75rem; }
 .thumbnail { width: 56px; height: 56px; padding: 3px; border: 1px solid var(--line); background: transparent; cursor: pointer; }
 .thumbnail.active { border-color: var(--copper); }
-.thumbnail img { width: 100%; height: 100%; object-fit: cover; }
 .artifact-record { padding: clamp(3rem, 5vw, 5.5rem) clamp(1.5rem, 4vw, 4rem); overflow: auto; border-left: 1px solid var(--line); }
 .artifact-record h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.3rem, 4vw, 4.5rem); font-weight: 400; letter-spacing: -0.04em; line-height: 0.98; }
 .dialog-subtitle { color: var(--paper); font-family: var(--serif); font-size: 1.2rem; font-style: italic; }
@@ -486,7 +502,6 @@ kbd { min-width: 1.55rem; padding: 0.2rem 0.35rem; border: 1px solid var(--line)
 
 @media (max-width: 800px) {
   .site-header { min-height: 62px; }
-  .site-return { font-size: 0.68rem; }
   .room-status { font-size: 0; }
   .intro-panel::before { inset: 30% -20% 10% 45%; opacity: 0.6; }
   .intro-footer { align-items: end; gap: 1rem; }
@@ -589,13 +604,20 @@ kbd { min-width: 1.55rem; padding: 0.2rem 0.35rem; border: 1px solid var(--line)
 @media (max-width: 900px) {
   .museum-selector > span { display: none; }
   .museum-selector select { max-width: 13rem; }
+  .site-navigation { overflow-x: auto; scrollbar-width: none; }
+  .site-navigation::-webkit-scrollbar { display: none; }
 }
 
 @media (max-width: 700px) {
   .wordmark > span:last-child { display: none; }
 
+  .site-header { gap: 0.7rem; padding-inline: 1rem; }
+  .header-actions { gap: 0.7rem; }
+  .site-navigation { justify-content: flex-start; }
+  .site-navigation a { font-size: 0.66rem; }
+
   .museum-selector select {
-    width: min(58vw, 13rem);
+    width: min(38vw, 9rem);
     max-width: none;
     min-height: 2.4rem;
     font-size: 0.67rem;
@@ -604,17 +626,6 @@ kbd { min-width: 1.55rem; padding: 0.2rem 0.35rem; border: 1px solid var(--line)
   .artifact-sequence { margin-top: 1rem; }
 }
 /* Museum home and relationship navigation */
-.museum-home-link {
-  color: var(--paper);
-  font-size: 0.72rem;
-  letter-spacing: 0.09em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.museum-home-link:hover,
-.museum-home-link:focus-visible { color: var(--copper); }
-
 .artifact-context {
   margin-top: 2rem;
   padding-top: 1.25rem;
@@ -665,17 +676,4 @@ kbd { min-width: 1.55rem; padding: 0.2rem 0.35rem; border: 1px solid var(--line)
 #dialog-context-links a > span:last-child {
   color: var(--copper);
   font-size: 0.66rem;
-}
-
-@media (max-width: 900px) {
-  .museum-home-link { font-size: 0.65rem; }
-}
-
-@media (max-width: 700px) {
-  .site-return { display: none; }
-  .museum-home-link {
-    font-size: 0.58rem;
-    white-space: nowrap;
-  }
-  .museum-selector select { width: min(38vw, 9rem); }
 }

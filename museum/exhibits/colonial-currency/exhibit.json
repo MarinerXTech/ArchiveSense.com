@@ -25,12 +25,28 @@
         {
           "src": "images/banque-royale-january-1-1720-10-livres-1.webp",
           "alt": "Banque Royale January 1, 1720. 10 Livres, photograph 1",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 15.5,
+              "y": 26.8,
+              "width": 74.5,
+              "height": 67.5
+            }
+          }
         },
         {
           "src": "images/banque-royale-january-1-1720-10-livres-2.webp",
           "alt": "Banque Royale January 1, 1720. 10 Livres, photograph 2",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 10.5,
+              "y": 26.5,
+              "width": 74.3,
+              "height": 67
+            }
+          }
         }
       ],
       "objectId": "banque-royale-january-1-1720-10-livres"
@@ -52,12 +68,28 @@
         {
           "src": "images/1774-4-maryland-colonial-currency-1.webp",
           "alt": "1774 $4 Maryland Colonial Currency, photograph 1",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 20,
+              "y": 34,
+              "width": 62,
+              "height": 48
+            }
+          }
         },
         {
           "src": "images/1774-4-maryland-colonial-currency-2.webp",
           "alt": "1774 $4 Maryland Colonial Currency, photograph 2",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 21,
+              "y": 36,
+              "width": 59,
+              "height": 46
+            }
+          }
         }
       ],
       "objectId": "1774-4-maryland-colonial-currency"
@@ -79,12 +111,28 @@
         {
           "src": "images/1754-40s-north-carolina-forty-shillings-1.webp",
           "alt": "1754 40s North Carolina Forty Shillings, photograph 1",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 20,
+              "y": 35,
+              "width": 57,
+              "height": 48
+            }
+          }
         },
         {
           "src": "images/1754-40s-north-carolina-forty-shillings-2.webp",
           "alt": "1754 40s North Carolina Forty Shillings, photograph 2",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 23,
+              "y": 27,
+              "width": 63,
+              "height": 58
+            }
+          }
         }
       ],
       "objectId": "1754-40s-north-carolina-forty-shillings"
@@ -106,12 +154,28 @@
         {
           "src": "images/1763-12s-new-jersey-colonial-note-contemporary-counterfeit-1.webp",
           "alt": "1763 12s New Jersey Colonial Note - Contemporary Counterfeit, photograph 1",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 25,
+              "y": 30,
+              "width": 49,
+              "height": 50
+            }
+          }
         },
         {
           "src": "images/1763-12s-new-jersey-colonial-note-contemporary-counterfeit-2.webp",
           "alt": "1763 12s New Jersey Colonial Note - Contemporary Counterfeit, photograph 2",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 26,
+              "y": 30,
+              "width": 49,
+              "height": 50
+            }
+          }
         }
       ],
       "objectId": "1763-12s-new-jersey-colonial-note-contemporary-counterfeit"
@@ -133,12 +197,28 @@
         {
           "src": "images/1777-4-pennsylvania-colonial-currency-1.webp",
           "alt": "1777 £4 Pennsylvania Colonial Currency, photograph 1",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 22,
+              "y": 30,
+              "width": 53,
+              "height": 58
+            }
+          }
         },
         {
           "src": "images/1777-4-pennsylvania-colonial-currency-2.webp",
           "alt": "1777 £4 Pennsylvania Colonial Currency, photograph 2",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 25,
+              "y": 27,
+              "width": 53,
+              "height": 62
+            }
+          }
         }
       ],
       "objectId": "1777-4-pennsylvania-colonial-currency"
@@ -160,12 +240,28 @@
         {
           "src": "images/1780-10-s-connecticut-colonial-note-1.webp",
           "alt": "1780 10 s Connecticut Colonial Note, photograph 1",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 29,
+              "y": 23,
+              "width": 39,
+              "height": 76
+            }
+          }
         },
         {
           "src": "images/1780-10-s-connecticut-colonial-note-2.webp",
           "alt": "1780 10 s Connecticut Colonial Note, photograph 2",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 31,
+              "y": 24,
+              "width": 39,
+              "height": 76
+            }
+          }
         }
       ],
       "objectId": "1780-10-s-connecticut-colonial-note"
@@ -186,12 +282,28 @@
         {
           "src": "images/1779-connecticut-promissory-note-500-pounds-1.webp",
           "alt": "1779 Connecticut Promissory Note 500 Pounds, photograph 1",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 13,
+              "y": 7,
+              "width": 82,
+              "height": 90
+            }
+          }
         },
         {
           "src": "images/1779-connecticut-promissory-note-500-pounds-2.webp",
           "alt": "1779 Connecticut Promissory Note 500 Pounds, photograph 2",
-          "credit": "ArchiveSense collection photograph"
+          "credit": "ArchiveSense collection photograph",
+          "presentation": {
+            "objectRegion": {
+              "x": 10,
+              "y": 2,
+              "width": 85,
+              "height": 94
+            }
+          }
         }
       ],
       "objectId": "1779-connecticut-promissory-note-500-pounds"

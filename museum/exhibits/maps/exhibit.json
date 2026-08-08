@@ -25,7 +25,15 @@
                                          {
                                              "src":  "images/pascaerte-van-rio-gambia-als-meede-het-vaerwater-tusschen-cabo-verde-en-brazil-1.webp",
                                              "alt":  "Pascaerte van Rio Gambia als Meede het Vaerwater Tusschen Cabo Verde en Brazil, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                         "x":  0,
+                                                                                         "y":  0,
+                                                                                         "width":  100,
+                                                                                         "height":  100
+                                                                                     }
+                                                              }
                                          }
                                      ]
                       }

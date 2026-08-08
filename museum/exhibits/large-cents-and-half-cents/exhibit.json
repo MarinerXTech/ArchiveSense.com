@@ -24,12 +24,28 @@
                                          {
                                              "src":  "images/1796-large-cent-1.webp",
                                              "alt":  "1796 Large Cent, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  2,
+                                                                                       "y":  13.1,
+                                                                                       "width":  96,
+                                                                                       "height":  72.29
+                                                                                   }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1796-large-cent-2.webp",
                                              "alt":  "1796 Large Cent, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  2,
+                                                                                       "y":  14.3,
+                                                                                       "width":  96,
+                                                                                       "height":  72.29
+                                                                                   }
+                                                              }
                                          }
                                      ]
                       },
@@ -50,12 +66,28 @@
                                          {
                                              "src":  "images/1806-draped-bust-large-cent-1.webp",
                                              "alt":  "1806 Draped Bust Large Cent, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  1,
+                                                                                       "y":  12.4,
+                                                                                       "width":  98,
+                                                                                       "height":  73.79
+                                                                                   }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1806-draped-bust-large-cent-2.webp",
                                              "alt":  "1806 Draped Bust Large Cent, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  0,
+                                                                                       "y":  12.7,
+                                                                                       "width":  100,
+                                                                                       "height":  75.3
+                                                                                   }
+                                                              }
                                          }
                                      ]
                       },
@@ -76,12 +108,28 @@
                                          {
                                              "src":  "images/1828-classic-head-half-cent-1.webp",
                                              "alt":  "1828 Classic Head Half Cent, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  2,
+                                                                                       "y":  13.4,
+                                                                                       "width":  96,
+                                                                                       "height":  72.29
+                                                                                   }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1828-classic-head-half-cent-2.webp",
                                              "alt":  "1828 Classic Head Half Cent, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  0,
+                                                                                       "y":  12.7,
+                                                                                       "width":  100,
+                                                                                       "height":  75.3
+                                                                                   }
+                                                              }
                                          }
                                      ]
                       },
@@ -102,12 +150,28 @@
                                          {
                                              "src":  "images/1843-large-cent-1.webp",
                                              "alt":  "1843 Large Cent, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  8,
+                                                                                       "y":  21.8,
+                                                                                       "width":  86,
+                                                                                       "height":  64.76
+                                                                                   }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1843-large-cent-2.webp",
                                              "alt":  "1843 Large Cent, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  3,
+                                                                                       "y":  17.7,
+                                                                                       "width":  94,
+                                                                                       "height":  70.78
+                                                                                   }
+                                                              }
                                          }
                                      ]
                       },
@@ -128,12 +192,28 @@
                                          {
                                              "src":  "images/1844-large-cent-1.webp",
                                              "alt":  "1844 Large Cent, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  6,
+                                                                                       "y":  18.7,
+                                                                                       "width":  89,
+                                                                                       "height":  67.02
+                                                                                   }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1844-large-cent-2.webp",
                                              "alt":  "1844 Large Cent, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  4,
+                                                                                       "y":  18.8,
+                                                                                       "width":  94,
+                                                                                       "height":  70.78
+                                                                                   }
+                                                              }
                                          }
                                      ]
                       },
@@ -154,12 +234,28 @@
                                          {
                                              "src":  "images/1850-large-cent-1.webp",
                                              "alt":  "1850 Large Cent, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  2,
+                                                                                       "y":  14.1,
+                                                                                       "width":  96,
+                                                                                       "height":  72.29
+                                                                                   }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1850-large-cent-2.webp",
                                              "alt":  "1850 Large Cent, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  3,
+                                                                                       "y":  15.4,
+                                                                                       "width":  94,
+                                                                                       "height":  70.78
+                                                                                   }
+                                                              }
                                          }
                                      ]
                       },
@@ -180,12 +276,28 @@
                                          {
                                              "src":  "images/1852-large-cent-1.webp",
                                              "alt":  "1852 Large Cent, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  5,
+                                                                                       "y":  12.8,
+                                                                                       "width":  90,
+                                                                                       "height":  67.77
+                                                                                   }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1852-large-cent-2.webp",
                                              "alt":  "1852 Large Cent, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  5.5,
+                                                                                       "y":  12.1,
+                                                                                       "width":  90,
+                                                                                       "height":  67.77
+                                                                                   }
+                                                              }
                                          }
                                      ]
                       },
@@ -206,12 +318,28 @@
                                          {
                                              "src":  "images/1854-large-cent-1.webp",
                                              "alt":  "1854 Large Cent, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  2.5,
+                                                                                       "y":  12.6,
+                                                                                       "width":  95,
+                                                                                       "height":  71.54
+                                                                                   }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1854-large-cent-2.webp",
                                              "alt":  "1854 Large Cent, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  3,
+                                                                                       "y":  18.2,
+                                                                                       "width":  94,
+                                                                                       "height":  70.78
+                                                                                   }
+                                                              }
                                          }
                                      ]
                       },
@@ -232,12 +360,28 @@
                                          {
                                              "src":  "images/1856-coronet-large-cent-1.webp",
                                              "alt":  "1856 Coronet Large Cent, photograph 1",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  3,
+                                                                                       "y":  16.7,
+                                                                                       "width":  94,
+                                                                                       "height":  70.78
+                                                                                   }
+                                                              }
                                          },
                                          {
                                              "src":  "images/1856-coronet-large-cent-2.webp",
                                              "alt":  "1856 Coronet Large Cent, photograph 2",
-                                             "credit":  "ArchiveSense collection photograph"
+                                             "credit":  "ArchiveSense collection photograph",
+                                             "presentation":  {
+                                                                  "objectRegion":  {
+                                                                                       "x":  4.5,
+                                                                                       "y":  17.8,
+                                                                                       "width":  91,
+                                                                                       "height":  68.52
+                                                                                   }
+                                                              }
                                          }
                                      ]
                       }

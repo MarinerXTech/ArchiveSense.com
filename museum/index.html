@@ -26,6 +26,7 @@
     />
     <title>ArchiveSense Museum | Collections &amp; Exhibitions</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="object-media.css" />
     <link rel="stylesheet" href="museum.css" />
     <script type="module" src="app.js"></script>
   </head>
@@ -37,16 +38,16 @@
         <span>ArchiveSense</span>
       </a>
       <div class="header-actions">
-        <a class="site-return" href="../">Main site</a>
-        <a class="museum-home-link" href="./">Museum home</a>
+        <nav class="site-navigation" aria-label="Primary navigation">
+          <a class="active" href="./" aria-current="page">Museum</a>
+          <a href="../#app">The app</a>
+          <a href="../#resources">Research &amp; tools</a>
+          <a href="../articles/">Articles</a>
+        </nav>
         <label class="museum-selector" for="museum-exhibit-select">
           <span>Go to</span>
           <select id="museum-exhibit-select" aria-label="Choose a collection or exhibit"></select>
         </label>
-        <div class="room-status">
-          <span class="status-light" aria-hidden="true"></span>
-          Public museum
-        </div>
       </div>
     </header>
 
@@ -68,12 +69,12 @@
               <button class="view-button active" id="object-view" type="button">Object</button>
               <button class="view-button" id="photo-view" type="button">Photograph</button>
             </div>
+            <p id="inspection-note">Full source photograph preserved</p>
           </div>
           <div class="image-stage" id="image-stage" tabindex="0" aria-label="Close examination view">
             <div class="object-lift" id="object-lift">
               <div class="object-shadow" aria-hidden="true"></div>
-              <div class="object-surface">
-                <img id="dialog-image" alt="" />
+              <div class="object-surface" id="dialog-media">
                 <span class="surface-light" aria-hidden="true"></span>
               </div>
             </div>
@@ -183,6 +184,74 @@
 
         <footer class="collection-footer">
           <span>ArchiveSense collection catalog</span>
+          <span data-field="published-at"></span>
+        </footer>
+      </section>
+    </template>
+
+    <template id="colony-map-template">
+      <section class="colony-map-exhibit">
+        <header class="colony-map-hero">
+          <div class="colony-map-title">
+            <p class="colony-map-kicker" data-field="kicker"></p>
+            <h1 data-field="title"></h1>
+          </div>
+          <div class="colony-map-intro">
+            <p class="colony-map-summary" data-field="summary"></p>
+            <p data-field="introduction"></p>
+          </div>
+          <div class="colony-map-progress" aria-label="Collection progress">
+            <strong data-field="represented-count"></strong>
+            <span>colonies represented</span>
+          </div>
+        </header>
+
+        <section class="colony-map-workspace" aria-labelledby="colony-map-heading">
+          <div class="colony-map-heading">
+            <div>
+              <p>Geographic collection</p>
+              <h2 id="colony-map-heading">Thirteen places. Thirteen collecting goals.</h2>
+            </div>
+            <div class="colony-map-key" aria-label="Map key">
+              <span><i class="represented" aria-hidden="true"></i> In the collection</span>
+              <span><i class="open" aria-hidden="true"></i> Left to collect</span>
+            </div>
+          </div>
+
+          <div class="colony-map-layout">
+            <div class="colony-map-scroll" tabindex="0" aria-label="Scrollable historical map of the colonies">
+              <figure class="colony-map-sheet">
+                <img class="colony-map-image" alt="" />
+                <div class="colony-map-wash" aria-hidden="true"></div>
+                <div class="colony-map-points" aria-label="The thirteen colonies"></div>
+                <figcaption>
+                  <a class="colony-map-credit" target="_blank" rel="noreferrer"></a>
+                </figcaption>
+              </figure>
+            </div>
+
+            <aside class="colony-map-ledger" aria-label="Collection progress and selected colony">
+              <div class="colony-map-lens">
+                <p data-field="lens-label"></p>
+                <p data-field="lens-description"></p>
+              </div>
+              <div class="colony-map-detail" aria-live="polite"></div>
+              <nav class="colony-map-list" aria-label="Choose a colony"></nav>
+            </aside>
+          </div>
+        </section>
+
+        <section class="colony-related" aria-labelledby="colony-related-heading">
+          <header>
+            <p>Beyond the thirteen colonies</p>
+            <h2 id="colony-related-heading">A wider monetary geography</h2>
+            <span>Objects kept beside the checklist reveal colonial worlds the later national frame leaves out.</span>
+          </header>
+          <div class="colony-related-grid"></div>
+        </section>
+
+        <footer class="colony-map-footer">
+          <span>ArchiveSense evolving exhibition</span>
           <span data-field="published-at"></span>
         </footer>
       </section>

@@ -2,10 +2,16 @@
   "schemaVersion": "1.0",
   "exhibits": [
     {
+      "id": "currency-of-the-thirteen-colonies",
+      "title": "Currency of the Thirteen Colonies",
+      "exhibitType": "curated",
+      "summary": "A growing attempt to assemble one representative piece of paper money from each of the thirteen colonies that declared independence in 1776."
+    },
+    {
       "id": "money-before-the-mint",
       "title": "Money Before the Mint",
       "exhibitType": "curated",
-      "summary": "Fourteen objects trace how people in Colonial English America counted, exchanged, borrowed, and tested value before a federal coinage became ordinary."
+      "summary": "Fifteen objects trace how people in Colonial English America counted, exchanged, borrowed, and tested value before a federal coinage became ordinary."
     },
     {
       "id": "colonial-coins-and-coins-from-the-age-of-exploration",

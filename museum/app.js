@@ -1,4 +1,12 @@
 
+import {
+  hasObjectView,
+  mountArtifactMedia,
+  objectRegion,
+  preferredInspectionView,
+  presentationKind,
+} from "./object-media.js";
+
 const SAFE_EXHIBIT = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 const gallery = document.querySelector("#gallery");
@@ -6,6 +14,7 @@ const experienceTemplate = document.querySelector("#experience-template");
 const dialog = document.querySelector("#artifact-dialog");
 const collectionTemplate = document.querySelector("#collection-template");
 const museumHomeTemplate = document.querySelector("#museum-home-template");
+const colonyMapTemplate = document.querySelector("#colony-map-template");
 
 let exhibit;
 let exhibitUrl;
@@ -19,6 +28,7 @@ let activeArtifact = 0;
 let activeImage = 0;
 let inspectionView = "photo";
 let currentStage = "threshold";
+let activeMapSlotId = null;
 
 initialize();
 
@@ -48,6 +58,9 @@ async function initialize() {
     if (exhibit.exhibitType === "collection") {
       museum = null;
       renderCollectionExhibit();
+    } else if (exhibit.mapExperience) {
+      museum = null;
+      renderColonyMapExhibit();
     } else {
       document.body.dataset.exhibitType = "curated";
       museum = exhibit.experience ?? createFallbackExperience(exhibit);
@@ -143,6 +156,7 @@ function renderMuseumSelector(exhibitId) {
 
 function setHeaderStatus(label) {
   const roomStatus = document.querySelector(".room-status");
+  if (!roomStatus) return;
   const statusLight = document.createElement("span");
   statusLight.className = "status-light";
   statusLight.setAttribute("aria-hidden", "true");
@@ -192,25 +206,30 @@ function createMuseumDirectoryCard(record, featured = false) {
   record.exhibit.artifacts.slice(0, featured ? 4 : 3).forEach((artifact) => {
     const frame = document.createElement("span");
     frame.className = `museum-directory-object kind-${presentationKind(artifact)}`;
-    const image = document.createElement("img");
-    image.src = museumImageUrl(record, artifact.images[0]);
-    image.alt = "";
-    applyImageFraming(image, artifact.images[0]);
-    frame.append(image);
+    mountArtifactMedia(frame, {
+      artifact,
+      image: artifact.images[0],
+      src: museumImageUrl(record, artifact.images[0]),
+      alt: "",
+    });
     preview.append(frame);
   });
 
+  const mapSlots = record.exhibit.mapExperience?.slots;
+  const represented = mapSlots?.filter((slot) => slot.artifactId).length ?? 0;
+  const typeLabel = mapSlots
+    ? "Evolving map exhibition"
+    : record.exhibitType === "collection" ? "Collection catalog" : "Curated exhibition";
+  const actionLabel = mapSlots
+    ? `${represented} of ${mapSlots.length} colonies · Explore map →`
+    : `${record.exhibit.artifacts.length} objects · ${record.exhibitType === "collection" ? "Browse collection" : "Enter exhibit"} →`;
   const copy = document.createElement("span");
   copy.className = "museum-directory-copy";
   copy.append(
-    textElement("span", record.exhibitType === "collection" ? "Collection catalog" : "Curated exhibition", "museum-directory-type"),
+    textElement("span", typeLabel, "museum-directory-type"),
     textElement("h3", record.title),
     textElement("p", record.summary ?? record.exhibit.summary),
-    textElement(
-      "span",
-      `${record.exhibit.artifacts.length} objects · ${record.exhibitType === "collection" ? "Browse collection" : "Enter exhibit"} →`,
-      "museum-directory-action",
-    ),
+    textElement("span", actionLabel, "museum-directory-action"),
   );
   link.append(preview, copy);
   return link;
@@ -247,6 +266,11 @@ function validatePublicExhibit(value) {
     if (!artifact.id || !artifact.title || !Array.isArray(artifact.images) || artifact.images.length === 0) {
       throw new Error("An artifact record is incomplete.");
     }
+    for (const image of artifact.images) {
+      if (image?.presentation?.objectRegion && !objectRegion(image)) {
+        throw new Error(`Artifact ${artifact.id} has an invalid object region.`);
+      }
+    }
     artifactIds.add(artifact.id);
   }
   for (const group of value.experience?.groups ?? []) {
@@ -257,6 +281,258 @@ function validatePublicExhibit(value) {
       throw new Error(`Grouping ${group.id} references an unknown public artifact.`);
     }
   }
+  if (value.mapExperience) validateMapExperience(value.mapExperience, artifactIds);
+}
+
+function validateMapExperience(value, artifactIds) {
+  if (!value.map || !/^images\/[a-z0-9-]+\.(?:jpg|png|webp)$/.test(value.map.src ?? "")) {
+    throw new Error("The exhibit map is incomplete.");
+  }
+  if (!Array.isArray(value.slots) || value.slots.length === 0) {
+    throw new Error("The exhibit map has no colony slots.");
+  }
+  const ids = new Set();
+  for (const slot of value.slots) {
+    if (!SAFE_EXHIBIT.test(slot.id ?? "") || ids.has(slot.id) || !slot.label) {
+      throw new Error("A colony map slot is incomplete or duplicated.");
+    }
+    ids.add(slot.id);
+    for (const coordinate of [slot.x, slot.y, slot.markerX ?? slot.x, slot.markerY ?? slot.y]) {
+      if (typeof coordinate !== "number" || !Number.isFinite(coordinate) || coordinate < 0 || coordinate > 100) {
+        throw new Error(`Colony map slot ${slot.id} has an invalid position.`);
+      }
+    }
+    if (slot.artifactId && !artifactIds.has(slot.artifactId)) {
+      throw new Error(`Colony map slot ${slot.id} references an unknown public artifact.`);
+    }
+  }
+  for (const artifactId of value.relatedArtifactIds ?? []) {
+    if (!artifactIds.has(artifactId)) {
+      throw new Error(`The colony map references an unknown related artifact: ${artifactId}`);
+    }
+  }
+}
+
+function renderColonyMapExhibit() {
+  document.body.dataset.exhibitType = "map";
+  const fragment = colonyMapTemplate.content.cloneNode(true);
+  const mapExperience = exhibit.mapExperience;
+  const represented = mapExperience.slots.filter((slot) => slot.artifactId);
+
+  setAll(fragment, "kicker", exhibit.kicker ?? "ArchiveSense · Evolving exhibition");
+  setAll(fragment, "title", exhibit.title);
+  setAll(fragment, "summary", exhibit.summary);
+  setAll(fragment, "introduction", exhibit.introduction);
+  setAll(fragment, "represented-count", `${represented.length} of ${mapExperience.slots.length}`);
+  setAll(fragment, "lens-label", exhibit.curatorialLens?.label ?? "An evolving collection");
+  setAll(fragment, "lens-description", exhibit.curatorialLens?.description ?? exhibit.summary);
+  setAll(
+    fragment,
+    "published-at",
+    exhibit.publishedAt ? `Published ${formatDate(exhibit.publishedAt)}` : "",
+  );
+
+  const progress = fragment.querySelector(".colony-map-progress");
+  progress.style.setProperty("--collection-progress", `${(represented.length / mapExperience.slots.length) * 360}deg`);
+  const mapImage = fragment.querySelector(".colony-map-image");
+  mapImage.src = new URL(mapExperience.map.src, exhibitUrl).href;
+  mapImage.alt = mapExperience.map.alt;
+  const credit = fragment.querySelector(".colony-map-credit");
+  credit.href = mapExperience.map.sourceUrl;
+  credit.textContent = `${mapExperience.map.credit} ↗`;
+
+  renderColonyMapPoints(fragment.querySelector(".colony-map-points"));
+  renderColonyMapList(fragment.querySelector(".colony-map-list"));
+  renderRelatedMapArtifacts(fragment.querySelector(".colony-related-grid"));
+  const relatedSection = fragment.querySelector(".colony-related");
+  relatedSection.hidden = (mapExperience.relatedArtifactIds ?? []).length === 0;
+
+  gallery.replaceChildren(fragment);
+  activeMapSlotId = represented[0]?.id ?? mapExperience.slots[0].id;
+  selectMapSlot(activeMapSlotId);
+  setHeaderStatus("Evolving map exhibition");
+  setStage("room");
+
+  requestAnimationFrame(() => {
+    const scroller = gallery.querySelector(".colony-map-scroll");
+    if (scroller.scrollWidth > scroller.clientWidth) {
+      scroller.scrollLeft = Math.max(0, scroller.scrollWidth * 0.43 - scroller.clientWidth * 0.35);
+    }
+  });
+}
+
+function renderColonyMapPoints(container) {
+  for (const slot of exhibit.mapExperience.slots) {
+    const markerX = slot.markerX ?? slot.x;
+    const markerY = slot.markerY ?? slot.y;
+    const artifact = slot.artifactId ? artifactById(slot.artifactId) : null;
+    const anchor = document.createElement("span");
+    anchor.className = `colony-location-anchor ${artifact ? "represented" : "open"}`;
+    anchor.style.left = `${slot.x}%`;
+    anchor.style.top = `${slot.y}%`;
+    anchor.setAttribute("aria-hidden", "true");
+    container.append(anchor);
+
+    if (markerX !== slot.x || markerY !== slot.y) {
+      container.append(createColonyLeader(slot.x, slot.y, markerX, markerY, Boolean(artifact)));
+    }
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `colony-map-marker ${artifact ? "represented" : "open"}`;
+    button.dataset.slotId = slot.id;
+    button.style.left = `${markerX}%`;
+    button.style.top = `${markerY}%`;
+    button.setAttribute(
+      "aria-label",
+      artifact ? `Inspect the ${slot.label} object: ${artifact.title}` : `${slot.label}: left to collect`,
+    );
+
+    if (artifact) {
+      const specimen = document.createElement("span");
+      specimen.className = "colony-marker-specimen";
+      mountArtifactMedia(specimen, {
+        artifact,
+        image: artifact.images[0],
+        src: imageUrl(artifact.images[0]),
+        alt: "",
+      });
+      button.append(specimen, textElement("span", slot.label, "colony-marker-label"));
+      button.addEventListener("click", () => {
+        selectMapSlot(slot.id);
+        openArtifact(findArtifactIndex(artifact.id));
+      });
+    } else {
+      button.append(
+        textElement("span", "+", "colony-marker-plus"),
+        textElement("span", slot.label, "colony-marker-label"),
+      );
+      button.addEventListener("click", () => selectMapSlot(slot.id));
+    }
+    container.append(button);
+  }
+}
+
+function createColonyLeader(x, y, markerX, markerY, represented) {
+  const mapAspect = 2941 / 1997;
+  const dx = markerX - x;
+  const dy = (markerY - y) / mapAspect;
+  const line = document.createElement("span");
+  line.className = `colony-map-leader ${represented ? "represented" : "open"}`;
+  line.style.left = `${x}%`;
+  line.style.top = `${y}%`;
+  line.style.width = `${Math.hypot(dx, dy)}%`;
+  line.style.transform = `rotate(${Math.atan2(dy, dx)}rad)`;
+  line.setAttribute("aria-hidden", "true");
+  return line;
+}
+
+function renderColonyMapList(container) {
+  for (const slot of exhibit.mapExperience.slots) {
+    const artifact = slot.artifactId ? artifactById(slot.artifactId) : null;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `colony-list-item ${artifact ? "represented" : "open"}`;
+    button.dataset.slotId = slot.id;
+    button.append(
+      textElement("span", artifact ? "Collected" : "Open", "colony-list-state"),
+      textElement("strong", slot.label),
+      textElement("span", artifact ? artifact.date?.label ?? "In the collection" : "Representative still to collect", "colony-list-note"),
+    );
+    button.addEventListener("click", () => selectMapSlot(slot.id));
+    container.append(button);
+  }
+}
+
+function selectMapSlot(slotId) {
+  const slot = exhibit.mapExperience.slots.find((item) => item.id === slotId);
+  if (!slot) return;
+  activeMapSlotId = slot.id;
+  gallery.querySelectorAll("[data-slot-id]").forEach((element) => {
+    const active = element.dataset.slotId === slot.id;
+    element.classList.toggle("active", active);
+    if (element.matches("button")) element.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+  renderColonyMapDetail(slot);
+}
+
+function renderColonyMapDetail(slot) {
+  const container = gallery.querySelector(".colony-map-detail");
+  const artifact = slot.artifactId ? artifactById(slot.artifactId) : null;
+  container.replaceChildren();
+
+  if (!artifact) {
+    const count = exhibit.mapExperience.slots.filter((item) => !item.artifactId).length;
+    container.className = "colony-map-detail open";
+    container.append(
+      textElement("p", "Open collecting goal", "colony-detail-status"),
+      textElement("h3", slot.label),
+      textElement(
+        "p",
+        `No representative has been selected yet. This open position remains visible alongside ${count - 1} other gaps in the current collection.`,
+        "colony-detail-copy",
+      ),
+      textElement("span", "A future object will appear here on the map.", "colony-detail-next"),
+    );
+    return;
+  }
+
+  container.className = "colony-map-detail represented";
+  const media = document.createElement("div");
+  media.className = "colony-detail-media";
+  mountArtifactMedia(media, {
+    artifact,
+    image: artifact.images[0],
+    src: imageUrl(artifact.images[0]),
+    alt: artifact.images[0].alt,
+  });
+  const copy = document.createElement("div");
+  copy.className = "colony-detail-record";
+  copy.append(
+    textElement("p", `${slot.label} · In the collection`, "colony-detail-status"),
+    textElement("h3", artifact.title),
+    textElement("p", artifact.subtitle ?? artifact.description ?? "", "colony-detail-copy"),
+  );
+  const action = document.createElement("button");
+  action.type = "button";
+  action.className = "colony-detail-action";
+  action.textContent = "Examine the object →";
+  action.addEventListener("click", () => openArtifact(findArtifactIndex(artifact.id)));
+  copy.append(action);
+  container.append(media, copy);
+}
+
+function renderRelatedMapArtifacts(container) {
+  for (const artifactId of exhibit.mapExperience.relatedArtifactIds ?? []) {
+    const artifact = artifactById(artifactId);
+    if (!artifact) continue;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "colony-related-card";
+    const media = document.createElement("span");
+    media.className = "colony-related-media";
+    mountArtifactMedia(media, {
+      artifact,
+      image: artifact.images[0],
+      src: imageUrl(artifact.images[0]),
+      alt: artifact.images[0].alt,
+    });
+    const copy = document.createElement("span");
+    copy.className = "colony-related-copy";
+    copy.append(
+      textElement("span", artifact.origin ?? "Beyond the thirteen colonies", "colony-related-origin"),
+      textElement("strong", artifact.title),
+      textElement("span", artifact.subtitle ?? "Explore the wider colonial monetary world."),
+      textElement("span", "Examine object →", "colony-related-action"),
+    );
+    button.append(media, copy);
+    button.addEventListener("click", () => openArtifact(findArtifactIndex(artifact.id)));
+    container.append(button);
+  }
+}
+
+function artifactById(id) {
+  return exhibit.artifacts.find((artifact) => artifact.id === id);
 }
 
 function renderCollectionExhibit() {
@@ -298,11 +574,12 @@ function renderCollectionHero(container) {
   for (const artifact of exhibit.artifacts.slice(0, 4)) {
     const frame = document.createElement("span");
     frame.className = `collection-preview-object kind-${presentationKind(artifact)}`;
-    const image = document.createElement("img");
-    image.src = imageUrl(artifact.images[0]);
-    image.alt = "";
-    applyImageFraming(image, artifact.images[0]);
-    frame.append(image);
+    mountArtifactMedia(frame, {
+      artifact,
+      image: artifact.images[0],
+      src: imageUrl(artifact.images[0]),
+      alt: "",
+    });
     container.append(frame);
   }
 }
@@ -318,12 +595,13 @@ function renderCollectionGrid(container) {
 
     const frame = document.createElement("span");
     frame.className = `collection-card-image kind-${presentationKind(artifact)}`;
-    const image = document.createElement("img");
-    image.src = imageUrl(artifact.images[0]);
-    image.alt = artifact.images[0].alt;
-    applyImageFraming(image, artifact.images[0]);
+    mountArtifactMedia(frame, {
+      artifact,
+      image: artifact.images[0],
+      src: imageUrl(artifact.images[0]),
+      alt: artifact.images[0].alt,
+    });
     frame.append(
-      image,
       textElement("span", pad(index + 1), "collection-card-number"),
       textElement(
         "span",
@@ -438,11 +716,12 @@ function renderIntroPreview(container) {
   for (const artifact of exhibit.artifacts.slice(0, 3)) {
     const mount = document.createElement("span");
     mount.className = `preview-object kind-${presentationKind(artifact)}`;
-    const image = document.createElement("img");
-    image.src = imageUrl(artifact.images[0]);
-    image.alt = "";
-    applyImageFraming(image, artifact.images[0]);
-    mount.append(image);
+    mountArtifactMedia(mount, {
+      artifact,
+      image: artifact.images[0],
+      src: imageUrl(artifact.images[0]),
+      alt: "",
+    });
     container.append(mount);
   }
 }
@@ -550,11 +829,12 @@ function createObjectButton(artifact, image, className) {
   button.className = `${className} kind-${presentationKind(artifact)}`;
   button.setAttribute("aria-label", `Inspect ${artifact.title}`);
   button.title = `Inspect ${artifact.title}`;
-  const element = document.createElement("img");
-  element.src = imageUrl(image);
-  element.alt = image.alt;
-  applyImageFraming(element, image);
-  button.append(element);
+  mountArtifactMedia(button, {
+    artifact,
+    image,
+    src: imageUrl(image),
+    alt: image.alt,
+  });
   button.addEventListener("click", (event) => {
     event.stopPropagation();
     openArtifact(findArtifactIndex(artifact.id));
@@ -589,12 +869,14 @@ function renderObjectIndex(container) {
     card.setAttribute("aria-label", `Inspect ${artifact.title}`);
     const imageFrame = document.createElement("span");
     imageFrame.className = "object-card-image";
-    const image = document.createElement("img");
-    image.src = imageUrl(artifact.images[0]);
-    image.alt = artifact.images[0].alt;
-    applyImageFraming(image, artifact.images[0]);
     imageFrame.classList.add(`kind-${presentationKind(artifact)}`);
-    imageFrame.append(image, textElement("span", pad(index + 1), "object-card-number"));
+    mountArtifactMedia(imageFrame, {
+      artifact,
+      image: artifact.images[0],
+      src: imageUrl(artifact.images[0]),
+      alt: artifact.images[0].alt,
+    });
+    imageFrame.append(textElement("span", pad(index + 1), "object-card-number"));
     const copy = document.createElement("span");
     copy.className = "object-card-copy";
     const labels = document.createElement("span");
@@ -683,11 +965,12 @@ function renderGroupObjectActions(group) {
     button.setAttribute("aria-label", `Inspect ${artifact.title}`);
     const thumbnail = document.createElement("span");
     thumbnail.className = `group-object-thumbnail kind-${presentationKind(artifact)}`;
-    const image = document.createElement("img");
-    image.src = imageUrl(artifact.images[0]);
-    image.alt = "";
-    applyImageFraming(image, artifact.images[0]);
-    thumbnail.append(image);
+    mountArtifactMedia(thumbnail, {
+      artifact,
+      image: artifact.images[0],
+      src: imageUrl(artifact.images[0]),
+      alt: "",
+    });
     button.append(
       thumbnail,
       textElement("span", artifact.title, "group-object-title"),
@@ -749,7 +1032,7 @@ function handleViewportClick(event) {
 function openArtifact(index) {
   activeArtifact = index;
   activeImage = 0;
-  inspectionView = presentationKind(exhibit.artifacts[index]) === "coin" ? "object" : "photo";
+  inspectionView = preferredInspectionView(exhibit.artifacts[index].images[0]);
   renderDialog();
   setStage("object");
   updateObjectUrl(exhibit.artifacts[index].id);
@@ -850,7 +1133,7 @@ function stepArtifact(delta) {
   if (nextIndex < 0 || nextIndex >= exhibit.artifacts.length) return;
   activeArtifact = nextIndex;
   activeImage = 0;
-  inspectionView = presentationKind(exhibit.artifacts[nextIndex]) === "coin" ? "object" : "photo";
+  inspectionView = preferredInspectionView(exhibit.artifacts[nextIndex].images[0]);
   renderDialog();
   updateObjectUrl(exhibit.artifacts[nextIndex].id);
 }
@@ -860,17 +1143,37 @@ function renderDialogImage() {
   const selectedImage = artifact.images[activeImage];
   const kind = presentationKind(artifact);
   const inspector = document.querySelector(".image-inspector");
-  const image = document.querySelector("#dialog-image");
-  image.src = imageUrl(selectedImage);
-  image.alt = selectedImage.alt;
-  applyImageFraming(image, selectedImage);
+  if (inspectionView === "object" && !hasObjectView(selectedImage)) inspectionView = "photo";
+  const media = document.querySelector("#dialog-media");
+  mountArtifactMedia(media, {
+    artifact,
+    image: selectedImage,
+    src: imageUrl(selectedImage),
+    alt: selectedImage.alt,
+    mode: inspectionView,
+    loading: "eager",
+    onReady: ({ aspect }) => inspector.style.setProperty("--inspection-aspect", String(aspect)),
+  });
   inspector.dataset.view = inspectionView;
   inspector.dataset.kind = kind;
   document.querySelector("#object-view").classList.toggle("active", inspectionView === "object");
   document.querySelector("#object-view").setAttribute("aria-pressed", inspectionView === "object" ? "true" : "false");
   document.querySelector("#photo-view").classList.toggle("active", inspectionView === "photo");
   document.querySelector("#photo-view").setAttribute("aria-pressed", inspectionView === "photo" ? "true" : "false");
-  document.querySelector("#object-view").hidden = kind !== "coin";
+  document.querySelector("#object-view").hidden = !hasObjectView(selectedImage);
+  const selectedRegion = objectRegion(selectedImage);
+  const completeComposition = selectedRegion
+    && selectedRegion.x === 0
+    && selectedRegion.y === 0
+    && selectedRegion.width === 100
+    && selectedRegion.height === 100;
+  document.querySelector("#inspection-note").textContent = completeComposition
+    ? "Complete composition · full photograph preserved"
+    : selectedRegion
+      ? "Exact object crop · full photograph preserved"
+      : hasObjectView(selectedImage)
+        ? "Curated object focus · full photograph preserved"
+        : "Full source photograph";
   const caption = document.querySelector("#image-caption");
   caption.textContent = [selectedImage.caption, selectedImage.credit].filter(Boolean).join(" · ");
   caption.hidden = !caption.textContent;
@@ -884,10 +1187,13 @@ function renderDialogImage() {
     button.classList.toggle("active", index === activeImage);
     button.setAttribute("aria-label", `View image ${index + 1} of ${artifact.images.length}`);
     button.setAttribute("aria-current", index === activeImage ? "true" : "false");
-    const thumbnail = document.createElement("img");
-    thumbnail.src = imageUrl(item);
-    thumbnail.alt = "";
-    button.append(thumbnail);
+    mountArtifactMedia(button, {
+      artifact,
+      image: item,
+      src: imageUrl(item),
+      alt: "",
+      mode: hasObjectView(item) ? "object" : "photo",
+    });
     button.addEventListener("click", () => {
       activeImage = index;
       renderDialogImage();
@@ -896,9 +1202,12 @@ function renderDialogImage() {
   });
 
   const hasMultiple = artifact.images.length > 1;
+  const nextImage = artifact.images[(activeImage + 1) % artifact.images.length];
   document.querySelector("#image-previous").hidden = !hasMultiple;
   document.querySelector("#image-next").hidden = !hasMultiple;
-  document.querySelector("#turn-object").hidden = !hasMultiple || inspectionView !== "object";
+  document.querySelector("#turn-object").hidden = !hasMultiple
+    || inspectionView !== "object"
+    || !hasObjectView(nextImage);
   thumbnails.hidden = !hasMultiple;
   resetObjectTilt();
 }
@@ -960,28 +1269,10 @@ function imageUrl(image) {
   return new URL(image.src, exhibitUrl).href;
 }
 
-function presentationKind(artifact) {
-  return artifact.presentation?.kind ?? "object";
-}
-
-function applyImageFraming(element, image) {
-  const framing = image.presentation ?? {};
-  element.style.setProperty("--object-scale", String(framing.scale ?? 1.38));
-  const positionImage = () => {
-    const defaultY = element.naturalHeight > element.naturalWidth ? 68 : 55;
-    const focusX = framing.focusX ?? 50;
-    const focusY = framing.focusY ?? defaultY;
-    element.style.setProperty("--focus-x", `${focusX}%`);
-    element.style.setProperty("--focus-y", `${focusY}%`);
-    element.style.objectPosition = `${focusX}% ${focusY}%`;
-  };
-  if (element.complete && element.naturalWidth) positionImage();
-  else element.addEventListener("load", positionImage, { once: true });
-}
-
 function setInspectionView(view) {
   const artifact = exhibit.artifacts[activeArtifact];
-  inspectionView = view === "object" && presentationKind(artifact) === "coin" ? "object" : "photo";
+  const image = artifact.images[activeImage];
+  inspectionView = view === "object" && hasObjectView(image) ? "object" : "photo";
   renderDialogImage();
 }
 

@@ -1,0 +1,82 @@
+/* Canonical object media
+   One source-space region is rendered intact at every size. The surrounding
+   site may change a mount or mask, but it never reinterprets the crop. */
+.artifact-media {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  place-items: center;
+  overflow: hidden;
+}
+
+.artifact-media > .artifact-media__stage {
+  position: absolute;
+  z-index: 0;
+  inset: var(--media-inset, 0);
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  transition: transform 320ms ease, filter 320ms ease;
+}
+
+.artifact-media > .artifact-media__stage > .artifact-media__viewport {
+  position: relative;
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.artifact-media[data-media-framing="region"] > .artifact-media__stage > .artifact-media__viewport {
+  flex: none;
+  background: #11110e;
+  box-shadow: 0 0.8rem 1.2rem rgba(0, 0, 0, 0.34);
+}
+
+.artifact-media[data-media-framing="region"] > .artifact-media__stage > .artifact-media__viewport > .artifact-media__image {
+  position: absolute;
+  display: block;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border-radius: 0;
+  object-fit: fill;
+  object-position: center;
+  transform: none;
+}
+
+.artifact-media[data-media-framing="legacy"] > .artifact-media__stage > .artifact-media__viewport,
+.artifact-media[data-media-framing="full"] > .artifact-media__stage > .artifact-media__viewport {
+  width: 100%;
+  height: 100%;
+}
+
+.artifact-media[data-media-framing="legacy"] > .artifact-media__stage > .artifact-media__viewport > .artifact-media__image,
+.artifact-media[data-media-framing="full"] > .artifact-media__stage > .artifact-media__viewport > .artifact-media__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  object-position: var(--focus-x, 50%) var(--focus-y, 50%);
+}
+
+.artifact-media[data-media-framing="legacy"] > .artifact-media__stage > .artifact-media__viewport > .artifact-media__image {
+  object-fit: cover;
+  transform: scale(var(--object-scale, 1));
+}
+
+.artifact-media[data-media-framing="full"] > .artifact-media__stage > .artifact-media__viewport > .artifact-media__image {
+  object-fit: contain;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .artifact-media > .artifact-media__stage { transition: none; }
+}
