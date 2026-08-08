@@ -54,6 +54,7 @@ async function initialize() {
       renderExperience();
     }
     document.title = `${exhibit.title} · ArchiveSense Museum`;
+    setPageDescription(exhibit.summary);
     renderMuseumSelector(exhibitId);
     openRequestedObject(parameters.get("object"));
   } catch (error) {
@@ -151,7 +152,8 @@ function renderMuseumHome() {
   document.body.dataset.exhibitType = "home";
   document.body.dataset.exhibitStage = "home";
   gallery.dataset.stage = "home";
-  document.title = "ArchiveSense Museum";
+  document.title = "ArchiveSense Museum | Collections & Exhibitions";
+  setPageDescription("Explore the ArchiveSense Museum through public collection catalogs, curated exhibitions, and the stories objects can tell.");
   const fragment = museumHomeTemplate.content.cloneNode(true);
   const curated = [...museumExhibits.values()].filter((record) => record.exhibitType !== "collection");
   const collections = [...museumExhibits.values()].filter((record) => record.exhibitType === "collection");
@@ -165,6 +167,11 @@ function renderMuseumHome() {
   gallery.replaceChildren(fragment);
 
   setHeaderStatus("Public museum");
+}
+
+function setPageDescription(value) {
+  const description = document.querySelector('meta[name="description"]');
+  if (description && value) description.setAttribute("content", value);
 }
 
 function renderMuseumDirectory(container, records) {

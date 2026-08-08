@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Articles & Resources | ArchiveSense</title>
-  <meta name="description" content="Expert insights on collection preservation, materials science, and best practices for collectors and archivists." />
+  <title>Field Notes &amp; Guides | ArchiveSense</title>
+  <meta name="description" content="Practical, research-grounded guidance on collection care, preservation materials, and the everyday work of collecting." />
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4G8EHH040J"></script>
@@ -87,13 +87,13 @@
       background: var(--secondary-bg);
       border-radius: 8px;
       padding: 2rem;
-      text-align: center;
+      text-align: left;
       margin: 2rem 0;
-      border: 2px dashed var(--border-color);
+      border: 1px solid var(--border-color);
     }
     
     .coming-soon h3 {
-      color: var(--secondary-text);
+      color: var(--accent-color);
       margin: 0 0 1rem;
     }
     
@@ -134,20 +134,20 @@
   </style>
 </head>
 <body>
-  <header>
-    <img src="/ArchiveSense_logo_text_right.png" alt="ArchiveSense Logo" style="max-width: 300px;">
+  <header class="site-shell-header">
+    <a class="site-shell-brand" href="/" aria-label="ArchiveSense home">
+      <span class="site-shell-mark" aria-hidden="true">A</span>
+      <span>ArchiveSense</span>
+    </a>
+    <nav class="site-shell-nav" aria-label="Primary navigation">
+      <a href="/museum/">Museum</a>
+      <a href="/#app">The app</a>
+      <a href="/#resources">Research &amp; tools</a>
+      <a href="/articles/">Articles</a>
+    </nav>
   </header>
 
-  <nav class="nav">
-    <div class="container">
-      <a href="/">Home</a>
-      <a href="/articles">Articles</a>
-      <a href="/preservation-calculator.html">Safe Storage Calculator</a>
-      <a href="/tag_generator.html">Tag Generator</a>
-    </div>
-  </nav>
-
-  <p class="hero-text">Expert insights on collection preservation, materials science, and best practices for collectors and archivists.</p>
+  <p class="hero-text">Research-grounded field notes for caring for objects and strengthening the collections built around them.</p>
 
   <main class="content">
     <div class="articles-grid">
@@ -159,8 +159,8 @@
       </article>
       
       <div class="coming-soon">
-        <h3>More Articles Coming Soon</h3>
-        <p>We're working on additional articles covering environmental monitoring, digital preservation, and collection management best practices.</p>
+        <h3>Preservation tools</h3>
+        <p>Apply the same practical approach with the <a href="/preservation-calculator.html">environmental preservation calculator</a> and <a href="/tag_generator.html">collection tag generator</a>.</p>
       </div>
     </div>
   </main>
@@ -171,4 +171,3 @@
   </footer>
 </body>
 </html>
-

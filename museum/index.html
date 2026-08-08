@@ -5,20 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Enter a public ArchiveSense study room and inspect selected artifacts from the collection."
+      content="Explore the ArchiveSense Museum through public collection catalogs, curated exhibitions, and the stories objects can tell."
     />
+    <meta property="og:title" content="ArchiveSense Museum | Collections &amp; Exhibitions" />
+    <meta
+      property="og:description"
+      content="Browse public collection catalogs, enter curated exhibitions, and inspect individual objects up close."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://archivesense.com/museum/" />
+    <meta property="og:image" content="https://archivesense.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ArchiveSense — Collections become exhibitions." />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#171713" />
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
     />
-    <title>ArchiveSense · Public Study Room</title>
+    <title>ArchiveSense Museum | Collections &amp; Exhibitions</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="museum.css" />
     <script type="module" src="app.js"></script>
   </head>
   <body>
-    <a class="skip-link" href="#gallery">Skip to the exhibit</a>
+    <a class="skip-link" href="#gallery">Skip to the museum</a>
     <header class="site-header">
       <a class="wordmark" href="./" aria-label="ArchiveSense public museum home">
         <span class="wordmark-mark" aria-hidden="true">A</span>
@@ -41,7 +53,7 @@
     <main id="gallery" class="experience" aria-live="polite">
       <section class="loading" id="loading">
         <span class="loading-rule"></span>
-        <p>Opening the study room…</p>
+        <p>Opening the museum…</p>
       </section>
     </main>
 
@@ -110,8 +122,8 @@
         <header class="museum-home-hero">
           <div class="museum-home-copy">
             <p class="museum-home-kicker">ArchiveSense public museum</p>
-            <h1>Money in<br />English America</h1>
-            <p>Explore the money used in England's North American colonies through complete collection catalogs and focused curatorial exhibitions.</p>
+            <h1>Objects in<br />context</h1>
+            <p>Browse complete collection catalogs, follow focused curatorial exhibitions, and inspect the individual objects that connect them.</p>
             <a href="#curated-exhibits">Explore the museum <span aria-hidden="true">↓</span></a>
           </div>
           <div class="museum-home-featured" id="museum-home-featured"></div>

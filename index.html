@@ -1,376 +1,248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ArchiveSense | A Collector's AI Companion</title>
-  
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4G8EHH040J"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ArchiveSense | Collections Become Exhibitions</title>
+    <meta
+      name="description"
+      content="Explore public collection catalogs and curated exhibitions, then see how ArchiveSense helps collectors catalog objects, develop their stories, and publish them with care."
+    />
+    <meta name="theme-color" content="#141410" />
+    <meta property="og:title" content="ArchiveSense | Collections Become Exhibitions" />
+    <meta
+      property="og:description"
+      content="Publish collections. Build exhibitions. Share the stories objects can tell."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://archivesense.com/" />
+    <meta property="og:image" content="https://archivesense.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ArchiveSense — Collections become exhibitions." />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    gtag('config', 'G-4G8EHH040J');
-  </script>
-  
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4G8EHH040J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4G8EHH040J');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script>
+      (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "sw5s6gwxlx");
-  </script>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    html { scroll-behavior: smooth; }
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 2rem;
-      gap: 2rem;
-      max-width: 960px;
-      margin: auto;
-    }
-    .hero-text-section {
-      flex: 1 1 400px;
-    }
-    .hero-text-section p {
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-top: 0;
-    }
-    .hero-media {
-      flex: 1 1 300px;
-      text-align: center;
-      min-width: 300px;
-    }
-    .hero-media iframe,
-    .hero-media blockquote {
-      max-width: 100%;
-    }
-    .image-feature {
-      display: flex;
-      justify-content: center;
-      padding: 2rem 0;
-      background-color: var(--primary-bg);
-    }
-    .image-feature img {
-      width: 90%;
-      max-width: 960px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .museum-invitation {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.6fr);
-      gap: 2rem;
-      align-items: center;
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: clamp(2rem, 5vw, 4rem);
-      color: #eee6d4;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(198,117,66,0.22), transparent 15rem),
-        #171713;
-      border-radius: 12px;
-      box-sizing: border-box;
-    }
-    .museum-invitation .eyebrow {
-      margin: 0 0 0.7rem;
-      color: #c88f73;
-      font-family: sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-    .museum-invitation h2 {
-      margin: 0 0 1rem;
-      font-family: var(--display-font);
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      font-weight: 400;
-      line-height: 1.05;
-    }
-    .museum-invitation p { margin: 0; color: #c9c0ad; }
-    .museum-invitation .museum-link {
-      display: inline-block;
-      padding: 0.9rem 1.2rem;
-      color: #171713;
-      background: #eee6d4;
-      border-radius: 999px;
-      text-align: center;
-      text-decoration: none;
-    }
-    .museum-invitation .museum-link:hover { background: #fff8e9; }
-    .features {
-      display: flex;
-      justify-content: space-around;
-      background: var(--secondary-bg);
-      padding: 2rem;
-      text-align: center;
-      flex-wrap: wrap;
-    }
-    .feature {
-      flex: 1 1 200px;
-      padding: 1rem;
-    }
-    .feature h3 {
-      color: var(--accent-color);
-    }
-    .mailing-list, .footer, .script-injection {
-      text-align: center;
-      padding: 2rem;
-    }
-    /* Buttons/inputs styled via shared styles where applicable */
+      })(window, document, "clarity", "script", "sw5s6gwxlx");
+    </script>
 
-    .carousel-container {
-      position: relative;
-      width: 90%;
-      max-width: 400px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="home.css" />
+    <script type="module" src="home.js"></script>
+  </head>
+  <body class="home-page">
+    <a class="site-skip-link" href="#main">Skip to content</a>
 
-    .carousel {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      width: 100%;
-    }
+    <header class="site-shell-header">
+      <a class="site-shell-brand" href="/" aria-label="ArchiveSense home">
+        <span class="site-shell-mark" aria-hidden="true">A</span>
+        <span>ArchiveSense</span>
+      </a>
+      <nav class="site-shell-nav" aria-label="Primary navigation">
+        <a href="/museum/">Museum</a>
+        <a href="#app">The app</a>
+        <a href="#resources">Research &amp; tools</a>
+        <a href="/articles/">Articles</a>
+      </nav>
+    </header>
 
-    .carousel-item {
-      min-width: 100%;
-      padding: 0 1rem;
-      box-sizing: border-box;
-    }
-
-    .carousel-item img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .caption {
-      margin-top: 1rem;
-      color: var(--secondary-text);
-      font-size: 0.9rem;
-      line-height: 1.6;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .carousel-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.8);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .carousel-button:hover {
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-    .carousel-button.prev {
-      left: 10px;
-    }
-
-    .carousel-button.next {
-      right: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .museum-invitation {
-        grid-template-columns: 1fr;
-        margin: 1rem;
-      }
-      .carousel-button {
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
-      }
-      
-      .nav .container {
-        padding: 0 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="ArchiveSense_logo_text_right.png" alt="ArchiveSense Logo" style="max-width: 300px;">
-  </header>
-
-  <nav class="nav">
-    <div class="container">
-      <a href="/">Home</a>
-      <a href="/articles">Articles</a>
-      <a href="/preservation-calculator.html">Safe Storage Calculator</a>
-      <a href="/tag_generator.html">Tag Generator</a>
-      <a href="/museum/">Museum</a>
-    </div>
-  </nav>
-
-  <p class="hero-text">A Collector's AI Companion</p>
-
-  <section class="hero">
-    <div class="hero-text-section">
-      <p>ArchiveSense started with a simple idea: collecting isn't just about owning—it's about <em>engaging</em>.  General-purpose AI tools weren't enough.  I wanted a system that understood my collection deeply, one that could hold conversations, surface insights, and turn thoughts into living narratives.  That's why I built ArchiveSense.  It helps collectors catalog, converse, and reflect—today at the item level, and soon across entire collections.</p>
-      <div class="launch-info">
-        <H2 class="beta-launch">📱 Now Testing on Android</H2>
-        <p>ArchiveSense is ready for early testing! Try the app on Android and share your feedback as we improve it together.</p>
-      </div>
-
-      <div class="features-list">
-        <div class="current-features">
-          <h3>Current Capabilities</h3>
-          <ul>
-            <li>Rich cataloging with photos, facts, and notes</li>
-            <li>AI conversations to explore items and create "Collector's Notes"</li>
-            <li>Social media sharing of collection stories</li>
-          </ul>
+    <main id="main">
+      <section class="home-hero" aria-labelledby="home-title">
+        <div class="home-hero-copy">
+          <p class="section-kicker">The public face of ArchiveSense</p>
+          <h1 id="home-title">Publish collections.<br />Build exhibitions.<br /><em>Share the stories objects can tell.</em></h1>
+          <p class="home-hero-summary">
+            ArchiveSense turns private cataloging into public scholarship: complete collection catalogs,
+            focused exhibitions, and close encounters with the objects that carry history.
+          </p>
+          <div class="home-actions">
+            <a class="button button-primary" href="/museum/">Enter the museum <span aria-hidden="true">&rarr;</span></a>
+            <a class="button button-secondary" href="#app">See how it is made</a>
+          </div>
+          <dl class="museum-tally" aria-label="Museum contents">
+            <div><dt id="collection-count">4</dt><dd>collection catalogs</dd></div>
+            <div><dt id="exhibition-count">1</dt><dd>curated exhibition</dd></div>
+            <div><dt id="object-count">43</dt><dd>published object records</dd></div>
+          </dl>
         </div>
-        <div class="upcoming-features">
-          <h3>Coming Soon</h3>
-          <ul>
-            <li>Deep domain knowledge through accessing canonical sources</li>
-            <li>Environmental monitoring for preservation</li>
-          </ul>
+
+        <a class="hero-object-stage" href="/museum/?exhibit=money-before-the-mint" aria-label="Enter Money Before the Mint, a curated exhibition">
+          <span class="hero-map">
+            <img
+              src="/museum/exhibits/money-before-the-mint/images/atlantic-chart-1685-1.webp"
+              alt="Seventeenth-century Atlantic sea chart"
+            />
+          </span>
+          <span class="hero-coin hero-coin-front">
+            <img
+              src="/museum/exhibits/money-before-the-mint/images/spanish-eight-reales-1.webp"
+              alt=""
+            />
+          </span>
+          <span class="hero-note">
+            <img
+              src="/museum/exhibits/money-before-the-mint/images/north-carolina-forty-shillings-1754-1.webp"
+              alt=""
+            />
+          </span>
+          <span class="hero-object-caption">
+            <span>Now showing</span>
+            <strong>Money Before the Mint</strong>
+            <span>Fourteen objects &middot; Enter exhibition &rarr;</span>
+          </span>
+        </a>
+      </section>
+
+      <section class="museum-program" aria-labelledby="museum-program-title">
+        <header class="section-heading">
+          <div>
+            <p class="section-kicker">ArchiveSense Museum</p>
+            <h2 id="museum-program-title">Collections to browse.<br />Arguments to follow.</h2>
+          </div>
+          <p>
+            Catalogs preserve the shape of a collection. Exhibitions bring selected objects together around a question.
+            Move between both, and see the same object acquire new context.
+          </p>
+        </header>
+
+        <div id="museum-program-list" class="museum-program-list" aria-live="polite">
+          <p class="museum-loading">Opening the museum directory&hellip;</p>
         </div>
-      </div>
-      <div class="hero-signup">
-        <h3>Get Early Access</h3>
-        <p>Want to try ArchiveSense? Enter your email and we'll send you an invite to test the app.</p>
-        <form action="https://script.google.com/macros/s/AKfycbyVuDW39eZfbzvaSpMKbxUAruueQJs6ARwGRdojNctJXefn-YgmsYbZUVrg-U3m2RmE/exec" method="POST" target="_self" onsubmit="fetch(this.action, {
-          method: 'POST',
-          body: new FormData(this)
-        }).then(() => {
-          document.getElementById('hero-thank-you-message').style.display = 'block';
-          this.style.display = 'none';
-        }); return false;">
-          <input type="email" name="email" placeholder="Your email address" required style="padding: 0.75rem; font-size: 1rem; width: 60%; max-width: 300px; border: 1px solid var(--border-color); border-radius: 4px; margin-bottom: 1rem;" />
-          <br />
-          <button type="submit" style="padding: 0.75rem 1.5rem; font-size: 1rem; background-color: var(--accent-color); color: white; border: none; border-radius: 4px; cursor: pointer;">Sign Up</button>
+
+        <div class="section-link-row">
+          <a class="text-link" href="/museum/">Browse the complete museum directory <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </section>
+
+      <section class="app-story" id="app" aria-labelledby="app-title">
+        <div class="app-story-copy">
+          <p class="section-kicker">From private record to public story</p>
+          <h2 id="app-title">The museum is the output.<br />ArchiveSense is the working space.</h2>
+          <p class="app-story-intro">
+            The Android app keeps the object, its images, facts, notes, and emerging interpretation together.
+            From there, selected records can become a public catalog and provide the material for a curated exhibition.
+          </p>
+          <ol class="app-sequence">
+            <li><span>01</span><div><strong>Catalog what you know</strong><p>Build structured records with photographs, dates, descriptions, and tags.</p></div></li>
+            <li><span>02</span><div><strong>Develop what it means</strong><p>Use focused AI conversations to question an object and shape a collector&rsquo;s note.</p></div></li>
+            <li><span>03</span><div><strong>Publish with intention</strong><p>Select what belongs in public, then share a complete collection or connect objects through an exhibition.</p></div></li>
+          </ol>
+        </div>
+
+        <div class="app-proof" aria-label="ArchiveSense Android app screens">
+          <figure class="app-screen app-screen-primary">
+            <img src="/1_App_Main_Screen.png" alt="ArchiveSense collection dashboard on Android" />
+            <figcaption>Your collection, structured and connected.</figcaption>
+          </figure>
+          <figure class="app-screen app-screen-secondary">
+            <img src="/4_App_AI_Collectors_Note_Conversation.png" alt="An AI-assisted collector's note conversation in ArchiveSense" />
+            <figcaption>Interpretation develops beside the record.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="app-invitation" aria-labelledby="access-title">
+        <div>
+          <p class="section-kicker">Android beta</p>
+          <h2 id="access-title">Bring your own collection into focus.</h2>
+          <p>Join the testing list for ArchiveSense and help shape the path from collecting to publishing.</p>
+        </div>
+        <form
+          class="access-form"
+          id="access-form"
+          action="https://script.google.com/macros/s/AKfycbyVuDW39eZfbzvaSpMKbxUAruueQJs6ARwGRdojNctJXefn-YgmsYbZUVrg-U3m2RmE/exec"
+          method="post"
+        >
+          <label for="access-email">Email address</label>
+          <div>
+            <input id="access-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+            <button type="submit">Request access</button>
+          </div>
+          <p class="form-status" id="access-status" role="status" aria-live="polite"></p>
         </form>
-        <p id="hero-thank-you-message" style="display: none; color: var(--secondary-text); margin-top: 1rem;">Thanks! We'll send you an invite to try the app soon.</p>
-      </div>
+      </section>
 
-    </div>
-    <div class="hero-media">
-      <div class="carousel-container">
-        <div class="carousel">
-          <div class="carousel-item">
-            <img src="1_App_Main_Screen.png" alt="ArchiveSense Main Screen">
-            <p class="caption">[1/6] The main dashboard provides an overview of your entire collection, making it easy to navigate through your items and access key features.</p>
+      <section class="resource-library" id="resources" aria-labelledby="resources-title">
+        <header class="section-heading">
+          <div>
+            <p class="section-kicker">Research &amp; working tools</p>
+            <h2 id="resources-title">Care for the object.<br />Strengthen the record.</h2>
           </div>
-          <div class="carousel-item">
-            <img src="2_App_Collection_View.png" alt="Collection View">
-            <p class="caption">[2/6] Browse your collection with rich visual previews and detailed metadata, helping you stay organized.</p>
-          </div>
-          <div class="carousel-item">
-            <img src="3_App_Item_View.png" alt="Item View">
-            <p class="caption">[3/6] Dive deep into individual items with comprehensive detail views and metadata management.</p>
-          </div>
-          <div class="carousel-item">
-            <img src="4_App_AI_Collectors_Note_Conversation.png" alt="AI Conversation">
-            <p class="caption">[4/6] Engage in meaningful conversations with AI about your items, uncovering new insights and connections.</p>
-          </div>
-          <div class="carousel-item">
-            <img src="5_App_Share_View.png" alt="Share View">
-            <p class="caption">[5/6] Share your collection stories and insights with other collectors and enthusiasts.</p>
-          </div>
-          <div class="carousel-item">
-            <img src="6_App_Main_Screen_with_Archive_Connections.png" alt="Archive Connections">
-            <p class="caption">[6/6] Discover connections between items in your collection, revealing patterns and relationships you might not have noticed.</p>
-          </div>
+          <p>
+            ArchiveSense extends beyond the app with practical guidance and small tools for the everyday work of collecting.
+          </p>
+        </header>
+
+        <div class="resource-grid">
+          <a class="resource-card resource-featured" href="/articles/materials-first-principles">
+            <span class="resource-number">Field guide 01</span>
+            <span class="resource-card-copy">
+              <span class="resource-type">Article &middot; Materials &amp; preservation</span>
+              <strong>How to Choose Safe Storage Materials for Your Collection</strong>
+              <span>Move beyond vague &ldquo;archival&rdquo; labels and evaluate paper, plastic, foam, wood, adhesives, and complete storage arrangements.</span>
+              <span class="resource-action">Read the field guide &rarr;</span>
+            </span>
+          </a>
+
+          <a class="resource-card" href="/preservation-calculator.html">
+            <span class="resource-number">Tool 01</span>
+            <span class="resource-card-copy">
+              <span class="resource-type">Interactive calculator</span>
+              <strong>Environmental Preservation Calculator</strong>
+              <span>Explore how temperature and relative humidity influence preservation conditions for different materials.</span>
+              <span class="resource-action">Open the calculator &rarr;</span>
+            </span>
+          </a>
+
+          <a class="resource-card" href="/tag_generator.html">
+            <span class="resource-number">Tool 02</span>
+            <span class="resource-card-copy">
+              <span class="resource-type">Printable collections tool</span>
+              <strong>Collection Tag Generator</strong>
+              <span>Turn selected catalog fields into clear object labels, QR tags, and printable sheets.</span>
+              <span class="resource-action">Make a tag &rarr;</span>
+            </span>
+          </a>
         </div>
-        <button class="carousel-button prev" onclick="moveCarousel(-1)">❮</button>
-        <button class="carousel-button next" onclick="moveCarousel(1)">❯</button>
+      </section>
+
+      <section class="closing-note" aria-labelledby="closing-title">
+        <p class="section-kicker">A collecting practice, made visible</p>
+        <h2 id="closing-title">Every object can be cataloged.<br />The interesting part is what happens next.</h2>
+        <a class="button button-primary" href="/museum/">Explore the ArchiveSense Museum <span aria-hidden="true">&rarr;</span></a>
+      </section>
+    </main>
+
+    <footer class="site-shell-footer">
+      <a class="site-shell-brand" href="/" aria-label="ArchiveSense home">
+        <span class="site-shell-mark" aria-hidden="true">A</span>
+        <span>ArchiveSense</span>
+      </a>
+      <div>
+        <nav aria-label="Footer navigation">
+          <a href="/museum/">Museum</a>
+          <a href="/articles/">Articles</a>
+          <a href="/preservation-calculator.html">Calculator</a>
+          <a href="/tag_generator.html">Tag generator</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </nav>
+        <p>&copy; 2026 ArchiveSense. Collections published with care.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="image-feature">
-    <img src="Collection_Items.png" alt="ArchiveSense styled flatlay">
-  </section>
-
-  <section class="museum-invitation" aria-labelledby="museum-heading">
-    <div>
-      <p class="eyebrow">Public collection experience</p>
-      <h2 id="museum-heading">Enter the ArchiveSense museum</h2>
-      <p>Walk through a curated study room, explore related groupings, and inspect selected artifacts and their stories up close.</p>
-    </div>
-    <a class="museum-link" href="/museum/">Visit the collection exhibit</a>
-  </section>
-
-  <section class="features">
-    <div class="feature">
-      <h3>📋 Catalog</h3>
-      <p>Structure your collection with precision and flexibility.</p>
-    </div>
-    <div class="feature">
-      <h3>💬 Converse</h3>
-      <p>Talk with AI to uncover meaning, context, and connections.</p>
-    </div>
-    <div class="feature">
-      <h3>🌡️ Preserve</h3>
-      <p>Environmental monitoring helps protect what you collect.</p>
-    </div>
-  </section>
-
-<section id="mailing-list" class="mailing-list">
-  <h2>Get Early Access</h2>
-      <p>Want to try ArchiveSense? Enter your email and we'll send you an invite to test the app.</p>
-    <form action="https://script.google.com/macros/s/AKfycbyVuDW39eZfbzvaSpMKbxUAruueQJs6ARwGRdojNctJXefn-YgmsYbZUVrg-U3m2RmE/exec" method="POST" target="_self" onsubmit="fetch(this.action, {
-      method: 'POST',
-      body: new FormData(this)
-    }).then(() => {
-      document.getElementById('thank-you-message').style.display = 'block';
-    }); return false;">
-      <input type="email" name="email" placeholder="Your email address" required />
-      <br />
-      <button type="submit">Sign Up</button>
-    </form>
-    <p id="thank-you-message" style="display: none; color: var(--secondary-text); margin-top: 1rem;">Thanks! We'll send you an invite to try the app soon.</p>
-  </section>
-
-  <footer>
-    &copy; 2025 ArchiveSense. All rights reserved.<br>
-    <a href="/">Home</a> · <a href="/museum/">Museum</a> · <a href="/articles">Articles</a> · <a href="/preservation-calculator.html">Safe Storage Calculator</a> · <a href="/tag_generator.html">Tag Generator</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a><br>
-    Instagram: <a href="https://instagram.com/archivsense" target="_blank">@archivsense</a>
-  </footer>
-
-  <script>
-    let currentSlide = 0;
-    const items = document.querySelectorAll('.carousel-item');
-
-    function moveCarousel(direction) {
-      currentSlide = (currentSlide + direction + items.length) % items.length;
-      updateCarousel();
-    }
-
-    function updateCarousel() {
-      const offset = -currentSlide * 100;
-      document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
-    }
-
-    // Auto-advance carousel
-    setInterval(() => moveCarousel(1), 5000);
-  </script>
-</body>
+    </footer>
+  </body>
 </html>
