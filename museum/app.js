@@ -29,6 +29,7 @@ let activeImage = 0;
 let inspectionView = "photo";
 let currentStage = "threshold";
 let activeMapSlotId = null;
+const PUBLIC_MUSEUM_URL = "https://archivesense.com/museum/";
 
 initialize();
 
@@ -66,11 +67,17 @@ async function initialize() {
       museum = exhibit.experience ?? createFallbackExperience(exhibit);
       renderExperience();
     }
-    document.title = `${exhibit.title} · ArchiveSense Museum`;
-    setPageDescription(exhibit.summary);
+    setPageMetadata({
+      title: `${exhibit.title} · ArchiveSense Museum`,
+      description: exhibit.summary,
+      canonicalUrl: canonicalMuseumUrl(exhibitId),
+      name: exhibit.title,
+      itemCount: exhibit.artifacts.length,
+    });
     renderMuseumSelector(exhibitId);
     openRequestedObject(parameters.get("object"));
   } catch (error) {
+    setRobotsDirective("noindex, nofollow");
     gallery.innerHTML = `
       <section class="error-state">
         <p class="kicker">Museum unavailable</p>
@@ -166,8 +173,14 @@ function renderMuseumHome() {
   document.body.dataset.exhibitType = "home";
   document.body.dataset.exhibitStage = "home";
   gallery.dataset.stage = "home";
-  document.title = "ArchiveSense Museum | Collections & Exhibitions";
-  setPageDescription("Explore the ArchiveSense Museum through public collection catalogs, curated exhibitions, and the stories objects can tell.");
+  const description = "Explore the ArchiveSense Museum through public collection catalogs, curated exhibitions, and the stories objects can tell.";
+  setPageMetadata({
+    title: "ArchiveSense Museum | Collections & Exhibitions",
+    description,
+    canonicalUrl: canonicalMuseumUrl(),
+    name: "ArchiveSense Museum",
+    records: [...museumExhibits.values()],
+  });
   const fragment = museumHomeTemplate.content.cloneNode(true);
   const curated = [...museumExhibits.values()].filter((record) => record.exhibitType !== "collection");
   const collections = [...museumExhibits.values()].filter((record) => record.exhibitType === "collection");
@@ -186,6 +199,83 @@ function renderMuseumHome() {
 function setPageDescription(value) {
   const description = document.querySelector('meta[name="description"]');
   if (description && value) description.setAttribute("content", value);
+}
+
+function canonicalMuseumUrl(exhibitId = null) {
+  const url = new URL(PUBLIC_MUSEUM_URL);
+  if (exhibitId) url.searchParams.set("exhibit", exhibitId);
+  return url.href;
+}
+
+function setPageMetadata({ title, description, canonicalUrl, name, records = [], itemCount = null }) {
+  document.title = title;
+  setPageDescription(description);
+  setMetaContent('meta[property="og:title"]', title);
+  setMetaContent('meta[property="og:description"]', description);
+  setMetaContent('meta[property="og:url"]', canonicalUrl);
+  setRobotsDirective("index, follow");
+
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    document.head.append(canonical);
+  }
+  canonical.href = canonicalUrl;
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name,
+    description,
+    url: canonicalUrl,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "ArchiveSense",
+      url: "https://archivesense.com/",
+    },
+  };
+  if (Number.isInteger(itemCount)) {
+    structuredData.mainEntity = {
+      "@type": "ItemList",
+      numberOfItems: itemCount,
+    };
+  } else if (records.length > 0) {
+    structuredData.mainEntity = {
+      "@type": "ItemList",
+      numberOfItems: records.length,
+      itemListElement: records.map((record, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: record.title,
+        url: canonicalMuseumUrl(record.id),
+      })),
+    };
+  }
+
+  let dataBlock = document.querySelector("#page-structured-data");
+  if (!dataBlock) {
+    dataBlock = document.createElement("script");
+    dataBlock.id = "page-structured-data";
+    dataBlock.type = "application/ld+json";
+    document.head.append(dataBlock);
+  }
+  dataBlock.textContent = JSON.stringify(structuredData);
+}
+
+function setMetaContent(selector, value) {
+  const meta = document.querySelector(selector);
+  if (meta && value) meta.setAttribute("content", value);
+}
+
+function setRobotsDirective(value) {
+  let robots = document.querySelector('meta[name="robots"]');
+  if (!robots) {
+    robots = document.createElement("meta");
+    robots.name = "robots";
+    document.head.append(robots);
+  }
+  robots.content = value;
 }
 
 function renderMuseumDirectory(container, records) {
@@ -802,14 +892,21 @@ function buildCoinTray(container, group) {
   container.className = "coin-cabinet";
   const tray = document.createElement("div");
   tray.className = "tray-grid";
-  const objects = groupArtifacts(group).flatMap((artifact) =>
-    artifact.images.slice(0, 2).map((image) => ({ artifact, image })),
-  );
-  tray.style.setProperty("--tray-columns", String(objects.length > 6 ? 4 : 3));
+  const objects = groupArtifacts(group).map((artifact) => ({
+    artifact,
+    image: artifact.images[0],
+  }));
+  const columns = Math.min(5, Math.max(1, objects.length));
+  const rows = Math.max(1, Math.ceil(objects.length / columns));
+  const slotCount = objects.length;
+  tray.dataset.layout = `${columns}x${rows}`;
+  tray.style.setProperty("--tray-columns", String(columns));
+  tray.style.setProperty("--tray-rows", String(rows));
+  tray.style.setProperty("--tray-slot-size", `${Math.max(22, 88 / rows)}cqh`);
   for (const { artifact, image } of objects) {
     tray.append(createObjectButton(artifact, image, "coin-recess"));
   }
-  while (tray.childElementCount < 6) {
+  while (tray.childElementCount < slotCount) {
     const empty = document.createElement("span");
     empty.className = "coin-recess empty-recess";
     empty.setAttribute("aria-hidden", "true");
