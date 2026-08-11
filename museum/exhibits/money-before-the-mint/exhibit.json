@@ -4,16 +4,16 @@
   "title": "Money Before the Mint",
   "kicker": "ArchiveSense · Money in Colonial English America",
   "summary": "Fourteen objects trace how people in Colonial English America counted, exchanged, borrowed, and tested value before a federal coinage became ordinary.",
-  "introduction": "The English colonies did not share a single coinage of their own. A Dutch lion dollar and Spanish silver crossed imperial borders; colonial governments issued paper against future taxes and public credit; counterfeiters tested every promise; and copper coinage carried authority into daily exchange. The Revolution changed the issuers before it standardized the money. This exhibit follows that uneven monetary world from New Amsterdam and Atlantic trade to the first experiments of independent states.",
+  "introduction": "The English colonies did not share a single coinage of their own. They relied heavily on foreign coins, especially Spanish silver that moved through Atlantic trade and became familiar in local exchange. Colonial governments also issued paper against future taxes and public credit; counterfeiters tested every promise; and copper coinage carried authority into daily exchange. The Revolution changed the issuers before it standardized the money.",
   "curatorialLens": {
     "label": "Money in English America",
-    "description": "Dutch and Spanish silver, bills of credit, promissory paper, and copper coinage reveal money as a negotiated system of metal, law, trust, trade, and political authority."
+    "description": "Spanish and other foreign silver, bills of credit, promissory paper, and copper coinage reveal money as a negotiated system of metal, law, trust, trade, and political authority."
   },
   "publishedAt": "2026-08-08",
   "featuredArtifactIds": [
-    "gelderland-lion-dollar-1641",
+    "spanish-eight-reales",
     "north-carolina-forty-shillings-1754",
-    "spanish-eight-reales"
+    "gelderland-lion-dollar-1641"
   ],
   "experience": {
     "overview": "Move between three connected displays: foreign silver that circulated across empires, the paper instruments created by colonies and revolutionary governments, and the copper coinages that made political transition tangible.",
@@ -21,13 +21,13 @@
       {
         "id": "dutch-and-spanish-silver",
         "kicker": "Trade silver · 1641–1759",
-        "title": "Silver across colonial borders",
-        "description": "A 1641 Gelderland lion dollar connects the display to Dutch trade and the monetary world of New Amsterdam and early New York. Spanish eight-reales and one-real pieces extend the comparison across empires and denominations: coins became useful far beyond the governments that struck them.",
+        "title": "Foreign silver in colonial exchange",
+        "description": "The colonies frequently relied on coins made elsewhere. Spanish silver was especially important: the eight-reales piece, or Spanish dollar, became one of the most familiar large silver coins, while smaller reales supplied useful fractions. The Gelderland lion dollar adds an earlier Dutch and New Netherland connection to this wider story.",
         "display": "coin-tray",
         "artifactIds": [
-          "gelderland-lion-dollar-1641",
           "spanish-eight-reales",
-          "spanish-real-1759"
+          "spanish-real-1759",
+          "gelderland-lion-dollar-1641"
         ],
         "camera": {
           "x": 0,
@@ -50,9 +50,9 @@
           "connecticut-ten-shillings-1780"
         ],
         "camera": {
-          "x": -18,
-          "y": 5,
-          "scale": 1.5
+          "x": -31,
+          "y": 1,
+          "scale": 1.1
         }
       },
       {
@@ -69,9 +69,9 @@
           "vermont-copper-1788"
         ],
         "camera": {
-          "x": 12,
-          "y": -18,
-          "scale": 1.35
+          "x": 3,
+          "y": -15,
+          "scale": 1.18
         }
       }
     ],
@@ -83,44 +83,37 @@
         "narration": "Colonial English America used overlapping forms of value rather than one uniform national currency. This room follows foreign silver, locally issued paper, and copper across a century of changing authority."
       },
       {
-        "id": "dutch-trade-silver",
-        "groupId": "dutch-and-spanish-silver",
-        "kicker": "Stop one",
-        "title": "Lion dollars connect the room to New Amsterdam",
-        "narration": "The leeuwendaalder was Dutch trade silver, named for the rampant lion on one face. Coins of this type persisted in early New York after Dutch rule and also appeared elsewhere in the English colonies. This 1641 Gelderland example makes that New Netherland inheritance visible without claiming that this specific specimen circulated there."
-      },
-      {
         "id": "spanish-silver",
         "groupId": "dutch-and-spanish-silver",
-        "kicker": "Stop two",
-        "title": "Spanish silver at two scales",
-        "narration": "Compare the eight-reales and one-real pieces. Large and small silver denominations belonged to the wider Spanish monetary world, yet their recognizable metal value made them useful in places that lacked sufficient local coin."
+        "kicker": "Stop one",
+        "title": "Foreign silver supplied everyday coin",
+        "narration": "The colonies often lacked enough coin of their own, so money struck elsewhere circulated through local trade. Spanish silver was especially common. The eight-reales piece, also called a Spanish dollar or piece of eight, provided a widely recognized large coin; smaller reales offered fractional values. The Dutch lion dollar broadens the case, but Spanish silver is the central story."
       },
       {
         "id": "colonial-credit",
         "groupId": "paper-money",
-        "kicker": "Stop three",
+        "kicker": "Stop two",
         "title": "A colony could print spending power",
         "narration": "The North Carolina and Maryland notes show governments creating circulating value without minting metal. Their usefulness depended on legal authority, future redemption, taxation, signatures, and public acceptance."
       },
       {
         "id": "counterfeit-trust",
         "groupId": "paper-money",
-        "kicker": "Stop four",
+        "kicker": "Stop three",
         "title": "Counterfeiting exposed the system's dependence on trust",
         "narration": "The New Jersey note is a contemporary counterfeit. It belongs inside the story because imitation reveals what users examined and what an issuer had to defend: paper, printing, signatures, serials, and confidence."
       },
       {
         "id": "revolutionary-credit",
         "groupId": "paper-money",
-        "kicker": "Stop five",
+        "kicker": "Stop four",
         "title": "Revolution changed the promise before the units",
         "narration": "Pennsylvania and Connecticut continued to express value in pounds and shillings while political authority was being remade. The Connecticut promissory note broadens the case from currency to public obligation and wartime credit."
       },
       {
         "id": "copper-authority",
         "groupId": "copper-transition",
-        "kicker": "Stop six",
+        "kicker": "Stop five",
         "title": "The issuer changes across the tray",
         "narration": "Begin with Virginia and George III, then compare the state and republic coppers. Busts, shields, mottos, local emblems, and classical figures made new political claims through a familiar monetary language."
       },
@@ -138,7 +131,7 @@
       "objectId": "1641-netherland-1ld",
       "order": 1,
       "title": "Gelderland Lion Dollar, 1641",
-      "description": "This 1641 Gelderland leeuwendaalder was struck while New Amsterdam was developing into the trading center of New Netherland. Its presence shifts the exhibition's opening from an abstract route to an actual monetary form associated with Dutch commerce and remembered in the currency of early New York.",
+      "description": "This 1641 Gelderland leeuwendaalder was struck while New Amsterdam was developing into the trading center of New Netherland. It provides a Dutch and early New York counterpoint within the larger story of foreign silver used across colonial markets.",
       "presentation": {
         "kind": "coin"
       },
@@ -196,7 +189,7 @@
       "objectId": "1701-59-8-reales",
       "order": 2,
       "title": "Spanish Eight Reales, 1701–1759",
-      "description": "The source record identifies this silver piece broadly as an eight reales from 1701–1759. Large Spanish silver denominations became widely recognized beyond the jurisdictions that produced them, providing an important reference point in Atlantic exchange where local coin was scarce.",
+      "description": "The source record identifies this silver piece broadly as an eight reales from 1701–1759. Coins of this denomination—also called Spanish dollars or pieces of eight—were among the most familiar foreign coins in British North America. Their recognized silver value made them useful in Atlantic exchange and in colonies chronically short of coin.",
       "presentation": {
         "kind": "coin"
       },
@@ -233,7 +226,7 @@
           "credit": "ArchiveSense collection photograph"
         }
       ],
-      "subtitle": "A large silver unit in an international monetary world",
+      "subtitle": "The Spanish dollar in a foreign-coin economy",
       "date": {
         "label": "1701–1759; exact date pending",
         "sortYear": "1730"

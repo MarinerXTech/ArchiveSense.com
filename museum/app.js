@@ -12,6 +12,9 @@ const SAFE_EXHIBIT = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const gallery = document.querySelector("#gallery");
 const experienceTemplate = document.querySelector("#experience-template");
 const dialog = document.querySelector("#artifact-dialog");
+const imageLightbox = document.querySelector("#image-lightbox");
+const imageLightboxViewport = document.querySelector("#image-lightbox-viewport");
+const imageLightboxImage = document.querySelector("#image-lightbox-image");
 const collectionTemplate = document.querySelector("#collection-template");
 const museumHomeTemplate = document.querySelector("#museum-home-template");
 const colonyMapTemplate = document.querySelector("#colony-map-template");
@@ -29,6 +32,14 @@ let activeImage = 0;
 let inspectionView = "photo";
 let currentStage = "threshold";
 let activeMapSlotId = null;
+let lightboxScale = 1;
+let lightboxX = 0;
+let lightboxY = 0;
+let lightboxBaseWidth = 0;
+let lightboxBaseHeight = 0;
+let lightboxActualScale = 1;
+let lightboxMaxScale = 8;
+let lightboxDrag = null;
 const PUBLIC_MUSEUM_URL = "https://archivesense.com/museum/";
 
 initialize();
@@ -423,8 +434,12 @@ function renderColonyMapExhibit() {
   setAll(fragment, "summary", exhibit.summary);
   setAll(fragment, "introduction", exhibit.introduction);
   setAll(fragment, "represented-count", `${represented.length} of ${mapExperience.slots.length}`);
-  setAll(fragment, "lens-label", exhibit.curatorialLens?.label ?? "An evolving collection");
-  setAll(fragment, "lens-description", exhibit.curatorialLens?.description ?? exhibit.summary);
+  setAll(
+    fragment,
+    "related-introduction",
+    mapExperience.interpretation?.relatedIntroduction
+      ?? "Objects kept beside the checklist reveal colonial worlds the later national frame leaves out.",
+  );
   setAll(
     fragment,
     "published-at",
@@ -442,6 +457,7 @@ function renderColonyMapExhibit() {
 
   renderColonyMapPoints(fragment.querySelector(".colony-map-points"));
   renderColonyMapList(fragment.querySelector(".colony-map-list"));
+  renderCurrencyInterpretation(fragment, mapExperience.interpretation);
   renderRelatedMapArtifacts(fragment.querySelector(".colony-related-grid"));
   const relatedSection = fragment.querySelector(".colony-related");
   relatedSection.hidden = (mapExperience.relatedArtifactIds ?? []).length === 0;
@@ -457,6 +473,80 @@ function renderColonyMapExhibit() {
     if (scroller.scrollWidth > scroller.clientWidth) {
       scroller.scrollLeft = Math.max(0, scroller.scrollWidth * 0.43 - scroller.clientWidth * 0.35);
     }
+  });
+}
+
+function renderCurrencyInterpretation(fragment, interpretation) {
+  const rail = fragment.querySelector(".currency-info-rail");
+  const drawer = fragment.querySelector(".currency-info-drawer");
+  if (!interpretation) {
+    rail.hidden = true;
+    return;
+  }
+
+  for (const [index, concept] of (interpretation.concepts ?? []).entries()) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "currency-info-tab";
+    button.dataset.infoIndex = String(index);
+    button.setAttribute("aria-label", concept.title);
+    button.title = concept.title;
+    button.textContent = concept.tab ?? String(index + 1).padStart(2, "0");
+    button.addEventListener("click", () => openCurrencyInfoCard(concept, button));
+    rail.append(button);
+  }
+  drawer.querySelector(".currency-info-close").addEventListener("click", closeCurrencyInfoCard);
+}
+
+function appendParagraphs(container, paragraphs = []) {
+  for (const paragraph of paragraphs ?? []) container.append(textElement("p", paragraph));
+}
+
+function createFactList(facts = []) {
+  const list = document.createElement("dl");
+  list.className = "currency-facts";
+  for (const fact of facts ?? []) {
+    list.append(textElement("dt", fact.label), textElement("dd", fact.text));
+  }
+  return list;
+}
+
+function openCurrencyInfoCard(content, sourceButton) {
+  const drawer = gallery.querySelector(".currency-info-drawer");
+  const card = drawer.querySelector(".currency-info-card");
+  card.replaceChildren(
+    textElement("p", content.eyebrow ?? "How to read the money", "currency-info-eyebrow"),
+    textElement("h3", content.title),
+  );
+  appendParagraphs(card, content.paragraphs);
+  if (content.facts?.length) card.append(createFactList(content.facts));
+  if (content.callout) card.append(textElement("blockquote", content.callout));
+  if (content.snapshot) {
+    card.append(textElement("h4", content.snapshot.title));
+    card.append(createFactList(content.snapshot.facts));
+  }
+  if (content.reading?.paragraphs?.length) {
+    card.append(textElement("h4", content.reading.title ?? "Read the note"));
+    appendParagraphs(card, content.reading.paragraphs);
+  }
+  if (content.lookClosely) {
+    card.append(textElement("h4", "Look closely"), textElement("p", content.lookClosely));
+  }
+  if (content.collectingGoal) card.append(textElement("p", content.collectingGoal, "currency-info-goal"));
+
+  gallery.querySelectorAll(".currency-info-tab, .colony-story-action").forEach((button) => {
+    button.classList.toggle("active", button === sourceButton);
+  });
+  drawer.hidden = false;
+  drawer.querySelector(".currency-info-close").focus({ preventScroll: true });
+}
+
+function closeCurrencyInfoCard() {
+  const drawer = gallery.querySelector(".currency-info-drawer");
+  if (!drawer) return;
+  drawer.hidden = true;
+  gallery.querySelectorAll(".currency-info-tab, .colony-story-action").forEach((button) => {
+    button.classList.remove("active");
   });
 }
 
@@ -568,11 +658,12 @@ function renderColonyMapDetail(slot) {
       textElement("h3", slot.label),
       textElement(
         "p",
-        `No representative has been selected yet. This open position remains visible alongside ${count - 1} other gaps in the current collection.`,
+        slot.story?.collectingGoal
+          ?? `No representative has been selected yet. This open position remains visible alongside ${count - 1} other gaps in the current collection.`,
         "colony-detail-copy",
       ),
-      textElement("span", "A future object will appear here on the map.", "colony-detail-next"),
     );
+    if (slot.story) container.append(createColonyStoryAction(slot));
     return;
   }
 
@@ -598,7 +689,21 @@ function renderColonyMapDetail(slot) {
   action.textContent = "Examine the object →";
   action.addEventListener("click", () => openArtifact(findArtifactIndex(artifact.id)));
   copy.append(action);
+  if (slot.story) copy.append(createColonyStoryAction(slot));
   container.append(media, copy);
+}
+
+function createColonyStoryAction(slot) {
+  const action = document.createElement("button");
+  action.type = "button";
+  action.className = "colony-detail-action colony-story-action";
+  action.textContent = slot.artifactId ? "Read its monetary story →" : "Read the colony story →";
+  action.addEventListener("click", () => openCurrencyInfoCard({
+    ...slot.story,
+    eyebrow: `${slot.label} · ${slot.artifactId ? "Collected example" : "Open collecting goal"}`,
+    title: slot.story.subtitle,
+  }, action));
+  return action;
 }
 
 function renderRelatedMapArtifacts(container) {
@@ -1334,6 +1439,145 @@ function stepImage(delta) {
   renderDialogImage();
 }
 
+function openFullResolutionImage() {
+  if (!dialog.open) return;
+  const artifact = exhibit.artifacts[activeArtifact];
+  const selectedImage = artifact.images[activeImage];
+  const caption = [selectedImage.caption, selectedImage.credit].filter(Boolean).join(" · ");
+
+  document.querySelector("#image-lightbox-title").textContent = artifact.title;
+  document.querySelector("#image-lightbox-caption").textContent = caption;
+  imageLightboxImage.alt = selectedImage.alt ?? artifact.title;
+  imageLightboxImage.onload = prepareFullResolutionImage;
+  imageLightboxImage.src = imageUrl(selectedImage);
+  imageLightbox.showModal();
+
+  if (imageLightboxImage.complete && imageLightboxImage.naturalWidth) {
+    requestAnimationFrame(prepareFullResolutionImage);
+  }
+  imageLightboxViewport.focus();
+}
+
+function prepareFullResolutionImage() {
+  lightboxScale = 1;
+  lightboxX = 0;
+  lightboxY = 0;
+  requestAnimationFrame(() => {
+    const availableWidth = Math.max(1, imageLightboxViewport.clientWidth - 32);
+    const availableHeight = Math.max(1, imageLightboxViewport.clientHeight - 32);
+    const fitScale = Math.min(
+      1,
+      availableWidth / imageLightboxImage.naturalWidth,
+      availableHeight / imageLightboxImage.naturalHeight,
+    );
+    lightboxBaseWidth = imageLightboxImage.naturalWidth * fitScale;
+    lightboxBaseHeight = imageLightboxImage.naturalHeight * fitScale;
+    imageLightboxImage.style.width = `${lightboxBaseWidth}px`;
+    imageLightboxImage.style.height = `${lightboxBaseHeight}px`;
+    lightboxActualScale = Math.max(1, Math.min(64, 1 / fitScale));
+    lightboxMaxScale = Math.max(8, lightboxActualScale);
+    document.querySelector("#image-lightbox-dimensions").textContent =
+      `${imageLightboxImage.naturalWidth.toLocaleString()} × ${imageLightboxImage.naturalHeight.toLocaleString()} px`;
+    applyLightboxTransform();
+  });
+}
+
+function setLightboxScale(nextScale, focalX = null, focalY = null) {
+  const previousScale = lightboxScale;
+  lightboxScale = Math.max(1, Math.min(lightboxMaxScale, nextScale));
+  if (focalX !== null && focalY !== null && previousScale > 0) {
+    const bounds = imageLightboxViewport.getBoundingClientRect();
+    const cursorX = focalX - bounds.left - bounds.width / 2;
+    const cursorY = focalY - bounds.top - bounds.height / 2;
+    const imageX = (cursorX - lightboxX) / previousScale;
+    const imageY = (cursorY - lightboxY) / previousScale;
+    lightboxX = cursorX - imageX * lightboxScale;
+    lightboxY = cursorY - imageY * lightboxScale;
+  }
+  clampLightboxPan();
+  applyLightboxTransform();
+}
+
+function setLightboxFit() {
+  lightboxScale = 1;
+  lightboxX = 0;
+  lightboxY = 0;
+  applyLightboxTransform();
+}
+
+function setLightboxActualSize() {
+  setLightboxScale(lightboxActualScale);
+}
+
+function clampLightboxPan() {
+  const width = imageLightboxViewport.clientWidth;
+  const height = imageLightboxViewport.clientHeight;
+  const maxX = Math.max(0, (lightboxBaseWidth * lightboxScale - width) / 2);
+  const maxY = Math.max(0, (lightboxBaseHeight * lightboxScale - height) / 2);
+  lightboxX = Math.max(-maxX, Math.min(maxX, lightboxX));
+  lightboxY = Math.max(-maxY, Math.min(maxY, lightboxY));
+}
+
+function applyLightboxTransform() {
+  imageLightboxImage.style.transform = `translate3d(${lightboxX}px, ${lightboxY}px, 0) scale(${lightboxScale})`;
+  imageLightboxViewport.classList.toggle("can-pan", lightboxScale > 1);
+  const zoomLabel = document.querySelector("#image-lightbox-zoom");
+  if (Math.abs(lightboxScale - 1) < 0.01) zoomLabel.textContent = "Fit";
+  else if (Math.abs(lightboxScale - lightboxActualScale) < 0.02) zoomLabel.textContent = "100%";
+  else zoomLabel.textContent = `${Math.round(lightboxScale * 100)}%`;
+  document.querySelector("#image-lightbox-zoom-out").disabled = lightboxScale <= 1;
+  document.querySelector("#image-lightbox-zoom-in").disabled = lightboxScale >= lightboxMaxScale;
+}
+
+function handleLightboxWheel(event) {
+  event.preventDefault();
+  const factor = Math.exp(-event.deltaY * 0.0015);
+  setLightboxScale(lightboxScale * factor, event.clientX, event.clientY);
+}
+
+function beginLightboxPan(event) {
+  if (lightboxScale <= 1 || event.button !== 0) return;
+  lightboxDrag = {
+    pointerId: event.pointerId,
+    startX: event.clientX,
+    startY: event.clientY,
+    imageX: lightboxX,
+    imageY: lightboxY,
+  };
+  imageLightboxViewport.setPointerCapture(event.pointerId);
+  imageLightboxViewport.classList.add("is-panning");
+}
+
+function continueLightboxPan(event) {
+  if (!lightboxDrag || lightboxDrag.pointerId !== event.pointerId) return;
+  lightboxX = lightboxDrag.imageX + event.clientX - lightboxDrag.startX;
+  lightboxY = lightboxDrag.imageY + event.clientY - lightboxDrag.startY;
+  clampLightboxPan();
+  applyLightboxTransform();
+}
+
+function endLightboxPan(event) {
+  if (!lightboxDrag || lightboxDrag.pointerId !== event.pointerId) return;
+  lightboxDrag = null;
+  imageLightboxViewport.classList.remove("is-panning");
+}
+
+function handleLightboxKeydown(event) {
+  const panStep = event.shiftKey ? 100 : 40;
+  if (event.key === "+" || event.key === "=") setLightboxScale(lightboxScale * 1.35);
+  else if (event.key === "-") setLightboxScale(lightboxScale / 1.35);
+  else if (event.key === "0" || event.key.toLowerCase() === "f") setLightboxFit();
+  else if (event.key === "1") setLightboxActualSize();
+  else if (event.key === "ArrowLeft") lightboxX += panStep;
+  else if (event.key === "ArrowRight") lightboxX -= panStep;
+  else if (event.key === "ArrowUp") lightboxY += panStep;
+  else if (event.key === "ArrowDown") lightboxY -= panStep;
+  else return;
+  event.preventDefault();
+  clampLightboxPan();
+  applyLightboxTransform();
+}
+
 document.querySelector("#dialog-close").addEventListener("click", () => dialog.close());
 document.querySelector("#artifact-previous").addEventListener("click", () => stepArtifact(-1));
 document.querySelector("#artifact-next").addEventListener("click", () => stepArtifact(1));
@@ -1344,6 +1588,38 @@ document.querySelector("#object-view").addEventListener("click", () => setInspec
 document.querySelector("#photo-view").addEventListener("click", () => setInspectionView("photo"));
 document.querySelector("#image-stage").addEventListener("pointermove", tiltObject);
 document.querySelector("#image-stage").addEventListener("pointerleave", resetObjectTilt);
+document.querySelector("#dialog-media").addEventListener("click", openFullResolutionImage);
+document.querySelector("#dialog-media").addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  event.preventDefault();
+  openFullResolutionImage();
+});
+document.querySelector("#image-lightbox-close").addEventListener("click", () => imageLightbox.close());
+document.querySelector("#image-lightbox-fit").addEventListener("click", setLightboxFit);
+document.querySelector("#image-lightbox-actual").addEventListener("click", setLightboxActualSize);
+document.querySelector("#image-lightbox-zoom-out").addEventListener("click", () => setLightboxScale(lightboxScale / 1.35));
+document.querySelector("#image-lightbox-zoom-in").addEventListener("click", () => setLightboxScale(lightboxScale * 1.35));
+imageLightboxViewport.addEventListener("wheel", handleLightboxWheel, { passive: false });
+imageLightboxViewport.addEventListener("pointerdown", beginLightboxPan);
+imageLightboxViewport.addEventListener("pointermove", continueLightboxPan);
+imageLightboxViewport.addEventListener("pointerup", endLightboxPan);
+imageLightboxViewport.addEventListener("pointercancel", endLightboxPan);
+imageLightboxViewport.addEventListener("dblclick", (event) => {
+  if (lightboxScale > 1) setLightboxFit();
+  else setLightboxScale(Math.min(lightboxActualScale, 3), event.clientX, event.clientY);
+});
+imageLightbox.addEventListener("keydown", handleLightboxKeydown);
+imageLightbox.addEventListener("click", (event) => {
+  if (event.target === imageLightbox) imageLightbox.close();
+});
+imageLightbox.addEventListener("close", () => {
+  lightboxDrag = null;
+  imageLightboxViewport.classList.remove("is-panning");
+});
+window.addEventListener("resize", () => {
+  if (!imageLightbox.open) return;
+  prepareFullResolutionImage();
+});
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });

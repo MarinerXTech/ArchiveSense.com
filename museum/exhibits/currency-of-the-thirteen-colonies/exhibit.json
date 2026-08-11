@@ -4,13 +4,9 @@
   "id": "currency-of-the-thirteen-colonies",
   "title": "Currency of the Thirteen Colonies",
   "kicker": "An evolving collection · 5 of 13 represented",
-  "summary": "A growing attempt to assemble one representative piece of paper money from each of the thirteen colonies that declared independence in 1776.",
-  "introduction": "This exhibition is intentionally unfinished. Each object anchors a colony to the map; each open marker records a collecting goal still to be met. Together, the notes make visible both the collection that exists and the collection being imagined.",
-  "curatorialLens": {
-    "label": "A collection shaped by its gaps",
-    "description": "The thirteen colonies provide the framework, but the objects resist a tidy national story: dates cross the Revolution, denominations differ, and one New Jersey example is itself a contemporary counterfeit."
-  },
-  "publishedAt": "2026-08-08",
+  "summary": "Before the dollar, money depended on where you stood.",
+  "introduction": "There was no single colonial currency. A pound changed value from colony to colony, foreign coins circulated everywhere, and each paper issue carried its own legal and financial terms.",
+  "publishedAt": "2026-08-10",
   "mapExperience": {
     "map": {
       "src": "images/mitchell-map-1775.jpg",
@@ -18,115 +14,521 @@
       "credit": "John Mitchell, Thomas Kitchin, and Jefferys and Faden, 1775 · Library of Congress, Geography and Map Division",
       "sourceUrl": "https://www.loc.gov/item/74693178/"
     },
+    "interpretation": {
+      "title": "How to read colonial money",
+      "introduction": [
+        "Colonial notes become easier to understand once five questions are separated: What unit names the amount? What could settle it? Who issued the paper? Why would someone accept it? How was it meant to leave circulation?",
+        "Open the numbered tabs beside the map for a short guide, then choose a colony to read the story behind that position."
+      ],
+      "concepts": [
+        {
+          "tab": "Value",
+          "title": "Why the same coin had different prices",
+          "paragraphs": [
+            "Everywhere in the £sd system, twenty shillings made a pound and twelve pence made a shilling. The arithmetic stayed fixed; the value of a local pound did not.",
+            "Near the Revolution, one Spanish dollar counted as roughly 6 shillings in New England, 8 in New York, 7s6d in Philadelphia and 32s6d in Charleston. The silver coin was unchanged. Each colony's accounting scale described it differently."
+          ],
+          "facts": [
+            {
+              "label": "Always true",
+              "text": "20 shillings = £1 within the £sd accounting system"
+            },
+            {
+              "label": "Often false",
+              "text": "£1 colonial currency = £1 sterling"
+            }
+          ],
+          "callout": "Do not assume that a colonial pound means sterling."
+        },
+        {
+          "tab": "Payment",
+          "title": "The price was not the payment",
+          "paragraphs": [
+            "A debt recorded as £2 10s did not have to be paid with British coins—or even with paper bearing that amount. Spanish silver, other foreign coins, paper notes, commodities and book credit could all settle an account.",
+            "The denomination told people how much was owed. Local practice determined what they could hand over to pay it."
+          ],
+          "facts": [
+            {
+              "label": "Unit of account",
+              "text": "The language in which a debt is measured"
+            },
+            {
+              "label": "Medium of payment",
+              "text": "The thing accepted to settle that debt"
+            }
+          ]
+        },
+        {
+          "tab": "Silver",
+          "title": "Foreign silver needed a local rating",
+          "paragraphs": [
+            "Spanish dollars circulated widely, but a colony still had to translate them into local shillings and pence. Those ratings linked an internationally familiar silver coin to a local accounting system.",
+            "“Proclamation Money” refers to an attempted standard based on a 1704 royal proclamation. When the phrase appears on a North Carolina bill, it tells the holder which coin-rating rule governs the paper's stated value."
+          ]
+        },
+        {
+          "tab": "Issue",
+          "title": "How governments put paper into circulation",
+          "paragraphs": [
+            "A legislature could spend new bills on soldiers, supplies or public work, then collect them back through later taxes. Paper let the government obtain resources before the matching revenue arrived.",
+            "A public Loan Office could instead lend notes against land or other collateral. Borrowers carried the paper into the economy and returned it through repayments. Some issues combined both methods."
+          ],
+          "facts": [
+            {
+              "label": "Spend it",
+              "text": "Government expenditure followed by tax return and cancellation"
+            },
+            {
+              "label": "Lend it",
+              "text": "Public loans followed by scheduled borrower repayments"
+            }
+          ]
+        },
+        {
+          "tab": "Acceptance",
+          "title": "Why people accepted the paper",
+          "paragraphs": [
+            "No single mechanism “backed” every note. A law might require acceptance for certain debts. A government might take the note for taxes. An issue might promise later payment in silver, gold or sterling bills. A printed coin or silver equivalent could simply define value rather than promise immediate exchange.",
+            "These properties must be read separately. Maryland's 1774 paper, for example, was not legal tender but carried a specific future sterling payment rate."
+          ]
+        },
+        {
+          "tab": "Retirement",
+          "title": "How a note was meant to disappear",
+          "paragraphs": [
+            "Colonial paper was often temporary. Government-spent bills returned through taxes; Loan Office paper returned through repayments; other notes were redeemed, exchanged for a later issue or invalidated after a deadline.",
+            "Treasuries cancelled returned notes by punching, slashing or cutting them. On a surviving note, those marks may record the successful end of the obligation rather than accidental damage."
+          ],
+          "callout": "Authorization → issue → circulation → return → cancellation"
+        },
+        {
+          "tab": "Restrictions",
+          "title": "What Britain restricted",
+          "paragraphs": [
+            "The Currency Act of 1764 did not ban every paper issue. It chiefly prevented colonies from making new bills legal tender for private debts and from extending the legal-tender life of older issues.",
+            "Parliament eased the rule for public debts in 1773. That distinction helps explain why late colonial paper could circulate while explicitly stating that it was not legal tender."
+          ]
+        },
+        {
+          "tab": "Example",
+          "title": "Read the Maryland four-dollar note",
+          "paragraphs": [
+            "The face says four dollars; the issue promised payment at 4s6d sterling per dollar. Four dollars therefore equaled eighteen shillings sterling.",
+            "The dollar is the note's denomination. Sterling states its promised settlement value. Because the issue was not legal tender, that future payment structure mattered directly to its credibility."
+          ],
+          "facts": [
+            {
+              "label": "Rate",
+              "text": "$1 = 4s6d sterling"
+            },
+            {
+              "label": "This note",
+              "text": "$4 × 4s6d = 18 shillings sterling"
+            }
+          ]
+        }
+      ],
+      "relatedIntroduction": "The colonies were not monetary islands. Spanish silver, sterling bills and Portuguese gold crossed borders, while French North America developed its own experiments with paper and credit."
+    },
     "slots": [
       {
         "id": "new-hampshire",
         "label": "New Hampshire",
-        "x": 65.5,
-        "y": 34.5,
-        "markerX": 71.5,
-        "markerY": 26
+        "x": 73.5,
+        "y": 31.5,
+        "markerX": 72,
+        "markerY": 24,
+        "story": {
+          "subtitle": "Three kinds of shillings at once",
+          "paragraphs": [
+            "New Hampshire began issuing paper in 1709, but decades of reissues and reforms left Old Tenor, New Tenor and Sterling notes circulating together by 1759. A user could not interpret “shillings” from the number alone; the note's monetary standard determined what those shillings were worth."
+          ],
+          "collectingGoal": "Best collecting target: a note that names its tenor or sterling standard clearly enough to make the competing scales visible."
+        }
       },
       {
         "id": "massachusetts",
         "label": "Massachusetts",
-        "x": 67,
-        "y": 38.5,
-        "markerX": 75,
-        "markerY": 33
+        "x": 74.8,
+        "y": 37.2,
+        "markerX": 78.5,
+        "markerY": 34,
+        "story": {
+          "subtitle": "First to issue paper, then determined to remove it",
+          "paragraphs": [
+            "Massachusetts Bay issued £7,000 after a failed 1690 expedition to Canada—the first government paper currency in English North America. By 1750 the colony was trying to restore payment in specie and exclude neighboring paper. Revolution forced another reversal in 1775, when wartime need brought government notes back."
+          ],
+          "collectingGoal": "Best collecting target: a note that captures one of those turns—first issue, specie reform or wartime return."
+        }
       },
       {
         "id": "rhode-island",
         "label": "Rhode Island",
-        "x": 67.2,
+        "x": 74.3,
         "y": 40.3,
-        "markerX": 75.5,
-        "markerY": 41
+        "markerX": 78.5,
+        "markerY": 43,
+        "story": {
+          "subtitle": "Money with an expiration date",
+          "paragraphs": [
+            "Rhode Island authorized £13,300 for the 1710 Annapolis Royal expedition. The bills were legal tender, receivable for taxes and scheduled for redemption after five years. Counterfeiting forced a final invalidation date in 1719. This is paper designed with an entrance, a return path and an end."
+          ],
+          "collectingGoal": "Best collecting target: a note whose redemption or invalidation language makes that lifecycle visible."
+        }
       },
       {
         "id": "connecticut",
         "label": "Connecticut",
-        "x": 65.2,
-        "y": 41.4,
-        "markerX": 70.5,
-        "markerY": 34.5,
-        "artifactId": "connecticut-ten-shillings-1780"
+        "x": 72.1,
+        "y": 40.2,
+        "markerX": 65,
+        "markerY": 29,
+        "artifactId": "connecticut-ten-shillings-1780",
+        "story": {
+          "subtitle": "A note that earned interest",
+          "paragraphs": [
+            "Connecticut's 1780 Treasury Notes were circulating pieces of state debt. This ten-shilling note promised payment in Spanish milled dollars by March 1, 1785 and earned 5 percent annual interest until then. Its denomination says how much the state owed; its maturity and interest clauses say how the obligation would end."
+          ],
+          "snapshot": {
+            "title": "The snapshot · July 1, 1780",
+            "facts": [
+              {
+                "label": "Issuer",
+                "text": "State of Connecticut"
+              },
+              {
+                "label": "Form",
+                "text": "Treasury Note"
+              },
+              {
+                "label": "Denomination",
+                "text": "10 shillings"
+              },
+              {
+                "label": "Issue size",
+                "text": "£100,000"
+              },
+              {
+                "label": "Maturity",
+                "text": "March 1, 1785"
+              },
+              {
+                "label": "Payment",
+                "text": "Spanish milled dollars"
+              },
+              {
+                "label": "Interest",
+                "text": "5 percent per year"
+              }
+            ]
+          },
+          "reading": {
+            "title": "Read the note",
+            "paragraphs": [
+              "This is closer to a small government bond than to a modern banknote: it names a debt, earns interest and has a maturity date."
+            ]
+          },
+          "lookClosely": "A slash or punched hole can indicate successful redemption, transforming an active claim into evidence that the claim had already been discharged."
+        }
       },
       {
         "id": "new-york",
         "label": "New York",
-        "x": 62.3,
-        "y": 39.8,
-        "markerX": 55,
-        "markerY": 32
+        "x": 65.1,
+        "y": 38.5,
+        "markerX": 57,
+        "markerY": 34,
+        "story": {
+          "subtitle": "A Spanish dollar worth eight shillings",
+          "paragraphs": [
+            "New York issued paper in local pounds, shillings and pence while Spanish silver circulated beside it. A Spanish dollar commonly counted as eight New York shillings, so its one-real fraction matched one local shilling. Revolutionary issues later adopted the dollar itself as the printed denomination."
+          ],
+          "collectingGoal": "Best collecting target: either a £sd note with a clear specie reference or an issue from the transition to dollar denominations."
+        }
       },
       {
         "id": "new-jersey",
         "label": "New Jersey",
-        "x": 62.8,
-        "y": 45,
-        "markerX": 70,
-        "markerY": 44,
-        "artifactId": "new-jersey-counterfeit-1763"
+        "x": 65.4,
+        "y": 46.2,
+        "markerX": 73,
+        "markerY": 48,
+        "artifactId": "new-jersey-counterfeit-1763",
+        "story": {
+          "subtitle": "A counterfeit built to pass",
+          "paragraphs": [
+            "New Jersey's authorized 1763 notes paired a local denomination with a stated weight of silver and used mica-flaked paper as a security feature. This twelve-shilling specimen is a contemporary counterfeit. Its importance lies in the imitation: someone reproduced enough of the official note's appearance and monetary language to try to make false paper circulate."
+          ],
+          "snapshot": {
+            "title": "The snapshot · December 31, 1763",
+            "facts": [
+              {
+                "label": "Issuer imitated",
+                "text": "Province of New Jersey"
+              },
+              {
+                "label": "Form",
+                "text": "Contemporary counterfeit of a Bill of Credit"
+              },
+              {
+                "label": "Denomination",
+                "text": "12 shillings"
+              },
+              {
+                "label": "Issue size",
+                "text": "£20,000"
+              },
+              {
+                "label": "Legal tender",
+                "text": "Authorized issue through December 31, 1781"
+              },
+              {
+                "label": "Value reference",
+                "text": "Stated silver-weight equivalent"
+              }
+            ]
+          },
+          "reading": {
+            "title": "Read the note",
+            "paragraphs": [
+              "The silver weight defines the denomination; it does not necessarily promise immediate exchange at the treasury. The counterfeit asks a different question: which visual and verbal signals made a purported bill recognizable enough to accept?"
+            ]
+          },
+          "lookClosely": "The 1763 issue introduced mica-flaked paper to New Jersey currency. This counterfeit invites comparison between the security material and the imitation of official design."
+        }
       },
       {
         "id": "pennsylvania",
         "label": "Pennsylvania",
-        "x": 59.3,
-        "y": 44.1,
-        "markerX": 53.5,
-        "markerY": 39.5,
-        "artifactId": "pennsylvania-four-pounds-1777"
+        "x": 60.3,
+        "y": 44.5,
+        "markerX": 54,
+        "markerY": 41,
+        "artifactId": "pennsylvania-four-pounds-1777",
+        "story": {
+          "subtitle": "Paper for an army",
+          "paragraphs": [
+            "Pennsylvania authorized £200,000 of this 1777 issue for army support. The Commonwealth could pay for supplies immediately and deal with the paper's return later. Subsequent laws exchanged older notes into this issue, then replaced depreciated paper at seventy-five old to one new. The object records both wartime finance and the difficult exit from it."
+          ],
+          "snapshot": {
+            "title": "The snapshot · April 10, 1777",
+            "facts": [
+              {
+                "label": "Issuer",
+                "text": "Commonwealth of Pennsylvania"
+              },
+              {
+                "label": "Form",
+                "text": "Bill of Credit"
+              },
+              {
+                "label": "Denomination",
+                "text": "£4 Pennsylvania money"
+              },
+              {
+                "label": "Issue size",
+                "text": "£200,000"
+              },
+              {
+                "label": "Purpose",
+                "text": "Army support"
+              },
+              {
+                "label": "Printer",
+                "text": "John Dunlap"
+              }
+            ]
+          },
+          "reading": {
+            "title": "Read the note",
+            "paragraphs": [
+              "The note entered circulation through wartime spending. Exchange and invalidation laws later supplied its route out."
+            ]
+          },
+          "lookClosely": "Pound denominations carried a farming scene on the reverse. John Dunlap—printer of the first broadside Declaration of Independence—printed the issue on watermarked paper."
+        }
       },
       {
         "id": "delaware",
         "label": "Delaware",
-        "x": 62.5,
-        "y": 49,
-        "markerX": 70.5,
-        "markerY": 48
+        "x": 65.1,
+        "y": 50.2,
+        "markerX": 80,
+        "markerY": 51,
+        "story": {
+          "subtitle": "Money lent on mortgages",
+          "paragraphs": [
+            "Delaware's 1723 Loan Office issued £5,000 by lending notes on real-estate mortgages at 5 percent. Borrowers put the paper into circulation and returned it through scheduled repayments. The system created currency through public lending rather than government spending."
+          ],
+          "collectingGoal": "Best collecting target: an early Loan Office note whose text reveals the lending structure."
+        }
       },
       {
         "id": "maryland",
         "label": "Maryland",
-        "x": 61,
-        "y": 50.4,
-        "markerX": 68.5,
-        "markerY": 54,
-        "artifactId": "maryland-four-dollars-1774"
+        "x": 63,
+        "y": 51.4,
+        "markerX": 69,
+        "markerY": 60,
+        "artifactId": "maryland-four-dollars-1774",
+        "story": {
+          "subtitle": "A dollar promised in sterling",
+          "paragraphs": [
+            "Maryland's 1774 paper was denominated in dollars but promised future settlement at 4s6d sterling per dollar. This four-dollar note therefore represented eighteen shillings sterling. It was not legal tender; acceptance rested instead on a defined payment rate, a funded redemption structure and confidence in the province's Loan Office."
+          ],
+          "snapshot": {
+            "title": "The snapshot · April 10, 1774 · Four Dollars",
+            "facts": [
+              {
+                "label": "Issuer",
+                "text": "Province of Maryland"
+              },
+              {
+                "label": "Form",
+                "text": "Indented bill"
+              },
+              {
+                "label": "Denomination",
+                "text": "$4"
+              },
+              {
+                "label": "Sterling value",
+                "text": "18 shillings sterling"
+              },
+              {
+                "label": "Issue size",
+                "text": "$480,000"
+              },
+              {
+                "label": "Legal tender",
+                "text": "No"
+              },
+              {
+                "label": "Payment rate",
+                "text": "$1 = 4s6d sterling"
+              },
+              {
+                "label": "Payment period",
+                "text": "October 10, 1785–April 10, 1786"
+              },
+              {
+                "label": "Printers",
+                "text": "Anne Catherine Green and Frederick Green"
+              }
+            ]
+          },
+          "reading": {
+            "title": "Read the note",
+            "paragraphs": [
+              "Four dollars × 4s6d sterling = 18 shillings sterling. Dollars name the paper; sterling states its promised settlement value."
+            ]
+          },
+          "lookClosely": "The thin paper contains mica flakes and nature-print security designs. The note came from the Annapolis shop of Anne Catherine Green and her son Frederick."
+        }
       },
       {
         "id": "virginia",
         "label": "Virginia",
-        "x": 56.7,
-        "y": 56,
-        "markerX": 49,
-        "markerY": 54.5
+        "x": 58,
+        "y": 57.5,
+        "markerX": 50,
+        "markerY": 56,
+        "story": {
+          "subtitle": "War broke Virginia's resistance to paper",
+          "paragraphs": [
+            "Virginia resisted government paper until military expense forced a change in 1755. Its first £20,000 issue funded the French and Indian War, carried 5 percent interest and promised quick redemption. Once the barrier fell, later wars produced more paper and eventually dollar-denominated state notes."
+          ],
+          "collectingGoal": "Best collecting target: a 1755 Treasury Note that makes Virginia's late, wartime entry into paper money tangible."
+        }
       },
       {
         "id": "north-carolina",
         "label": "North Carolina",
-        "x": 54,
-        "y": 64.5,
+        "x": 56,
+        "y": 66.5,
         "markerX": 51,
         "markerY": 67,
-        "artifactId": "north-carolina-forty-shillings-1754"
+        "artifactId": "north-carolina-forty-shillings-1754",
+        "story": {
+          "subtitle": "Forty shillings in Proclamation Money",
+          "paragraphs": [
+            "North Carolina's 1754 issue was legal tender at Proclamation Money rates. Forty shillings equals £2 in the colony's own accounting unit—not £2 sterling. “Proclamation Money” identifies the coin-rating standard used to interpret that local value. The note makes a basic rule of the exhibit visible: the arithmetic of pounds stayed constant while the monetary value of a pound changed by place."
+          ],
+          "snapshot": {
+            "title": "The snapshot · March 9, 1754 · Forty Shillings",
+            "facts": [
+              {
+                "label": "Issuer",
+                "text": "Province of North Carolina"
+              },
+              {
+                "label": "Form",
+                "text": "Bill of Credit"
+              },
+              {
+                "label": "Denomination",
+                "text": "40 shillings = £2 North Carolina money"
+              },
+              {
+                "label": "Standard",
+                "text": "Proclamation Money"
+              },
+              {
+                "label": "Legal tender",
+                "text": "Yes"
+              },
+              {
+                "label": "Number authorized",
+                "text": "2,500 at this denomination"
+              },
+              {
+                "label": "Design",
+                "text": "Christ Church at Newbern"
+              },
+              {
+                "label": "Printing",
+                "text": "Engraved copper plate"
+              }
+            ]
+          },
+          "reading": {
+            "title": "Read the note",
+            "paragraphs": [
+              "40 shillings = £2 North Carolina money. The phrase Proclamation Money connects that local amount to a specie standard."
+            ]
+          },
+          "lookClosely": "The forty-shilling note carries Christ Church at Newbern. Other denominations use a butterfly, boar, swan, bear, squirrel, crown, Bible and other motifs."
+        }
       },
       {
         "id": "south-carolina",
         "label": "South Carolina",
-        "x": 51.5,
-        "y": 71,
-        "markerX": 44.5,
-        "markerY": 69.5
+        "x": 53,
+        "y": 74.5,
+        "markerX": 45.5,
+        "markerY": 73,
+        "story": {
+          "subtitle": "The most inflated colonial pound",
+          "paragraphs": [
+            "South Carolina issued paper as early as 1703, but its most vivid lesson is the local pound. Near the Revolution, the same Spanish dollar worth about 6 shillings in New England counted as roughly 32s6d in Charleston. The coin was unchanged; South Carolina's accounting scale was radically different."
+          ],
+          "collectingGoal": "Best collecting target: a £sd note that can be read beside the colony-by-colony Spanish-dollar comparison."
+        }
       },
       {
         "id": "georgia",
         "label": "Georgia",
-        "x": 49,
-        "y": 78,
-        "markerX": 42.5,
-        "markerY": 79
+        "x": 50.5,
+        "y": 80.5,
+        "markerX": 43.5,
+        "markerY": 81,
+        "story": {
+          "subtitle": "A London claim before local paper",
+          "paragraphs": [
+            "Georgia first used Sola Bills—Trustee bills of exchange that circulated locally before returning to England for payment. Provincial paper followed in 1755 through a General Loan system, with part of the issue also supporting public works. Georgia's sequence runs from a London claim to local lending and then Revolutionary state currency."
+          ],
+          "collectingGoal": "Best collecting target: a Sola Bill, because it gives Georgia a monetary structure unlike any other colony in the exhibit."
+        }
       }
     ],
     "relatedArtifactIds": [
@@ -138,7 +540,7 @@
       "id": "north-carolina-forty-shillings-1754",
       "order": 1,
       "title": "1754 40s North Carolina Forty Shillings",
-      "description": "Dated 1754, this forty-shilling note anchors North Carolina within the collecting map. Its survival makes the colony tangible through an object designed to circulate, be handled, and eventually disappear.",
+      "description": "Forty shillings means £2 in North Carolina's local accounting system—not £2 sterling. The phrase Proclamation Money relates that local denomination to a standard expressed against specie, making the difference between a unit of account and its value standard visible on one note.",
       "presentation": {
         "kind": "paper"
       },
@@ -177,7 +579,7 @@
         }
       ],
       "objectId": "1754-40s-north-carolina-forty-shillings",
-      "subtitle": "An early anchor for the southern colonies",
+      "subtitle": "A local pound defined by Proclamation Money",
       "date": {
         "label": "1754",
         "sortYear": "1754"
@@ -185,15 +587,15 @@
       "origin": "North Carolina",
       "materials": "Printed paper",
       "researchNotes": [
-        "This is currently the earliest dated object in the thirteen-colony sequence.",
-        "Future research can add the printer, issue authorization, signers, and precise catalog attribution."
+        "The March 9, 1754 issue authorized £40,000 in legal-tender bills of credit at Proclamation Money rates.",
+        "The forty-shilling denomination shows Christ Church at Newbern and was printed from an engraved copper plate."
       ]
     },
     {
       "id": "new-jersey-counterfeit-1763",
       "order": 2,
       "title": "1763 12s New Jersey Colonial Note - Contemporary Counterfeit",
-      "description": "This contemporary counterfeit twelve-shilling note complicates the idea of a representative colonial issue. It belongs on the map because imitation was part of the monetary world: trust, recognition, and deception traveled with paper currency.",
+      "description": "New Jersey's authorized issue translated local paper denominations into stated silver-weight equivalents. This specimen is a contemporary counterfeit: evidence that recognition, security materials and public trust were as much a part of the monetary system as the legislature's promises.",
       "presentation": {
         "kind": "paper"
       },
@@ -232,7 +634,7 @@
         }
       ],
       "objectId": "1763-12s-new-jersey-colonial-note-contemporary-counterfeit",
-      "subtitle": "A representative object that was never legitimate",
+      "subtitle": "A silver-referenced currency, convincingly imitated",
       "date": {
         "label": "December 31, 1763",
         "sortYear": "1763"
@@ -240,15 +642,15 @@
       "origin": "New Jersey",
       "materials": "Printed paper",
       "researchNotes": [
-        "Recorded as Fr. NJ-156CT and identified in the collection as a contemporary counterfeit.",
-        "Its presence keeps the exhibition from equating representative with officially authorized."
+        "Recorded as Fr. NJ-156CT and identified in the collection as a contemporary counterfeit of the twelve-shilling denomination.",
+        "The December 31, 1763 authorized issue was legal tender through 1781, became invalid after 1782 and introduced mica-flaked paper to New Jersey currency."
       ]
     },
     {
       "id": "maryland-four-dollars-1774",
       "order": 3,
       "title": "1774 $4 Maryland Colonial Currency",
-      "description": "Maryland's four-dollar note was dated April 10, 1774 and printed by Anne Catherine and Frederick Green. On the map it sits close to neighboring issues, while its denomination and printed identity remain distinctly local.",
+      "description": "This note was not legal tender. Maryland instead promised future payment at 4s6d sterling per dollar, so its $4 denomination equaled 18 shillings sterling. The dollar names the paper; sterling states its settlement value.",
       "presentation": {
         "kind": "paper"
       },
@@ -287,7 +689,7 @@
         }
       ],
       "objectId": "1774-4-maryland-colonial-currency",
-      "subtitle": "Printed on the eve of political rupture",
+      "subtitle": "Four dollars measured by a future sterling promise",
       "date": {
         "label": "April 10, 1774",
         "sortYear": "1774"
@@ -296,14 +698,14 @@
       "materials": "Printed paper",
       "researchNotes": [
         "The collection record identifies the note as Fr. MD-68, serial number 14042.",
-        "Printer attribution comes from the existing ArchiveSense collection record."
+        "Anne Catherine Green and Frederick Green printed the issue on thin paper containing mica flakes and nature-print security designs."
       ]
     },
     {
       "id": "pennsylvania-four-pounds-1777",
       "order": 4,
       "title": "1777 £4 Pennsylvania Colonial Currency",
-      "description": "Dated April 10, 1777, this Pennsylvania four-pound note was issued after independence had been declared. Its place in the exhibition is deliberately transitional: the former colony remained a geographic collecting category even as its political identity changed.",
+      "description": "Pennsylvania authorized £200,000 of this issue for army support. The Commonwealth used paper to command resources before equivalent revenue arrived; later exchange and invalidation laws completed the note's path from wartime issue to retirement.",
       "presentation": {
         "kind": "paper"
       },
@@ -342,7 +744,7 @@
         }
       ],
       "objectId": "1777-4-pennsylvania-colonial-currency",
-      "subtitle": "A colonial collecting framework crossing into revolution",
+      "subtitle": "Paper issued to finance an army",
       "date": {
         "label": "April 10, 1777",
         "sortYear": "1777"
@@ -351,14 +753,14 @@
       "materials": "Printed paper",
       "researchNotes": [
         "The collection record identifies the note as PA-224a, serial number 10507, with Eric P. Newman Collection provenance.",
-        "The thirteen-colony map is a collecting framework, not a claim that every represented object predates independence."
+        "John Dunlap printed the issue. Pound denominations carried a farming scene on the reverse and the paper was watermarked PENSYL / VANIA."
       ]
     },
     {
       "id": "connecticut-ten-shillings-1780",
       "order": 5,
       "title": "1780 10 s Connecticut Colonial Note",
-      "description": "Connecticut's ten-shilling note, dated July 1, 1780, extends the sequence into the Revolutionary era. It marks Connecticut's place while also showing why a geographic collection cannot be confined to a single political moment.",
+      "description": "This ten-shilling Treasury Note promised payment in Spanish milled dollars by March 1, 1785 and carried 5 percent annual interest. Its denomination, maturity and interest clauses make it closer to a government security than to an indefinitely circulating modern banknote.",
       "presentation": {
         "kind": "paper"
       },
@@ -397,7 +799,7 @@
         }
       ],
       "objectId": "1780-10-s-connecticut-colonial-note",
-      "subtitle": "A former colony issuing money during the Revolution",
+      "subtitle": "Circulating paper and an interest-bearing state debt",
       "date": {
         "label": "July 1, 1780",
         "sortYear": "1780"
@@ -406,14 +808,14 @@
       "materials": "Printed paper",
       "researchNotes": [
         "The collection record identifies the note as Fr. CT-238, serial number 3063.",
-        "Only one Connecticut object is pinned to the map so the exhibition can retain its one-sample-per-colony discipline."
+        "Redeemed examples were commonly cancelled by slashing or punching holes through them."
       ]
     },
     {
       "id": "louisiana-ten-livres-1720",
       "order": 6,
       "title": "Banque Royale January 1, 1720. 10 Livres",
-      "description": "This Banque Royale ten-livres note, associated in the collection record with France and Louisiana, sits outside the thirteen-colony checklist. It remains in view as a reminder that colonial North American money was never bounded by the later United States.",
+      "description": "The Banque Royale promised to pay the bearer on sight in silver specie. Its bank liability differs from a colonial legislature's bill of credit and places British-American experiments within a wider Atlantic monetary world.",
       "presentation": {
         "kind": "paper"
       },
@@ -452,7 +854,7 @@
         }
       ],
       "objectId": "banque-royale-january-1-1720-10-livres",
-      "subtitle": "A wider colonial monetary world",
+      "subtitle": "A bank's on-sight promise to the bearer",
       "date": {
         "label": "January 1, 1720",
         "sortYear": "1720"
@@ -461,7 +863,7 @@
       "materials": "Printed paper",
       "researchNotes": [
         "The collection record identifies the note as P-A16b and records a PMG grade of Very Fine 30.",
-        "It is presented beside, rather than inside, the thirteen-colony map."
+        "The Banque Royale was tied to the Compagnie des Indes and French Louisiana finance, but the exhibit does not claim these notes themselves circulated in America."
       ]
     }
   ]

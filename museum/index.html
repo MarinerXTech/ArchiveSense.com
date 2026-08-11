@@ -72,8 +72,15 @@
           <div class="image-stage" id="image-stage" tabindex="0" aria-label="Close examination view">
             <div class="object-lift" id="object-lift">
               <div class="object-shadow" aria-hidden="true"></div>
-              <div class="object-surface" id="dialog-media">
+              <div
+                class="object-surface"
+                id="dialog-media"
+                role="button"
+                tabindex="0"
+                aria-label="Open the full-resolution photograph"
+              >
                 <span class="surface-light" aria-hidden="true"></span>
+                <span class="full-resolution-affordance" aria-hidden="true">Full size ↗</span>
               </div>
             </div>
             <button class="image-step image-previous" id="image-previous" type="button" aria-label="Previous image">←</button>
@@ -113,6 +120,37 @@
             <div id="dialog-context-links"></div>
           </section>
         </article>
+      </div>
+    </dialog>
+
+    <dialog class="image-lightbox" id="image-lightbox" aria-labelledby="image-lightbox-title">
+      <div class="image-lightbox-shell">
+        <header class="image-lightbox-header">
+          <div class="image-lightbox-heading">
+            <p>Full-resolution photograph</p>
+            <h2 id="image-lightbox-title"></h2>
+          </div>
+          <div class="image-lightbox-controls" role="group" aria-label="Image zoom controls">
+            <button id="image-lightbox-fit" type="button">Fit</button>
+            <button id="image-lightbox-actual" type="button">100%</button>
+            <button id="image-lightbox-zoom-out" type="button" aria-label="Zoom out">−</button>
+            <output id="image-lightbox-zoom" aria-live="polite">Fit</output>
+            <button id="image-lightbox-zoom-in" type="button" aria-label="Zoom in">+</button>
+            <button class="image-lightbox-close" id="image-lightbox-close" type="button" aria-label="Close full-resolution photograph">×</button>
+          </div>
+        </header>
+        <div
+          class="image-lightbox-viewport"
+          id="image-lightbox-viewport"
+          tabindex="0"
+          aria-label="Zoomable full-resolution photograph"
+        >
+          <img id="image-lightbox-image" alt="" draggable="false" />
+        </div>
+        <footer class="image-lightbox-footer">
+          <p id="image-lightbox-caption"></p>
+          <p id="image-lightbox-dimensions"></p>
+        </footer>
       </div>
     </dialog>
 
@@ -207,8 +245,8 @@
         <section class="colony-map-workspace" aria-labelledby="colony-map-heading">
           <div class="colony-map-heading">
             <div>
-              <p>Geographic collection</p>
-              <h2 id="colony-map-heading">Thirteen places. Thirteen collecting goals.</h2>
+              <p>Explore the colonies</p>
+              <h2 id="colony-map-heading">One map. Thirteen money systems.</h2>
             </div>
             <div class="colony-map-key" aria-label="Map key">
               <span><i class="represented" aria-hidden="true"></i> In the collection</span>
@@ -229,12 +267,13 @@
             </div>
 
             <aside class="colony-map-ledger" aria-label="Collection progress and selected colony">
-              <div class="colony-map-lens">
-                <p data-field="lens-label"></p>
-                <p data-field="lens-description"></p>
-              </div>
               <div class="colony-map-detail" aria-live="polite"></div>
               <nav class="colony-map-list" aria-label="Choose a colony"></nav>
+            </aside>
+            <nav class="currency-info-rail" aria-label="How to read colonial money"></nav>
+            <aside class="currency-info-drawer" aria-live="polite" hidden>
+              <button class="currency-info-close" type="button" aria-label="Close information card">×</button>
+              <div class="currency-info-card"></div>
             </aside>
           </div>
         </section>
@@ -243,7 +282,7 @@
           <header>
             <p>Beyond the thirteen colonies</p>
             <h2 id="colony-related-heading">A wider monetary geography</h2>
-            <span>Objects kept beside the checklist reveal colonial worlds the later national frame leaves out.</span>
+            <span data-field="related-introduction">Objects kept beside the checklist reveal colonial worlds the later national frame leaves out.</span>
           </header>
           <div class="colony-related-grid"></div>
         </section>
