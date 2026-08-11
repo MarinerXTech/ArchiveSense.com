@@ -8,6 +8,7 @@ import {
 } from "./object-media.js";
 
 const SAFE_EXHIBIT = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const MUSEUM_ROOT_URL = new URL("./", document.baseURI);
 
 const gallery = document.querySelector("#gallery");
 const experienceTemplate = document.querySelector("#experience-template");
@@ -46,7 +47,8 @@ initialize();
 
 async function initialize() {
   const parameters = new URLSearchParams(location.search);
-  const requested = parameters.get("exhibit");
+  const requested = document.querySelector('meta[name="archivesense-exhibit-id"]')?.content
+    || parameters.get("exhibit");
   const exhibitId = requested && SAFE_EXHIBIT.test(requested) ? requested : null;
 
   try {
@@ -59,7 +61,7 @@ async function initialize() {
       return;
     }
 
-    exhibitUrl = new URL(`exhibits/${exhibitId}/exhibit.json`, location.href);
+    exhibitUrl = new URL(`exhibits/${exhibitId}/exhibit.json`, MUSEUM_ROOT_URL);
     const response = await fetch(exhibitUrl);
     if (!response.ok) throw new Error(`Exhibit request returned ${response.status}`);
     exhibit = await response.json();
@@ -101,7 +103,7 @@ async function initialize() {
 
 async function loadExhibitCatalog() {
   try {
-    const response = await fetch(new URL("exhibits/index.json", location.href));
+    const response = await fetch(new URL("exhibits/index.json", MUSEUM_ROOT_URL));
     if (!response.ok) throw new Error(`Museum index request returned ${response.status}`);
     const catalog = await response.json();
     if (catalog?.schemaVersion !== "1.0" || !Array.isArray(catalog.exhibits)) {
@@ -126,7 +128,7 @@ function ensureCurrentCatalogEntry(exhibitId) {
 
 async function loadMuseumExhibits(currentExhibitId = null) {
   const records = await Promise.all(exhibitCatalog.map(async (entry) => {
-    const url = new URL(`exhibits/${entry.id}/exhibit.json`, location.href);
+    const url = new URL(`exhibits/${entry.id}/exhibit.json`, MUSEUM_ROOT_URL);
     if (entry.id === currentExhibitId && exhibit) {
       return { ...entry, exhibit, url };
     }
@@ -164,7 +166,7 @@ function renderMuseumSelector(exhibitId) {
   selector.addEventListener("change", () => {
     const nextExhibit = selector.value;
     if (!nextExhibit) {
-      location.assign("./");
+      location.assign(MUSEUM_ROOT_URL);
       return;
     }
     if (!SAFE_EXHIBIT.test(nextExhibit) || nextExhibit === exhibitId) return;
@@ -214,7 +216,7 @@ function setPageDescription(value) {
 
 function canonicalMuseumUrl(exhibitId = null) {
   const url = new URL(PUBLIC_MUSEUM_URL);
-  if (exhibitId) url.searchParams.set("exhibit", exhibitId);
+  if (exhibitId) url.pathname = `${url.pathname}exhibits/${exhibitId}/`;
   return url.href;
 }
 
@@ -224,6 +226,13 @@ function setPageMetadata({ title, description, canonicalUrl, name, records = [],
   setMetaContent('meta[property="og:title"]', title);
   setMetaContent('meta[property="og:description"]', description);
   setMetaContent('meta[property="og:url"]', canonicalUrl);
+  const shareImage = canonicalUrl.includes("/exhibits/")
+    ? `${canonicalUrl}share.jpg`
+    : "https://archivesense.com/og.png";
+  setMetaContent('meta[property="og:image"]', shareImage);
+  setMetaContent('meta[name="twitter:title"]', title);
+  setMetaContent('meta[name="twitter:description"]', description);
+  setMetaContent('meta[name="twitter:image"]', shareImage);
   setRobotsDirective("index, follow");
 
   let canonical = document.querySelector('link[rel="canonical"]');
@@ -337,8 +346,7 @@ function createMuseumDirectoryCard(record, featured = false) {
 }
 
 function exhibitHref(exhibitId, artifactId = null) {
-  const url = new URL(location.pathname, location.href);
-  url.searchParams.set("exhibit", exhibitId);
+  const url = new URL(`exhibits/${exhibitId}/`, MUSEUM_ROOT_URL);
   if (artifactId) url.searchParams.set("object", artifactId);
   return url.href;
 }

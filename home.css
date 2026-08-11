@@ -188,6 +188,26 @@ body.home-page {
 .button-secondary { border-color: var(--museum-line); color: var(--museum-paper); }
 .button-secondary:hover { border-color: var(--museum-copper); color: var(--museum-bone); }
 
+.home-exhibit-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  margin-top: 1.5rem;
+  color: var(--museum-muted);
+  font-size: 0.78rem;
+}
+
+.home-exhibit-links span {
+  color: var(--museum-copper);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-exhibit-links a { color: var(--museum-paper); text-underline-offset: 0.22em; }
+.home-exhibit-links a:hover { color: var(--museum-copper); }
+
 .museum-tally {
   display: flex;
   max-width: 46rem;

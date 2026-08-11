@@ -63,7 +63,7 @@
         "display": "coin-tray",
         "artifactIds": [
           "virginia-halfpenny-1773",
-          "connecticut-copper-1786",
+          "connecticut-copper-1787",
           "new-jersey-copper",
           "massachusetts-cent-1788",
           "vermont-copper-1788"
@@ -118,10 +118,10 @@
         "narration": "Begin with Virginia and George III, then compare the state and republic coppers. Busts, shields, mottos, local emblems, and classical figures made new political claims through a familiar monetary language."
       },
       {
-        "id": "future-cases",
-        "kicker": "The collection ahead",
-        "title": "An exhibit designed to keep growing",
-        "narration": "Future cases can extend the story without changing its center: an English regal halfpenny, a Machin's Mills copper, Continental Currency, and bills from colonies not yet represented would connect the existing displays and fill specific historical transitions."
+        "id": "toward-federal-coinage",
+        "kicker": "Conclusion",
+        "title": "From many monies toward a federal system",
+        "narration": "Before federal coinage became ordinary, value rested on a plural world of foreign silver, public paper, and locally authorized copper. The Constitution and the Coinage Act of 1792 created a national framework, but the objects in this room show the varied monetary practices that framework had to gather, replace, and outlast."
       }
     ]
   },
@@ -467,7 +467,7 @@
     {
       "id": "pennsylvania-four-pounds-1777",
       "order": 7,
-      "title": "1777 Pennsylvania Four Pounds",
+      "title": "1777 Pennsylvania £4 Note",
       "description": "Pennsylvania continued to express value in pounds during the Revolution. The note makes political transition visible in monetary practice: the authority behind the promise changed more quickly than the familiar language people used to count value.",
       "presentation": {
         "kind": "paper"
@@ -575,7 +575,7 @@
     {
       "id": "connecticut-ten-shillings-1780",
       "order": 9,
-      "title": "1780 Connecticut Ten Shillings",
+      "title": "1780 Connecticut 10-Shilling Treasury Note",
       "description": "This ten-shilling Connecticut note belongs to the unsettled monetary years of the Revolution. It shows continuity in the unit of account even as governments, taxes, military needs, and expectations of redemption were changing around it.",
       "presentation": {
         "kind": "paper"
@@ -685,7 +685,7 @@
       ]
     },
     {
-      "id": "connecticut-copper-1786",
+      "id": "connecticut-copper-1787",
       "objectId": "1787-connecticut-copper-2",
       "order": 11,
       "title": "1787 Connecticut Copper",
@@ -695,7 +695,7 @@
       },
       "images": [
         {
-          "src": "images/connecticut-copper-1786-1.webp",
+          "src": "images/connecticut-copper-1787-1.webp",
           "alt": "Worn copper Connecticut coin showing a right-facing bust and portions of the AUCTORI CONNEC inscription",
           "credit": "ArchiveSense collection photograph",
           "presentation": {
@@ -709,7 +709,7 @@
           "caption": "The portrait side transfers authority from a monarch to Connecticut."
         },
         {
-          "src": "images/connecticut-copper-1786-2.webp",
+          "src": "images/connecticut-copper-1787-2.webp",
           "alt": "Worn copper Connecticut coin showing a seated classical figure with staff",
           "credit": "ArchiveSense collection photograph",
           "presentation": {
@@ -725,8 +725,8 @@
       ],
       "subtitle": "Independence in a familiar visual language",
       "date": {
-        "label": "1786",
-        "sortYear": "1786"
+        "label": "1787",
+        "sortYear": "1787"
       },
       "origin": "Connecticut",
       "materials": "Copper",

@@ -85,7 +85,7 @@ function createMuseumCard(record) {
   const isCollection = entry.exhibitType === "collection";
   const link = document.createElement("a");
   link.className = `museum-program-card ${isCollection ? "is-collection" : "is-curated"}`;
-  link.href = `/museum/?exhibit=${encodeURIComponent(entry.id)}`;
+  link.href = `/museum/exhibits/${encodeURIComponent(entry.id)}/`;
   link.setAttribute("aria-label", `${isCollection ? "Browse collection" : "Enter exhibition"}: ${entry.title}`);
 
   const preview = document.createElement("span");
