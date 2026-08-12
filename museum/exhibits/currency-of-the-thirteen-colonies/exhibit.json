@@ -15,117 +15,128 @@
       "sourceUrl": "https://www.loc.gov/item/74693178/"
     },
     "interpretation": {
-      "title": "How to read colonial money",
+      "title": "How to read a colonial note",
       "introduction": [
-        "Colonial notes become easier to understand once five questions are separated: What unit names the amount? What could settle it? Who issued the paper? Why would someone accept it? How was it meant to leave circulation?",
-        "Open the numbered tabs beside the map for a short guide, then choose a colony to read the story behind that position."
+        "A colonial note combined several independent terms: its face denomination, accounting unit, valuation, redemption mechanism, monetary status, method of issue and intended lifespan. None of those terms alone explains what the paper was worth or why it circulated.",
+        "Use these sections as a shared vocabulary. The colony stories then show how those terms changed over time and where each collected note sits in that history."
       ],
       "concepts": [
         {
-          "tab": "Value",
-          "title": "Why the same coin had different prices",
+          "tab": "Denomination",
+          "title": "The amount printed on the note",
           "paragraphs": [
-            "Everywhere in the £sd system, twenty shillings made a pound and twelve pence made a shilling. The arithmetic stayed fixed; the value of a local pound did not.",
-            "Near the Revolution, one Spanish dollar counted as roughly 6 shillings in New England, 8 in New York, 7s6d in Philadelphia and 32s6d in Charleston. The silver coin was unchanged. Each colony's accounting scale described it differently."
+            "The denomination is the face amount: ten shillings, four pounds, four dollars. It tells a user how many named units the note represents.",
+            "It does not, by itself, identify the unit's value in another colony, promise immediate payment in coin, or make the note legal tender. Those are separate terms."
           ],
           "facts": [
             {
-              "label": "Always true",
-              "text": "20 shillings = £1 within the £sd accounting system"
+              "label": "Face amount",
+              "text": "The number and unit named on the paper"
             },
             {
-              "label": "Often false",
-              "text": "£1 colonial currency = £1 sterling"
-            }
-          ],
-          "callout": "Do not assume that a colonial pound means sterling."
-        },
-        {
-          "tab": "Payment",
-          "title": "The price was not the payment",
-          "paragraphs": [
-            "A debt recorded as £2 10s did not have to be paid with British coins—or even with paper bearing that amount. Spanish silver, other foreign coins, paper notes, commodities and book credit could all settle an account.",
-            "The denomination told people how much was owed. Local practice determined what they could hand over to pay it."
-          ],
-          "facts": [
-            {
-              "label": "Unit of account",
-              "text": "The language in which a debt is measured"
-            },
-            {
-              "label": "Medium of payment",
-              "text": "The thing accepted to settle that debt"
+              "label": "Separate questions",
+              "text": "What that unit was worth, how it could be redeemed and what the law required"
             }
           ]
         },
         {
-          "tab": "Silver",
-          "title": "Foreign silver needed a local rating",
+          "tab": "Account",
+          "title": "The unit of account organized prices and debts",
           "paragraphs": [
-            "Spanish dollars circulated widely, but a colony still had to translate them into local shillings and pence. Those ratings linked an internationally familiar silver coin to a local accounting system.",
-            "“Proclamation Money” refers to an attempted standard based on a 1704 royal proclamation. When the phrase appears on a North Carolina bill, it tells the holder which coin-rating rule governs the paper's stated value."
+            "A unit of account is the language used to record value. Pounds, shillings and pence supplied a familiar arithmetic—twelve pence to a shilling and twenty shillings to a pound—even where few British coins circulated.",
+            "Each colony's £sd unit could differ from sterling and from neighboring colonial money. Dollar accounting increasingly appeared during the Revolution, but older units continued beside it."
+          ],
+          "facts": [
+            {
+              "label": "Arithmetic",
+              "text": "12 pence = 1 shilling; 20 shillings = £1"
+            },
+            {
+              "label": "Not an equivalence",
+              "text": "£1 colonial money did not necessarily equal £1 sterling"
+            }
+          ],
+          "callout": "The accounting unit measured the debt; it was not necessarily the object used to pay it."
+        },
+        {
+          "tab": "Valuation",
+          "title": "Valuation connected local units to accepted references",
+          "paragraphs": [
+            "Colonies rated familiar coins—especially the Spanish dollar—in local shillings and pence. The same coin could therefore be valued at different numbers from one colony to another, and those ratings could change over time.",
+            "A note might state a silver weight, a sterling rate or a standard such as Proclamation Money. Such language defines how to value the denomination; it does not automatically promise immediate exchange at a treasury."
+          ],
+          "callout": "A valuation rule translates units. A redemption promise says what the issuer must eventually pay."
+        },
+        {
+          "tab": "Redemption",
+          "title": "Redemption explains how the obligation returned",
+          "paragraphs": [
+            "Redemption was the mechanism intended to bring a note back to its issuer or discharge the debt. Tax-funded bills returned when holders paid public dues; Loan Office bills returned through borrowers' scheduled repayments.",
+            "Other issues promised payment at a future date in specie, sterling bills or another defined asset. The date, funding source and form of payment mattered as much as the amount printed on the face."
+          ],
+          "facts": [
+            {
+              "label": "Tax redemption",
+              "text": "Bills return through future taxes or public dues"
+            },
+            {
+              "label": "Loan redemption",
+              "text": "Bills return through principal and interest payments"
+            },
+            {
+              "label": "Specified payment",
+              "text": "The issuer pays a named asset on or after a stated date"
+            }
+          ]
+        },
+        {
+          "tab": "Status",
+          "title": "Monetary status defined what the paper could legally do",
+          "paragraphs": [
+            "Legal tender status could require a creditor to accept a note for qualifying debts. A note might instead be receivable only for taxes or public debts, circulate by agreement without compulsory status, or function as an interest-bearing Treasury obligation.",
+            "These categories were not interchangeable. The Currency Acts restricted colonial legal-tender powers, but did not make every paper issue impossible; public receivability and future redemption could still support circulation."
+          ],
+          "facts": [
+            {
+              "label": "Legal tender",
+              "text": "The law requires acceptance for specified debts"
+            },
+            {
+              "label": "Tax receivable",
+              "text": "The issuer accepts the paper for public dues"
+            },
+            {
+              "label": "Circulating credit",
+              "text": "People accept the paper because they trust its terms and future use"
+            }
           ]
         },
         {
           "tab": "Issue",
-          "title": "How governments put paper into circulation",
+          "title": "Issuance identifies the authority, purpose and route into circulation",
           "paragraphs": [
-            "A legislature could spend new bills on soldiers, supplies or public work, then collect them back through later taxes. Paper let the government obtain resources before the matching revenue arrived.",
-            "A public Loan Office could instead lend notes against land or other collateral. Borrowers carried the paper into the economy and returned it through repayments. Some issues combined both methods."
+            "An issue began with an authorizing government, act, date, total amount and purpose. A legislature might spend bills on war or public works before collecting later taxes; a Loan Office might lend them against land or other security.",
+            "Signatures, serial numbers, printers and anti-counterfeiting devices authenticated individual notes. A change from colony to state, or from pounds to dollars, can make a political transition visible on the paper itself."
           ],
           "facts": [
             {
-              "label": "Spend it",
-              "text": "Government expenditure followed by tax return and cancellation"
+              "label": "Government spending",
+              "text": "Paper enters through public expenditure"
             },
             {
-              "label": "Lend it",
-              "text": "Public loans followed by scheduled borrower repayments"
+              "label": "Public lending",
+              "text": "Paper enters through collateralized loans"
             }
           ]
         },
         {
-          "tab": "Acceptance",
-          "title": "Why people accepted the paper",
+          "tab": "Lifecycle",
+          "title": "Most notes were designed to leave circulation",
           "paragraphs": [
-            "No single mechanism “backed” every note. A law might require acceptance for certain debts. A government might take the note for taxes. An issue might promise later payment in silver, gold or sterling bills. A printed coin or silver equivalent could simply define value rather than promise immediate exchange.",
-            "These properties must be read separately. Maryland's 1774 paper, for example, was not legal tender but carried a specific future sterling payment rate."
-          ]
-        },
-        {
-          "tab": "Retirement",
-          "title": "How a note was meant to disappear",
-          "paragraphs": [
-            "Colonial paper was often temporary. Government-spent bills returned through taxes; Loan Office paper returned through repayments; other notes were redeemed, exchanged for a later issue or invalidated after a deadline.",
-            "Treasuries cancelled returned notes by punching, slashing or cutting them. On a surviving note, those marks may record the successful end of the obligation rather than accidental damage."
+            "An issue could expire, return through taxes or loan repayments, be exchanged for a later issue, or become invalid after a deadline. Depreciation and emergency laws often changed that planned path.",
+            "Redeemed notes were commonly punched, slashed, cut or otherwise cancelled. Those marks may document the successful end of the obligation rather than ordinary damage."
           ],
           "callout": "Authorization → issue → circulation → return → cancellation"
-        },
-        {
-          "tab": "Restrictions",
-          "title": "What Britain restricted",
-          "paragraphs": [
-            "The Currency Act of 1764 did not ban every paper issue. It chiefly prevented colonies from making new bills legal tender for private debts and from extending the legal-tender life of older issues.",
-            "Parliament eased the rule for public debts in 1773. That distinction helps explain why late colonial paper could circulate while explicitly stating that it was not legal tender."
-          ]
-        },
-        {
-          "tab": "Example",
-          "title": "Read the Maryland four-dollar note",
-          "paragraphs": [
-            "The face says four dollars; the issue promised payment at 4s6d sterling per dollar. Four dollars therefore equaled eighteen shillings sterling.",
-            "The dollar is the note's denomination. Sterling states its promised settlement value. Because the issue was not legal tender, that future payment structure mattered directly to its credibility."
-          ],
-          "facts": [
-            {
-              "label": "Rate",
-              "text": "$1 = 4s6d sterling"
-            },
-            {
-              "label": "This note",
-              "text": "$4 × 4s6d = 18 shillings sterling"
-            }
-          ]
         }
       ],
       "relatedIntroduction": "The colonies were not monetary islands. Spanish silver, sterling bills and Portuguese gold crossed borders, while French North America developed its own experiments with paper and credit."
@@ -134,60 +145,68 @@
       {
         "id": "new-hampshire",
         "label": "New Hampshire",
-        "x": 73.5,
-        "y": 31.5,
-        "markerX": 72,
-        "markerY": 24,
+        "x": 64.5,
+        "y": 36.8,
+        "markerX": 68,
+        "markerY": 34,
         "story": {
-          "subtitle": "Three kinds of shillings at once",
+          "subtitle": "From wartime bills to successive standards",
           "paragraphs": [
-            "New Hampshire began issuing paper in 1709, but decades of reissues and reforms left Old Tenor, New Tenor and Sterling notes circulating together by 1759. A user could not interpret “shillings” from the number alone; the note's monetary standard determined what those shillings were worth."
+            "New Hampshire first issued bills of credit in 1709 to meet wartime expenses. Those notes were meant to return through future taxes, but repeated emissions left the colony reckoning in a depreciated Old Tenor currency.",
+            "Reform came in stages rather than all at once: New Tenor appeared in 1742, Lawful Money in 1755 and another colonial standard in 1763. Each new scale had to coexist with older notes and older habits of accounting.",
+            "The missing snapshot should come from the 1742 New Tenor issue. Such a note would catch the colony at the moment it tried to reset value without yet escaping the accumulated history of Old Tenor paper."
           ],
-          "collectingGoal": "Best collecting target: a note that names its tenor or sterling standard clearly enough to make the competing scales visible."
+          "collectingGoal": "Collecting target: a 1742 New Tenor note that makes New Hampshire's first major revaluation visible."
         }
       },
       {
         "id": "massachusetts",
         "label": "Massachusetts",
-        "x": 74.8,
-        "y": 37.2,
-        "markerX": 78.5,
-        "markerY": 34,
+        "x": 63.8,
+        "y": 40.3,
+        "markerX": 69.5,
+        "markerY": 38.5,
         "story": {
-          "subtitle": "First to issue paper, then determined to remove it",
+          "subtitle": "From the first public bills to silver—and back",
           "paragraphs": [
-            "Massachusetts Bay issued £7,000 after a failed 1690 expedition to Canada—the first government paper currency in English North America. By 1750 the colony was trying to restore payment in specie and exclude neighboring paper. Revolution forced another reversal in 1775, when wartime need brought government notes back."
+            "Massachusetts Bay issued £7,000 in 1690 after a failed expedition against Canada, creating the first government paper currency in English North America. What began as an emergency expedient became a recurring way to meet public costs.",
+            "By mid-century, depreciation and the competing paper of neighboring colonies had made that system untenable. British reimbursement for Louisbourg helped Massachusetts redeem its bills in silver in 1749–1750, and the colony largely withdrew from paper circulation.",
+            "The missing snapshot should be a 1775 Massachusetts note, when war reopened the question and revolutionary authority again issued public paper. It would show bills returning after a generation in which silver—not provincial notes—had been the official answer."
           ],
-          "collectingGoal": "Best collecting target: a note that captures one of those turns—first issue, specie reform or wartime return."
+          "collectingGoal": "Collecting target: a 1775 Massachusetts note documenting the revolutionary return to government paper."
         }
       },
       {
         "id": "rhode-island",
         "label": "Rhode Island",
-        "x": 74.3,
-        "y": 40.3,
-        "markerX": 78.5,
-        "markerY": 43,
+        "x": 65.7,
+        "y": 43.4,
+        "markerX": 69.5,
+        "markerY": 44,
         "story": {
-          "subtitle": "Money with an expiration date",
+          "subtitle": "From wartime bills to New Tenor and state paper",
           "paragraphs": [
-            "Rhode Island authorized £13,300 for the 1710 Annapolis Royal expedition. The bills were legal tender, receivable for taxes and scheduled for redemption after five years. Counterfeiting forced a final invalidation date in 1719. This is paper designed with an entrance, a return path and an end."
+            "Rhode Island entered paper money in 1710 to finance the Annapolis Royal expedition. Its first bills were legal tender, receivable for taxes and scheduled to be retired, but the colony did not stop after that emergency passed.",
+            "Repeated issues—many placed through public loan banks—expanded the supply and weakened Old Tenor. Rhode Island introduced New Tenor in 1740 and Lawful Money in 1763, then returned to heavy wartime issuance under revolutionary government.",
+            "The missing snapshot should be a 1740 New Tenor note. It would show the colony acknowledging depreciation in the denomination itself and trying to establish a new scale while Old Tenor remained part of everyday reckoning."
           ],
-          "collectingGoal": "Best collecting target: a note whose redemption or invalidation language makes that lifecycle visible."
+          "collectingGoal": "Collecting target: a 1740 New Tenor note marking Rhode Island's explicit reset of its paper-money scale."
         }
       },
       {
         "id": "connecticut",
         "label": "Connecticut",
-        "x": 72.1,
-        "y": 40.2,
-        "markerX": 65,
-        "markerY": 29,
+        "x": 63.3,
+        "y": 43.4,
+        "markerX": 62,
+        "markerY": 32.5,
         "artifactId": "connecticut-ten-shillings-1780",
         "story": {
-          "subtitle": "A note that earned interest",
+          "subtitle": "From colonial bills to interest-bearing state debt",
           "paragraphs": [
-            "Connecticut's 1780 Treasury Notes were circulating pieces of state debt. This ten-shilling note promised payment in Spanish milled dollars by March 1, 1785 and earned 5 percent annual interest until then. Its denomination says how much the state owed; its maturity and interest clauses say how the obligation would end."
+            "Connecticut first issued bills of credit in 1709 for wartime needs. Like its New England neighbors, it later moved from Old Tenor to New Tenor and then to Lawful Money as depreciation changed what a shilling meant.",
+            "Independence changed the issuing authority and the financial form, but not every monetary habit. During the Revolution, the State used Treasury Notes that could circulate while also bearing interest toward a stated maturity.",
+            "The collected ten-shilling note dated July 1, 1780 is a snapshot of that hybrid moment. It still counts in £sd, yet it names the State, earns 5 percent interest and promises payment in Spanish milled dollars by March 1, 1785."
           ],
           "snapshot": {
             "title": "The snapshot · July 1, 1780",
@@ -223,9 +242,9 @@
             ]
           },
           "reading": {
-            "title": "Read the note",
+            "title": "Why this moment matters",
             "paragraphs": [
-              "This is closer to a small government bond than to a modern banknote: it names a debt, earns interest and has a maturity date."
+              "Political authority changed faster than monetary language. The note preserves the old ten-shilling account while recasting circulating paper as an explicitly dated, interest-bearing obligation of the State."
             ]
           },
           "lookClosely": "A slash or punched hole can indicate successful redemption, transforming an active claim into evidence that the claim had already been discharged."
@@ -234,30 +253,34 @@
       {
         "id": "new-york",
         "label": "New York",
-        "x": 65.1,
-        "y": 38.5,
-        "markerX": 57,
-        "markerY": 34,
+        "x": 59,
+        "y": 41.7,
+        "markerX": 54.5,
+        "markerY": 39.5,
         "story": {
-          "subtitle": "A Spanish dollar worth eight shillings",
+          "subtitle": "From tax-backed provincial bills to state dollars",
           "paragraphs": [
-            "New York issued paper in local pounds, shillings and pence while Spanish silver circulated beside it. A Spanish dollar commonly counted as eight New York shillings, so its one-real fraction matched one local shilling. Revolutionary issues later adopted the dollar itself as the printed denomination."
+            "New York began issuing bills of credit in 1709 to meet military expenses, with future taxes intended to bring the paper back. The notes counted in local £sd even though Spanish silver supplied an important practical reference.",
+            "That local scale remained distinctive: a Spanish dollar commonly counted as eight New York shillings. During the Revolution, new political authorities increasingly named dollar values directly instead of expressing every obligation through provincial pounds.",
+            "The missing snapshot should be a 1776 State of New York dollar note. It would place the collection at the point where the issuer and the denomination both began to describe a post-colonial monetary order."
           ],
-          "collectingGoal": "Best collecting target: either a £sd note with a clear specie reference or an issue from the transition to dollar denominations."
+          "collectingGoal": "Collecting target: a 1776 State of New York note denominated in dollars."
         }
       },
       {
         "id": "new-jersey",
         "label": "New Jersey",
-        "x": 65.4,
-        "y": 46.2,
-        "markerX": 73,
-        "markerY": 48,
+        "x": 60.7,
+        "y": 46.5,
+        "markerX": 66.5,
+        "markerY": 48.5,
         "artifactId": "new-jersey-counterfeit-1763",
         "story": {
-          "subtitle": "A counterfeit built to pass",
+          "subtitle": "From early bills to secured, closely guarded paper",
           "paragraphs": [
-            "New Jersey's authorized 1763 notes paired a local denomination with a stated weight of silver and used mica-flaked paper as a security feature. This twelve-shilling specimen is a contemporary counterfeit. Its importance lies in the imitation: someone reproduced enough of the official note's appearance and monetary language to try to make false paper circulate."
+            "New Jersey began issuing bills of credit in 1709 for military expense, then used later emissions and public lending to make government paper a durable part of provincial finance. Over time, the problem shifted from introducing paper to keeping its value and identity credible.",
+            "The 1763 issue reflects that mature system. It defined each denomination by a silver-weight equivalent, gave the authorized bills long legal life and introduced mica-flaked paper as a defense against persistent counterfeiting.",
+            "The collected twelve-shilling counterfeit is a snapshot of that system from its vulnerable edge. Its maker copied the official monetary language and appearance closely enough to test whether New Jersey's safeguards and public trust could be imitated."
           ],
           "snapshot": {
             "title": "The snapshot · December 31, 1763",
@@ -289,9 +312,9 @@
             ]
           },
           "reading": {
-            "title": "Read the note",
+            "title": "Why this moment matters",
             "paragraphs": [
-              "The silver weight defines the denomination; it does not necessarily promise immediate exchange at the treasury. The counterfeit asks a different question: which visual and verbal signals made a purported bill recognizable enough to accept?"
+              "New Jersey's paper had become established enough that credibility depended on both written terms and recognizable manufacture. The counterfeit records exactly which features an imitator believed the public would trust."
             ]
           },
           "lookClosely": "The 1763 issue introduced mica-flaked paper to New Jersey currency. This counterfeit invites comparison between the security material and the imitation of official design."
@@ -300,15 +323,17 @@
       {
         "id": "pennsylvania",
         "label": "Pennsylvania",
-        "x": 60.3,
-        "y": 44.5,
-        "markerX": 54,
-        "markerY": 41,
+        "x": 53.8,
+        "y": 45.8,
+        "markerX": 52,
+        "markerY": 42.5,
         "artifactId": "pennsylvania-four-pounds-1777",
         "story": {
-          "subtitle": "Paper for an army",
+          "subtitle": "From Loan Office paper to wartime state finance",
           "paragraphs": [
-            "Pennsylvania authorized £200,000 of this 1777 issue for army support. The Commonwealth could pay for supplies immediately and deal with the paper's return later. Subsequent laws exchanged older notes into this issue, then replaced depreciated paper at seventy-five old to one new. The object records both wartime finance and the difficult exit from it."
+            "Pennsylvania's 1723 paper entered chiefly through a public Loan Office. Borrowers pledged land, spent the notes into circulation and repaid principal and interest over time, allowing credit expansion and retirement to follow a planned cycle.",
+            "War changed that model. Provincial military issues placed paper through government spending, and independence transferred the authority to a Commonwealth facing immediate army costs and much greater pressure to issue quickly.",
+            "The collected £4 note dated April 10, 1777 is a snapshot of that wartime turn. It retains Pennsylvania's pound account, but its named issuer is now the Commonwealth and its £200,000 issue was authorized specifically for army support."
           ],
           "snapshot": {
             "title": "The snapshot · April 10, 1777",
@@ -340,9 +365,9 @@
             ]
           },
           "reading": {
-            "title": "Read the note",
+            "title": "Why this moment matters",
             "paragraphs": [
-              "The note entered circulation through wartime spending. Exchange and invalidation laws later supplied its route out."
+              "The object shows institutional change without a clean monetary break: a new Commonwealth finances a revolutionary army through the inherited language of Pennsylvania pounds."
             ]
           },
           "lookClosely": "Pound denominations carried a farming scene on the reverse. John Dunlap—printer of the first broadside Declaration of Independence—printed the issue on watermarked paper."
@@ -351,30 +376,34 @@
       {
         "id": "delaware",
         "label": "Delaware",
-        "x": 65.1,
-        "y": 50.2,
-        "markerX": 80,
+        "x": 59.8,
+        "y": 49.6,
+        "markerX": 64,
         "markerY": 51,
         "story": {
-          "subtitle": "Money lent on mortgages",
+          "subtitle": "From mortgage lending to Revolutionary finance",
           "paragraphs": [
-            "Delaware's 1723 Loan Office issued £5,000 by lending notes on real-estate mortgages at 5 percent. Borrowers put the paper into circulation and returned it through scheduled repayments. The system created currency through public lending rather than government spending."
+            "The Lower Counties' 1723 Loan Office put £5,000 into circulation through loans secured by first mortgages on real estate. Borrowers spent the notes and returned them through scheduled principal and interest payments.",
+            "Later provincial issues mixed that credit system with tax-supported public finance. Independence then shifted the issuer from the Lower Counties to the State of Delaware and made wartime expenditure—not mortgage lending—the immediate reason to create paper.",
+            "The missing snapshot should be a 1777 State of Delaware note. It would show the old regional £sd account surviving while the authority and purpose printed above it had become revolutionary."
           ],
-          "collectingGoal": "Best collecting target: an early Loan Office note whose text reveals the lending structure."
+          "collectingGoal": "Collecting target: a 1777 State of Delaware note documenting the shift from provincial credit to wartime state finance."
         }
       },
       {
         "id": "maryland",
         "label": "Maryland",
-        "x": 63,
-        "y": 51.4,
-        "markerX": 69,
-        "markerY": 60,
+        "x": 57.2,
+        "y": 52,
+        "markerX": 61.5,
+        "markerY": 58,
         "artifactId": "maryland-four-dollars-1774",
         "story": {
-          "subtitle": "A dollar promised in sterling",
+          "subtitle": "From funded provincial paper to dollar notes",
           "paragraphs": [
-            "Maryland's 1774 paper was denominated in dollars but promised future settlement at 4s6d sterling per dollar. This four-dollar note therefore represented eighteen shillings sterling. It was not legal tender; acceptance rested instead on a defined payment rate, a funded redemption structure and confidence in the province's Loan Office."
+            "Maryland's 1733 currency law created a provincial paper system supported by a sinking fund managed in London. The structure tied local circulation to assets and future settlement rather than relying only on a promise to accept the notes for taxes.",
+            "After Parliament restricted new legal-tender bills, Maryland's issues of 1767–1775 adopted a different compromise: dollar denominations, no compulsory private acceptance and a specified future payment in sterling.",
+            "The collected four-dollar note dated April 10, 1774 is a snapshot of that compromise. It circulated without legal-tender status because the province promised eventual payment at 4s6d sterling per dollar through the funded system."
           ],
           "snapshot": {
             "title": "The snapshot · April 10, 1774 · Four Dollars",
@@ -418,9 +447,9 @@
             ]
           },
           "reading": {
-            "title": "Read the note",
+            "title": "Why this moment matters",
             "paragraphs": [
-              "Four dollars × 4s6d sterling = 18 shillings sterling. Dollars name the paper; sterling states its promised settlement value."
+              "Maryland preserved a circulating paper medium after imperial restrictions by separating public credibility from legal-tender compulsion. This note makes the alternative—precise future settlement—visible."
             ]
           },
           "lookClosely": "The thin paper contains mica flakes and nature-print security designs. The note came from the Annapolis shop of Anne Catherine Green and her son Frederick."
@@ -429,30 +458,34 @@
       {
         "id": "virginia",
         "label": "Virginia",
-        "x": 58,
-        "y": 57.5,
-        "markerX": 50,
+        "x": 51.5,
+        "y": 56,
+        "markerX": 47,
         "markerY": 56,
         "story": {
-          "subtitle": "War broke Virginia's resistance to paper",
+          "subtitle": "From resistance to wartime Treasury Notes",
           "paragraphs": [
-            "Virginia resisted government paper until military expense forced a change in 1755. Its first £20,000 issue funded the French and Indian War, carried 5 percent interest and promised quick redemption. Once the barrier fell, later wars produced more paper and eventually dollar-denominated state notes."
+            "Virginia relied on tobacco, coin and book credit longer than most colonies and resisted a government paper currency. The French and Indian War finally broke that policy in 1755, when the colony authorized Treasury Notes to meet military expenses before taxes could be collected.",
+            "What began as a wartime exception became a repeatable fiscal tool. Virginia issued further tax-backed notes through 1774, then revolutionary government changed the authority on the paper and increasingly used dollar denominations.",
+            "The missing snapshot should be a note from the first 1755 emission. It would capture the precise moment when scarcity and war pushed Virginia from resisting paper money to relying on it."
           ],
-          "collectingGoal": "Best collecting target: a 1755 Treasury Note that makes Virginia's late, wartime entry into paper money tangible."
+          "collectingGoal": "Collecting target: a 1755 Virginia Treasury Note from the colony's first paper-money emission."
         }
       },
       {
         "id": "north-carolina",
         "label": "North Carolina",
-        "x": 56,
-        "y": 66.5,
-        "markerX": 51,
+        "x": 49,
+        "y": 66,
+        "markerX": 47.5,
         "markerY": 67,
         "artifactId": "north-carolina-forty-shillings-1754",
         "story": {
-          "subtitle": "Forty shillings in Proclamation Money",
+          "subtitle": "From emergency bills to a named valuation standard",
           "paragraphs": [
-            "North Carolina's 1754 issue was legal tender at Proclamation Money rates. Forty shillings equals £2 in the colony's own accounting unit—not £2 sterling. “Proclamation Money” identifies the coin-rating standard used to interpret that local value. The note makes a basic rule of the exhibit visible: the arithmetic of pounds stayed constant while the monetary value of a pound changed by place."
+            "North Carolina began issuing bills of credit in 1712 amid war, debt and a shortage of usable coin. Repeated emissions kept public finance moving, but depreciation forced the colony to distinguish older paper from later accounting scales.",
+            "New Tenor appeared in 1748. The 1754 issue went further by identifying Proclamation Money as its valuation standard, an effort to make the meaning of the local shilling more explicit before revolutionary government later moved toward dollars.",
+            "The collected forty-shilling note dated March 9, 1754 is a snapshot of that stabilizing effort. It remains a provincial legal-tender bill in £sd, but the note itself tells the holder which monetary standard governs those forty shillings."
           ],
           "snapshot": {
             "title": "The snapshot · March 9, 1754 · Forty Shillings",
@@ -492,9 +525,9 @@
             ]
           },
           "reading": {
-            "title": "Read the note",
+            "title": "Why this moment matters",
             "paragraphs": [
-              "40 shillings = £2 North Carolina money. The phrase Proclamation Money connects that local amount to a specie standard."
+              "The note sits between depreciated early bills and revolutionary dollar paper. Its unusually explicit standard shows the province trying to repair the meaning of a familiar unit rather than abandon it."
             ]
           },
           "lookClosely": "The forty-shilling note carries Christ Church at Newbern. Other denominations use a butterfly, boar, swan, bear, squirrel, crown, Bible and other motifs."
@@ -503,31 +536,35 @@
       {
         "id": "south-carolina",
         "label": "South Carolina",
-        "x": 53,
-        "y": 74.5,
-        "markerX": 45.5,
-        "markerY": 73,
+        "x": 47.2,
+        "y": 75.5,
+        "markerX": 43.5,
+        "markerY": 74,
         "story": {
-          "subtitle": "The most inflated colonial pound",
+          "subtitle": "From public-bank credit to a transformed pound",
           "paragraphs": [
-            "South Carolina issued paper as early as 1703, but its most vivid lesson is the local pound. Near the Revolution, the same Spanish dollar worth about 6 shillings in New England counted as roughly 32s6d in Charleston. The coin was unchanged; South Carolina's accounting scale was radically different."
+            "South Carolina issued bills of credit in 1703 and soon made paper a regular instrument of public finance. A public loan bank added another route into circulation, lending government notes on security instead of spending every issue directly.",
+            "Repeated emissions and depreciation transformed the local pound. By the revolutionary era, a Spanish dollar could be reckoned at roughly 32s6d in Charleston—a striking departure from both sterling and the shilling scales used farther north.",
+            "The missing snapshot should be a 1778 State of South Carolina note. Its state authority and inherited £sd denomination would place the political revolution beside the colony's already transformed accounting system."
           ],
-          "collectingGoal": "Best collecting target: a £sd note that can be read beside the colony-by-colony Spanish-dollar comparison."
+          "collectingGoal": "Collecting target: a 1778 State of South Carolina £sd note linking new political authority to the colony's distinctive valuation scale."
         }
       },
       {
         "id": "georgia",
         "label": "Georgia",
-        "x": 50.5,
-        "y": 80.5,
-        "markerX": 43.5,
-        "markerY": 81,
+        "x": 46.5,
+        "y": 82.2,
+        "markerX": 42,
+        "markerY": 82,
         "story": {
-          "subtitle": "A London claim before local paper",
+          "subtitle": "From London claims to provincial and state paper",
           "paragraphs": [
-            "Georgia first used Sola Bills—Trustee bills of exchange that circulated locally before returning to England for payment. Provincial paper followed in 1755 through a General Loan system, with part of the issue also supporting public works. Georgia's sequence runs from a London claim to local lending and then Revolutionary state currency."
+            "Trustee Georgia first used Sola Bills: transferable claims that circulated locally but ultimately returned to London for payment. Their value depended on a transatlantic promise rather than on a mature local treasury system.",
+            "Royal government changed that arrangement in 1755 by creating a General Loan issue, placing locally issued paper through secured loans and using part of the proceeds for public works. Revolutionary state notes later redirected paper toward wartime finance under a third authority.",
+            "The missing snapshot should come from the 1755 General Loan. It would mark Georgia's move from circulating London claims to a provincial paper system created and managed within the colony."
           ],
-          "collectingGoal": "Best collecting target: a Sola Bill, because it gives Georgia a monetary structure unlike any other colony in the exhibit."
+          "collectingGoal": "Collecting target: a 1755 Georgia General Loan note documenting the colony's shift to locally issued public credit."
         }
       }
     ],
