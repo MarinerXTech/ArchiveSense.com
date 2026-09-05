@@ -2,32 +2,31 @@
   "schemaVersion": "1.0",
   "id": "money-before-the-mint",
   "title": "Money Before the Mint",
-  "kicker": "ArchiveSense · Money in Colonial English America",
-  "summary": "Fourteen objects trace how people in Colonial English America counted, exchanged, borrowed, and tested value before a federal coinage became ordinary.",
-  "introduction": "The English colonies did not share a single coinage of their own. They relied heavily on foreign coins, especially Spanish silver that moved through Atlantic trade and became familiar in local exchange. Colonial governments also issued paper against future taxes and public credit; counterfeiters tested every promise; and copper coinage carried authority into daily exchange. The Revolution changed the issuers before it standardized the money.",
+  "kicker": "Money in early America",
+  "summary": "What would you accept as payment? Six coins and notes show how money worked in early America, including a forgery made to pass for the real thing.",
+  "introduction": "Before the U.S. Mint was established in 1792, people in America paid with coins from overseas and paper issued closer to home. Look at three pairs: two Spanish silver coins, an authorized note beside a counterfeit, and two copper portraits on opposite sides of independence. Each offers a different reason to accept a payment, and a reason to look twice.",
   "curatorialLens": {
-    "label": "Money in English America",
-    "description": "Spanish and other foreign silver, bills of credit, promissory paper, and copper coinage reveal money as a negotiated system of metal, law, trust, trade, and political authority."
+    "label": "What made it money?",
+    "description": "Six objects, three close comparisons. Look for the metal, the wording, and the name of the authority behind a payment."
   },
   "publishedAt": "2026-08-08",
   "featuredArtifactIds": [
     "spanish-eight-reales",
-    "north-carolina-forty-shillings-1754",
-    "gelderland-lion-dollar-1641"
+    "new-jersey-counterfeit-1763",
+    "connecticut-copper-1787"
   ],
   "experience": {
-    "overview": "Move between three connected displays: foreign silver that circulated across empires, the paper instruments created by colonies and revolutionary governments, and the copper coinages that made political transition tangible.",
+    "overview": "Start with the silver, compare the two notes, then turn over the coppers. Each display holds just two objects; open either one to see its details.",
     "groups": [
       {
         "id": "dutch-and-spanish-silver",
-        "kicker": "Trade silver · 1641–1759",
-        "title": "Foreign silver in colonial exchange",
-        "description": "The colonies frequently relied on coins made elsewhere. Spanish silver was especially important: the eight-reales piece, or Spanish dollar, became one of the most familiar large silver coins, while smaller reales supplied useful fractions. The Gelderland lion dollar adds an earlier Dutch and New Netherland connection to this wider story.",
+        "kicker": "Silver",
+        "title": "A dollar from Spain",
+        "description": "The Spanish dollar was familiar money in British North America. Beside it is a smaller Spanish real. Look for the castles, lions, and royal arms: these coins announced one monarchy, but silver could find takers beyond its borders.",
         "display": "coin-tray",
         "artifactIds": [
           "spanish-eight-reales",
-          "spanish-real-1759",
-          "gelderland-lion-dollar-1641"
+          "spanish-real-1759"
         ],
         "camera": {
           "x": 0,
@@ -37,17 +36,13 @@
       },
       {
         "id": "paper-money",
-        "kicker": "Public credit · 1754–1780",
-        "title": "Colonies make money on paper",
-        "description": "North Carolina, New Jersey, Maryland, Pennsylvania, and Connecticut turned printed promises and public obligations into spendable value. Denominations, signatures, laws, taxes, and confidence mattered as much as the paper itself.",
+        "kicker": "Paper",
+        "title": "The promise and the forgery",
+        "description": "The North Carolina note cites an act of its Assembly. The New Jersey note claims that it shall pass by law, but this example is a contemporary counterfeit. Compare the official language and handwritten marks that make both pieces of paper look like money.",
         "display": "glass-case",
         "artifactIds": [
           "north-carolina-forty-shillings-1754",
-          "new-jersey-counterfeit-1763",
-          "maryland-four-dollars-1774",
-          "pennsylvania-four-pounds-1777",
-          "connecticut-promissory-note-1779",
-          "connecticut-ten-shillings-1780"
+          "new-jersey-counterfeit-1763"
         ],
         "camera": {
           "x": -31,
@@ -57,16 +52,13 @@
       },
       {
         "id": "copper-transition",
-        "kicker": "Authority in copper · 1773–1788",
-        "title": "From a colony to new states",
-        "description": "Virginia's Crown-authorized halfpenny sits beside copper issued after independence by Connecticut, New Jersey, Massachusetts, and Vermont. Familiar portraits and classical figures persisted even as the named authority changed.",
+        "kicker": "Copper",
+        "title": "A new authority, a familiar face",
+        "description": "Virginia puts George III on its halfpenny. Fourteen years later, Connecticut still uses a portrait bust, but names the state as its authority. Compare the lettering around the heads, then turn the coins over. Independence changed the message without abandoning familiar designs.",
         "display": "coin-tray",
         "artifactIds": [
           "virginia-halfpenny-1773",
-          "connecticut-copper-1787",
-          "new-jersey-copper",
-          "massachusetts-cent-1788",
-          "vermont-copper-1788"
+          "connecticut-copper-1787"
         ],
         "camera": {
           "x": 3,
@@ -77,119 +69,41 @@
     ],
     "tourStops": [
       {
-        "id": "welcome",
-        "kicker": "Introduction",
-        "title": "Money without one monetary system",
-        "narration": "Colonial English America used overlapping forms of value rather than one uniform national currency. This room follows foreign silver, locally issued paper, and copper across a century of changing authority."
-      },
-      {
         "id": "spanish-silver",
         "groupId": "dutch-and-spanish-silver",
-        "kicker": "Stop one",
-        "title": "Foreign silver supplied everyday coin",
-        "narration": "The colonies often lacked enough coin of their own, so money struck elsewhere circulated through local trade. Spanish silver was especially common. The eight-reales piece, also called a Spanish dollar or piece of eight, provided a widely recognized large coin; smaller reales offered fractional values. The Dutch lion dollar broadens the case, but Spanish silver is the central story."
-      },
-      {
-        "id": "colonial-credit",
-        "groupId": "paper-money",
-        "kicker": "Stop two",
-        "title": "A colony could print spending power",
-        "narration": "The North Carolina and Maryland notes show governments creating circulating value without minting metal. Their usefulness depended on legal authority, future redemption, taxation, signatures, and public acceptance."
+        "kicker": "Silver",
+        "title": "A dollar from Spain",
+        "narration": "The dollar in this case is Spanish. Coins of this denomination, also called pieces of eight, were widely used in British North America. Compare it with the smaller real: both carry Spanish symbols. The country named on a coin did not set the limits of where its silver could be accepted."
       },
       {
         "id": "counterfeit-trust",
         "groupId": "paper-money",
-        "kicker": "Stop three",
-        "title": "Counterfeiting exposed the system's dependence on trust",
-        "narration": "The New Jersey note is a contemporary counterfeit. It belongs inside the story because imitation reveals what users examined and what an issuer had to defend: paper, printing, signatures, serials, and confidence."
-      },
-      {
-        "id": "revolutionary-credit",
-        "groupId": "paper-money",
-        "kicker": "Stop four",
-        "title": "Revolution changed the promise before the units",
-        "narration": "Pennsylvania and Connecticut continued to express value in pounds and shillings while political authority was being remade. The Connecticut promissory note broadens the case from currency to public obligation and wartime credit."
+        "kicker": "Paper",
+        "title": "Even a forgery could invoke the law",
+        "narration": "Open the New Jersey note and find the words \"by LAW shall pass current.\" This is a contemporary counterfeit. Its maker copied the language of legal authority along with the appearance of money. Beside it, the North Carolina bill names an act of the Assembly. What on either note would have reassured the person taking it?"
       },
       {
         "id": "copper-authority",
         "groupId": "copper-transition",
-        "kicker": "Stop five",
-        "title": "The issuer changes across the tray",
-        "narration": "Begin with Virginia and George III, then compare the state and republic coppers. Busts, shields, mottos, local emblems, and classical figures made new political claims through a familiar monetary language."
+        "kicker": "Copper",
+        "title": "Look past the portrait",
+        "narration": "These heads look at home beside each other. Virginia shows George III; Connecticut keeps the bust format but names a different authority. On the Connecticut coin, look for AUCTORI CONNEC, meaning \"by the authority of Connecticut.\" Turn it over for the seated figure and the abbreviated declaration of independence and liberty."
       },
       {
-        "id": "toward-federal-coinage",
-        "kicker": "Conclusion",
-        "title": "From many monies toward a federal system",
-        "narration": "Before federal coinage became ordinary, value rested on a plural world of foreign silver, public paper, and locally authorized copper. The Constitution and the Coinage Act of 1792 created a national framework, but the objects in this room show the varied monetary practices that framework had to gather, replace, and outlast."
+        "id": "a-payment-accepted",
+        "kicker": "Before you leave",
+        "title": "Money had to pass from hand to hand",
+        "narration": "The silver offered recognizable metal. The notes claimed legal backing, even when that claim was forged. The coppers put authority into a familiar design. All still needed someone willing to take them. Return to any pair and look again at the detail you would have trusted."
       }
     ]
   },
   "artifacts": [
     {
-      "id": "gelderland-lion-dollar-1641",
-      "objectId": "1641-netherland-1ld",
-      "order": 1,
-      "title": "Gelderland Lion Dollar, 1641",
-      "description": "This 1641 Gelderland leeuwendaalder was struck while New Amsterdam was developing into the trading center of New Netherland. It provides a Dutch and early New York counterpoint within the larger story of foreign silver used across colonial markets.",
-      "presentation": {
-        "kind": "coin"
-      },
-      "images": [
-        {
-          "src": "images/gelderland-lion-dollar-1641-1.webp",
-          "alt": "Silver 1641 Gelderland lion dollar showing an armored knight and provincial shield",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 12,
-              "y": 38,
-              "width": 68,
-              "height": 51
-            }
-          },
-          "caption": "The knight-and-shield face carries the authority of Gelderland into a trade coin."
-        },
-        {
-          "src": "images/gelderland-lion-dollar-1641-2.webp",
-          "alt": "Silver 1641 Gelderland lion dollar showing a rampant lion",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 18,
-              "y": 39,
-              "width": 68,
-              "height": 51
-            }
-          },
-          "caption": "The lion face made the denomination legible across languages and markets."
-        }
-      ],
-      "subtitle": "A Dutch coin contemporary with New Amsterdam",
-      "date": {
-        "label": "1641",
-        "sortYear": "1641"
-      },
-      "origin": "Gelderland, Dutch Republic",
-      "materials": "Silver",
-      "tags": [
-        "Gelderland",
-        "leeuwendaalder",
-        "New Amsterdam",
-        "colonial New York"
-      ],
-      "researchNotes": [
-        "The source catalog identifies this object as Gelderland Dav-4849, dated 1641 and graded AU 58.",
-        "The American Numismatic Society's Castine-deposit study discusses a separate Gelderland lion dollar of the same year and places the type within colonial circulation, with particular relevance to New York's Dutch monetary inheritance.",
-        "Matching date and type create a strong historical comparison; they do not establish provenance or circulation history for this individual specimen."
-      ]
-    },
-    {
       "id": "spanish-eight-reales",
       "objectId": "1701-59-8-reales",
-      "order": 2,
+      "order": 1,
       "title": "Spanish Eight Reales, 1701–1759",
-      "description": "The source record identifies this silver piece broadly as an eight reales from 1701–1759. Coins of this denomination—also called Spanish dollars or pieces of eight—were among the most familiar foreign coins in British North America. Their recognized silver value made them useful in Atlantic exchange and in colonies chronically short of coin.",
+      "description": "This is the denomination behind the phrase \"piece of eight\": eight reales, also known as a Spanish dollar. Coins like it were widely accepted in British North America. Their silver gave them a use far beyond the territories ruled by Spain. This example is cataloged broadly to 1701-1759; its exact date and mint remain unconfirmed.",
       "presentation": {
         "kind": "coin"
       },
@@ -226,7 +140,7 @@
           "credit": "ArchiveSense collection photograph"
         }
       ],
-      "subtitle": "The Spanish dollar in a foreign-coin economy",
+      "subtitle": "The Spanish dollar",
       "date": {
         "label": "1701–1759; exact date pending",
         "sortYear": "1730"
@@ -247,9 +161,9 @@
     {
       "id": "spanish-real-1759",
       "objectId": "1759-1-reale",
-      "order": 3,
+      "order": 2,
       "title": "1759 Spanish One Real",
-      "description": "Struck at Seville in the final year of Ferdinand VI's reign, this silver real carries royal arms and the quartered castles and lions of Castile and León. Its imagery announces Spanish monarchy, while its compact silver form represents the kind of money that could travel beyond the jurisdiction named on it.",
+      "description": "Look for the castles and lions on one side, then the crowned shield on the other. This smaller silver coin is cataloged as a one real struck at Seville in 1759. Beside the eight-reales piece, it shows another denomination in Spanish silver. The designs identify royal authority; they do not tell us where this particular coin traveled.",
       "presentation": {
         "kind": "coin"
       },
@@ -283,7 +197,7 @@
           "caption": "The crowned arms place royal authority at the center of the coin."
         }
       ],
-      "subtitle": "Royal silver in an Atlantic economy",
+      "subtitle": "Spanish symbols on a smaller coin",
       "date": {
         "label": "1759",
         "sortYear": "1759"
@@ -304,9 +218,9 @@
     },
     {
       "id": "north-carolina-forty-shillings-1754",
-      "order": 4,
+      "order": 3,
       "title": "1754 North Carolina Forty Shillings",
-      "description": "This forty-shilling bill represents a colonial government turning public credit into circulating money. Its value did not reside in the paper itself; it depended on authorization, signatures, expected redemption, taxation, and continued acceptance within the community.",
+      "description": "The large words \"Forty Shillings\" name the value. Beneath them, the bill cites an act of North Carolina's Assembly dated March 9, 1754. A church appears at the lower left; handwritten marks complete the printed form. The paper carries a claim backed by colonial authority. Compare that claim with the one copied on the New Jersey counterfeit.",
       "presentation": {
         "kind": "paper"
       },
@@ -319,7 +233,7 @@
       "images": [
         {
           "src": "images/north-carolina-forty-shillings-1754-1.webp",
-          "alt": "1754 40s North Carolina Forty Shillings, photograph 1",
+          "alt": "North Carolina forty-shilling bill with Assembly authorization, handwritten marks, and a church vignette",
           "credit": "ArchiveSense collection photograph",
           "presentation": {
             "objectRegion": {
@@ -328,7 +242,8 @@
               "width": 57,
               "height": 48
             }
-          }
+          },
+          "caption": "Below the denomination, the bill cites an act of the Assembly dated March 9, 1754."
         },
         {
           "src": "images/north-carolina-forty-shillings-1754-2.webp",
@@ -345,7 +260,7 @@
         }
       ],
       "objectId": "1754-40s-north-carolina-forty-shillings",
-      "subtitle": "A colony creates local spending power",
+      "subtitle": "Forty shillings by act of the Assembly",
       "date": {
         "label": "1754",
         "sortYear": "1754"
@@ -358,9 +273,9 @@
     },
     {
       "id": "new-jersey-counterfeit-1763",
-      "order": 5,
+      "order": 4,
       "title": "1763 New Jersey Twelve-Shilling Counterfeit",
-      "description": "A contemporary counterfeit belongs at the center of a paper-money story. It demonstrates that colonial currency depended on recognizable printing, signatures, serials, legal authority, and habitual acceptance—and that each of those signals could be imitated.",
+      "description": "\"By LAW shall pass current\": the wording sounds emphatic, but this twelve-shilling bill is cataloged as a contemporary counterfeit. Notice its ornamental border, handwritten number, and sweeping signatures. Those details imitate the appearance of an authorized issue. The North Carolina note beside it is a different colony's money, not a matching original for authenticating this forgery.",
       "presentation": {
         "kind": "paper"
       },
@@ -373,7 +288,7 @@
       "images": [
         {
           "src": "images/new-jersey-counterfeit-1763-1.webp",
-          "alt": "1763 12s New Jersey Colonial Note - Contemporary Counterfeit, photograph 1",
+          "alt": "Counterfeit New Jersey twelve-shilling bill with an ornamental border, handwritten number, and signatures",
           "credit": "ArchiveSense collection photograph",
           "presentation": {
             "objectRegion": {
@@ -382,7 +297,8 @@
               "width": 49,
               "height": 50
             }
-          }
+          },
+          "caption": "The counterfeit repeats the claim \"by LAW shall pass current.\""
         },
         {
           "src": "images/new-jersey-counterfeit-1763-2.webp",
@@ -399,7 +315,7 @@
         }
       ],
       "objectId": "1763-12s-new-jersey-colonial-note-contemporary-counterfeit",
-      "subtitle": "Trust tested by a convincing imitation",
+      "subtitle": "A forgery that claims the force of law",
       "date": {
         "label": "December 31, 1763",
         "sortYear": "1763"
@@ -411,227 +327,11 @@
       ]
     },
     {
-      "id": "maryland-four-dollars-1774",
-      "order": 6,
-      "title": "1774 Maryland Four Dollars",
-      "description": "Issued on the eve of revolution, this four-dollar Maryland note shows paper currency operating inside a provincial economy. Its denomination, printed form, handwritten identifiers, and named printers made a public promise portable enough to circulate.",
-      "presentation": {
-        "kind": "paper"
-      },
-      "tags": [
-        "Maryland",
-        "colonial currency",
-        "dollars",
-        "printing"
-      ],
-      "images": [
-        {
-          "src": "images/maryland-four-dollars-1774-1.webp",
-          "alt": "1774 $4 Maryland Colonial Currency, photograph 1",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 20,
-              "y": 34,
-              "width": 62,
-              "height": 48
-            }
-          }
-        },
-        {
-          "src": "images/maryland-four-dollars-1774-2.webp",
-          "alt": "1774 $4 Maryland Colonial Currency, photograph 2",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 21,
-              "y": 36,
-              "width": 59,
-              "height": 46
-            }
-          }
-        }
-      ],
-      "objectId": "1774-4-maryland-colonial-currency",
-      "subtitle": "Printed money for a provincial economy",
-      "date": {
-        "label": "April 10, 1774",
-        "sortYear": "1774"
-      },
-      "origin": "Province of Maryland",
-      "materials": "Printed and manuscript paper",
-      "researchNotes": [
-        "The collection record identifies the April 10, 1774 issue, four-dollar denomination, and printers Anne Catherine and Frederick Green."
-      ]
-    },
-    {
-      "id": "pennsylvania-four-pounds-1777",
-      "order": 7,
-      "title": "1777 Pennsylvania £4 Note",
-      "description": "Pennsylvania continued to express value in pounds during the Revolution. The note makes political transition visible in monetary practice: the authority behind the promise changed more quickly than the familiar language people used to count value.",
-      "presentation": {
-        "kind": "paper"
-      },
-      "tags": [
-        "Pennsylvania",
-        "Revolution",
-        "pounds",
-        "public credit"
-      ],
-      "images": [
-        {
-          "src": "images/pennsylvania-four-pounds-1777-1.webp",
-          "alt": "1777 £4 Pennsylvania Colonial Currency, photograph 1",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 22,
-              "y": 30,
-              "width": 53,
-              "height": 58
-            }
-          }
-        },
-        {
-          "src": "images/pennsylvania-four-pounds-1777-2.webp",
-          "alt": "1777 £4 Pennsylvania Colonial Currency, photograph 2",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 25,
-              "y": 27,
-              "width": 53,
-              "height": 62
-            }
-          }
-        }
-      ],
-      "objectId": "1777-4-pennsylvania-colonial-currency",
-      "subtitle": "Revolutionary finance in an inherited unit of account",
-      "date": {
-        "label": "April 10, 1777",
-        "sortYear": "1777"
-      },
-      "origin": "Pennsylvania",
-      "materials": "Printed and manuscript paper",
-      "researchNotes": [
-        "The collection record identifies the April 10, 1777 issue and four-pound denomination."
-      ]
-    },
-    {
-      "id": "connecticut-promissory-note-1779",
-      "order": 8,
-      "title": "1779 Connecticut Promissory Note for Five Hundred Pounds",
-      "presentation": {
-        "kind": "paper"
-      },
-      "tags": [
-        "Connecticut",
-        "promissory note",
-        "public finance",
-        "credit"
-      ],
-      "images": [
-        {
-          "src": "images/connecticut-promissory-note-1779-1.webp",
-          "alt": "1779 Connecticut Promissory Note 500 Pounds, photograph 1",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 13,
-              "y": 7,
-              "width": 82,
-              "height": 90
-            }
-          }
-        },
-        {
-          "src": "images/connecticut-promissory-note-1779-2.webp",
-          "alt": "1779 Connecticut Promissory Note 500 Pounds, photograph 2",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 10,
-              "y": 2,
-              "width": 85,
-              "height": 94
-            }
-          }
-        }
-      ],
-      "objectId": "1779-connecticut-promissory-note-500-pounds",
-      "subtitle": "Public obligation at a larger scale",
-      "description": "This promissory instrument broadens the room beyond everyday notes. A government could mobilize resources through obligations denominated in familiar pounds, binding present needs to future payment and placing monetary confidence in public credit.",
-      "date": {
-        "label": "1779",
-        "sortYear": "1779"
-      },
-      "origin": "Connecticut",
-      "materials": "Printed and manuscript paper",
-      "researchNotes": [
-        "The collection title identifies the instrument as a 1779 Connecticut promissory note for five hundred pounds."
-      ]
-    },
-    {
-      "id": "connecticut-ten-shillings-1780",
-      "order": 9,
-      "title": "1780 Connecticut 10-Shilling Treasury Note",
-      "description": "This ten-shilling Connecticut note belongs to the unsettled monetary years of the Revolution. It shows continuity in the unit of account even as governments, taxes, military needs, and expectations of redemption were changing around it.",
-      "presentation": {
-        "kind": "paper"
-      },
-      "tags": [
-        "Connecticut",
-        "shillings",
-        "Revolution",
-        "paper money"
-      ],
-      "images": [
-        {
-          "src": "images/connecticut-ten-shillings-1780-1.webp",
-          "alt": "1780 10 s Connecticut Colonial Note, photograph 1",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 29,
-              "y": 23,
-              "width": 39,
-              "height": 76
-            }
-          }
-        },
-        {
-          "src": "images/connecticut-ten-shillings-1780-2.webp",
-          "alt": "1780 10 s Connecticut Colonial Note, photograph 2",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 31,
-              "y": 24,
-              "width": 39,
-              "height": 76
-            }
-          }
-        }
-      ],
-      "objectId": "1780-10-s-connecticut-colonial-note",
-      "subtitle": "A familiar denomination during political upheaval",
-      "date": {
-        "label": "1780",
-        "sortYear": "1780"
-      },
-      "origin": "Connecticut",
-      "materials": "Printed and manuscript paper",
-      "researchNotes": [
-        "The collection record identifies the object as a Connecticut ten-shilling note dated 1780."
-      ]
-    },
-    {
       "id": "virginia-halfpenny-1773",
       "objectId": "1773-virginia-halfpenny",
-      "order": 10,
+      "order": 5,
       "title": "1773 Virginia Halfpenny",
-      "description": "Authorized for Virginia and struck at the Tower Mint in London, this halfpenny pairs George III's portrait with Virginia's crowned arms. Dated 1773 but released for circulation only in 1775, it reached the colony as the political relationship represented on its faces was breaking apart.",
+      "description": "George III faces right on this halfpenny. Turn it over to find a crowned shield and Virginia's name. Struck in London for the colony, the issue is dated 1773 but was released in 1775. Compare its portrait with the Connecticut copper: the later coin keeps a familiar format while changing the authority named around it.",
       "presentation": {
         "kind": "coin"
       },
@@ -665,7 +365,7 @@
           "caption": "Virginia's name surrounds a crowned shield on the reverse."
         }
       ],
-      "subtitle": "A colony named on royal copper",
+      "subtitle": "The king on Virginia's small change",
       "date": {
         "label": "1773; released 1775",
         "sortYear": "1773"
@@ -687,9 +387,9 @@
     {
       "id": "connecticut-copper-1787",
       "objectId": "1787-connecticut-copper-2",
-      "order": 11,
+      "order": 6,
       "title": "1787 Connecticut Copper",
-      "description": "Connecticut authorized copper coinage during the Confederation era, when states tried to supply dependable small change. This worn example retains a bust and seated figure derived from familiar British coin types, but its inscriptions relocate authority to Connecticut and declare independence and liberty.",
+      "description": "The bust may look royal, but the inscription names Connecticut. AUCTORI CONNEC means \"by the authority of Connecticut.\" On the reverse, a seated figure accompanies INDE ET LIB, an abbreviation for independence and liberty. This 1787 copper uses the visual language of British small change to carry the authority of a state.",
       "presentation": {
         "kind": "coin"
       },
@@ -723,7 +423,7 @@
           "caption": "A seated figure evokes liberty through a visual form familiar from British copper."
         }
       ],
-      "subtitle": "Independence in a familiar visual language",
+      "subtitle": "A portrait without a king's name",
       "date": {
         "label": "1787",
         "sortYear": "1787"
@@ -740,180 +440,6 @@
         "The American Numismatic Society places Connecticut among the states that authorized copper coinage under the Articles of Confederation.",
         "The design's classical seated figure and abbreviated Latin legends show how new political claims could inhabit older-looking forms.",
         "A future catalog pass should assign the exact Miller die variety."
-      ]
-    },
-    {
-      "id": "new-jersey-copper",
-      "objectId": "1787-new-jersey-copper",
-      "order": 12,
-      "title": "1787 New Jersey Copper",
-      "description": "New Jersey's copper series placed a horse's head and plow opposite a shield and the motto E PLURIBUS UNUM. The design joined a recognizable state emblem to language about union, making small change carry both local identity and an emerging national idea.",
-      "presentation": {
-        "kind": "coin"
-      },
-      "images": [
-        {
-          "src": "images/new-jersey-copper-1.webp",
-          "alt": "Worn copper New Jersey coin showing a horse's head above a plow",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 1,
-              "y": 18,
-              "width": 98,
-              "height": 74
-            }
-          },
-          "caption": "The horse and plow translate New Jersey's identity into a compact emblem."
-        },
-        {
-          "src": "images/new-jersey-copper-2.webp",
-          "alt": "Worn reverse of a copper New Jersey coin with a faint central shield",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 0,
-              "y": 17,
-              "width": 100,
-              "height": 75
-            }
-          },
-          "caption": "A shield and E PLURIBUS UNUM occupy the worn reverse."
-        }
-      ],
-      "subtitle": "Local emblems, a national motto",
-      "date": {
-        "label": "1786–1788 series; exact year pending",
-        "sortYear": "1786"
-      },
-      "origin": "New Jersey",
-      "materials": "Copper",
-      "tags": [
-        "New Jersey",
-        "state coinage",
-        "E pluribus unum",
-        "agriculture"
-      ],
-      "researchNotes": [
-        "The National Museum of American History records New Jersey coppers with a horse head above a plow and a shield beneath E PLURIBUS UNUM.",
-        "The Smithsonian identifies the series as the first known coins to carry the national motto.",
-        "The current ArchiveSense record does not yet identify the date or Maris die variety of this example."
-      ]
-    },
-    {
-      "id": "massachusetts-cent-1788",
-      "objectId": "1788-massachusetts-one-cent-copper",
-      "order": 13,
-      "title": "1788 Massachusetts One Cent Copper",
-      "description": "Massachusetts made the denomination explicit: CENT appears across the eagle's shield. The opposite side presents a standing Native figure with bow and arrow beneath COMMONWEALTH—period imagery that connected the state's coinage to a constructed emblem of place and identity.",
-      "presentation": {
-        "kind": "coin"
-      },
-      "images": [
-        {
-          "src": "images/massachusetts-cent-1788-1.webp",
-          "alt": "Copper Massachusetts cent showing a standing Native figure holding a bow and arrow",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 4,
-              "y": 20,
-              "width": 96,
-              "height": 72
-            }
-          },
-          "caption": "COMMON WEALTH surrounds a standing figure with bow and arrow."
-        },
-        {
-          "src": "images/massachusetts-cent-1788-2.webp",
-          "alt": "Copper Massachusetts cent showing an eagle with a shield marked CENT and the date 1788",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 3,
-              "y": 18,
-              "width": 94,
-              "height": 71
-            }
-          },
-          "caption": "An eagle carries a shield naming the denomination: CENT."
-        }
-      ],
-      "subtitle": "A named cent for the Commonwealth",
-      "date": {
-        "label": "1788",
-        "sortYear": "1788"
-      },
-      "origin": "Massachusetts",
-      "materials": "Copper",
-      "tags": [
-        "Massachusetts",
-        "cent",
-        "state coinage",
-        "Commonwealth"
-      ],
-      "researchNotes": [
-        "The Smithsonian documents the standing figure, COMMON WEALTH inscription, eagle and shield, denomination CENT, and 1788 date on this type.",
-        "The American Numismatic Society notes Massachusetts' early use of the denomination cent on its copper coinage.",
-        "The Native figure should be read as eighteenth-century state iconography, not as a neutral portrait of an individual or nation."
-      ]
-    },
-    {
-      "id": "vermont-copper-1788",
-      "objectId": "1788-vermont-copper",
-      "order": 14,
-      "title": "1788 Vermont Copper",
-      "description": "Vermont issued copper coinage before joining the Union in 1791. This 1788 piece uses a right-facing bust and a seated figure with the declaration INDE ET LIB—independence and liberty. Its familiar visual vocabulary makes political transition visible rather than tidy.",
-      "presentation": {
-        "kind": "coin"
-      },
-      "images": [
-        {
-          "src": "images/vermont-copper-1788-1.webp",
-          "alt": "Worn copper Vermont coin showing a right-facing bust surrounded by a partial inscription",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 1,
-              "y": 15,
-              "width": 98,
-              "height": 74
-            }
-          },
-          "caption": "A portrait format associated with royal copper is repurposed for Vermont coinage."
-        },
-        {
-          "src": "images/vermont-copper-1788-2.webp",
-          "alt": "Worn copper Vermont coin showing a seated classical figure with staff",
-          "credit": "ArchiveSense collection photograph",
-          "presentation": {
-            "objectRegion": {
-              "x": 3,
-              "y": 17,
-              "width": 96,
-              "height": 72
-            }
-          },
-          "caption": "The seated figure accompanies a declaration of independence and liberty."
-        }
-      ],
-      "subtitle": "A republic represented through borrowed forms",
-      "date": {
-        "label": "1788",
-        "sortYear": "1788"
-      },
-      "origin": "Vermont",
-      "materials": "Copper",
-      "tags": [
-        "Vermont",
-        "republic",
-        "state coinage",
-        "independence"
-      ],
-      "researchNotes": [
-        "The Smithsonian records a comparable 1788 Vermont copper with a right-facing bust, seated figure, and INDE ET LIB inscription.",
-        "The American Numismatic Society notes that Vermont began issuing coppers while it was not yet a state and joined the Union in 1791.",
-        "The exact Ryder variety and mint attribution of this collection example remain subjects for future research."
       ]
     }
   ]
