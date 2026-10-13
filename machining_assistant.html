@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#172d42">
+<title>Machining Assistant · South Bend shop machines</title>
+<style>
+  :root{--navy:#172d42;--navy2:#27455c;--teal:#087d80;--tealdark:#07666b;--ink:#182738;--muted:#66778a;--line:#dfe6eb;--surface:#fff;--bg:#f2f5f7;--pale:#ebf7f5;--yellow:#9a642d;--r:16px}
+  *,*::before,*::after{box-sizing:border-box}
+  html{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.4;color:var(--ink);-webkit-font-smoothing:antialiased}
+  body{margin:0;background:var(--bg)}
+  button,input,select{font:inherit}
+  button{cursor:pointer}
+  button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #66b8ba;outline-offset:2px}
+  .appbar{background:var(--navy);color:#fff}
+  .bar-inner{max-width:1136px;padding:18px 28px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .identity{display:flex;align-items:center;gap:13px;min-width:0}
+  .brand-mark{width:43px;height:43px;display:grid;place-items:center;border:1px solid #577083;border-radius:13px;background:#284459;flex:0 0 auto}
+  .brand-title{font-weight:750;letter-spacing:-.028em;font-size:20px;line-height:1.18}
+  .brand-sub{font-size:12px;color:#b6c8d3;margin-top:4px;letter-spacing:.01em}
+  .icon-button{display:flex;justify-content:center;align-items:center;border:1px solid #587185;border-radius:10px;background:#2a465d;color:#eaf3f6;height:40px;width:40px;flex:0 0 auto}
+  .icon-button:hover{background:#355b72}
+  .wrap{max-width:1136px;padding:33px 28px 50px;margin:0 auto}
+  .page-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:19px;gap:16px}
+  .page-intro h1{font-size:23px;letter-spacing:-.035em;margin:0 0 4px;font-weight:750}
+  .page-intro p{margin:0;color:var(--muted);font-size:13px}
+  .main-grid{display:grid;grid-template-columns:minmax(320px,.87fr) minmax(420px,1.13fr);gap:18px;align-items:stretch}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 2px 6px rgba(29,49,66,.035);overflow:hidden}
+  .panel-head{padding:21px 24px 0;display:flex;align-items:center;justify-content:space-between}
+  .section-title{font-size:15px;margin:0;font-weight:750;letter-spacing:-.015em}
+  .panel-body{padding:22px 24px 25px}
+  .field{display:flex;flex-direction:column;gap:7px;min-width:0}
+  .field label,.field-label{font-weight:650;color:#435569;font-size:12px;letter-spacing:.008em}
+  select,input[type="number"]{width:100%;height:43px;border:1px solid #d2dce4;background:#fff;border-radius:9px;padding:0 12px;color:var(--ink);outline:none}
+  select{appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23546878" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="m6 9 6 6 6-6"/%3E%3C/svg%3E');background-position:right 12px center;background-repeat:no-repeat;padding-right:31px}
+  select:hover,input:hover{border-color:#b3c6d0}
+  .form-stack{display:grid;gap:18px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .segmented{display:grid;grid-template-columns:1fr 1fr;background:#edf1f4;padding:4px;border-radius:10px;gap:4px}
+  .segmented button{font-size:13px;border:0;border-radius:8px;color:#526477;background:transparent;min-height:37px;font-weight:620}
+  .segmented button[aria-pressed="true"]{background:#fff;box-shadow:0 1px 4px #16304617;color:#172d42}
+  .diamrow{display:grid;grid-template-columns:1fr 110px;gap:10px}
+  .sfm-card{background:#f5f8fa;border:1px solid #edf1f3;padding:13px;border-radius:10px;display:grid;grid-template-columns:1fr 123px;align-items:center;gap:12px}
+  .sfm-info{font-size:12px;line-height:1.4;color:var(--muted)}
+  .sfm-info strong{color:#405166;display:block;font-weight:675;font-size:12px;margin-bottom:3px}
+  .sfm-input-group{display:flex;flex-direction:column;gap:3px;position:relative}
+  .sfm-input-group input{height:39px;padding-right:42px;background:white}
+  .unit-tag{position:absolute;right:11px;top:11px;font-size:11px;color:#748596}
+  .text-action{background:transparent;border:none;padding:0;color:#08787a;font-size:12px;font-weight:650;text-align:right;text-decoration:none}
+  .text-action:hover{text-decoration:underline}
+  .reference-toggle{margin-top:10px;border-top:1px solid #edf1f3;padding-top:11px;font-size:12px}
+  .reference-toggle summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;color:#386f77;font-weight:680;gap:12px}
+  .reference-toggle summary::-webkit-details-marker{display:none}
+  .reference-toggle summary:after{content:"⌄";font-size:18px;font-weight:400;line-height:1;color:#7b8c98;transition:transform .16s}
+  .reference-toggle[open] summary:after{transform:rotate(180deg)}
+  .reference-content{margin-top:12px;padding:14px 15px;background:#f7f9fa;border:1px solid #e7edef;border-radius:10px;color:#4c5e6c;font-size:12px;line-height:1.6}
+  .reference-content p{margin:0 0 8px}
+  .reference-content p:last-child{margin-bottom:0}
+  .reference-content strong{color:#233e4d}
+  .reference-content .ref-small{font-size:11px;color:#748493}
+  .reference-content a{font-weight:660;text-decoration:underline;text-underline-offset:2px}
+
+  .result-panel{display:flex;flex-direction:column}
+  .result-top{padding:24px 26px 18px;background:linear-gradient(138deg,#eaf7f5 0%,#f5fbfa 100%);border-bottom:1px solid #dbece9}
+  .eyebrow{font-size:11px;color:var(--tealdark);letter-spacing:.095em;text-transform:uppercase;font-weight:750}
+  .rpm-row{display:flex;align-items:baseline;gap:8px;margin-top:3px}
+  .rpm{font-size:70px;line-height:1.03;letter-spacing:-.07em;color:#0b4b4f;font-weight:800;font-variant-numeric:tabular-nums}
+  .rpm-unit{font-size:19px;font-weight:680;color:#3d7375;letter-spacing:-.012em}
+  .result-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;color:#54787a;margin-top:13px}
+  .sep{height:4px;width:4px;border-radius:50%;background:#8cbdba}
+  .result-bottom{padding:20px 26px 24px;display:flex;flex-direction:column;gap:18px;flex:1}
+  .setup-header{display:flex;justify-content:space-between;gap:10px;align-items:center}
+  .setup-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+  .setup-tile{background:#f8fafb;border:1px solid #e5ebef;border-radius:11px;padding:13px 10px;min-height:97px}
+  .setup-tile .setup-label{color:#6d7d8d;font-size:11px;font-weight:680;margin-bottom:7px}
+  .setup-tile .setup-value{font-weight:770;font-size:17px;letter-spacing:-.025em;line-height:1.15}
+  .setup-tile .setup-secondary{margin-top:5px;font-size:11px;color:#768596;line-height:1.3}
+  .diagram{border:1px solid #e4ebef;border-radius:12px;padding:17px 16px 16px}
+  .diagram-title{color:#364b5b;font-weight:700;font-size:12px;margin-bottom:16px}
+  .schematic{display:grid;grid-template-columns:100px 1fr;gap:8px 12px;align-items:center}
+  .sch-label{font-size:12px;color:#7c8d9a;font-weight:580}
+  .range-lines{display:flex;gap:7px}
+  .mini-select{border:1px solid #dce7ea;padding:7px 13px;border-radius:7px;font-size:12px;color:#748797;background:#f6f8f9;font-weight:700;text-align:center;min-width:54px}
+  .mini-select.active{border-color:#71bcb8;background:#def3ef;color:#046367}
+  .pulleys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;max-width:335px}
+  .pulley{display:flex;flex-direction:column;gap:5px;justify-content:end;align-items:center;color:#8997a3;font-size:11px;font-weight:750}
+  .pulley i{display:block;border-radius:5px 5px 2px 2px;background:#e4ebee;border:1px solid #d7e1e6;width:100%;height:24px}
+  .pulley.active i{background:#39a6a2;border-color:#168985}
+  .pulley.active{color:#00686a}
+  .pulley:nth-child(1) i{height:21px}.pulley:nth-child(2) i{height:27px}.pulley:nth-child(3) i{height:33px}.pulley:nth-child(4) i{height:39px}
+  .drill-belt-grid{display:grid;gap:7px}
+  .drill-headings,.drill-belt-row{display:grid;grid-template-columns:64px 1fr 1fr 63px;gap:10px;align-items:center}
+  .drill-headings{font-size:11px;font-weight:680;color:#6e8390;padding:0 11px 2px}
+  .drill-belt-row{padding:8px 11px;border:1px solid #e5edf0;background:#f8fafb;border-radius:9px;font-size:12px;color:#52677a}
+  .drill-belt-row.active{border-color:#2aa39f;background:#e6f5f2;color:#0a6365;font-weight:730}
+  .drill-belt-row .step{font-weight:730}
+  .step-bar{height:12px;border-radius:4px;background:#c8d5df;display:block;min-width:18px}
+  .drill-belt-row.active .step-bar{background:#279f9c}
+  .step-holder{height:15px;display:flex;align-items:center}
+  .step-holder.right{justify-content:flex-end}
+  .drill-belt-row .rpm-mini{text-align:right;font-size:11px;font-weight:740;font-variant-numeric:tabular-nums}
+  .gear-cells{display:flex;gap:7px}
+  .gear-cells .mini-select{padding:7px 12px}
+  .actions{display:flex;gap:9px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-top:auto}
+  .btn{border:1px solid #d8e2e7;border-radius:9px;background:#fff;padding:10px 14px;font-size:12px;font-weight:720;color:#34495c;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:39px}
+  .btn:hover{background:#f4f8f9}
+  .btn-primary{color:#fff;background:var(--navy);border-color:var(--navy)}
+  .btn-primary:hover{background:var(--navy2)}
+  .below{display:grid;grid-template-columns:1fr;gap:0;margin-top:18px}
+  .detail-panel{padding:0 24px}
+  .detail-trigger{width:100%;background:none;border:none;padding:19px 0;text-align:left;font-weight:720;display:flex;justify-content:space-between;align-items:center;color:#364d60;font-size:13px;gap:12px}
+  .chevron{transition:transform .18s}
+  .detail-trigger[aria-expanded="true"] .chevron{transform:rotate(180deg)}
+  .chart-container{padding-bottom:20px}
+  .speed-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  .speed-grid.drill-chart{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .speed-group{background:#f7f9fa;border:1px solid #e8eef0;border-radius:10px;padding:12px}
+  .group-head{font-size:11px;color:#63788a;font-weight:680;margin:0 0 10px}
+  .speed-cell{width:100%;display:flex;justify-content:space-between;align-items:center;gap:5px;background:#fff;border:1px solid #e0e6ea;border-radius:7px;padding:9px 9px;margin-top:5px;color:#3d5364;font-variant-numeric:tabular-nums;text-align:left}
+  .speed-cell .cone-number{font-size:10px;color:#8695a1}
+  .speed-cell .speed-number{font-size:12px;font-weight:720}
+  .speed-cell.selected{border-color:#24a19e;background:#e7f5f2;color:#0b6b6c}
+  .speed-cell.omitted{opacity:.48}
+  .note-line{margin-top:11px;font-size:11px;color:#718091}
+  .footer-note{color:#657687;font-size:12px;line-height:1.7;margin-top:20px}
+  a{color:#1c707a;text-decoration:none}a:hover{text-decoration:underline}
+  .toast{position:fixed;bottom:24px;right:24px;background:#17364a;color:#fff;border-radius:10px;padding:12px 16px;font-size:13px;box-shadow:0 8px 28px #10253330;z-index:11;opacity:0;pointer-events:none;transform:translateY(8px);transition:all .18s}
+  .toast.show{opacity:1;transform:translateY(0)}
+  .overlay[hidden],.hidden{display:none!important}
+  .overlay{position:fixed;inset:0;background:rgba(20,39,54,.45);display:flex;justify-content:center;align-items:center;padding:20px;z-index:9}
+  .modal{width:min(620px,100%);max-height:min(88vh,820px);overflow:auto;background:white;border-radius:16px;box-shadow:0 20px 70px #122c4060}
+  .modal-head{padding:23px 26px 17px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:start;gap:20px}
+  .modal-head h2{font-size:20px;letter-spacing:-.035em;margin:0}
+  .modal-sub{font-size:12px;color:var(--muted);margin:6px 0 0}
+  .close{border:0;background:#f2f5f7;color:#405465;border-radius:9px;font-size:23px;line-height:1;width:36px;height:36px}
+  .modal-content{padding:21px 26px}
+  .table-edit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .editgroup .group-head{margin-bottom:8px}
+  .editrow{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+  .editrow span{font-size:11px;width:13px;color:#7b8995}
+  .editrow input{height:37px;min-width:0;padding:0 8px;font-size:13px;font-variant-numeric:tabular-nums}
+  .editgroup small{font-size:10px;color:#9d643c}
+  .modal-actions{border-top:1px solid var(--line);padding:16px 26px 22px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .warning{display:flex;gap:8px;align-items:start;background:#f6f8fa;border-radius:9px;padding:12px 13px;color:#657484;font-size:11px;margin-top:16px;line-height:1.6}
+  @media(max-width:910px){.main-grid{grid-template-columns:1fr}.result-panel{min-height:500px}.speed-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:600px){.drill-headings,.drill-belt-row{grid-template-columns:51px 1fr 1fr 57px;gap:7px}.drill-belt-row{padding:8px}.speed-grid.drill-chart{grid-template-columns:repeat(2,minmax(0,1fr))}.bar-inner{padding:14px 17px}.wrap{padding:22px 14px 45px}.brand-title{font-size:18px}.brand-sub{font-size:11px}.brand-mark{height:39px;width:39px}.page-intro h1{font-size:20px}.panel-head{padding:19px 17px 0}.panel-body{padding:18px 17px 22px}.result-top{padding:21px 19px 20px}.result-bottom{padding:19px 17px 22px}.rpm{font-size:64px}.setup-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.setup-tile{padding:11px 8px;min-height:104px}.setup-tile .setup-value{font-size:14px}.setup-tile .setup-secondary{font-size:10px}.schematic{grid-template-columns:84px 1fr;gap:10px}.detail-panel{padding:0 16px}.table-edit{grid-template-columns:repeat(2,minmax(0,1fr))}.modal-content{padding:18px}.modal-head{padding:20px 18px}.modal-actions{padding:16px 18px}}
+  @media print{body{background:#fff}.appbar{color:#000;background:#fff;border-bottom:1px solid #ccd7de}.brand-sub{color:#555}.icon-button,.actions,.below,.footer-note,.overlay{display:none}.wrap{padding:12px}.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel{box-shadow:none}.result-top{print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header class="appbar">
+  <div class="bar-inner">
+    <div class="identity"><div class="brand-mark" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="#d9eff0" stroke-width="1.55" stroke-linejoin="round"><circle cx="14" cy="14" r="10.5"/><circle cx="14" cy="14" r="3.3"/><path d="M14 3.5V10.7M24.5 14H17.3M14 24.5V17.3M3.5 14h7.2M6.6 6.6l5.1 5.1m9.7-5.1-5.1 5.1m5.1 9.7-5.1-5.1m-9.7 5.1 5.1-5.1"/></svg></div>
+      <div><div class="brand-title">Machining Assistant</div><div class="brand-sub"><span id="brand-machine">South Bend 10K &nbsp;·&nbsp; CL770Z</span></div></div>
+    </div>
+    <button id="open-settings" class="icon-button" title="Edit machine speed chart" aria-label="Edit machine speed chart"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M12 15.4a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8Z"/><path d="m19.4 15 .2-.5a2.3 2.3 0 0 0 0-1l-.2-.5 1.6-1.3-1.8-3-1.9.7a8 8 0 0 0-1.7-1L15.2 6H8.8l-.4 2.4a8 8 0 0 0-1.7 1l-1.9-.7-1.8 3L4.6 13a2.3 2.3 0 0 0 0 1L3 15.3l1.8 3 1.9-.7c.5.4 1.1.8 1.7 1L8.8 21h6.4l.4-2.4a8 8 0 0 0 1.7-1l1.9.7 1.8-3L19.4 15Z" transform="translate(0 -1.5) scale(1 .97)"/></svg></button>
+  </div>
+</header>
+<main class="wrap">
+  <div class="page-intro"><div><h1>Find your cutting speed</h1><p>Recommended spindle speed and the belt settings to reach it.</p></div></div>
+  <div class="main-grid">
+    <section class="panel" aria-labelledby="setup-title">
+      <div class="panel-head"><h2 id="setup-title" class="section-title">Cut setup</h2></div>
+      <div class="panel-body"><div class="form-stack">
+        <div class="field"><label for="machine">Machine</label><select id="machine"><option value="lathe">South Bend 10K · CL770Z</option><option value="drill">South Bend Precision 14 · 14 B 3A</option></select></div>
+        <div class="field"><label for="operation">Operation</label><select id="operation"><option value="turning">Turning</option><option value="facing">Facing</option><option value="boring">Boring</option><option value="drilling">Drilling</option><option value="reaming">Reaming</option><option value="parting">Parting</option></select></div>
+        <div class="field"><label for="material">Workpiece material</label><select id="material"><option value="1018">Mild steel · 1018</option><option value="12l14">Free-cutting steel · 12L14</option><option value="4140">Alloy steel · 4140 (annealed)</option><option value="304">Stainless · 304</option><option value="6061">Aluminum · 6061</option><option value="360">Brass · C360</option><option value="bronze">Bronze · general</option><option value="acetal">Acetal · Delrin</option></select></div>
+        <div class="two"><div class="field"><label for="tool">Tool material</label><select id="tool"><option value="hss">HSS</option><option value="carbide">Carbide</option></select></div><div class="field" id="mode-wrap"><label for="mode">Cut</label><select id="mode"><option value="rough">Roughing</option><option value="finish">Finishing</option></select></div></div>
+        <div class="field"><label for="diameter" id="diameter-label">Work diameter</label><div class="diamrow"><input type="number" id="diameter" min="0.001" max="9999" step="any" value="0.500" inputmode="decimal"><select id="diameter-unit" aria-label="Diameter units"><option value="in">inches</option><option value="mm">mm</option></select></div></div>
+        <div class="sfm-card"><div class="sfm-info"><strong>Surface speed</strong>Conservative starting point. Adjust for the cut and your tooling.</div><div class="sfm-input-group"><input id="sfm" type="number" min="1" max="9999" step="1" inputmode="decimal" aria-label="Surface speed in feet per minute"><span class="unit-tag">SFM</span><button id="reset-sfm" class="text-action hidden" type="button">Reset</button></div></div>
+        <details class="reference-toggle" id="reference-details"><summary>Cutting-speed source &amp; method</summary>
+          <div class="reference-content">
+            <p id="source-lookup"></p>
+            <p id="source-preset"></p>
+            <p class="ref-small">Published speeds depend on tool geometry, work hardness, feed, depth of cut, coolant and rigidity. The application's starting presets are workshop judgments, not direct quotations from the source table. Finishing (×1.12) and parting (×0.65) are app rules of thumb.</p>
+            <p class="ref-small">Your <em>Machinery's Handbook</em>, 23rd ed.: <strong>Machining Operations → Cutting Speeds and Feeds → Speed and Feed Tables</strong> (find exact page in the book's index).</p>
+            <p class="ref-small">RPM = 12 × SFM ÷ (π × diameter in inches); the assistant chooses the highest available spindle speed at or below the target. When no available speed is slow enough, it identifies that limitation.</p>
+          </div>
+        </details>
+      </div></div>
+    </section>
+    <section class="panel result-panel" aria-labelledby="rpm-heading">
+      <div class="result-top"><div class="eyebrow" id="rpm-heading">Recommended spindle speed</div><div class="rpm-row"><span class="rpm" id="rpm-value" aria-live="polite">760</span><span class="rpm-unit">RPM</span></div><div class="result-meta"><span id="target-label">Target 764 RPM</span><span class="sep" aria-hidden="true"></span><span id="difference-label">1% below target</span><span class="sep" aria-hidden="true"></span><span id="actual-sfm">Actual 99 SFM</span></div></div>
+      <div class="result-bottom">
+        <div class="setup-header"><h2 class="section-title">Machine setup</h2><span id="setup-machine" style="font-size:12px;color:#7b8c97">CL770Z</span></div>
+        <div class="setup-grid">
+          <div class="setup-tile"><div class="setup-label" id="motor-label">Motor belt</div><div class="setup-value" id="motor-text">High</div><div class="setup-secondary" id="motor-desc">Speed range</div></div>
+          <div class="setup-tile"><div class="setup-label" id="cone-label">Cone pulley</div><div class="setup-value" id="cone-text">Position 3</div><div class="setup-secondary" id="cone-desc">1 through 4</div></div>
+          <div class="setup-tile"><div class="setup-label" id="gears-label">Back gears</div><div class="setup-value" id="gears-text">Direct</div><div class="setup-secondary" id="gears-desc">Disengaged</div></div>
+        </div>
+        <div class="diagram" aria-label="Schematic of selected machine settings"><div class="diagram-title" id="diagram-heading">Belt &amp; gear arrangement</div><div class="schematic" id="lathe-schematic">
+          <div class="sch-label">Motor range</div><div class="range-lines"><span class="mini-select" id="range-high">High</span><span class="mini-select" id="range-low">Low</span></div>
+          <div class="sch-label">Cone pulley</div><div class="pulleys" id="pulley-diagram"><div class="pulley"><i></i><span>1</span></div><div class="pulley"><i></i><span>2</span></div><div class="pulley"><i></i><span>3</span></div><div class="pulley"><i></i><span>4</span></div></div>
+          <div class="sch-label">Spindle drive</div><div class="gear-cells"><span class="mini-select" id="gear-direct">Direct</span><span class="mini-select" id="gear-back">Back gear</span></div>
+        </div><div class="drill-belt-grid hidden" id="drill-schematic" aria-label="Four pulley combinations"></div></div>
+        <div class="actions"><span id="speed-note" style="font-size:11px;color:#778897;max-width:260px;line-height:1.4">Based on nominal factory spindle speeds.</span><button type="button" id="copy" class="btn btn-primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>Copy setup</button></div>
+      </div>
+    </section>
+  </div>
+  <section class="panel below" aria-labelledby="chart-heading"><div class="detail-panel"><button type="button" id="chart-toggle" class="detail-trigger" aria-expanded="false" aria-controls="chart-container"><span id="chart-heading">All 16 spindle speeds</span><svg class="chevron" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div id="chart-container" class="chart-container hidden"><div id="speed-grid" class="speed-grid"></div><div class="note-line" id="chart-note">South Bend's handbook advises against the three marked high-range back-gear speeds; they are omitted from automatic recommendations.</div></div></div></section>
+  <p class="footer-note">Disconnect power before moving belts or gears. Cutting-speed presets are conservative workshop selections; open “Cutting-speed source &amp; method” for published comparisons.<br><span id="machine-source">Machine: <a href="https://gadgetbuilder.com/How-to-run-a-lathe.pdf" target="_blank" rel="noopener noreferrer">South Bend, <em>How to Run a Lathe</em>, p. 23</a> and <a href="https://www.wswells.com/data/catalog/1967_Cat_No.6801/1967_Cat_No.6801.pdf" target="_blank" rel="noopener noreferrer">1967 catalog</a>.</span> &nbsp;·&nbsp; <a href="https://littlemachineshop.com/pages/cutting-speeds" target="_blank" rel="noopener noreferrer">Cutting-speed reference</a>.</p>
+</main>
+<div id="settings-overlay" class="overlay" hidden role="presentation"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="settings-heading"><div class="modal-head"><div><h2 id="settings-heading">Machine speed chart</h2><p class="modal-sub" id="modal-sub">South Bend 10K · CL770Z · 16-speed V-belt drive</p></div><button class="close" id="close-settings" aria-label="Close settings">×</button></div><div class="modal-content"><div id="edit-table" class="table-edit"></div><div class="warning"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8a745c" stroke-width="1.9" style="flex:0 0 auto;margin-top:2px"><circle cx="12" cy="12" r="10"/><path d="M12 7v6m0 4h.01"/></svg><span id="edit-warning">Published speeds are approximate. Enter measured RPMs if your machine differs. Three restricted high-range back-gear positions are excluded from automatic selection.</span></div></div><div class="modal-actions"><button class="btn" id="restore-speeds" type="button">Restore factory chart</button><button class="btn btn-primary" id="save-speeds" type="button">Save changes</button></div></div></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+(()=>{'use strict';
+  // South Bend CL770Z, 16-speed V-belt drive; How to Run a Lathe, p.23.
+  const LATHE_FACTORY={
+    'direct-high-1':1365,'direct-high-2':1010,'direct-high-3':760,'direct-high-4':570,
+    'direct-low-1':670,'direct-low-2':495,'direct-low-3':370,'direct-low-4':285,
+    'back-high-1':265,'back-high-2':195,'back-high-3':150,'back-high-4':112,
+    'back-low-1':130,'back-low-2':95,'back-low-3':75,'back-low-4':52
+  };
+  // The three asterisked lathe speeds are not recommended by South Bend.
+  const LATHE_RESTRICTED=new Set(['back-high-1','back-high-2','back-high-3']);
+  // Precision 14 with original four-step drive and approximately 1725 RPM motor.
+  // Endpoints (720 and 4325) are from South Bend's 1963 catalog; intermediate
+  // speeds are approximate, using period stepped-pulley geometry.
+  const DRILL_FACTORY={'drill-1':720,'drill-2':1310,'drill-3':2280,'drill-4':4325};
+  const START={ // conservative general-purpose workshop SFM, not factory specifications
+    '1018':{hss:{turn:100,drill:80,ream:50},carbide:{turn:250,drill:180,ream:115}},
+    '12l14':{hss:{turn:140,drill:105,ream:70},carbide:{turn:350,drill:220,ream:140}},
+    '4140':{hss:{turn:75,drill:55,ream:35},carbide:{turn:200,drill:130,ream:75}},
+    '304':{hss:{turn:55,drill:40,ream:28},carbide:{turn:160,drill:100,ream:60}},
+    '6061':{hss:{turn:250,drill:200,ream:150},carbide:{turn:500,drill:350,ream:300}},
+    '360':{hss:{turn:180,drill:150,ream:120},carbide:{turn:400,drill:250,ream:180}},
+    'bronze':{hss:{turn:110,drill:90,ream:75},carbide:{turn:230,drill:160,ream:115}},
+    'acetal':{hss:{turn:300,drill:180,ream:120},carbide:{turn:450,drill:240,ream:180}}
+  };
+  // Published comparator ranges from LittleMachineShop's tables, in surface ft/min.
+  // Turning gives separate HSS and carbide columns. Drilling and reaming tables
+  // do not give carbide-specific figures, so carbide drill/ream entries are null.
+  // These values are NOT the exact sources of START presets (which are conservative estimates).
+  const LOOKUP={
+    '1018':{hss:{turn:[125,215],drill:[60,100],ream:[40,65]},carbide:{turn:[800,885]}},
+    '12l14':{hss:{turn:[200,260],drill:[90,130],ream:[60,85]},carbide:{turn:[800,820]}},
+    '4140':{hss:{turn:[70,200],drill:[30,90],ream:[15,60]},carbide:{turn:[430,685]}},
+    '304':{hss:{turn:[115,135],drill:[50,55],ream:[30,35]},carbide:{turn:[570,570]}},
+    '6061':{hss:{turn:[500,600],drill:[350,400],ream:[350,400]},carbide:{turn:[2820,2820]}},
+    '360':{hss:{turn:[300,350],drill:[160,175],ream:[160,175]},carbide:{turn:[1170,1170]}},
+    'bronze':{hss:{turn:[200,250],drill:[120,140],ream:[110,120]},carbide:{turn:[715,715]}}
+  };
+  const URL_LMS='https://littlemachineshop.com/pages/cutting-speeds';
+  const URL_UF='https://web.mae.ufl.edu/designlab/Advanced%20Manufacturing/Speeds%20and%20Feeds/Speeds%20and%20Feeds.htm';
+  const URL_CIMCO='https://www.cimco.com/documentation/online/cncbook/en/Ch03_CuttingData.html';
+  function sourceDescription(){
+    const key=(op.value==='drilling'?'drill':op.value==='reaming'?'ream':'turn');
+    const action={turn:'turning',drill:'drilling',ream:'reaming'}[key];
+    const materialName=material.options[material.selectedIndex].text;
+    const toolName=tool.value==='hss'?'HSS':'carbide';
+    const main=LOOKUP[material.value];
+    const pub=main&&main[tool.value]&&main[tool.value][key];
+    const q=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+    if(pub){
+      const range=pub[0]===pub[1]?`${pub[0]}`:`${pub[0]}–${pub[1]}`;
+      return `<strong>Published comparison:</strong> ${range} SFM for ${q(materialName)}, ${toolName} ${action}. <a href="${URL_LMS}" target="_blank" rel="noopener noreferrer">LittleMachineShop · ${key==='turn'?'Turning':'Drilling &amp; Reaming'} table ↗</a>`;
+    }
+    if(material.value==='acetal'){
+      if(key==='turn')return `<strong>Published comparison:</strong> 250 SFM for acetal with HSS; the reference suggests 2.5× HSS for carbide as a general guideline (not tool-specific). <a href="${URL_UF}" target="_blank" rel="noopener noreferrer">University of Florida Design Lab ↗</a>`;
+      return `<strong>Published comparison:</strong> ${key==='drill'?'150':'75'} SFM for ${action} Delrin (no tool grade specified). <a href="${URL_CIMCO}" target="_blank" rel="noopener noreferrer">CIMCO Cutting Data ↗</a>`;
+    }
+    // The LittleMachineShop drilling/reaming table does not specify carbide tool speeds.
+    const hss=main?.hss?.[key];
+    const range=hss?(hss[0]===hss[1]?`${hss[0]}`:`${hss[0]}–${hss[1]}`):'not listed';
+    return `<strong>No carbide-specific published value</strong> in this source for ${q(materialName)} ${action}. Its drilling/reaming table shows ${range} SFM without a carbide designation. The carbide preset below is an unverified estimate. <a href="${URL_LMS}" target="_blank" rel="noopener noreferrer">LittleMachineShop · Drilling &amp; Reaming ↗</a>`;
+  }
+  function renderSource(){
+    $('source-lookup').innerHTML=sourceDescription();
+    const base=START[material.value][tool.value][op.value==='drilling'?'drill':op.value==='reaming'?'ream':'turn'];
+    let steps=[];
+    if(op.value==='parting')steps.push('×0.65 for parting');
+    if(operationsWithFinish.has(op.value)&&mode.value==='finish')steps.push('×1.12 for finishing');
+    const final=defaultSFM();
+    const displayed=Number(sfmInput.value);
+    const note=steps.length?` (${base} SFM ${steps.join(', ')})`:'';
+    $('source-preset').textContent=`App preset: ${final} SFM${note}. ${sfmManual&&Number.isFinite(displayed)?`You entered ${displayed} SFM manually.`:'This is the preset currently used for the RPM calculation.'}`;
+  }
+  const $=id=>document.getElementById(id);
+  const op=$('operation'),machine=$('machine'),material=$('material'),tool=$('tool'),mode=$('mode'),dia=$('diameter'),unit=$('diameter-unit'),sfmInput=$('sfm');
+  const operationsWithFinish=new Set(['turning','facing','boring']);
+  const OP_LABELS={turning:'Turning',facing:'Facing',boring:'Boring',drilling:'Drilling',reaming:'Reaming',parting:'Parting'};
+  const OPTIONS={lathe:['turning','facing','boring','drilling','reaming','parting'],drill:['drilling','reaming']};
+  const FACTORIES={lathe:LATHE_FACTORY,drill:DRILL_FACTORY};
+  const STORAGE_KEYS={lathe:'cl770z-speed-chart-v1',drill:'precision14-speed-chart-v1'};
+  let activeMachine='lathe',lastLatheOperation='turning',sfmManual=false,selected=null,toastTimer;
+  const speedMaps={};
+  for(const id of Object.keys(FACTORIES)){
+    const base=FACTORIES[id];speedMaps[id]={...base};
+    try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEYS[id])||'null');
+      if(saved&&typeof saved==='object')for(const [key,value] of Object.entries(saved))
+        if(key in base&&Number.isFinite(value)&&value>0&&value<10000)speedMaps[id][key]=value;
+    }catch(e){}
+  }
+  const speedMap=()=>speedMaps[activeMachine];
+  const isRestricted=key=>activeMachine==='lathe'&&LATHE_RESTRICTED.has(key);
+  function defaultSFM(){const operation=op.value;let sfm=START[material.value][tool.value][operation==='drilling'?'drill':operation==='reaming'?'ream':'turn'];
+    if(operation==='parting')sfm*=0.65;
+    if(operationsWithFinish.has(operation)&&mode.value==='finish')sfm*=1.12;
+    return Math.round(sfm);
+  }
+  function setDefaultSFM(){sfmManual=false;sfmInput.value=defaultSFM();$('reset-sfm').classList.add('hidden');render();}
+  const fmt=n=>Math.round(n).toLocaleString('en-US');
+  function toast(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2500);}
+  function entries(){return Object.entries(speedMap()).filter(([key,rpm])=>!isRestricted(key)&&rpm>0&&Number.isFinite(rpm)).map(([key,rpm])=>{
+    if(activeMachine==='drill')return {key,rpm,step:Number(key.split('-')[1])};
+    const [gear,range,cone]=key.split('-');return {key,rpm,gear,range,cone:Number(cone)};
+  }).sort((a,b)=>a.rpm-b.rpm);}
+  function choose(target){const values=entries();if(!Number.isFinite(target)||target<=0||!values.length)return null;
+    const slower=values.filter(item=>item.rpm<=target);return slower.length?slower[slower.length-1]:values[0];}
+  function pulleySize(step,side){const index=side==='motor'?step:5-step;return ['Smallest','2nd smallest','2nd largest','Largest'][index-1];}
+  function renderDrillSchematic(){
+    const values=speedMap();
+    $('drill-schematic').innerHTML=`<div class="drill-headings"><span>Belt</span><span>Motor</span><span>Spindle</span><span style="text-align:right">RPM</span></div>`+
+      [1,2,3,4].map(step=>`<div class="drill-belt-row ${selected?.step===step?'active':''}" aria-label="Belt position ${step}, ${fmt(values['drill-'+step])} RPM"><span class="step">Step ${step}</span><span class="step-holder"><i class="step-bar" style="width:${20+step*19}%"></i></span><span class="step-holder right"><i class="step-bar" style="width:${20+(5-step)*19}%"></i></span><span class="rpm-mini">${fmt(values['drill-'+step])}</span></div>`).join('');
+  }
+  function render(){
+    const cuttingDiameter=Number(dia.value)/(unit.value==='mm'?25.4:1),surface=Number(sfmInput.value);
+    const valid=dia.value.trim()!==''&&sfmInput.value.trim()!==''&&cuttingDiameter>0&&Number.isFinite(cuttingDiameter)&&surface>0&&Number.isFinite(surface);
+    const target=valid?12*surface/(Math.PI*cuttingDiameter):null;
+    selected=valid?choose(target):null;
+    $('mode-wrap').classList.toggle('hidden',!operationsWithFinish.has(op.value));
+    $('diameter-label').textContent=(['drilling','reaming'].includes(op.value)?'Tool diameter':'Work diameter');
+    if(!selected){
+      $('rpm-value').textContent='—';$('target-label').textContent='Enter a valid diameter and SFM';$('difference-label').textContent='';$('actual-sfm').textContent='';
+      $('motor-text').textContent='—';$('cone-text').textContent='—';$('gears-text').textContent='—';$('gears-desc').textContent='';$('speed-note').textContent='';
+    }else{
+      const difference=Math.round(100*(selected.rpm-target)/target);
+      $('rpm-value').textContent=fmt(selected.rpm);
+      $('target-label').textContent='Calculated target '+fmt(target)+' RPM';
+      $('difference-label').textContent=Math.abs(difference)+'% '+(difference>0?'above':difference<0?'below':'from')+' target';
+      $('actual-sfm').textContent='Actual '+Math.round(selected.rpm*Math.PI*cuttingDiameter/12)+' SFM';
+      if(activeMachine==='lathe'){
+        $('motor-text').textContent=selected.range==='high'?'High':'Low';
+        $('cone-text').textContent='Position '+selected.cone;
+        $('gears-text').textContent=selected.gear==='back'?'Back gear':'Direct';
+        $('gears-desc').textContent=selected.gear==='back'?'Engaged':'Disengaged';
+      }else{
+        $('motor-text').textContent='Step '+selected.step;
+        $('cone-text').textContent=pulleySize(selected.step,'motor');
+        $('gears-text').textContent=pulleySize(selected.step,'spindle');
+        $('gears-desc').textContent='Matched belt step';
+      }
+      const under=selected.rpm<=target;
+      $('speed-note').textContent=under?'Based on nominal spindle speeds.':'Lowest available speed exceeds target — check the cutting conditions before use.';
+      $('speed-note').style.color=under?'#778897':'#995b24';
+    }
+    $('range-high').classList.toggle('active',!!selected&&selected.range==='high');
+    $('range-low').classList.toggle('active',!!selected&&selected.range==='low');
+    $('gear-direct').classList.toggle('active',!!selected&&selected.gear==='direct');
+    $('gear-back').classList.toggle('active',!!selected&&selected.gear==='back');
+    document.querySelectorAll('.pulley').forEach((el,index)=>el.classList.toggle('active',!!selected&&selected.cone===index+1));
+    if(activeMachine==='drill')renderDrillSchematic();
+    renderSource();if(!$('chart-container').classList.contains('hidden'))renderChart();
+  }
+  function renderChart(){
+    $('speed-grid').classList.toggle('drill-chart',activeMachine==='drill');
+    if(activeMachine==='drill'){
+      $('speed-grid').innerHTML=[1,2,3,4].map(step=>`<div class="speed-group ${selected?.step===step?'selected':''}"><p class="group-head">Belt position ${step}</p><div class="speed-cell ${selected?.step===step?'selected':''}"><span class="cone-number">${pulleySize(step,'motor')} motor</span><span class="speed-number">${fmt(speedMap()['drill-'+step])}</span></div></div>`).join('');
+    }else{
+      const labels=[['direct','high','Direct · high range'],['direct','low','Direct · low range'],['back','high','Back gear · high range'],['back','low','Back gear · low range']];
+      $('speed-grid').innerHTML=labels.map(([gear,range,label])=>`<div class="speed-group"><p class="group-head">${label}</p>${[1,2,3,4].map(cone=>{const key=`${gear}-${range}-${cone}`,omitted=LATHE_RESTRICTED.has(key),sel=selected?.key===key;return `<div class="speed-cell ${omitted?'omitted':''} ${sel?'selected':''}" title="${omitted?'South Bend: not recommended in high range back gear':''}"><span class="cone-number">${cone}</span><span class="speed-number">${fmt(speedMap()[key])}${omitted?' *':''}</span></div>`}).join('')}</div>`).join('');
+    }
+  }
+  function configureMachine(next){
+    if(activeMachine==='lathe'&&next==='drill')lastLatheOperation=op.value;
+    activeMachine=next;
+    const isDrill=next==='drill';
+    const newOp=isDrill?'drilling':lastLatheOperation;
+    op.innerHTML=OPTIONS[next].map(k=>`<option value="${k}">${OP_LABELS[k]}</option>`).join('');op.value=newOp;
+    $('brand-machine').innerHTML=isDrill?'South Bend Precision 14 &nbsp;·&nbsp; 14 B 3A':'South Bend 10K &nbsp;·&nbsp; CL770Z';
+    $('setup-machine').textContent=isDrill?'Precision 14':'CL770Z';
+    $('motor-label').textContent=isDrill?'Belt position':'Motor belt';
+    $('motor-desc').textContent=isDrill?'One of four':'Speed range';
+    $('cone-label').textContent=isDrill?'Motor pulley':'Cone pulley';
+    $('cone-desc').textContent=isDrill?'Pulley diameter':'1 through 4';
+    $('gears-label').textContent=isDrill?'Spindle pulley':'Back gears';
+    $('diagram-heading').textContent=isDrill?'Belt position & pulley sizes':'Belt & gear arrangement';
+    $('lathe-schematic').classList.toggle('hidden',isDrill);
+    $('drill-schematic').classList.toggle('hidden',!isDrill);
+    $('chart-heading').textContent=isDrill?'All 4 spindle speeds':'All 16 spindle speeds';
+    $('chart-note').textContent=isDrill?'Four steps with the smallest motor pulley producing the lowest spindle speed. Nominal RPMs may vary with the installed motor and belt pitch diameters.':"South Bend's handbook advises against the three marked high-range back-gear speeds; they are omitted from automatic recommendations.";
+    $('modal-sub').textContent=isDrill?'South Bend Precision 14 · four-step belt drive':'South Bend 10K · CL770Z · 16-speed V-belt drive';
+    $('edit-warning').textContent=isDrill?'Motor assumed 1,725 RPM. The end speeds are from the South Bend 1963 catalog, while the two intermediate speeds are approximations. Edit these values if you measure your spindle.':'Published speeds are approximate. Enter measured RPMs if your machine differs. Three restricted high-range back-gear positions are excluded from automatic selection.';
+    $('machine-source').innerHTML=isDrill?'Machine: <a href="https://www.wswells.com/data/catalog/1963_SB_Cat_6301E/SB_Cat_6301E.pdf" target="_blank" rel="noopener noreferrer">South Bend 1963 catalog</a> (four speeds, approx. 720–4,325 RPM with 1,725 RPM motor); intermediate RPMs estimated from step-pulley ratios.':'Machine: <a href="https://gadgetbuilder.com/How-to-run-a-lathe.pdf" target="_blank" rel="noopener noreferrer">South Bend, <em>How to Run a Lathe</em>, p. 23</a> and <a href="https://www.wswells.com/data/catalog/1967_Cat_No.6801/1967_Cat_No.6801.pdf" target="_blank" rel="noopener noreferrer">1967 catalog</a>.';
+    setDefaultSFM();
+  }
+  machine.addEventListener('change',()=>configureMachine(machine.value));
+  for(const el of [op,material,tool,mode])el.addEventListener('change',setDefaultSFM);
+  dia.addEventListener('input',render);
+  unit.addEventListener('change',()=>{const n=Number(dia.value);if(Number.isFinite(n)&&n>0){dia.value=unit.value==='mm'?+(n*25.4).toFixed(3):+(n/25.4).toFixed(4);}render();});
+  sfmInput.addEventListener('input',()=>{sfmManual=true;$('reset-sfm').classList.remove('hidden');render();});
+  $('reset-sfm').addEventListener('click',setDefaultSFM);
+  $('chart-toggle').addEventListener('click',()=>{const opened=$('chart-toggle').getAttribute('aria-expanded')==='true';$('chart-toggle').setAttribute('aria-expanded',String(!opened));$('chart-container').classList.toggle('hidden',opened);if(!opened)renderChart();});
+  function buildEdits(){
+    if(activeMachine==='drill'){
+      $('edit-table').innerHTML=`<div class="editgroup" style="grid-column:1/-1"><p class="group-head">Motor pulley step · 1 smallest to 4 largest</p>${[1,2,3,4].map(step=>`<div class="editrow"><span>${step}</span><input style="max-width:150px" type="number" inputmode="decimal" min="1" max="9999" step="1" data-speed="drill-${step}" value="${speedMap()['drill-'+step]}" aria-label="Pulley position ${step} RPM" /><span style="width:auto;white-space:nowrap">${pulleySize(step,'motor')} motor</span></div>`).join('')}</div>`;
+    }else{
+      const groups=[['direct','high','Direct / high'],['direct','low','Direct / low'],['back','high','Back gear / high'],['back','low','Back gear / low']];
+      $('edit-table').innerHTML=groups.map(([drive,range,label])=>`<div class="editgroup"><p class="group-head">${label}</p>${[1,2,3,4].map(cone=>{const key=`${drive}-${range}-${cone}`;return `<div class="editrow"><span>${cone}</span><input type="number" inputmode="decimal" min="1" max="9999" step="1" data-speed="${key}" value="${speedMap()[key]}" aria-label="${label} position ${cone} RPM" /></div>`}).join('')}</div>`).join('');
+    }
+  }
+  const overlay=$('settings-overlay');
+  function openSettings(){buildEdits();overlay.hidden=false;$('close-settings').focus();}
+  function closeSettings(){overlay.hidden=true;$('open-settings').focus();}
+  $('open-settings').addEventListener('click',openSettings);$('close-settings').addEventListener('click',closeSettings);
+  overlay.addEventListener('mousedown',e=>{if(e.target===overlay)closeSettings();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!overlay.hidden)closeSettings();});
+  $('save-speeds').addEventListener('click',()=>{
+    const candidate={};for(const el of document.querySelectorAll('[data-speed]')){const value=Number(el.value);
+      if(!el.value||!Number.isFinite(value)||value<1||value>9999){el.focus();toast('Enter spindle speeds between 1 and 9,999 RPM.');return;}candidate[el.dataset.speed]=value;
+    }
+    speedMaps[activeMachine]=candidate;
+    try{localStorage.setItem(STORAGE_KEYS[activeMachine],JSON.stringify(candidate));}catch(e){}
+    closeSettings();render();toast('Speed chart saved.');
+  });
+  $('restore-speeds').addEventListener('click',()=>{
+    speedMaps[activeMachine]={...FACTORIES[activeMachine]};
+    try{localStorage.removeItem(STORAGE_KEYS[activeMachine]);}catch(e){}
+    buildEdits();render();toast('Original speed chart restored.');
+  });
+  $('copy').addEventListener('click',async()=>{
+    if(!selected){toast('Enter a valid diameter and surface speed.');return;}
+    const cuttingDiameter=Number(dia.value)/(unit.value==='mm'?25.4:1),target=12*Number(sfmInput.value)/(Math.PI*cuttingDiameter);
+    const setup=activeMachine==='lathe'?`Motor ${selected.range} range, cone pulley ${selected.cone}, ${selected.gear==='back'?'back gears engaged':'direct drive (back gears disengaged)'}`:`Belt position ${selected.step} (motor ${pulleySize(selected.step,'motor')}, spindle ${pulleySize(selected.step,'spindle')})`;
+    const name=activeMachine==='lathe'?'South Bend 10K CL770Z':'South Bend Precision 14';
+    const copy=`${name} | ${OP_LABELS[op.value]} | ${material.options[material.selectedIndex].text} | ${tool.options[tool.selectedIndex].text} | Diameter: ${dia.value} ${unit.value} | ${sfmInput.value} SFM | Target ${Math.round(target)} RPM | Use ${selected.rpm} RPM: ${setup}.${selected.rpm>target?' NOTE: lowest available speed exceeds target.':''}`;
+    try{await navigator.clipboard.writeText(copy);toast('Setup copied to clipboard.');}catch(e){const ta=document.createElement('textarea');ta.value=copy;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();toast(ok?'Setup copied to clipboard.':'Copy is unavailable in this browser.');}
+  });
+  configureMachine(machine.value);
+})();
+</script>
+</body>
+</html>
